@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --paper: #f6f4ec;
+  --surface: #ffffff;
+  --ink: #1c2b21;
+  --faded: #6b7a6e;
+  --emerald: #0e5237;
+  --emerald-soft: #e4eee7;
+  --gold: #b9862f;
+  --gold-soft: #f4ead5;
+  --red: #a34038;
+  --red-soft: #f6e4e2;
+  --border: #e3dfd2;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+}
+
+.arabic {
+  font-family: "Amiri", "Scheherazade New", "Geeza Pro", "Traditional Arabic", serif;
+  line-height: 1.9;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+input {
+  font-family: inherit;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.btn-primary {
+  background: var(--emerald);
+  color: #fff;
+  border-radius: 14px;
+  padding: 13px 18px;
+  font-weight: 600;
+  transition: transform 0.12s ease;
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.fadein {
+  animation: fadein 0.35s ease;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

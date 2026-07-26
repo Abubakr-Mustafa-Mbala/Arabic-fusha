@@ -22,9 +22,19 @@ export default function Mushaf({ onExit, onLookup }) {
   const [playingAyah, setPlayingAyah] = useState(null);
 
   useEffect(() => {
-    fetch("/quran.json")
+    fetch("https://api.alquran.cloud/v1/quran/quran-uthmani")
       .then((r) => r.json())
-      .then(setData)
+      .then((json) => {
+        const surahs = json?.data?.surahs || [];
+        let offset = 0;
+        const out = surahs.map((s) => {
+          const v = s.ayahs.map((a) => a.text);
+          const entry = { id: s.number, name: s.name.replace(/^سُورَةُ /, ""), n: v.length, off: offset, v };
+          offset += v.length;
+          return entry;
+        });
+        setData(out);
+      })
       .catch(() => setError(true));
     return () => { audioRef.current?.pause(); };
   }, []);

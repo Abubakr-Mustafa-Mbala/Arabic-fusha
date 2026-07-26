@@ -12,6 +12,13 @@ export const C = {
   border: "#E3DFD2",
 };
 
+let cachedVoices = [];
+if (typeof window !== "undefined" && window.speechSynthesis) {
+  const refresh = () => { cachedVoices = window.speechSynthesis.getVoices() || []; };
+  refresh();
+  window.speechSynthesis.onvoiceschanged = refresh;
+}
+
 export function speak(text) {
   try {
     const synth = window.speechSynthesis;
@@ -19,12 +26,22 @@ export function speak(text) {
     synth.cancel();
     const clean = String(text).replace(/[^\u0600-\u06FF\s؟!،.]/g, "");
     if (!clean.trim()) return;
-    const u = new SpeechSynthesisUtterance(clean);
-    u.lang = "ar-SA";
-    u.rate = 0.8;
-    const v = synth.getVoices().find((x) => x.lang && x.lang.startsWith("ar"));
-    if (v) u.voice = v;
-    synth.speak(u);
+    const fire = () => {
+      const u = new SpeechSynthesisUtterance(clean);
+      u.lang = "ar-SA";
+      u.rate = 0.8;
+      const pool = cachedVoices.length ? cachedVoices : synth.getVoices();
+      const v = pool.find((x) => x.lang && x.lang.startsWith("ar"));
+      if (v) u.voice = v;
+      synth.speak(u);
+    };
+    // Chrome/Android sometimes hasn't loaded the voice list on the very first call —
+    // if it's empty, wait one tick for it to populate, then speak anyway either way.
+    if (!cachedVoices.length && synth.getVoices().length === 0) {
+      setTimeout(() => { cachedVoices = synth.getVoices(); fire(); }, 150);
+    } else {
+      fire();
+    }
   } catch {}
 }
 

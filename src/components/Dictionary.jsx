@@ -39,7 +39,7 @@ export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
     <div className="fadein">
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <button onClick={onExit} style={{ color: C.faded, fontSize: 22, padding: 6 }} aria-label="back">←</button>
-        <div className="arabic" dir="rtl" style={{ fontSize: 26, color: C.emerald, fontWeight: 700 }}>اَلْمُعْجَمُ 🕮</div>
+        <div className="arabic" dir="rtl" style={{ fontSize: 26, color: C.emerald, fontWeight: 700 }}>اَلْمُعْجَمُ 📕</div>
         <div style={{ width: 34 }} />
       </div>
 
@@ -58,7 +58,14 @@ export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
         </button>
       </div>
 
-      {loading && <p style={{ textAlign: "center", color: C.gold, fontSize: 13, marginTop: 20 }}>...</p>}
+      {loading && (
+        <div className="card" style={{ marginTop: 16, padding: 30, textAlign: "center" }}>
+          <div style={{ fontSize: 30 }}>📖</div>
+          <p className="arabic" dir="rtl" style={{ color: C.gold, fontSize: 20, marginTop: 8 }}>
+            جَارٍ الْبَحْثُ...
+          </p>
+        </div>
+      )}
       {error && (
         <div className="arabic" dir="rtl" style={{ marginTop: 14, padding: 12, borderRadius: 10, background: C.redSoft, color: C.red, fontSize: 18, textAlign: "center" }}>
           {error}
@@ -154,7 +161,7 @@ export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
               style={{ width: "100%", fontSize: 21, background: added ? C.gold : C.emerald }}
               disabled={added}
               onClick={() => {
-                onAddWord({ ar: result.word, emoji: result.derivations?.[0]?.emoji || "🕮" });
+                onAddWord({ ar: result.word, emoji: result.derivations?.[0]?.emoji || "📕" });
                 setAdded(true);
               }}
             >
@@ -166,7 +173,7 @@ export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
 
       {!result && !loading && !error && (
         <div className="card" dir="rtl" style={{ marginTop: 16, padding: 20, textAlign: "center", color: C.faded }}>
-          <div style={{ fontSize: 34 }}>🕮</div>
+          <div style={{ fontSize: 34 }}>📕</div>
           <div className="arabic" style={{ fontSize: 20, marginTop: 6 }}>
             مُعْجَمٌ عَلَى طَرِيقَةِ لِسَانِ الْعَرَبِ: اَلْكَلِمَةُ ← اَلْجَذْرُ ← اَلْمَعْنَى بِالْعَرَبِيَّةِ
           </div>

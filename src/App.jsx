@@ -295,7 +295,7 @@ export default function App() {
         </button>
         <button onClick={() => setView({ name: "dict" })} className="card" dir="rtl"
           style={{ flex: 1, padding: "13px 10px", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, borderColor: "#0E5237" }}>
-          <span style={{ fontSize: 20 }}>🕮</span>
+          <span style={{ fontSize: 20 }}>📕</span>
           <span className="arabic" style={{ fontSize: 22, color: "#0E5237" }}>اَلْمُعْجَمُ</span>
         </button>
       </div>
@@ -317,7 +317,7 @@ export default function App() {
           </button>
         )}
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v1.1 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v1.3 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

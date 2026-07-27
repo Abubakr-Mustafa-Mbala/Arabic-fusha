@@ -82,3 +82,55 @@ export async function deleteRecording(text, storagePath) {
   await supabase.from("recordings").delete().eq("text_ar", text);
   if (storagePath) await supabase.storage.from(BUCKET).remove([storagePath]);
 }
+
+// ——— اَلنُّصُوصُ الْمَسْمُوعَةُ — recorded passages ———
+// A human (the shaykh / a trusted reciter) reads a full text aloud.
+// Learners listen, then answer comprehension questions on what they heard.
+
+export async function fetchPassages() {
+  if (!supabase) return [];
+  const { data, error } = await supabase
+    .from("passages")
+    .select("id, title, source, text_ar, storage_path, questions, level, created_at")
+    .order("created_at", { ascending: false });
+  if (error) return [];
+  return data || [];
+}
+
+export async function savePassage(userId, p) {
+  if (!supabase) throw new Error("no backend");
+  const row = {
+    title: p.title,
+    source: p.source || null,
+    text_ar: p.text_ar,
+    storage_path: p.storage_path || null,
+    questions: p.questions || [],
+    level: p.level || "beginner",
+    recorded_by: userId,
+  };
+  if (p.id) {
+    const { error } = await supabase.from("passages").update(row).eq("id", p.id);
+    if (error) throw error;
+    return p.id;
+  }
+  const { data, error } = await supabase.from("passages").insert(row).select().single();
+  if (error) throw error;
+  return data.id;
+}
+
+export async function uploadPassageAudio(blob) {
+  if (!supabase) throw new Error("no backend");
+  const path = `passage-${Date.now()}.webm`;
+  const { error } = await supabase.storage.from(BUCKET).upload(path, blob, {
+    contentType: blob.type || "audio/webm",
+    upsert: false,
+  });
+  if (error) throw error;
+  return path;
+}
+
+export async function deletePassage(id, storagePath) {
+  if (!supabase) return;
+  await supabase.from("passages").delete().eq("id", id);
+  if (storagePath) await supabase.storage.from(BUCKET).remove([storagePath]);
+}

@@ -10,6 +10,8 @@ import Library from "./components/Library";
 import Dictionary from "./components/Dictionary";
 import Quran from "./components/Quran";
 import Studio from "./components/Studio";
+import Listening from "./components/Listening";
+import Passages from "./components/Passages";
 import { fetchRecordings, isRecorder, audioUrl } from "./lib/recordings";
 
 const PASS_GATE = 60; // مقبول unlocks the next lesson; retake anytime to raise the grade
@@ -217,6 +219,27 @@ export default function App() {
     );
   }
 
+  if (view.name === "passages") {
+    return (
+      <Shell>
+        <Passages
+          session={session}
+          canRecord={canRecord}
+          onExit={() => setView({ name: "home" })}
+          onLookup={(w) => setView({ name: "dict", word: w })}
+        />
+      </Shell>
+    );
+  }
+
+  if (view.name === "listening") {
+    return (
+      <Shell>
+        <Listening maxLesson={highestUnlocked} onExit={() => setView({ name: "home" })} />
+      </Shell>
+    );
+  }
+
   if (view.name === "quran") {
     return (
       <Shell>
@@ -228,7 +251,7 @@ export default function App() {
   if (view.name === "dict") {
     return (
       <Shell>
-        <Dictionary onExit={() => setView({ name: "home" })} onAddWord={(v) => addVocab([v])} />
+        <Dictionary initialWord={view.word || ""} onExit={() => setView({ name: "home" })} onAddWord={(v) => addVocab([v])} />
       </Shell>
     );
   }
@@ -324,6 +347,18 @@ export default function App() {
         <span className="arabic" style={{ fontSize: 24, color: "#B9862F" }}>اَلْقُرْآنُ — اِفْهَمْ صَلَاتَكَ</span>
       </button>
 
+      <button onClick={() => setView({ name: "listening" })} className="card" dir="rtl"
+        style={{ width: "100%", marginTop: 10, padding: "13px 18px", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, borderColor: "#0E5237" }}>
+        <span style={{ fontSize: 22 }}>👂</span>
+        <span className="arabic" style={{ fontSize: 24, color: "#0E5237" }}>اَلِاسْتِمَاعُ</span>
+      </button>
+
+      <button onClick={() => setView({ name: "passages" })} className="card" dir="rtl"
+        style={{ width: "100%", marginTop: 10, padding: "13px 18px", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, borderColor: "#0E5237" }}>
+        <span style={{ fontSize: 22 }}>🎧</span>
+        <span className="arabic" style={{ fontSize: 24, color: "#0E5237" }}>اَلنُّصُوصُ الْمَسْمُوعَةُ</span>
+      </button>
+
       <div style={{ display: "flex", gap: 10, marginTop: 10 }}>
         <button onClick={() => setView({ name: "library" })} className="card" dir="rtl"
           style={{ flex: 1, padding: "13px 10px", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, borderColor: "#0E5237" }}>
@@ -362,7 +397,7 @@ export default function App() {
           </button>
         )}
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v3.2 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v3.9 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

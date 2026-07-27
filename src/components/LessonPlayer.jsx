@@ -125,7 +125,8 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
 function VocabStage({ lesson, onDone }) {
   const [idx, setIdx] = useState(0);
   const w = lesson.vocab[idx];
-  useEffect(() => { speak(w.ar); }, [idx]); // eslint-disable-line
+  useEffect(() => { speak(w.ar); markSeen(`word:${w.ar}`); }, [idx]); // eslint-disable-line
+  const showEn = w.en && needsHint(`word:${w.ar}`);
 
   return (
     <div>
@@ -133,6 +134,9 @@ function VocabStage({ lesson, onDone }) {
       <div className="card" style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "38px 20px" }}>
         <div style={{ fontSize: 72 }}>{w.emoji}</div>
         <div className="arabic" dir="rtl" style={{ fontSize: 52 }}>{w.ar}</div>
+        {showEn && (
+          <div style={{ marginTop: 6, fontSize: 13, color: C.faded, fontStyle: "italic" }}>{w.en}</div>
+        )}
         <div style={{ marginTop: 12 }}><Speaker text={w.ar} size={26} /></div>
       </div>
       <div dir="rtl" style={{ display: "flex", gap: 10, marginTop: 18 }}>

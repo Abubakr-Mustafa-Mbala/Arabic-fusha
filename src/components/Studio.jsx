@@ -154,8 +154,8 @@ function Row({ item, path, userId, busy, setBusy, setError, onSaved, onRemoved }
         try {
           const p = await uploadRecording(userId, item.text, item.kind, blob);
           onSaved(item.text, p);
-        } catch {
-          setError("Upload failed — check the connection and try again.");
+        } catch (e) {
+          setError("Upload failed: " + (e?.message || e?.error || "unknown error"));
         } finally {
           setBusy(null);
         }

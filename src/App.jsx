@@ -78,6 +78,8 @@ export default function App() {
   const lessons = CURRICULUM.lessons;
 
   const highestUnlocked = useMemo(() => {
+    // Admins/recorders can see the whole curriculum — they review and record it.
+    if (canRecord) return lessons.length - 1;
     let idx = 0;
     for (let i = 0; i < lessons.length; i++) {
       const rec = state.lessons[lessons[i].id];
@@ -85,10 +87,10 @@ export default function App() {
       else break;
     }
     return Math.min(idx, lessons.length - 1);
-  }, [state, lessons]);
+  }, [state, lessons, canRecord]);
 
   const learnedUpto = (i) => allLearnedVocab(i);
-  const reviewsBlock = due.length > 0;
+  const reviewsBlock = due.length > 0 && !canRecord;
 
   // Saves a lesson result to device + account. Called when drills finish AND at lesson end,
   // so progress is never lost by leaving before the final button.
@@ -360,7 +362,7 @@ export default function App() {
           </button>
         )}
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v2.4 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v3.2 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

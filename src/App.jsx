@@ -23,12 +23,27 @@ export default function App() {
   const [booted, setBooted] = useState(!supabase);
   const [canRecord, setCanRecord] = useState(false);
   const scrollMemory = useRef({});
+  const [moreOpen, setMoreOpen] = useState(false);
 
   // Remember where the learner was scrolled in each view, and restore it on return —
   // so coming back from a surah doesn't dump them at the top of the dashboard.
+  // Android/browser back should move within the app, not exit the site.
+  useEffect(() => {
+    const onPop = (e) => {
+      const v = e.state?.fusha;
+      if (v) setView(v);
+      else setView({ name: "home" });
+    };
+    window.addEventListener("popstate", onPop);
+    window.history.replaceState({ fusha: { name: "home" } }, "");
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
   const go = (next) => {
     scrollMemory.current[view.name] = window.scrollY;
     setView(next);
+    setMoreOpen(false);
+    try { window.history.pushState({ fusha: next }, ""); } catch {}
     requestAnimationFrame(() => {
       window.scrollTo(0, scrollMemory.current[next.name] || 0);
     });
@@ -151,7 +166,7 @@ export default function App() {
 
   if (!booted) {
     return (
-      <Shell>
+      <Shell nav={navBar}>
         <p style={{ textAlign: "center", color: C.faded, marginTop: 80 }}>...</p>
       </Shell>
     );
@@ -163,7 +178,7 @@ export default function App() {
     const i = view.index;
     const lesson = lessons[i];
     return (
-      <Shell>
+      <Shell nav={navBar}>
         <LessonPlayer
           lesson={lesson}
           learnedVocab={learnedUpto(i)}
@@ -183,7 +198,7 @@ export default function App() {
     const docVocab = Object.entries(state.lexicon || {}).map(([ar, emoji]) => ({ ar, emoji }));
     const vocabAll = [...lessonVocab, ...docVocab.filter((d) => !lessonVocab.some((l) => l.ar === d.ar))];
     return (
-      <Shell>
+      <Shell nav={navBar}>
         <ReviewSession
           dueList={due}
           allVocab={vocabAll.length >= 4 ? vocabAll : learnedUpto(0)}
@@ -204,7 +219,7 @@ export default function App() {
   if (view.name === "tutor") {
     const upto = Math.max(0, highestUnlocked - (state.lessons[lessons[highestUnlocked]?.id] ? 0 : 1));
     return (
-      <Shell>
+      <Shell nav={navBar}>
         <Tutor learnedVocab={learnedUpto(Math.max(0, upto))} onExit={() => go({ name: "home" })} />
       </Shell>
     );
@@ -212,7 +227,7 @@ export default function App() {
 
   if (view.name === "library") {
     return (
-      <Shell>
+      <Shell nav={navBar}>
         <Library
           session={session}
           onExit={() => go({ name: "home" })}
@@ -224,15 +239,30 @@ export default function App() {
 
   if (view.name === "studio") {
     return (
-      <Shell>
+      <Shell nav={navBar}>
         <Studio session={session} onExit={() => go({ name: "home" })} />
       </Shell>
     );
   }
 
+  const navBar = (
+    <>
+      <TopBar dueCount={due.length} bareCount={masteredBare} onHome={() => go({ name: "home" })} />
+      <BottomNav current={view.name} go={go} onMore={() => setMoreOpen(true)} />
+      {moreOpen && (
+        <MoreSheet
+          go={go}
+          canRecord={canRecord}
+          onClose={() => setMoreOpen(false)}
+          session={session}
+        />
+      )}
+    </>
+  );
+
   if (view.name === "passages") {
     return (
-      <Shell>
+      <Shell nav={navBar}>
         <Passages
           session={session}
           canRecord={canRecord}
@@ -245,7 +275,7 @@ export default function App() {
 
   if (view.name === "listening") {
     return (
-      <Shell>
+      <Shell nav={navBar}>
         <Listening maxLesson={highestUnlocked} onExit={() => go({ name: "home" })} />
       </Shell>
     );
@@ -253,7 +283,7 @@ export default function App() {
 
   if (view.name === "quran") {
     return (
-      <Shell>
+      <Shell nav={navBar}>
         <Quran onExit={() => go({ name: "home" })} onAddWord={addVocab} />
       </Shell>
     );
@@ -261,7 +291,7 @@ export default function App() {
 
   if (view.name === "dict") {
     return (
-      <Shell>
+      <Shell nav={navBar}>
         <Dictionary initialWord={view.word || ""} onExit={() => go({ name: "home" })} onAddWord={(v) => addVocab([v])} />
       </Shell>
     );
@@ -271,7 +301,7 @@ export default function App() {
   const masteredBare = Object.values(state.srs).filter((c) => c.reps >= 4).length;
 
   return (
-    <Shell>
+    <Shell nav={navBar}>
       <header style={{ textAlign: "center", marginBottom: 6 }}>
         <div className="arabic" dir="rtl" style={{ fontSize: 40, color: C.emerald, fontWeight: 700 }}>
           اَلْفُصْحَى
@@ -346,35 +376,6 @@ export default function App() {
         })}
       </div>
 
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 16 }}>
-        {[
-          { v: "tutor", emoji: "🎓", ar: "اَلْمُعَلِّمُ", en: "Talk to teacher", c: "#0E5237", primary: true },
-          { v: "quran", emoji: "📖", ar: "اَلْقُرْآنُ", en: "Quran & Salah", c: "#B9862F" },
-          { v: "listening", emoji: "👂", ar: "اَلِاسْتِمَاعُ", en: "Listening", c: "#0E5237" },
-          { v: "passages", emoji: "🎧", ar: "نُصُوصٌ مَسْمُوعَةٌ", en: "Recorded texts", c: "#0E5237" },
-          { v: "library", emoji: "📚", ar: "اَلْمَكْتَبَةُ", en: "My library", c: "#0E5237" },
-          { v: "dict", emoji: "📕", ar: "اَلْمُعْجَمُ", en: "Dictionary", c: "#0E5237" },
-        ].map((b) => (
-          <button
-            key={b.v}
-            onClick={() => go({ name: b.v })}
-            className={b.primary ? "btn-primary" : "card"}
-            dir="rtl"
-            style={{
-              flex: "1 1 calc(50% - 4px)", minWidth: 140, padding: "12px 8px",
-              display: "flex", flexDirection: "column", alignItems: "center", gap: 2,
-              borderColor: b.primary ? undefined : b.c,
-            }}
-          >
-            <span style={{ fontSize: 22 }}>{b.emoji}</span>
-            <span className="arabic" style={{ fontSize: 20, color: b.primary ? "#fff" : b.c }}>{b.ar}</span>
-            <span style={{ fontSize: 9.5, color: b.primary ? "rgba(255,255,255,0.85)" : C.faded, letterSpacing: "0.03em" }}>
-              {b.en}
-            </span>
-          </button>
-        ))}
-      </div>
-
       {masteredBare > 0 && (
         <div className="card" dir="rtl" style={{ marginTop: 14, padding: "12px 16px", display: "flex", alignItems: "center", gap: 10, borderColor: C.gold }}>
           <span style={{ fontSize: 22 }}>👁️</span>
@@ -385,33 +386,143 @@ export default function App() {
         </div>
       )}
 
-      {canRecord && (
-        <button onClick={() => go({ name: "studio" })} className="card" dir="rtl"
-          style={{ width: "100%", marginTop: 14, padding: "12px 18px", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, borderColor: C.gold, borderWidth: 1.5 }}>
-          <span style={{ fontSize: 20 }}>🎙️</span>
-          <span className="arabic" style={{ fontSize: 22, color: C.gold }}>اَلتَّسْجِيلُ</span>
-          <span style={{ fontSize: 10, color: C.faded }}>(Recording studio)</span>
-        </button>
-      )}
-
       <div style={{ textAlign: "center", marginTop: 22 }}>
-        {supabase && session && (
-          <button onClick={() => supabase.auth.signOut()} style={{ fontSize: 11, color: C.faded, textDecoration: "underline" }}>
-            Sign out ({session.user.email})
-          </button>
-        )}
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v4.1 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v4.3 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>
   );
 }
 
-function Shell({ children }) {
+function MoreSheet({ go, canRecord, onClose, session }) {
+  const items = [
+    { v: "passages", emoji: "🎧", ar: "اَلنُّصُوصُ الْمَسْمُوعَةُ", en: "Recorded texts — hear a human read" },
+    { v: "library", emoji: "📚", ar: "اَلْمَكْتَبَةُ", en: "My library — upload your own texts" },
+    { v: "dict", emoji: "📕", ar: "اَلْمُعْجَمُ", en: "Dictionary — look up any word" },
+  ];
+  if (canRecord) items.push({ v: "studio", emoji: "🎙️", ar: "اَلتَّسْجِيلُ", en: "Recording studio (admin)" });
+
+  return (
+    <div
+      onClick={onClose}
+      style={{
+        position: "fixed", inset: 0, zIndex: 50, background: "rgba(0,0,0,0.35)",
+        display: "flex", alignItems: "flex-end", justifyContent: "center",
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="fadein"
+        style={{
+          width: "100%", maxWidth: 440, background: C.paper,
+          borderTopLeftRadius: 20, borderTopRightRadius: 20,
+          padding: "14px 16px 96px", borderTop: `1px solid ${C.border}`,
+        }}
+      >
+        <div style={{ width: 40, height: 4, background: C.border, borderRadius: 99, margin: "0 auto 14px" }} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          {items.map((it) => (
+            <button key={it.v} onClick={() => go({ name: it.v })} className="card" dir="rtl"
+              style={{ width: "100%", padding: "13px 16px", display: "flex", alignItems: "center", gap: 12 }}>
+              <span style={{ fontSize: 22 }}>{it.emoji}</span>
+              <div style={{ textAlign: "right" }}>
+                <div className="arabic" style={{ fontSize: 21, color: C.ink }}>{it.ar}</div>
+                <div style={{ fontSize: 10, color: C.faded }}>{it.en}</div>
+              </div>
+            </button>
+          ))}
+        </div>
+        {supabase && session && (
+          <div style={{ textAlign: "center", marginTop: 16 }}>
+            <button onClick={() => supabase.auth.signOut()} style={{ fontSize: 11, color: C.faded, textDecoration: "underline" }}>
+              Sign out ({session.user.email})
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Shell({ children, nav }) {
   return (
     <div style={{ minHeight: "100vh", display: "flex", justifyContent: "center", background: C.paper }}>
-      <div style={{ width: "100%", maxWidth: 440, padding: "20px 16px 40px" }}>{children}</div>
+      <div style={{ width: "100%", maxWidth: 440, padding: nav ? "64px 16px 88px" : "20px 16px 40px" }}>
+        {children}
+      </div>
+      {nav}
+    </div>
+  );
+}
+
+// ——— fixed top bar: identity + live revision count ———
+function TopBar({ dueCount, bareCount, onHome }) {
+  return (
+    <div style={{
+      position: "fixed", top: 0, left: 0, right: 0, zIndex: 40,
+      display: "flex", justifyContent: "center",
+      background: "rgba(250,247,242,0.96)", borderBottom: `1px solid ${C.border}`,
+      backdropFilter: "blur(8px)",
+    }}>
+      <div style={{ width: "100%", maxWidth: 440, padding: "10px 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <button onClick={onHome} className="arabic" style={{ fontSize: 24, color: C.emerald, fontWeight: 700 }}>
+          اَلْفُصْحَى
+        </button>
+        <div style={{ display: "flex", gap: 8 }}>
+          {dueCount > 0 && (
+            <span style={{ background: C.goldSoft, color: C.gold, borderRadius: 999, padding: "3px 10px", fontSize: 11, fontWeight: 700 }}>
+              📿 {dueCount} due
+            </span>
+          )}
+          {bareCount > 0 && (
+            <span style={{ background: C.emeraldSoft, color: C.emerald, borderRadius: 999, padding: "3px 10px", fontSize: 11, fontWeight: 700 }}>
+              👁️ {bareCount}
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ——— fixed bottom nav: always reachable, never scrolled to ———
+function BottomNav({ current, go, onMore }) {
+  const items = [
+    { v: "home", emoji: "🏠", ar: "اَلدُّرُوس", en: "Lessons" },
+    { v: "tutor", emoji: "🎓", ar: "اَلْمُعَلِّم", en: "AI teacher" },
+    { v: "quran", emoji: "📖", ar: "اَلْقُرْآن", en: "Quran" },
+    { v: "listening", emoji: "👂", ar: "اِسْتِمَاع", en: "Listen" },
+    { v: "__more", emoji: "☰", ar: "اَلْمَزِيد", en: "More" },
+  ];
+  return (
+    <div style={{
+      position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 40,
+      display: "flex", justifyContent: "center",
+      background: "rgba(250,247,242,0.97)", borderTop: `1px solid ${C.border}`,
+      backdropFilter: "blur(8px)",
+    }}>
+      <div style={{ width: "100%", maxWidth: 440, display: "flex", padding: "6px 4px 10px" }}>
+        {items.map((it) => {
+          const active = it.v === current;
+          return (
+            <button
+              key={it.v}
+              onClick={() => (it.v === "__more" ? onMore() : go({ name: it.v }))}
+              style={{
+                flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 1,
+                padding: "6px 2px", background: "transparent", border: "none",
+              }}
+            >
+              <span style={{ fontSize: 19, opacity: active ? 1 : 0.55 }}>{it.emoji}</span>
+              <span className="arabic" style={{ fontSize: 13, color: active ? C.emerald : C.faded, fontWeight: active ? 700 : 400 }}>
+                {it.ar}
+              </span>
+              <span style={{ fontSize: 8, color: active ? C.emerald : C.faded }}>{it.en}</span>
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { C, speak, shuffle } from "../lib/shared";
+import { C, speak, shuffle, callAI, parseJSONLoose } from "../lib/shared";
 import { QURAN } from "../data/quran";
 import { gradeBand } from "../data/curriculum";
 import { Beads } from "./LessonPlayer";
@@ -92,6 +92,7 @@ function Header({ title, onBack }) {
 
 function SurahView({ surah, onBack, onLookup, onDrill }) {
   const [open, setOpen] = useState({}); // ayah index -> meanings revealed
+  const [testing, setTesting] = useState({}); // ayah index -> self-test open
 
   return (
     <div className="fadein">
@@ -120,10 +121,18 @@ function SurahView({ surah, onBack, onLookup, onDrill }) {
               </button>
             </div>
 
-            <button onClick={() => setOpen((o) => ({ ...o, [i]: !o[i] }))}
-              style={{ marginTop: 8, fontSize: 13, color: C.gold }}>
-              {open[i] ? "👁️ إِخْفَاءُ الْمَعْنَى" : "👁️ اَلْمَعْنَى"}
-            </button>
+            <div style={{ display: "flex", gap: 14, marginTop: 8 }}>
+              <button onClick={() => setOpen((o) => ({ ...o, [i]: !o[i] }))}
+                style={{ fontSize: 13, color: C.gold }}>
+                {open[i] ? "👁️ إِخْفَاءُ الْمَعْنَى" : "👁️ اَلْمَعْنَى"}
+              </button>
+              <button onClick={() => setTesting((t) => ({ ...t, [i]: !t[i] }))}
+                style={{ fontSize: 13, color: C.emerald }}>
+                ✍️ اِمْتَحِنْ نَفْسَكَ
+              </button>
+            </div>
+
+            {testing[i] && <TranslateCheck ayah={a} />}
 
             {open[i] && (
               <div className="fadein" dir="rtl" style={{ marginTop: 8, borderTop: `1px dashed ${C.border}`, paddingTop: 10 }}>
@@ -278,6 +287,76 @@ function SurahDrill({ surah, onExit, onAddVocab }) {
         <button className="btn-primary arabic" style={{ width: "100%", marginTop: 14, fontSize: 21 }} onClick={next}>
           {pos < items.length - 1 ? "اَلتَّالِي" : "اَلنَّتِيجَةُ ✓"}
         </button>
+      )}
+    </div>
+  );
+}
+
+
+// اِمْتَحِنْ نَفْسَكَ — the learner writes what they think the ayah means,
+// and the AI judges whether they understood it. Understanding before revealing.
+function TranslateCheck({ ayah }) {
+  const [text, setText] = useState("");
+  const [result, setResult] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState(false);
+
+  const check = async () => {
+    if (!text.trim() || busy) return;
+    setBusy(true); setError(false); setResult(null);
+    try {
+      const raw = await callAI({ mode: "ayahcheck", ar: ayah.ar, simple: ayah.simple, attempt: text.trim() });
+      setResult(parseJSONLoose(raw));
+    } catch {
+      setError(true);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const colour = result
+    ? result.verdict === "correct" ? C.emerald : result.verdict === "close" ? C.gold : C.red
+    : C.border;
+
+  return (
+    <div className="fadein" style={{ marginTop: 10, paddingTop: 10, borderTop: `1px dashed ${C.border}` }}>
+      <p style={{ fontSize: 11, color: C.faded, textAlign: "center", marginBottom: 6 }}>
+        Write what you think it means — then check yourself
+      </p>
+      <textarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="What does this ayah mean? (English or Arabic)"
+        style={{
+          width: "100%", minHeight: 70, borderRadius: 12, padding: "10px 12px", fontSize: 15,
+          background: C.surface, border: `1.5px solid ${C.border}`, resize: "vertical",
+        }}
+      />
+      <button
+        onClick={check}
+        disabled={busy || !text.trim()}
+        className="btn-primary arabic"
+        style={{ width: "100%", marginTop: 8, fontSize: 19 }}
+      >
+        {busy ? "..." : "تَحَقَّقْ ✓"}
+      </button>
+
+      {error && (
+        <div style={{ marginTop: 8, padding: 8, borderRadius: 8, background: C.redSoft, color: C.red, fontSize: 12, textAlign: "center" }}>
+          Couldn't check — try again.
+        </div>
+      )}
+
+      {result && (
+        <div className="card fadein" dir="rtl" style={{ marginTop: 10, padding: 12, borderColor: colour, borderWidth: 1.5 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span style={{ fontSize: 22, fontWeight: 700, color: colour }}>{result.score}%</span>
+            <span style={{ fontSize: 20 }}>
+              {result.verdict === "correct" ? "✅" : result.verdict === "close" ? "🟡" : "❌"}
+            </span>
+          </div>
+          <div className="arabic" style={{ fontSize: 19, marginTop: 6, whiteSpace: "pre-line" }}>{result.feedback}</div>
+        </div>
       )}
     </div>
   );

@@ -62,8 +62,13 @@ export function audioUrl(storagePath) {
 
 export async function uploadRecording(userId, text, kind, blob) {
   if (!supabase) throw new Error("no backend");
-  const safe = encodeURIComponent(text).slice(0, 80);
-  const path = `${Date.now()}-${safe}.webm`;
+  // Supabase storage keys must be ASCII — Arabic text in the filename is rejected
+  // as an "Invalid key", so derive a short stable hash from the text instead.
+  let hash = 0;
+  for (let i = 0; i < text.length; i++) {
+    hash = (hash * 31 + text.charCodeAt(i)) >>> 0;
+  }
+  const path = `w-${hash.toString(36)}-${Date.now().toString(36)}.webm`;
   const up = await supabase.storage.from(BUCKET).upload(path, blob, {
     contentType: blob.type || "audio/webm",
     upsert: false,

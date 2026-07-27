@@ -42,6 +42,10 @@ Choose vocab that is most useful and frequent in the document. If the document c
 
 const DOCQUIZ_SYSTEM = `You write comprehension questions about a document for an Arabic learner. Respond with ONLY a JSON array, no fences. Each item: {"q":"<question in simple FULLY vocalized fusha Arabic about the document's content>","options":["..4 short vocalized Arabic options.."],"a":"<correct option, exactly matching one element of options>"}. Questions must test understanding of the document's actual content (who/what/where/why), not grammar. Keep language as simple as possible while staying in Arabic. Generate exactly the number requested.`;
 
+const AYAH_CHECK_SYSTEM = `You check whether a learner has understood an ayah or dhikr. You are given the Arabic text, a simple reference meaning, and the learner's own attempt at explaining it (in English or Arabic). Judge ONLY whether they grasped the meaning — not their wording, spelling, or eloquence. Respond with ONLY JSON, no fences:
+{"score": <0-100>, "verdict": "<one of: correct | close | incorrect>", "feedback": "<2-3 short lines: first in simple vocalized Arabic, then one short English line. Praise what they got right, then name precisely what they missed or misunderstood. Never be harsh.>"}
+Scoring: 85+ if they captured the core meaning even loosely; 60-84 if partly right but missing something important; below 60 if they misunderstood. Be encouraging but honest — this is memorization and understanding of revelation, so accuracy matters.${ISLAMIC_GUARD}`;
+
 const DICT_SYSTEM = `You are a classical-style Arabic dictionary (in the tradition of root-based lexicons like Lisan al-Arab and al-Qamus al-Muhit) inside a learning app for beginners. The user sends one Arabic word (possibly unvocalized, possibly with attached particles like الـ or بـ). Respond with ONLY JSON, no fences:
 {"word":"<the base word, FULLY vocalized>","root":"<root letters separated by spaces, e.g. 'ك ت ب', or null for particles/pronouns>","definition":"<1-2 very short lines in VERY simple fully vocalized fusha Arabic; use emoji to carry meaning where possible; NEVER use English>","examples":["<very simple vocalized sentence>","<another>"],"derivations":[{"ar":"<vocalized word from the same root>","emoji":"<one emoji or null>"} ... up to 4],"note":"<one short line in simple vocalized Arabic describing the root's core meaning in the manner of the classical lexicons — describe, do NOT fabricate verbatim quotations from any lexicon>","en":"<ONE or TWO English words giving the plain meaning — nothing more, no sentence>"}
 If the input is not an Arabic word, respond {"error":"not_arabic"}.`;
@@ -107,6 +111,13 @@ exports.handler = async (event) => {
     messages = [{
       role: "user",
       content: `Learner level: ${payload.level || "beginner"} (beginner = very simple language; intermediate = normal simple fusha; advanced = natural fusha).\nDocument:\n${(payload.content || "").slice(0, 12000)}\n\nGenerate ${payload.count || 5} comprehension questions.`,
+    }];
+  } else if (mode === "ayahcheck") {
+    system = AYAH_CHECK_SYSTEM;
+    maxTokens = 800;
+    messages = [{
+      role: "user",
+      content: `Arabic: ${payload.ar}\nReference meaning: ${payload.simple}\nLearner's attempt: ${payload.attempt}`,
     }];
   } else if (mode === "dict") {
     system = DICT_SYSTEM;

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { C, speak, callAI, shuffle, LEVELS, getLevel, setLevel } from "../lib/shared";
+import { C, speak, callAI, shuffle, LEVELS, getLevel, setLevel, markSeen, needsHint } from "../lib/shared";
 import { Beads } from "./LessonPlayer";
 
 // Strip harakat/tanwin — used once a word is mastered (reps >= 4)
@@ -88,16 +88,33 @@ export function ReviewSession({ dueList, allVocab, srs = {}, onAnswer, onExit })
 const optionsCache = { current: [] };
 
 // ——— AI tutor chat ———
+const CHAT_KEY = "fusha_tutor_chat_v1";
+const GREETING = { role: "assistant", content: "السَّلَامُ عَلَيْكُمْ! 👋\n👉 🏠 مَا هَذَا؟" };
+
+function loadChat() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(CHAT_KEY) || "null");
+    return Array.isArray(raw) && raw.length ? raw : [GREETING];
+  } catch {
+    return [GREETING];
+  }
+}
+function saveChat(messages) {
+  try {
+    // keep the file bounded — last 80 messages is plenty of visible history
+    localStorage.setItem(CHAT_KEY, JSON.stringify(messages.slice(-80)));
+  } catch {}
+}
+
 export function Tutor({ learnedVocab, onExit }) {
-  const [messages, setMessages] = useState([
-    { role: "assistant", content: "السَّلَامُ عَلَيْكُمْ! 👋\n👉 🏠 مَا هَذَا؟" },
-  ]);
+  const [messages, setMessages] = useState(loadChat);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [listening, setListening] = useState(false);
   const [voiceNote, setVoiceNote] = useState(null);
   const [level, setLevelState] = useState(getLevel());
+  useEffect(() => { markSeen("instr:tutorlevel"); }, []);
   const pickLevel = (l) => { setLevel(l); setLevelState(l); };
   const bottomRef = useRef(null);
   const recRef = useRef(null);
@@ -148,16 +165,22 @@ export function Tutor({ learnedVocab, onExit }) {
     setError(false);
     const next = [...messages, { role: "user", content: text }];
     setMessages(next);
+    saveChat(next);
     setInput("");
     setLoading(true);
     try {
       const vocab = learnedVocab.map((v) => `${v.ar} ${v.emoji}`).join("، ");
       const reply = await callAI({ mode: "tutor", vocab, level, messages: next });
-      setMessages((m) => [...m, { role: "assistant", content: reply }]);
+      setMessages((m) => {
+        const withReply = [...m, { role: "assistant", content: reply }];
+        saveChat(withReply);
+        return withReply;
+      });
       speak(reply);
     } catch {
       setError(true);
       setMessages(next.slice(0, -1));
+      saveChat(next.slice(0, -1));
       setInput(text);
     } finally {
       setLoading(false);
@@ -171,10 +194,24 @@ export function Tutor({ learnedVocab, onExit }) {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <button onClick={onExit} style={{ color: C.faded, fontSize: 22, padding: 6 }}>←</button>
         <div className="arabic" dir="rtl" style={{ fontSize: 26, color: C.emerald, fontWeight: 700 }}>اَلْمُعَلِّمُ 🎓</div>
-        <div style={{ width: 34 }} />
+        <button
+          onClick={() => {
+            setMessages([GREETING]);
+            saveChat([GREETING]);
+          }}
+          style={{ color: C.faded, fontSize: 12, padding: 6 }}
+          aria-label="start new conversation"
+        >
+          ↺ جَدِيدَة
+        </button>
       </div>
 
-      <div dir="rtl" style={{ display: "flex", justifyContent: "center", gap: 6, marginTop: 8 }}>
+      {needsHint("instr:tutorlevel") && (
+        <p style={{ textAlign: "center", fontSize: 10.5, color: C.faded, marginTop: 6 }}>
+          Your level — beginner · intermediate · advanced
+        </p>
+      )}
+      <div dir="rtl" style={{ display: "flex", justifyContent: "center", gap: 6, marginTop: 4 }}>
         {LEVELS.map((l) => (
           <button key={l.id} onClick={() => pickLevel(l.id)}
             style={{
@@ -254,7 +291,7 @@ export function Tutor({ learnedVocab, onExit }) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && send()}
-          placeholder={listening ? "أَسْمَعُكَ... تَكَلَّمْ 🎙️" : "اُكْتُبْ أَوْ تَكَلَّمْ..."}
+          placeholder={listening ? "أَسْمَعُكَ... تَكَلَّمْ 🎙️" : (needsHint("instr:tutorinput") ? "اُكْتُبْ أَوْ تَكَلَّمْ... (type or tap 🎤)" : "اُكْتُبْ أَوْ تَكَلَّمْ...")}
           className="arabic"
           style={{ flex: 1, borderRadius: 14, padding: "11px 14px", fontSize: 22, background: C.surface, border: `1.5px solid ${listening ? C.red : C.border}` }}
         />

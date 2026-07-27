@@ -1,0 +1,84 @@
+import { supabase } from "./supabaseClient";
+import { CURRICULUM } from "../data/curriculum";
+import { QURAN } from "../data/quran";
+
+const BUCKET = "recordings";
+
+// ——— Collect every Arabic string in the app that should have a human voice ———
+// Returns a flat, de-duplicated list: { text, kind, source }
+export function collectRecordables() {
+  const seen = new Map();
+  const add = (text, kind, source) => {
+    const t = (text || "").trim();
+    if (!t) return;
+    if (!seen.has(t)) seen.set(t, { text: t, kind, source });
+  };
+
+  CURRICULUM.lessons.forEach((l) => {
+    const src = l.title;
+    (l.vocab || []).forEach((v) => add(v.ar, "word", src));
+    (l.examples || []).forEach((e) => add(e.ar, "sentence", src));
+    if (l.rule?.ar) {
+      // rule text can be multi-line — record each line separately
+      String(l.rule.ar).split("\n").forEach((line) => add(line, "sentence", src));
+    }
+    (l.drills || []).forEach((d) => {
+      if (d.a) add(d.a, d.t === "assemble" ? "sentence" : "word", src);
+    });
+  });
+
+  QURAN.forEach((s) => {
+    (s.ayat || []).forEach((a) => {
+      add(a.ar, "sentence", s.name);
+      (a.words || []).forEach((w) => add(w.ar, "word", s.name));
+    });
+  });
+
+  return Array.from(seen.values());
+}
+
+// ——— Data access ———
+
+export async function fetchRecordings() {
+  if (!supabase) return {};
+  const { data, error } = await supabase.from("recordings").select("text_ar, storage_path");
+  if (error) return {};
+  const map = {};
+  (data || []).forEach((r) => { map[r.text_ar] = r.storage_path; });
+  return map;
+}
+
+export async function isRecorder(userId) {
+  if (!supabase || !userId) return false;
+  const { data } = await supabase.from("recorders").select("user_id").eq("user_id", userId).maybeSingle();
+  return !!data;
+}
+
+export function audioUrl(storagePath) {
+  if (!supabase || !storagePath) return null;
+  const { data } = supabase.storage.from(BUCKET).getPublicUrl(storagePath);
+  return data?.publicUrl || null;
+}
+
+export async function uploadRecording(userId, text, kind, blob) {
+  if (!supabase) throw new Error("no backend");
+  const safe = encodeURIComponent(text).slice(0, 80);
+  const path = `${Date.now()}-${safe}.webm`;
+  const up = await supabase.storage.from(BUCKET).upload(path, blob, {
+    contentType: blob.type || "audio/webm",
+    upsert: false,
+  });
+  if (up.error) throw up.error;
+
+  const { error } = await supabase
+    .from("recordings")
+    .upsert({ text_ar: text, kind, storage_path: path, recorded_by: userId }, { onConflict: "text_ar" });
+  if (error) throw error;
+  return path;
+}
+
+export async function deleteRecording(text, storagePath) {
+  if (!supabase) return;
+  await supabase.from("recordings").delete().eq("text_ar", text);
+  if (storagePath) await supabase.storage.from(BUCKET).remove([storagePath]);
+}

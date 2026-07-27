@@ -174,7 +174,7 @@ function AddDoc({ onCancel, onIngested }) {
         dir="rtl"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="اِلْصَقِ النَّصَّ الْعَرَبِيَّ هُنَا..."
+        placeholder="اِلْصَقِ النَّصَّ الْعَرَبِيَّ هُنَا... (paste Arabic text here)"
         className="arabic"
         style={{
           width: "100%", minHeight: 160, marginTop: 12, padding: 14, fontSize: 22,

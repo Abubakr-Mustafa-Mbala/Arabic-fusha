@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { C, speak, callAI, parseJSONLoose } from "../lib/shared";
+import { C, speak, callAI, parseJSONLoose, markSeen, needsHint } from "../lib/shared";
 
 export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
   const [input, setInput] = useState(initialWord);
@@ -7,6 +7,7 @@ export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [added, setAdded] = useState(false);
+  const [showEn, setShowEn] = useState(false);
 
   const lookup = async (w) => {
     const word = (w ?? input).trim();
@@ -23,6 +24,8 @@ export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
         return;
       }
       setResult(parsed);
+      setShowEn(needsHint(`word:${parsed.word}`));
+      markSeen(`word:${parsed.word}`);
       speak(parsed.word);
     } catch {
       setError("Lookup failed — check the connection and try again.");
@@ -49,7 +52,7 @@ export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && lookup()}
-          placeholder="اُكْتُبْ كَلِمَةً..."
+          placeholder="اُكْتُبْ كَلِمَةً... (type any Arabic word)"
           className="arabic"
           style={{ flex: 1, borderRadius: 14, padding: "11px 14px", fontSize: 24, background: C.surface, border: `1.5px solid ${C.border}` }}
         />
@@ -101,6 +104,14 @@ export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
           {/* definition */}
           <div className="card" dir="rtl" style={{ padding: 16 }}>
             <div className="arabic" style={{ fontSize: 25, whiteSpace: "pre-line" }}>{result.definition}</div>
+            {showEn && result.en && (
+              <div style={{ marginTop: 10, paddingTop: 8, borderTop: `1px dashed ${C.border}`, textAlign: "center" }}>
+                <span style={{ fontSize: 13, color: C.faded, fontStyle: "italic" }}>{result.en}</span>
+                <div style={{ fontSize: 9.5, color: C.faded, marginTop: 3 }}>
+                  new word — this English hint fades once you've met it a few times
+                </div>
+              </div>
+            )}
           </div>
 
           {/* examples */}

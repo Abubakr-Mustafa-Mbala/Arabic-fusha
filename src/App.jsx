@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { CURRICULUM, allLearnedVocab, gradeBand } from "./data/curriculum";
 import { load, save, review, initCard, dueWords, seedLessonIntoSrs } from "./lib/store";
-import { C } from "./lib/shared";
+import { C, setHumanVoice } from "./lib/shared";
 import { supabase, fetchRemoteState, saveRemoteLesson, saveRemoteCards } from "./lib/supabaseClient";
 import LessonPlayer from "./components/LessonPlayer";
 import { ReviewSession, Tutor } from "./components/ReviewAndTutor";
@@ -9,6 +9,8 @@ import AuthScreen from "./components/AuthScreen";
 import Library from "./components/Library";
 import Dictionary from "./components/Dictionary";
 import Quran from "./components/Quran";
+import Studio from "./components/Studio";
+import { fetchRecordings, isRecorder, audioUrl } from "./lib/recordings";
 
 const PASS_GATE = 60; // مقبول unlocks the next lesson; retake anytime to raise the grade
 
@@ -17,6 +19,7 @@ export default function App() {
   const [view, setView] = useState({ name: "home" });
   const [session, setSession] = useState(null);
   const [booted, setBooted] = useState(!supabase);
+  const [canRecord, setCanRecord] = useState(false);
 
   // ——— auth boot ———
   useEffect(() => {
@@ -36,6 +39,7 @@ export default function App() {
       .then((remote) => {
         setState((s) => {
           const merged = {
+            ...s,
             lessons: { ...s.lessons, ...remote.lessons },
             srs: { ...s.srs, ...remote.srs },
           };
@@ -44,6 +48,22 @@ export default function App() {
         });
       })
       .catch(() => {});
+  }, [session]);
+
+  // ——— load human recordings + check recorder rights ———
+  useEffect(() => {
+    if (!supabase || !session) return;
+    fetchRecordings()
+      .then((map) => {
+        const urls = {};
+        Object.entries(map).forEach(([text, path]) => {
+          const u = audioUrl(path);
+          if (u) urls[text] = u;
+        });
+        setHumanVoice(urls);
+      })
+      .catch(() => {});
+    isRecorder(session.user.id).then(setCanRecord).catch(() => setCanRecord(false));
   }, [session]);
 
   const update = (fn) => {
@@ -69,6 +89,31 @@ export default function App() {
 
   const learnedUpto = (i) => allLearnedVocab(i);
   const reviewsBlock = due.length > 0;
+
+  // Saves a lesson result to device + account. Called when drills finish AND at lesson end,
+  // so progress is never lost by leaving before the final button.
+  const saveLessonResult = (lesson, score) => {
+    const prev = state.lessons[lesson.id];
+    const finalScore = Math.max(prev?.score ?? 0, score ?? 0);
+    const newCards = {};
+    update((s) => {
+      const seeded = seedLessonIntoSrs(s, lesson);
+      lesson.vocab.forEach((v) => {
+        if (!s.srs[v.ar]) newCards[v.ar] = seeded.srs[v.ar];
+      });
+      return {
+        ...seeded,
+        lessons: {
+          ...seeded.lessons,
+          [lesson.id]: { score: finalScore, completedAt: Date.now() },
+        },
+      };
+    });
+    if (supabase && session) {
+      saveRemoteLesson(session.user.id, lesson.id, finalScore).catch(() => {});
+      saveRemoteCards(session.user.id, newCards).catch(() => {});
+    }
+  };
 
   const addVocab = (vocab) => {
     const newCards = {};
@@ -108,27 +153,9 @@ export default function App() {
           lesson={lesson}
           learnedVocab={learnedUpto(i)}
           onExit={() => setView({ name: "home" })}
+          onProgress={(score) => saveLessonResult(lesson, score)}
           onFinish={(score) => {
-            const prev = state.lessons[lesson.id];
-            const finalScore = Math.max(prev?.score ?? 0, score ?? 0);
-            let newCards = {};
-            update((s) => {
-              const seeded = seedLessonIntoSrs(s, lesson);
-              lesson.vocab.forEach((v) => {
-                if (!s.srs[v.ar]) newCards[v.ar] = seeded.srs[v.ar];
-              });
-              return {
-                ...seeded,
-                lessons: {
-                  ...seeded.lessons,
-                  [lesson.id]: { score: finalScore, completedAt: Date.now() },
-                },
-              };
-            });
-            if (supabase && session) {
-              saveRemoteLesson(session.user.id, lesson.id, finalScore).catch(() => {});
-              saveRemoteCards(session.user.id, newCards).catch(() => {});
-            }
+            saveLessonResult(lesson, score);
             setView({ name: "home" });
           }}
         />
@@ -176,6 +203,14 @@ export default function App() {
           onExit={() => setView({ name: "home" })}
           onNewVocab={addVocab}
         />
+      </Shell>
+    );
+  }
+
+  if (view.name === "studio") {
+    return (
+      <Shell>
+        <Studio session={session} onExit={() => setView({ name: "home" })} />
       </Shell>
     );
   }
@@ -310,6 +345,14 @@ export default function App() {
         </div>
       )}
 
+      {canRecord && (
+        <button onClick={() => setView({ name: "studio" })} className="card" dir="rtl"
+          style={{ width: "100%", marginTop: 14, padding: "12px 18px", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, borderColor: C.gold, borderWidth: 1.5 }}>
+          <span style={{ fontSize: 20 }}>🎙️</span>
+          <span className="arabic" style={{ fontSize: 22, color: C.gold }}>اَلتَّسْجِيلُ</span>
+        </button>
+      )}
+
       <div style={{ textAlign: "center", marginTop: 22 }}>
         {supabase && session && (
           <button onClick={() => supabase.auth.signOut()} style={{ fontSize: 11, color: C.faded, textDecoration: "underline" }}>
@@ -317,7 +360,7 @@ export default function App() {
           </button>
         )}
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v1.3 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v2.4 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

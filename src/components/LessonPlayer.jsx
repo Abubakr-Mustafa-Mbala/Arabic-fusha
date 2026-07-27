@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { C, speak, callAI, parseJSONLoose, shuffle } from "../lib/shared";
+import { C, speak, callAI, parseJSONLoose, shuffle, markSeen, needsHint } from "../lib/shared";
 import { gradeBand } from "../data/curriculum";
 
 function Speaker({ text, size = 22 }) {
@@ -47,15 +47,18 @@ export function Beads({ total, filled }) {
 }
 
 const STAGE_LABELS = [
-  { id: "vocab", ar: "مُفْرَدَات" },
-  { id: "pattern", ar: "أَمْثِلَة" },
-  { id: "rule", ar: "اَلْقَاعِدَة" },
-  { id: "drill", ar: "تَدْرِيبَات" },
-  { id: "produce", ar: "إِنْتَاج" },
+  { id: "vocab", ar: "مُفْرَدَات", en: "Vocabulary" },
+  { id: "pattern", ar: "أَمْثِلَة", en: "Examples" },
+  { id: "rule", ar: "اَلْقَاعِدَة", en: "The Rule" },
+  { id: "drill", ar: "تَدْرِيبَات", en: "Practice" },
+  { id: "produce", ar: "إِنْتَاج", en: "Write Your Own" },
 ];
 
-export default function LessonPlayer({ lesson, learnedVocab, onFinish, onExit }) {
+export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgress, onExit }) {
   const [stage, setStage] = useState("vocab");
+
+  // record each stage view so its English label fades once it's familiar
+  useEffect(() => { markSeen(`stage:${stage}`); }, [stage]);
   const [drillScore, setDrillScore] = useState(0);
   const stageIdx = STAGE_LABELS.findIndex((s) => s.id === stage);
 
@@ -90,6 +93,12 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onExit })
         ))}
       </div>
 
+      {needsHint(`stage:${stage}`) && (
+        <p style={{ textAlign: "center", fontSize: 11, color: C.faded, margin: "6px 0 10px", letterSpacing: "0.05em" }}>
+          {STAGE_LABELS[stageIdx]?.en}
+        </p>
+      )}
+
       {stage === "vocab" && <VocabStage lesson={lesson} onDone={() => setStage("pattern")} />}
       {stage === "pattern" && <PatternStage lesson={lesson} onDone={() => setStage("rule")} />}
       {stage === "rule" && <RuleStage lesson={lesson} onDone={() => setStage("drill")} />}
@@ -98,6 +107,10 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onExit })
           lesson={lesson}
           onDone={(score) => {
             setDrillScore(score);
+            // Save progress here — the moment the graded work is done.
+            // Previously nothing saved unless the learner reached the final button,
+            // so leaving after the drills lost the whole lesson.
+            onProgress?.(score);
             setStage("produce");
           }}
         />
@@ -226,6 +239,7 @@ function DrillStage({ lesson, onDone }) {
     setAttempts(nextAttempts);
     if (nextAttempts === 1) {
       // 1st wrong: show it's wrong, let them try again — no answer revealed
+      markSeen("instr:retry");
       setPicked({ opt, correct: false, revealed: false, stage: "retry" });
       return;
     }
@@ -233,10 +247,12 @@ function DrillStage({ lesson, onDone }) {
       // 2nd wrong: give a hint by eliminating one other wrong option
       const others = item.options.filter((o) => o !== item.a && o !== opt && !eliminated.includes(o));
       if (others.length) setEliminated((e) => [...e, others[0]]);
+      markSeen("instr:hint");
       setPicked({ opt, correct: false, revealed: false, stage: "hint" });
       return;
     }
     // 3rd wrong: reveal the correct answer and move on
+    markSeen("instr:reveal");
     setPicked({ opt, correct: false, revealed: true, stage: "reveal" });
     speak(item.a);
   };
@@ -345,16 +361,25 @@ function DrillStage({ lesson, onDone }) {
           {picked && !picked.correct && picked.stage === "retry" && (
             <div dir="rtl" style={{ textAlign: "center", color: C.red, fontSize: 18 }} className="arabic fadein">
               ❌ حَاوِلْ مَرَّةً أُخْرَى
+              {needsHint("instr:retry") && (
+                <div style={{ fontSize: 11, color: C.faded, fontStyle: "italic" }}>Try again</div>
+              )}
             </div>
           )}
           {picked && !picked.correct && picked.stage === "hint" && (
             <div dir="rtl" style={{ textAlign: "center", color: C.gold, fontSize: 18 }} className="arabic fadein">
               💡 إِلَيْكَ تَلْمِيحٌ: حَذَفْنَا خِيَارًا خَاطِئًا — حَاوِلْ مَرَّةً أَخِيرَةً
+              {needsHint("instr:hint") && (
+                <div style={{ fontSize: 11, color: C.faded, fontStyle: "italic" }}>Hint: one wrong option removed — last try</div>
+              )}
             </div>
           )}
           {picked && picked.revealed && (
             <div dir="rtl" style={{ textAlign: "center", color: C.faded, fontSize: 18 }} className="arabic fadein">
               اَلْجَوَابُ الصَّحِيحُ: <span style={{ color: C.emerald, fontWeight: 700 }}>{item.a}</span>
+              {needsHint("instr:reveal") && (
+                <div style={{ fontSize: 11, color: C.faded, fontStyle: "italic" }}>The correct answer</div>
+              )}
             </div>
           )}
         </div>
@@ -430,16 +455,23 @@ function ProduceStage({ lesson, learnedVocab, onDone }) {
     }
   };
 
+  useEffect(() => { markSeen("instr:production"); }, []);
+
   return (
     <div className="fadein">
       <div className="card" style={{ padding: 18 }}>
         <div className="arabic" dir="rtl" style={{ fontSize: 24, textAlign: "center" }}>{lesson.production}</div>
+        {lesson.productionEn && needsHint("instr:production") && (
+          <div style={{ fontSize: 12, color: C.faded, textAlign: "center", marginTop: 8, fontStyle: "italic" }}>
+            {lesson.productionEn}
+          </div>
+        )}
       </div>
       <textarea
         dir="rtl"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="اُكْتُبْ هُنَا..."
+        placeholder="اُكْتُبْ هُنَا... (write here)"
         className="arabic"
         style={{
           width: "100%", minHeight: 120, marginTop: 14, padding: 14, fontSize: 24,

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { CURRICULUM, allLearnedVocab, gradeBand } from "./data/curriculum";
 import { load, save, review, initCard, dueWords, seedLessonIntoSrs } from "./lib/store";
 import { C, setHumanVoice } from "./lib/shared";
@@ -22,6 +22,17 @@ export default function App() {
   const [session, setSession] = useState(null);
   const [booted, setBooted] = useState(!supabase);
   const [canRecord, setCanRecord] = useState(false);
+  const scrollMemory = useRef({});
+
+  // Remember where the learner was scrolled in each view, and restore it on return —
+  // so coming back from a surah doesn't dump them at the top of the dashboard.
+  const go = (next) => {
+    scrollMemory.current[view.name] = window.scrollY;
+    setView(next);
+    requestAnimationFrame(() => {
+      window.scrollTo(0, scrollMemory.current[next.name] || 0);
+    });
+  };
 
   // ——— auth boot ———
   useEffect(() => {
@@ -156,11 +167,11 @@ export default function App() {
         <LessonPlayer
           lesson={lesson}
           learnedVocab={learnedUpto(i)}
-          onExit={() => setView({ name: "home" })}
+          onExit={() => go({ name: "home" })}
           onProgress={(score) => saveLessonResult(lesson, score)}
           onFinish={(score) => {
             saveLessonResult(lesson, score);
-            setView({ name: "home" });
+            go({ name: "home" });
           }}
         />
       </Shell>
@@ -184,7 +195,7 @@ export default function App() {
               saveRemoteCards(session.user.id, { [word]: newCard }).catch(() => {});
             }
           }}
-          onExit={() => setView({ name: "home" })}
+          onExit={() => go({ name: "home" })}
         />
       </Shell>
     );
@@ -194,7 +205,7 @@ export default function App() {
     const upto = Math.max(0, highestUnlocked - (state.lessons[lessons[highestUnlocked]?.id] ? 0 : 1));
     return (
       <Shell>
-        <Tutor learnedVocab={learnedUpto(Math.max(0, upto))} onExit={() => setView({ name: "home" })} />
+        <Tutor learnedVocab={learnedUpto(Math.max(0, upto))} onExit={() => go({ name: "home" })} />
       </Shell>
     );
   }
@@ -204,7 +215,7 @@ export default function App() {
       <Shell>
         <Library
           session={session}
-          onExit={() => setView({ name: "home" })}
+          onExit={() => go({ name: "home" })}
           onNewVocab={addVocab}
         />
       </Shell>
@@ -214,7 +225,7 @@ export default function App() {
   if (view.name === "studio") {
     return (
       <Shell>
-        <Studio session={session} onExit={() => setView({ name: "home" })} />
+        <Studio session={session} onExit={() => go({ name: "home" })} />
       </Shell>
     );
   }
@@ -225,7 +236,7 @@ export default function App() {
         <Passages
           session={session}
           canRecord={canRecord}
-          onExit={() => setView({ name: "home" })}
+          onExit={() => go({ name: "home" })}
           onLookup={(w) => setView({ name: "dict", word: w })}
         />
       </Shell>
@@ -235,7 +246,7 @@ export default function App() {
   if (view.name === "listening") {
     return (
       <Shell>
-        <Listening maxLesson={highestUnlocked} onExit={() => setView({ name: "home" })} />
+        <Listening maxLesson={highestUnlocked} onExit={() => go({ name: "home" })} />
       </Shell>
     );
   }
@@ -243,7 +254,7 @@ export default function App() {
   if (view.name === "quran") {
     return (
       <Shell>
-        <Quran onExit={() => setView({ name: "home" })} onAddWord={addVocab} />
+        <Quran onExit={() => go({ name: "home" })} onAddWord={addVocab} />
       </Shell>
     );
   }
@@ -251,7 +262,7 @@ export default function App() {
   if (view.name === "dict") {
     return (
       <Shell>
-        <Dictionary initialWord={view.word || ""} onExit={() => setView({ name: "home" })} onAddWord={(v) => addVocab([v])} />
+        <Dictionary initialWord={view.word || ""} onExit={() => go({ name: "home" })} onAddWord={(v) => addVocab([v])} />
       </Shell>
     );
   }
@@ -275,7 +286,7 @@ export default function App() {
       </div>
 
       <button
-        onClick={() => due.length > 0 && setView({ name: "review" })}
+        onClick={() => due.length > 0 && go({ name: "review" })}
         className="card fadein"
         style={{
           width: "100%", padding: 16, display: "flex", alignItems: "center",
@@ -335,41 +346,33 @@ export default function App() {
         })}
       </div>
 
-      <button onClick={() => setView({ name: "tutor" })} className="btn-primary" dir="rtl"
-        style={{ width: "100%", marginTop: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: 10 }}>
-        <span style={{ fontSize: 22 }}>🎓</span>
-        <span className="arabic" style={{ fontSize: 24 }}>تَحَدَّثْ مَعَ الْمُعَلِّمِ</span>
-      </button>
-
-      <button onClick={() => setView({ name: "quran" })} className="card" dir="rtl"
-        style={{ width: "100%", marginTop: 10, padding: "13px 18px", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, borderColor: "#B9862F", borderWidth: 1.5 }}>
-        <span style={{ fontSize: 22 }}>📖</span>
-        <span className="arabic" style={{ fontSize: 24, color: "#B9862F" }}>اَلْقُرْآنُ — اِفْهَمْ صَلَاتَكَ</span>
-      </button>
-
-      <button onClick={() => setView({ name: "listening" })} className="card" dir="rtl"
-        style={{ width: "100%", marginTop: 10, padding: "13px 18px", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, borderColor: "#0E5237" }}>
-        <span style={{ fontSize: 22 }}>👂</span>
-        <span className="arabic" style={{ fontSize: 24, color: "#0E5237" }}>اَلِاسْتِمَاعُ</span>
-      </button>
-
-      <button onClick={() => setView({ name: "passages" })} className="card" dir="rtl"
-        style={{ width: "100%", marginTop: 10, padding: "13px 18px", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, borderColor: "#0E5237" }}>
-        <span style={{ fontSize: 22 }}>🎧</span>
-        <span className="arabic" style={{ fontSize: 24, color: "#0E5237" }}>اَلنُّصُوصُ الْمَسْمُوعَةُ</span>
-      </button>
-
-      <div style={{ display: "flex", gap: 10, marginTop: 10 }}>
-        <button onClick={() => setView({ name: "library" })} className="card" dir="rtl"
-          style={{ flex: 1, padding: "13px 10px", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, borderColor: "#0E5237" }}>
-          <span style={{ fontSize: 20 }}>📚</span>
-          <span className="arabic" style={{ fontSize: 22, color: "#0E5237" }}>اَلْمَكْتَبَةُ</span>
-        </button>
-        <button onClick={() => setView({ name: "dict" })} className="card" dir="rtl"
-          style={{ flex: 1, padding: "13px 10px", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, borderColor: "#0E5237" }}>
-          <span style={{ fontSize: 20 }}>📕</span>
-          <span className="arabic" style={{ fontSize: 22, color: "#0E5237" }}>اَلْمُعْجَمُ</span>
-        </button>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 16 }}>
+        {[
+          { v: "tutor", emoji: "🎓", ar: "اَلْمُعَلِّمُ", en: "Talk to teacher", c: "#0E5237", primary: true },
+          { v: "quran", emoji: "📖", ar: "اَلْقُرْآنُ", en: "Quran & Salah", c: "#B9862F" },
+          { v: "listening", emoji: "👂", ar: "اَلِاسْتِمَاعُ", en: "Listening", c: "#0E5237" },
+          { v: "passages", emoji: "🎧", ar: "نُصُوصٌ مَسْمُوعَةٌ", en: "Recorded texts", c: "#0E5237" },
+          { v: "library", emoji: "📚", ar: "اَلْمَكْتَبَةُ", en: "My library", c: "#0E5237" },
+          { v: "dict", emoji: "📕", ar: "اَلْمُعْجَمُ", en: "Dictionary", c: "#0E5237" },
+        ].map((b) => (
+          <button
+            key={b.v}
+            onClick={() => go({ name: b.v })}
+            className={b.primary ? "btn-primary" : "card"}
+            dir="rtl"
+            style={{
+              flex: "1 1 calc(50% - 4px)", minWidth: 140, padding: "12px 8px",
+              display: "flex", flexDirection: "column", alignItems: "center", gap: 2,
+              borderColor: b.primary ? undefined : b.c,
+            }}
+          >
+            <span style={{ fontSize: 22 }}>{b.emoji}</span>
+            <span className="arabic" style={{ fontSize: 20, color: b.primary ? "#fff" : b.c }}>{b.ar}</span>
+            <span style={{ fontSize: 9.5, color: b.primary ? "rgba(255,255,255,0.85)" : C.faded, letterSpacing: "0.03em" }}>
+              {b.en}
+            </span>
+          </button>
+        ))}
       </div>
 
       {masteredBare > 0 && (
@@ -383,10 +386,11 @@ export default function App() {
       )}
 
       {canRecord && (
-        <button onClick={() => setView({ name: "studio" })} className="card" dir="rtl"
+        <button onClick={() => go({ name: "studio" })} className="card" dir="rtl"
           style={{ width: "100%", marginTop: 14, padding: "12px 18px", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, borderColor: C.gold, borderWidth: 1.5 }}>
           <span style={{ fontSize: 20 }}>🎙️</span>
           <span className="arabic" style={{ fontSize: 22, color: C.gold }}>اَلتَّسْجِيلُ</span>
+          <span style={{ fontSize: 10, color: C.faded }}>(Recording studio)</span>
         </button>
       )}
 
@@ -397,7 +401,7 @@ export default function App() {
           </button>
         )}
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v3.9 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v4.1 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

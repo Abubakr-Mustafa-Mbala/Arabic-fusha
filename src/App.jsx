@@ -172,6 +172,32 @@ export default function App() {
     }
   };
 
+  const sideBar = wide ? (
+    <SideBar
+      current={view.name}
+      go={go}
+      canRecord={canRecord}
+      session={session}
+      dueCount={due.length}
+      bareCount={masteredBare}
+    />
+  ) : null;
+
+  const navBar = wide ? null : (
+    <>
+      <TopBar dueCount={due.length} bareCount={masteredBare} onHome={() => go({ name: "home" })} />
+      <BottomNav current={view.name} go={go} onMore={() => setMoreOpen(true)} />
+      {moreOpen && (
+        <MoreSheet
+          go={go}
+          canRecord={canRecord}
+          onClose={() => setMoreOpen(false)}
+          session={session}
+        />
+      )}
+    </>
+  );
+
   if (!booted) {
     return (
       <Shell nav={navBar} sidebar={sideBar}>
@@ -274,32 +300,6 @@ export default function App() {
       </Shell>
     );
   }
-
-  const sideBar = wide ? (
-    <SideBar
-      current={view.name}
-      go={go}
-      canRecord={canRecord}
-      session={session}
-      dueCount={due.length}
-      bareCount={masteredBare}
-    />
-  ) : null;
-
-  const navBar = wide ? null : (
-    <>
-      <TopBar dueCount={due.length} bareCount={masteredBare} onHome={() => go({ name: "home" })} />
-      <BottomNav current={view.name} go={go} onMore={() => setMoreOpen(true)} />
-      {moreOpen && (
-        <MoreSheet
-          go={go}
-          canRecord={canRecord}
-          onClose={() => setMoreOpen(false)}
-          session={session}
-        />
-      )}
-    </>
-  );
 
   if (view.name === "syllabus") {
     return (
@@ -436,7 +436,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v5.7 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v6.5 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

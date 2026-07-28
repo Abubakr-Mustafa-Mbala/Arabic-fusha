@@ -138,6 +138,16 @@ function VocabStage({ lesson, onDone }) {
         {showEn && (
           <div style={{ marginTop: 6, fontSize: 13, color: C.faded, fontStyle: "italic" }}>{w.en}</div>
         )}
+        {w.quran && (
+          <div className="fadein" style={{
+            marginTop: 12, padding: "10px 14px", borderRadius: 12,
+            background: C.goldSoft, border: `1px solid ${C.gold}`, textAlign: "center",
+          }}>
+            <div style={{ fontSize: 9.5, color: C.gold, letterSpacing: "0.14em" }}>فِي الْقُرْآنِ</div>
+            <div className="arabic" dir="rtl" style={{ fontSize: 21, marginTop: 3, lineHeight: 1.9 }}>{w.quran}</div>
+            {w.quranRef && <div style={{ fontSize: 10, color: C.faded, marginTop: 2 }}>{w.quranRef}</div>}
+          </div>
+        )}
         <div style={{ marginTop: 12 }}><Speaker text={w.ar} size={26} /></div>
       </div>
       <div dir="rtl" style={{ display: "flex", gap: 10, marginTop: 18 }}>
@@ -214,6 +224,7 @@ function RuleStage({ lesson, onDone }) {
 function normalizeDrill(d) {
   if (d.t === "mcq") return { ...d, options: shuffle(d.options) };
   if (d.t === "assemble") return { ...d, pool: shuffle(d.chips) };
+  if (d.t === "match") return { ...d, right: shuffle(d.pairs.map((p) => p[1])) };
   return d;
 }
 
@@ -224,6 +235,8 @@ function DrillStage({ lesson, onDone }) {
   const [picked, setPicked] = useState(null);
   const [attempts, setAttempts] = useState(0); // wrong attempts on the current item
   const [eliminated, setEliminated] = useState([]); // options removed as a hint
+  const [matched, setMatched] = useState({});       // match drill: left -> right
+  const [selLeft, setSelLeft] = useState(null);     // match drill: selected left item
   const [built, setBuilt] = useState([]);
   const [extraLoading, setExtraLoading] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -284,6 +297,8 @@ function DrillStage({ lesson, onDone }) {
     setBuilt([]);
     setAttempts(0);
     setEliminated([]);
+    setMatched({});
+    setSelLeft(null);
     if (pos < q.length - 1) setPos(pos + 1);
     else setFinished(true);
   };
@@ -385,6 +400,70 @@ function DrillStage({ lesson, onDone }) {
               {needsHint("instr:reveal") && (
                 <div style={{ fontSize: 11, color: C.faded, fontStyle: "italic" }}>The correct answer</div>
               )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {item.t === "match" && (
+        <div style={{ marginTop: 16 }}>
+          <p style={{ textAlign: "center", fontSize: 11, color: C.faded, marginBottom: 8 }}>
+            {needsHint("instr:match") ? "Tap a word, then tap its meaning" : ""}
+          </p>
+          <div dir="rtl" style={{ display: "flex", gap: 10 }}>
+            {/* left column: the Arabic words */}
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8 }}>
+              {item.pairs.map(([left]) => {
+                const done = matched[left] !== undefined;
+                const ok = done && matched[left] === item.pairs.find((p) => p[0] === left)[1];
+                const sel = selLeft === left;
+                return (
+                  <button key={left} disabled={done}
+                    onClick={() => setSelLeft(sel ? null : left)}
+                    style={{
+                      background: done ? (ok ? C.emeraldSoft : C.redSoft) : sel ? C.goldSoft : C.surface,
+                      border: `1.5px solid ${done ? (ok ? C.emerald : C.red) : sel ? C.gold : C.border}`,
+                      borderRadius: 12, padding: "10px 8px",
+                    }}>
+                    <span className="arabic" style={{ fontSize: 21, color: done ? (ok ? C.emerald : C.red) : C.ink }}>{left}</span>
+                  </button>
+                );
+              })}
+            </div>
+            {/* right column: the meanings */}
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8 }}>
+              {item.right.map((r, i) => {
+                const usedBy = Object.keys(matched).find((k) => matched[k] === r);
+                return (
+                  <button key={r + i} disabled={!!usedBy || !selLeft}
+                    onClick={() => {
+                      if (!selLeft) return;
+                      const next = { ...matched, [selLeft]: r };
+                      setMatched(next);
+                      setSelLeft(null);
+                      if (Object.keys(next).length === item.pairs.length) {
+                        const allRight = item.pairs.every(([l, rr]) => next[l] === rr);
+                        markSeen("instr:match");
+                        setPicked({ opt: "match", correct: allRight, revealed: !allRight });
+                        if (allRight && !isRetry && !item._requeued) setFirstTry((f) => ({ ...f, right: f.right + 1 }));
+                      }
+                    }}
+                    style={{
+                      background: usedBy ? C.paper : C.surface,
+                      border: `1.5px solid ${C.border}`, borderRadius: 12, padding: "10px 8px",
+                      opacity: usedBy ? 0.35 : 1,
+                    }}>
+                    <span className="arabic" style={{ fontSize: 19 }}>{r}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          {picked && picked.revealed && (
+            <div dir="rtl" className="fadein" style={{ marginTop: 10, padding: 10, borderRadius: 10, background: C.goldSoft }}>
+              {item.pairs.map(([l, r]) => (
+                <div key={l} className="arabic" style={{ fontSize: 17 }}>{l} ← {r}</div>
+              ))}
             </div>
           )}
         </div>

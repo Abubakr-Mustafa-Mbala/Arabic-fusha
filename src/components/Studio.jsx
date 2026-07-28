@@ -75,7 +75,7 @@ export default function Studio({ session, onExit }) {
         ))}
       </div>
       <div style={{ display: "flex", gap: 6, marginTop: 6 }}>
-        {[["all", "All types"], ["word", "Words"], ["sentence", "Sentences"]].map(([id, label]) => (
+        {[["all", "All"], ["word", "Words"], ["sentence", "Sentences"], ["ayah", "Quran"]].map(([id, label]) => (
           <button key={id} onClick={() => setKind(id)}
             style={{
               flex: 1, fontSize: 11, padding: "6px 4px", borderRadius: 10,

@@ -25,6 +25,17 @@ let humanVoice = {};
 export function setHumanVoice(map) { humanVoice = map || {}; }
 export function hasHumanVoice(text) { return !!humanVoice[String(text).trim()]; }
 
+// When true, machine speech is suppressed entirely — only human recordings play.
+// The project's intent is that every voice in the app belongs to the team.
+let humanOnly = false;
+export function setHumanOnly(v) {
+  humanOnly = !!v;
+  try { localStorage.setItem("fusha_human_only", v ? "1" : "0"); } catch {}
+}
+export function getHumanOnly() {
+  try { return localStorage.getItem("fusha_human_only") === "1"; } catch { return false; }
+}
+
 export function speak(text) {
   const key = String(text).trim();
   // A real human recording always wins over machine speech.
@@ -35,6 +46,8 @@ export function speak(text) {
       return;
     } catch {}
   }
+  // No recording yet: stay silent rather than play a robotic voice, if configured.
+  if (humanOnly) return;
   try {
     const synth = window.speechSynthesis;
     if (!synth) return;

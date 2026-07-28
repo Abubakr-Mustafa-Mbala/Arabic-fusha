@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { C, speak, callAI, parseJSONLoose, shuffle, markSeen, needsHint } from "../lib/shared";
+import TashkeelBar from "./TashkeelBar";
 import { gradeBand } from "../data/curriculum";
 
 function Speaker({ text, size = 22 }) {
@@ -440,6 +441,7 @@ function ProduceStage({ lesson, learnedVocab, onDone }) {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const taRef = useRef(null);
 
   const submit = async () => {
     if (!text.trim() || loading) return;
@@ -472,6 +474,7 @@ function ProduceStage({ lesson, learnedVocab, onDone }) {
         )}
       </div>
       <textarea
+        ref={taRef}
         dir="rtl"
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -482,6 +485,7 @@ function ProduceStage({ lesson, learnedVocab, onDone }) {
           background: C.surface, border: `1.5px solid ${C.border}`, borderRadius: 14, resize: "vertical",
         }}
       />
+      <TashkeelBar targetRef={taRef} />
       {result && (
         <div className="card fadein" style={{ padding: 16, marginTop: 12, borderColor: C.gold }}>
           <div style={{ fontSize: 30, fontWeight: 700, color: gradeBand(result.score).color, textAlign: "center" }}>

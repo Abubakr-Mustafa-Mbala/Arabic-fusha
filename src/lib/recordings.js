@@ -29,7 +29,7 @@ export function collectRecordables() {
 
   QURAN.forEach((s) => {
     (s.ayat || []).forEach((a) => {
-      add(a.ar, "sentence", s.name);
+      add(a.ar, "ayah", s.name);
       (a.words || []).forEach((w) => add(w.ar, "word", s.name));
     });
   });

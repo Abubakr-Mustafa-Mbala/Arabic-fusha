@@ -51,6 +51,28 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "أَدَوَاتُ الْفَصْلِ وَجُمْلَةُ «هَذَا»",
+        teach: [
+          {
+            say: "Arabic has no word for 'is'. To say 'this is a book' you only need two words: هذا (this) and كتاب (book). Put them together and the sentence is complete.",
+            show: "هَذَا كِتَابٌ\n= this (is) a book",
+          },
+          {
+            say: "Look at the end of كِتَابٌ. Those two little marks ٌ are called TANWIN. Tanwin does the job of the English word 'a'. So كِتَابٌ means 'a book', not 'the book'.",
+            show: "بَيْتٌ = a house\nبَابٌ = a door\nقَلَمٌ = a pen",
+          },
+          {
+            say: "To ask about a THING, say مَا هَذَا؟ — what is this? To ask about a PERSON, say مَنْ هَذَا؟ — who is this? Arabic keeps these two separate; English uses 'what' and 'who' the same way.",
+            show: "مَا هَذَا؟ — هَذَا كِتَابٌ 📖\nمَنْ هَذَا؟ — هَذَا مُعَلِّمٌ 👨\u200d🏫",
+          },
+          {
+            say: "Now the most useful thing in this whole lesson: how to ask your teacher for help, in Arabic, from today. Learn these four by heart.",
+            show: "مَا مَعْنَى ...؟ = what does ... mean?\nكَيْفَ تَقُولُ ...؟ = how do you say ...?\nلَا أَفْهَمُ = I don't understand\nمَرَّةً أُخْرَى = again, please",
+          },
+          {
+            say: "Use them the moment you are stuck. This is exactly how a student in a real Arabic class survives from the first day — you never need English again to ask a question.",
+            show: "عِنْدِي سُؤَالٌ = I have a question\nبِبُطْءٍ مِنْ فَضْلِكَ = slowly, please",
+          },
+        ],
         ar: "١) أَدَوَاتُ الْفَصْلِ — تَسْتَعْمِلُهَا مِنَ الْيَوْمِ:\nمَا مَعْنَى...؟ ❓💡 · كَيْفَ تَقُولُ...؟ 🗣️\nلَا أَفْهَمُ 💡❌ · مَرَّةً أُخْرَى 🔁 · بِبُطْءٍ 🐢\nعِنْدِي سُؤَالٌ 🙋 · مِنْ فَضْلِكَ 🙏\n\n٢) اَلسُّؤَالُ وَالْجَوَابُ:\nلِغَيْرِ الْعَاقِلِ: مَا هَذَا؟ ← هَذَا كِتَابٌ 📖\nلِلْعَاقِلِ: مَنْ هَذَا؟ ← هَذَا مُعَلِّمٌ 👨\u200d🏫\n\n٣) اَلتَّنْوِينُ ـٌ:\nبَيْتٌ · بَابٌ · كِتَابٌ\nعَلَامَةُ النَّكِرَةِ (a / an)",
         hint: "These classroom tools let you operate in Arabic from today: ask what a word means, ask how to say something, say you don't understand, request a repeat. Use them in every lesson from now on.",
       },
@@ -85,59 +107,9 @@ export const CURRICULUM = {
       productionEn: "Write five sentences: two questions with مَا هَذَا؟ / مَنْ هَذَا؟ with their answers, and one question to your teacher using the classroom tools",
     },
     {
-      id: "l28",
-      title: "اَلشَّمْسِيَّةُ وَالْقَمَرِيَّةُ",
-      subtitle: "اَلدَّرْسُ الثَّانِي",
-      vocab: [
-        { ar: "اَلشَّمْسُ", emoji: "☀️", en: "the sun (a solar letter word)" },
-        { ar: "اَلْقَمَرُ", emoji: "🌙", en: "the moon (a lunar letter word)" },
-        { ar: "اَلنَّجْمُ", emoji: "⭐", en: "the star" },
-        { ar: "اَلرَّجُلُ", emoji: "🧔", en: "the man" },
-        { ar: "اَلطَّالِبُ", emoji: "🧑\u200d🎓" },
-        { ar: "اَلدَّرْسُ", emoji: "📚" },
-        { ar: "اَلْبَيْتُ", emoji: "🏠" },
-        { ar: "اَلْكِتَابُ", emoji: "📖" },
-        { ar: "اَلْمَسْجِدُ", emoji: "🕌" },
-        { ar: "اَلْوَلَدُ", emoji: "👦" },
-        { ar: "شَدَّةٌ", emoji: "◌ّ", en: "the doubling mark" },
-        { ar: "حَرْفٌ", emoji: "🔤", en: "a letter" },
-      ],
-      examples: [
-        { ar: "اَلشَّمْسُ — نَقُولُ: أَشْ-شَمْسُ", emoji: "☀️ ◌ّ" },
-        { ar: "اَلْقَمَرُ — نَقُولُ: أَلْ-قَمَرُ", emoji: "🌙 ✅" },
-        { ar: "اَلرَّجُلُ — أَرْ-رَجُلُ", emoji: "🧔 ◌ّ" },
-        { ar: "اَلْبَيْتُ — أَلْ-بَيْتُ", emoji: "🏠 ✅" },
-        { ar: "اَلطَّالِبُ فِي الْفَصْلِ", emoji: "🧑\u200d🎓 🪟" },
-        { ar: "اَلنَّجْمُ فِي السَّمَاءِ", emoji: "⭐ 🌌" },
-      ],
-      rule: {
-        name: "لَامُ التَّعْرِيفِ: تُنْطَقُ أَوْ تُدْغَمُ",
-        ar: "حُرُوفُ الْعَرَبِيَّةِ ٢٨: نِصْفُهَا شَمْسِيَّةٌ ☀️ وَنِصْفُهَا قَمَرِيَّةٌ 🌙\n\n١) اَلْقَمَرِيَّةُ: تُنْطَقُ اللَّامُ\nاَلْقَمَرُ = أَلْ-قَمَرُ 🌙 · اَلْبَيْتُ = أَلْ-بَيْتُ\nحُرُوفُهَا: ا ب ج ح خ ع غ ف ق ك م ه و ي\n\n٢) اَلشَّمْسِيَّةُ: تُدْغَمُ اللَّامُ وَتُشَدَّدُ ◌ّ\nاَلشَّمْسُ = أَشْ-شَمْسُ ☀️ · اَلرَّجُلُ = أَرْ-رَجُلُ\nحُرُوفُهَا: ت ث د ذ ر ز س ش ص ض ط ظ ل ن\n\n⚠️ اَلْكِتَابَةُ لَا تَتَغَيَّرُ — اَلنُّطْقُ فَقَطْ\nوَعَلَامَتُهَا الشَّدَّةُ عَلَى الْحَرْفِ الْأَوَّلِ",
-        hint: "The 28 letters split in half. After الـ, a LUNAR letter keeps the lam pronounced (al-qamar). A SOLAR letter absorbs it and doubles instead (ash-shams). Spelling never changes — only sound. The shaddah is the sign.",
-      },
-      drills: [
-        { t: "mcq", q: "☀️ اَلشَّمْسُ — كَيْفَ نَنْطِقُهَا؟", options: ["أَشْ-شَمْسُ", "أَلْ-شَمْسُ", "أَشْ-لَمْسُ", "أَلْ-سَمْسُ"], a: "أَشْ-شَمْسُ" },
-        { t: "mcq", q: "🌙 اَلْقَمَرُ — كَيْفَ نَنْطِقُهَا؟", options: ["أَلْ-قَمَرُ", "أَقْ-قَمَرُ", "أَلْ-كَمَرُ", "أَقْ-مَرُ"], a: "أَلْ-قَمَرُ" },
-        { t: "mcq", q: "🧔 اَلرَّجُلُ — أَيُّ نَوْعٍ؟", options: ["شَمْسِيَّةٌ ☀️", "قَمَرِيَّةٌ 🌙", "لَا شَيْءَ", "الِاثْنَانِ"], a: "شَمْسِيَّةٌ ☀️" },
-        { t: "mcq", q: "🏠 اَلْبَيْتُ — أَيُّ نَوْعٍ؟", options: ["قَمَرِيَّةٌ 🌙", "شَمْسِيَّةٌ ☀️", "لَا شَيْءَ", "الِاثْنَانِ"], a: "قَمَرِيَّةٌ 🌙" },
-        { t: "mcq", q: "📚 اَلدَّرْسُ — أَيُّ نَوْعٍ؟", options: ["شَمْسِيَّةٌ ☀️", "قَمَرِيَّةٌ 🌙", "لَا شَيْءَ", "الِاثْنَانِ"], a: "شَمْسِيَّةٌ ☀️" },
-        { t: "mcq", q: "📖 اَلْكِتَابُ — أَيُّ نَوْعٍ؟", options: ["قَمَرِيَّةٌ 🌙", "شَمْسِيَّةٌ ☀️", "لَا شَيْءَ", "الِاثْنَانِ"], a: "قَمَرِيَّةٌ 🌙" },
-        { t: "mcq", q: "🧑\u200d🎓 اَلطَّالِبُ", options: ["أَطْ-طَالِبُ", "أَلْ-طَالِبُ", "أَتْ-تَالِبُ", "أَلْ-تَالِبُ"], a: "أَطْ-طَالِبُ" },
-        { t: "mcq", q: "🕌 اَلْمَسْجِدُ", options: ["أَلْ-مَسْجِدُ", "أَمْ-مَسْجِدُ", "أَلْ-نَسْجِدُ", "أَسْ-مَسْجِدُ"], a: "أَلْ-مَسْجِدُ" },
-        { t: "mcq", q: "⭐ اَلنَّجْمُ", options: ["أَنْ-نَجْمُ", "أَلْ-نَجْمُ", "أَنْ-لَجْمُ", "أَلْ-جَمْنُ"], a: "أَنْ-نَجْمُ" },
-        { t: "mcq", q: "مَا عَلَامَةُ الشَّمْسِيَّةِ فِي الْكِتَابَةِ؟", options: ["اَلشَّدَّةُ ◌ّ", "اَلسُّكُونُ ◌ْ", "اَلتَّنْوِينُ ـٌ", "لَا عَلَامَةَ"], a: "اَلشَّدَّةُ ◌ّ" },
-        { t: "mcq", q: "كَمْ حَرْفًا فِي الْعَرَبِيَّةِ؟", options: ["ثَمَانِيَةٌ وَعِشْرُونَ", "أَرْبَعَةٌ وَعِشْرُونَ", "ثَلَاثُونَ", "سِتَّةٌ وَعِشْرُونَ"], a: "ثَمَانِيَةٌ وَعِشْرُونَ" },
-        { t: "mcq", q: "👦 اَلْوَلَدُ", options: ["أَلْ-وَلَدُ", "أَوْ-وَلَدُ", "أَلْ-بَلَدُ", "أَدْ-دَلَدُ"], a: "أَلْ-وَلَدُ" },
-        { t: "assemble", q: "⭐ 🌌", chips: ["اَلنَّجْمُ", "فِي", "السَّمَاءِ"], a: "اَلنَّجْمُ فِي السَّمَاءِ" },
-        { t: "assemble", q: "🧑\u200d🎓 🪟", chips: ["اَلطَّالِبُ", "فِي", "الْفَصْلِ"], a: "اَلطَّالِبُ فِي الْفَصْلِ" },
-      ],
-      production: "اُكْتُبْ خَمْسَ كَلِمَاتٍ بِـ «الـ»: ثَلَاثًا شَمْسِيَّةً وَاثْنَتَيْنِ قَمَرِيَّةً، وَبَيِّنِ النُّطْقَ ✍️",
-      productionEn: "Write five words with الـ: three solar and two lunar, showing how each is pronounced",
-    },
-    {
       id: "l2",
       title: "ذَلِكَ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ",
+      subtitle: "اَلدَّرْسُ الثَّانِي",
       vocab: [
         { ar: "رَجُلٌ", emoji: "👨" },
         { ar: "وَلَدٌ", emoji: "👦" },
@@ -162,6 +134,24 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "«هَذَا» وَ «ذَلِكَ» — «مَا» وَ «مَنْ»",
+        teach: [
+          {
+            say: "You know هَذَا for something NEAR you. For something FAR from you — across the room, down the street — Arabic uses a different word: ذَلِكَ.",
+            show: "هَذَا 👉 near\nذَلِكَ 👉🔭 far",
+          },
+          {
+            say: "Everything else in the sentence stays exactly the same. Only the pointing word changes.",
+            show: "هَذَا بَيْتٌ = this is a house\nذَلِكَ بَيْتٌ = that is a house",
+          },
+          {
+            say: "Now you can contrast two things in one sentence, using وَ which means 'and'. Notice وَ is written joined to the next word, never standing alone.",
+            show: "هَذَا بَيْتٌ وَذَلِكَ مَسْجِدٌ\n= this is a house and that is a mosque",
+          },
+          {
+            say: "One spelling note worth knowing now: هَذَا and ذَلِكَ are both pronounced with a long 'aa' — haadhaa, dhaalika — but the alif is not written. Do not be confused when you see them.",
+            show: "هَذَا (يُنْطَقُ هَاذَا)\nذَلِكَ (يُنْطَقُ ذَالِكَ)",
+          },
+        ],
         ar: "هَذَا 👉 قَرِيبٌ … ذَلِكَ 👈 بَعِيدٌ\nمَنْ؟ ← 🧑 لِلْعَاقِلِ\nمَا؟ ← 📦 لِغَيْرِ الْعَاقِلِ",
         hint: "هَذَا = this (near), ذَلِكَ = that (far). Ask مَنْ for people, مَا for things and animals.",
       },
@@ -181,9 +171,221 @@ export const CURRICULUM = {
       productionEn: "Write two sentences using «ذَلِكَ» (that) and one using «مَنْ» (who)",
     },
     {
+      id: "l3",
+      title: "اَلْمُبْتَدَأُ وَالْخَبَرُ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ",
+      vocab: [
+        { ar: "كَبِيرٌ", emoji: "🐘", en: "big" },
+        { ar: "صَغِيرٌ", emoji: "🐜", en: "small" },
+        { ar: "جَمِيلٌ", emoji: "🌸", en: "beautiful" },
+        { ar: "جَدِيدٌ", emoji: "✨", en: "new" },
+        { ar: "قَدِيمٌ", emoji: "🏚️", en: "old (thing)" },
+        { ar: "مَفْتُوحٌ", emoji: "📂", en: "open" },
+        { ar: "مَكْسُورٌ", emoji: "💔", en: "broken" },
+        { ar: "ثَقِيلٌ", emoji: "🏋️", en: "heavy" },
+        { ar: "خَفِيفٌ", en: "light (weight)", emoji: "🎈" },
+        { ar: "وَسِخٌ", emoji: "🧹", en: "dirty" },
+      ],
+      examples: [
+        { ar: "هَذَا بَيْتٌ", emoji: "👉 🏠" },
+        { ar: "اَلْبَيْتُ كَبِيرٌ", emoji: "🏠 = 🐘" },
+        { ar: "هَذَا قَلَمٌ", emoji: "👉 ✏️" },
+        { ar: "اَلْقَلَمُ مَكْسُورٌ", emoji: "✏️ = 💔" },
+        { ar: "اَلْبَابُ مَفْتُوحٌ", emoji: "🚪 = 📂" },
+        { ar: "اَلْمَسْجِدُ جَمِيلٌ", emoji: "🕌 = 🌸" },
+        { ar: "اَلْكِتَابُ جَدِيدٌ وَالْقَلَمُ قَدِيمٌ", emoji: "📖 = ✨ ، ✏️ = 🏚️" },
+      ],
+      rule: {
+        name: "اَلْجُمْلَةُ الاِسْمِيَّةُ: مُبْتَدَأٌ + خَبَرٌ",
+        teach: [
+          {
+            say: "So far every word has ended with tanwin: بَيْتٌ = A house. Now we learn how to say THE house. Arabic puts الـ on the FRONT of the word.",
+            show: "بَيْتٌ = a house\nاَلْبَيْتُ = the house",
+          },
+          {
+            say: "Look carefully at what happened to the ending. When الـ goes on the front, the tanwin ٌ disappears and only ONE damma ُ is left. A word never carries الـ and tanwin at the same time.",
+            show: "بَيْتٌ ← اَلْبَيْتُ ✅",
+            warn: "❌ اَلْبَيْتٌ — never both",
+          },
+          {
+            say: "Now we can build a real sentence. Take a definite word, then follow it with an indefinite one, and you have said something complete.",
+            show: "اَلْبَيْتُ كَبِيرٌ\n= the house (is) big",
+          },
+          {
+            say: "The grammarians give these two parts names. The first is المُبْتَدَأ — literally 'the one begun with'. The second is الخَبَر — 'the news', what you are telling us about it.",
+            show: "اَلْبَيْتُ    كَبِيرٌ\nمُبْتَدَأٌ   خَبَرٌ",
+          },
+          {
+            say: "The pattern is always the same: DEFINITE first, INDEFINITE second. If you make both definite you no longer have a sentence — just a phrase.",
+            show: "اَلْبَيْتُ كَبِيرٌ = the house is big ✅\nاَلْبَيْتُ الْكَبِيرُ = the big house (not a sentence)",
+          },
+        ],
+        ar: "اَلْبَيْتُ كَبِيرٌ\n⬆ مُبْتَدَأٌ (اَلْـ + ـُ) … ⬆ خَبَرٌ (ـٌ)\nاَلْمُبْتَدَأُ: مَعْرِفَةٌ بِـ «اَلْـ» وَمَرْفُوعٌ\nاَلْخَبَرُ: نَكِرَةٌ بِالتَّنْوِينِ وَمَرْفُوعٌ",
+        hint: "The nominal sentence: مُبْتَدَأ (subject, with الـ and damma) + خَبَر (predicate, with tanwin). البيتُ كبيرٌ = The house is big.",
+      },
+      drills: [
+        { t: "mcq", q: "🐜", options: ["صَغِيرٌ", "كَبِيرٌ", "ثَقِيلٌ", "قَدِيمٌ"], a: "صَغِيرٌ" },
+        { t: "mcq", q: "🎈", options: ["خَفِيفٌ", "ثَقِيلٌ", "مَكْسُورٌ", "جَمِيلٌ"], a: "خَفِيفٌ" },
+        { t: "mcq", q: "🏠 = 🐘", options: ["اَلْبَيْتُ كَبِيرٌ", "هَذَا بَيْتٌ", "اَلْبَيْتُ صَغِيرٌ", "بَيْتٌ كَبِيرٌ"], a: "اَلْبَيْتُ كَبِيرٌ" },
+        { t: "mcq", q: "🚪 = 📂", options: ["اَلْبَابُ مَفْتُوحٌ", "اَلْبَابُ مَكْسُورٌ", "هَذَا بَابٌ", "اَلْبَيْتُ مَفْتُوحٌ"], a: "اَلْبَابُ مَفْتُوحٌ" },
+        { t: "mcq", q: "أَيْنَ الْمُبْتَدَأُ؟ ← «اَلْقَمَرُ جَمِيلٌ»", options: ["اَلْقَمَرُ", "جَمِيلٌ", "اَلْـ", "هَذَا"], a: "اَلْقَمَرُ" },
+        { t: "mcq", q: "أَيْنَ الْخَبَرُ؟ ← «اَلْكُرْسِيُّ ثَقِيلٌ»", options: ["ثَقِيلٌ", "اَلْكُرْسِيُّ", "اَلْـ", "ذَلِكَ"], a: "ثَقِيلٌ" },
+        { t: "mcq", q: "✅ اَلْجُمْلَةُ الصَّحِيحَةُ؟", options: ["اَلْكِتَابُ جَدِيدٌ", "اَلْكِتَابُ الْجَدِيدُ", "كِتَابٌ الْجَدِيدُ", "اَلْكِتَابٌ جَدِيدُ"], a: "اَلْكِتَابُ جَدِيدٌ" },
+        { t: "mcq", q: "🕌 = 🌸", options: ["اَلْمَسْجِدُ جَمِيلٌ", "اَلْمَسْجِدُ وَسِخٌ", "مَسْجِدٌ جَمِيلٌ", "هَذَا مَسْجِدٌ"], a: "اَلْمَسْجِدُ جَمِيلٌ" },
+        { t: "assemble", q: "🛏️ = ✨", chips: ["اَلسَّرِيرُ", "جَدِيدٌ"], a: "اَلسَّرِيرُ جَدِيدٌ" },
+        { t: "assemble", q: "💧 = 🧹❌", chips: ["اَلْمَاءُ", "وَسِخٌ"], a: "اَلْمَاءُ وَسِخٌ" },
+      ],
+      production: "اُكْتُبْ ثَلَاثَ جُمَلٍ اِسْمِيَّةٍ: مُبْتَدَأٌ + خَبَرٌ ✍️ (🏠 🚪 📖 ✏️ 🐎 ...)",
+      productionEn: "Write three nominal sentences: subject (مبتدأ) + predicate (خبر)",
+    },
+    {
+      id: "l28",
+      title: "اَلشَّمْسِيَّةُ وَالْقَمَرِيَّةُ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ",
+      vocab: [
+        { ar: "اَلشَّمْسُ", emoji: "☀️", en: "the sun (a solar letter word)" },
+        { ar: "اَلْقَمَرُ", emoji: "🌙", en: "the moon (a lunar letter word)" },
+        { ar: "اَلنَّجْمُ", emoji: "⭐", en: "the star" },
+        { ar: "اَلرَّجُلُ", emoji: "🧔", en: "the man" },
+        { ar: "اَلطَّالِبُ", emoji: "🧑\u200d🎓" },
+        { ar: "اَلدَّرْسُ", emoji: "📚" },
+        { ar: "اَلْبَيْتُ", emoji: "🏠" },
+        { ar: "اَلْكِتَابُ", emoji: "📖" },
+        { ar: "اَلْمَسْجِدُ", emoji: "🕌" },
+        { ar: "اَلْوَلَدُ", emoji: "👦" },
+        { ar: "شَدَّةٌ", emoji: "◌ّ", en: "the doubling mark" },
+        { ar: "حَرْفٌ", emoji: "🔤", en: "a letter" },
+      ],
+      examples: [
+        { ar: "اَلشَّمْسُ — نَقُولُ: أَشْ-شَمْسُ", emoji: "☀️ ◌ّ" },
+        { ar: "اَلْقَمَرُ — نَقُولُ: أَلْ-قَمَرُ", emoji: "🌙 ✅" },
+        { ar: "اَلرَّجُلُ — أَرْ-رَجُلُ", emoji: "🧔 ◌ّ" },
+        { ar: "اَلْبَيْتُ — أَلْ-بَيْتُ", emoji: "🏠 ✅" },
+        { ar: "اَلطَّالِبُ فِي الْفَصْلِ", emoji: "🧑\u200d🎓 🪟" },
+        { ar: "اَلنَّجْمُ فِي السَّمَاءِ", emoji: "⭐ 🌌" },
+      ],
+      rule: {
+        name: "لَامُ التَّعْرِيفِ: تُنْطَقُ أَوْ تُدْغَمُ",
+        teach: [
+          {
+            say: "You have just learned الـ. Now the surprise: الـ is not always PRONOUNCED the same way, even though it is always WRITTEN the same way.",
+            show: "اَلْقَمَرُ = al-qamar 🌙\nاَلشَّمْسُ = ash-shams ☀️",
+          },
+          {
+            say: "In الْقَمَر you can hear the L clearly: al-qamar. In الشَّمْس the L vanishes and the SH doubles instead: ash-shams. Say them both aloud now.",
+            show: "أَلْ-قَمَرُ 🌙\nأَشْ-شَمْسُ ☀️",
+          },
+          {
+            say: "Which happens depends on the first letter of the word. The 28 letters split into two halves, named after these very two examples: MOON letters and SUN letters.",
+            show: "قَمَرِيَّةٌ 🌙 — the L is heard\nشَمْسِيَّةٌ ☀️ — the L disappears",
+          },
+          {
+            say: "You do not have to memorise both lists. Memorise the sun letters and everything else is a moon letter. Notice they are all made near the front of the mouth — that is why the L merges into them.",
+            show: "اَلشَّمْسِيَّةُ:\nت ث د ذ ر ز س ش ص ض ط ظ ل ن",
+          },
+          {
+            say: "And there is a written clue. When the L merges, a shadda ّ appears on the first letter of the word. See a shadda after الـ and you know: this is a sun letter, do not pronounce the L.",
+            show: "اَلشَّمْسُ · اَلرَّجُلُ · اَلنَّجْمُ\n(كُلُّهَا بِالشَّدَّةِ ّ)",
+          },
+          {
+            say: "The spelling never changes — only your tongue changes. This one habit will make your recitation sound immediately more correct.",
+            show: "اَلطَّالِبُ = at-taalib\nاَلْمَسْجِدُ = al-masjid",
+          },
+        ],
+        ar: "حُرُوفُ الْعَرَبِيَّةِ ٢٨: نِصْفُهَا شَمْسِيَّةٌ ☀️ وَنِصْفُهَا قَمَرِيَّةٌ 🌙\n\n١) اَلْقَمَرِيَّةُ: تُنْطَقُ اللَّامُ\nاَلْقَمَرُ = أَلْ-قَمَرُ 🌙 · اَلْبَيْتُ = أَلْ-بَيْتُ\nحُرُوفُهَا: ا ب ج ح خ ع غ ف ق ك م ه و ي\n\n٢) اَلشَّمْسِيَّةُ: تُدْغَمُ اللَّامُ وَتُشَدَّدُ ◌ّ\nاَلشَّمْسُ = أَشْ-شَمْسُ ☀️ · اَلرَّجُلُ = أَرْ-رَجُلُ\nحُرُوفُهَا: ت ث د ذ ر ز س ش ص ض ط ظ ل ن\n\n⚠️ اَلْكِتَابَةُ لَا تَتَغَيَّرُ — اَلنُّطْقُ فَقَطْ\nوَعَلَامَتُهَا الشَّدَّةُ عَلَى الْحَرْفِ الْأَوَّلِ",
+        hint: "The 28 letters split in half. After الـ, a LUNAR letter keeps the lam pronounced (al-qamar). A SOLAR letter absorbs it and doubles instead (ash-shams). Spelling never changes — only sound. The shaddah is the sign.",
+      },
+      drills: [
+        { t: "mcq", q: "☀️ اَلشَّمْسُ — كَيْفَ نَنْطِقُهَا؟", options: ["أَشْ-شَمْسُ", "أَلْ-شَمْسُ", "أَشْ-لَمْسُ", "أَلْ-سَمْسُ"], a: "أَشْ-شَمْسُ" },
+        { t: "mcq", q: "🌙 اَلْقَمَرُ — كَيْفَ نَنْطِقُهَا؟", options: ["أَلْ-قَمَرُ", "أَقْ-قَمَرُ", "أَلْ-كَمَرُ", "أَقْ-مَرُ"], a: "أَلْ-قَمَرُ" },
+        { t: "mcq", q: "🧔 اَلرَّجُلُ — أَيُّ نَوْعٍ؟", options: ["شَمْسِيَّةٌ ☀️", "قَمَرِيَّةٌ 🌙", "لَا شَيْءَ", "الِاثْنَانِ"], a: "شَمْسِيَّةٌ ☀️" },
+        { t: "mcq", q: "🏠 اَلْبَيْتُ — أَيُّ نَوْعٍ؟", options: ["قَمَرِيَّةٌ 🌙", "شَمْسِيَّةٌ ☀️", "لَا شَيْءَ", "الِاثْنَانِ"], a: "قَمَرِيَّةٌ 🌙" },
+        { t: "mcq", q: "📚 اَلدَّرْسُ — أَيُّ نَوْعٍ؟", options: ["شَمْسِيَّةٌ ☀️", "قَمَرِيَّةٌ 🌙", "لَا شَيْءَ", "الِاثْنَانِ"], a: "شَمْسِيَّةٌ ☀️" },
+        { t: "mcq", q: "📖 اَلْكِتَابُ — أَيُّ نَوْعٍ؟", options: ["قَمَرِيَّةٌ 🌙", "شَمْسِيَّةٌ ☀️", "لَا شَيْءَ", "الِاثْنَانِ"], a: "قَمَرِيَّةٌ 🌙" },
+        { t: "mcq", q: "🧑\u200d🎓 اَلطَّالِبُ", options: ["أَطْ-طَالِبُ", "أَلْ-طَالِبُ", "أَتْ-تَالِبُ", "أَلْ-تَالِبُ"], a: "أَطْ-طَالِبُ" },
+        { t: "mcq", q: "🕌 اَلْمَسْجِدُ", options: ["أَلْ-مَسْجِدُ", "أَمْ-مَسْجِدُ", "أَلْ-نَسْجِدُ", "أَسْ-مَسْجِدُ"], a: "أَلْ-مَسْجِدُ" },
+        { t: "mcq", q: "⭐ اَلنَّجْمُ", options: ["أَنْ-نَجْمُ", "أَلْ-نَجْمُ", "أَنْ-لَجْمُ", "أَلْ-جَمْنُ"], a: "أَنْ-نَجْمُ" },
+        { t: "mcq", q: "مَا عَلَامَةُ الشَّمْسِيَّةِ فِي الْكِتَابَةِ؟", options: ["اَلشَّدَّةُ ◌ّ", "اَلسُّكُونُ ◌ْ", "اَلتَّنْوِينُ ـٌ", "لَا عَلَامَةَ"], a: "اَلشَّدَّةُ ◌ّ" },
+        { t: "mcq", q: "كَمْ حَرْفًا فِي الْعَرَبِيَّةِ؟", options: ["ثَمَانِيَةٌ وَعِشْرُونَ", "أَرْبَعَةٌ وَعِشْرُونَ", "ثَلَاثُونَ", "سِتَّةٌ وَعِشْرُونَ"], a: "ثَمَانِيَةٌ وَعِشْرُونَ" },
+        { t: "mcq", q: "👦 اَلْوَلَدُ", options: ["أَلْ-وَلَدُ", "أَوْ-وَلَدُ", "أَلْ-بَلَدُ", "أَدْ-دَلَدُ"], a: "أَلْ-وَلَدُ" },
+        { t: "assemble", q: "⭐ 🌌", chips: ["اَلنَّجْمُ", "فِي", "السَّمَاءِ"], a: "اَلنَّجْمُ فِي السَّمَاءِ" },
+        { t: "assemble", q: "🧑\u200d🎓 🪟", chips: ["اَلطَّالِبُ", "فِي", "الْفَصْلِ"], a: "اَلطَّالِبُ فِي الْفَصْلِ" },
+      ],
+      production: "اُكْتُبْ خَمْسَ كَلِمَاتٍ بِـ «الـ»: ثَلَاثًا شَمْسِيَّةً وَاثْنَتَيْنِ قَمَرِيَّةً، وَبَيِّنِ النُّطْقَ ✍️",
+      productionEn: "Write five words with الـ: three solar and two lunar, showing how each is pronounced",
+    },
+    {
+      id: "l4",
+      title: "حُرُوفُ الْجَرِّ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ",
+      vocab: [
+        { ar: "مَكْتَبٌ", emoji: "🗄️" },
+        { ar: "مَطْبَخٌ", emoji: "🍳" },
+        { ar: "شَارِعٌ", emoji: "🛣️" },
+        { ar: "جَبَلٌ", emoji: "⛰️" },
+        { ar: "حَقْلٌ", emoji: "🌾" },
+        { ar: "جِدَارٌ", emoji: "🧱" },
+        { ar: "سَقْفٌ", emoji: "🔝" },
+        { ar: "فِي", emoji: "📦⬅️🔵" },
+        { ar: "عَلَى", emoji: "🔵⬆️📦" },
+        { ar: "أَيْنَ؟", emoji: "📍❓" },
+      ],
+      examples: [
+        { ar: "أَيْنَ الْكِتَابُ؟", emoji: "📖 📍❓" },
+        { ar: "اَلْكِتَابُ عَلَى الْمَكْتَبِ", emoji: "📖 ⬆️ 🗄️" },
+        { ar: "أَيْنَ الْقِطُّ؟", emoji: "🐈 📍❓" },
+        { ar: "اَلْقِطُّ فِي الْمَطْبَخِ", emoji: "🐈 ⬅️ 🍳" },
+        { ar: "اَلرَّجُلُ فِي الْمَسْجِدِ", emoji: "👨 ⬅️ 🕌" },
+        { ar: "اَلدِّيكُ عَلَى الْجِدَارِ", emoji: "🐓 ⬆️ 🧱" },
+        { ar: "اَلْحِصَانُ فِي الْحَقْلِ", emoji: "🐎 ⬅️ 🌾" },
+      ],
+      rule: {
+        name: "حَرْفُ الْجَرِّ + اَلاِسْمُ الْمَجْرُورُ",
+        teach: [
+          {
+            say: "Now we place things. Arabic uses small words like فِي (in) and عَلَى (on) exactly where English does — but something happens to the word AFTER them.",
+            show: "اَلْبَيْتُ = the house\nفِي الْبَيْتِ = in the house",
+          },
+          {
+            say: "Look at the ending. On its own it was الْبَيْتُ with a damma. After فِي it became الْبَيْتِ with a kasra. The preposition changed the ending.",
+            show: "اَلْبَيْتُ ⬆️ ← alone\nفِي الْبَيْتِ ⬇️ ← after فِي",
+          },
+          {
+            say: "This happens after EVERY preposition, without exception. You will never see a damma directly after فِي، عَلَى، مِنْ، إِلَى، بِـ، لِـ.",
+            show: "عَلَى الْمَكْتَبِ ⬇️\nمِنَ الْمَسْجِدِ ⬇️\nإِلَى الْمَدْرَسَةِ ⬇️",
+            warn: "❌ فِي الْبَيْتُ — never a damma after a preposition",
+          },
+          {
+            say: "A word in this state has a name: مَجْرُور. Do not worry about the term yet — just remember the sound. After a preposition, the ending is 'i'.",
+            show: "فِي الْبَيْتِ\nاَلْبَيْتِ ← مَجْرُورٌ ⬇️",
+          },
+          {
+            say: "Now put it together with what you already know, and you can describe where anything is.",
+            show: "اَلْكِتَابُ عَلَى الْمَكْتَبِ\n= the book is on the desk",
+          },
+        ],
+        ar: "فِي / عَلَى + اِسْمٌ ← مَجْرُورٌ (ـِ)\nاَلْكِتَابُ عَلَى الْمَكْتَبِ\n⬆ ـُ مَرْفُوعٌ … ⬆ ـِ مَجْرُورٌ\nاَلسُّؤَالُ: أَيْنَ...؟ 📍",
+        hint: "Prepositions (في in, على on) pull kasra onto the noun after them — that noun is مَجْرُور. Ask location with أَيْنَ.",
+      },
+      drills: [
+        { t: "mcq", q: "⛰️", options: ["جَبَلٌ", "جِدَارٌ", "حَقْلٌ", "شَارِعٌ"], a: "جَبَلٌ" },
+        { t: "mcq", q: "🍳", options: ["مَطْبَخٌ", "مَكْتَبٌ", "سَقْفٌ", "بَيْتٌ"], a: "مَطْبَخٌ" },
+        { t: "mcq", q: "📖 ⬆️ 🗄️", options: ["اَلْكِتَابُ عَلَى الْمَكْتَبِ", "اَلْكِتَابُ فِي الْمَكْتَبِ", "اَلْمَكْتَبُ عَلَى الْكِتَابِ", "اَلْكِتَابُ عَلَى الْمَكْتَبُ"], a: "اَلْكِتَابُ عَلَى الْمَكْتَبِ" },
+        { t: "mcq", q: "🐈 ⬅️ 🍳", options: ["اَلْقِطُّ فِي الْمَطْبَخِ", "اَلْقِطُّ عَلَى الْمَطْبَخِ", "اَلْمَطْبَخُ فِي الْقِطِّ", "اَلْقِطُّ فِي الْمَطْبَخُ"], a: "اَلْقِطُّ فِي الْمَطْبَخِ" },
+        { t: "mcq", q: "✅ اَلصَّحِيحُ؟", options: ["اَلرَّجُلُ فِي الْمَسْجِدِ", "اَلرَّجُلُ فِي الْمَسْجِدُ", "اَلرَّجُلِ فِي الْمَسْجِدِ", "اَلرَّجُلُ فِي مَسْجِدُ"], a: "اَلرَّجُلُ فِي الْمَسْجِدِ" },
+        { t: "mcq", q: "🐎 📍❓ … السُّؤَالُ؟", options: ["أَيْنَ الْحِصَانُ؟", "مَا الْحِصَانُ؟", "مَنْ الْحِصَانُ؟", "أَهَذَا حِصَانٌ؟"], a: "أَيْنَ الْحِصَانُ؟" },
+        { t: "mcq", q: "أَيْنَ الدِّيكُ؟ 🐓 ⬆️ 🧱", options: ["اَلدِّيكُ عَلَى الْجِدَارِ", "اَلدِّيكُ فِي الْجِدَارِ", "اَلدِّيكُ عَلَى السَّقْفِ", "اَلْجِدَارُ عَلَى الدِّيكِ"], a: "اَلدِّيكُ عَلَى الْجِدَارِ" },
+        { t: "mcq", q: "اَلاِسْمُ الْمَجْرُورُ؟ ← «اَلْوَلَدُ فِي الشَّارِعِ»", options: ["اَلشَّارِعِ", "اَلْوَلَدُ", "فِي", "اَلْـ"], a: "اَلشَّارِعِ" },
+        { t: "assemble", q: "👨 ⬅️ 🌾", chips: ["اَلرَّجُلُ", "فِي", "الْحَقْلِ"], a: "اَلرَّجُلُ فِي الْحَقْلِ" },
+        { t: "assemble", q: "⭐ 📍❓", chips: ["أَيْنَ", "النَّجْمُ؟"], a: "أَيْنَ النَّجْمُ؟" },
+      ],
+      production: "أَيْنَ الْأَشْيَاءُ فِي بَيْتِكَ؟ اُكْتُبْ ثَلَاثَ جُمَلٍ بِـ «فِي» وَ «عَلَى» ✍️",
+      productionEn: "Where are things in your house? Write three sentences using «فِي» (in) and «عَلَى» (on)",
+    },
+    {
       id: "l6",
       title: "اَلْمَدْرَسَةُ",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ",
       vocab: [
         { ar: "مَدْرَسَةٌ", emoji: "🏫" },
         { ar: "مُعَلِّمٌ", emoji: "👨\u200d🏫" },
@@ -210,6 +412,29 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "هَذَا وَهَذِهِ",
+        teach: [
+          {
+            say: "Every Arabic noun is either masculine or feminine — not only people, but objects too. A book is masculine; a school is feminine. You must learn each word's gender with the word itself.",
+            show: "كِتَابٌ 📖 مُذَكَّرٌ\nمَدْرَسَةٌ 🏫 مُؤَنَّثٌ",
+          },
+          {
+            say: "Most of the time there is a clear sign. Look at the last letter: if a word ends in ة, it is almost always feminine.",
+            show: "مَدْرَسَةٌ · حَقِيبَةٌ · كُرَّاسَةٌ\nكُلُّهَا مُؤَنَّثَةٌ",
+          },
+          {
+            say: "And now the point of the lesson: هَذَا is only for masculine words. For a feminine word you must say هَذِهِ.",
+            show: "هَذَا كِتَابٌ 📖\nهَذِهِ مَدْرَسَةٌ 🏫",
+            warn: "❌ هَذَا مَدْرَسَةٌ",
+          },
+          {
+            say: "Half the words in this lesson are feminine — school, notebook, bag, blackboard, library — so you will use هَذِهِ constantly when describing a classroom.",
+            show: "هَذِهِ سَبُّورَةٌ 🖼️\nهَذِهِ حَقِيبَةٌ 🎒\nهَذَا مَكْتَبٌ 🗄️",
+          },
+          {
+            say: "The test is simple: look for the ة at the end. If it is there, use هَذِهِ. If not, use هَذَا. Later you will meet a few feminine words without ة — but that comes next lesson.",
+            show: "◌ة ← هَذِهِ\nبِلَا ة ← هَذَا",
+          },
+        ],
         ar: "لِلْمُذَكَّرِ: هَذَا 👈 هَذَا مُعَلِّمٌ 👨\u200d🏫 · هَذَا كِتَابٌ 📖\nلِلْمُؤَنَّثِ: هَذِهِ 👈 هَذِهِ مَدْرَسَةٌ 🏫 · هَذِهِ كُرَّاسَةٌ 📓\nعَلَامَةُ الْمُؤَنَّثِ: التَّاءُ الْمَرْبُوطَةُ ة",
         hint: "Words ending in ة are feminine and take هَذِهِ. Everything else takes هَذَا.",
       },
@@ -234,7 +459,7 @@ export const CURRICULUM = {
     {
       id: "l43",
       title: "اَلتَّذْكِيرُ وَالتَّأْنِيثُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ",
       vocab: [
         { ar: "مُذَكَّرٌ", emoji: "🧔", en: "masculine" },
         { ar: "مُؤَنَّثٌ", emoji: "👩", en: "feminine" },
@@ -263,6 +488,38 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "خَرِيطَةُ التَّذْكِيرِ وَالتَّأْنِيثِ",
+        teach: [
+          {
+            say: "Last lesson you learned the ة sign. But some feminine words have NO ة at all, and you simply have to know them. Let us gather the whole system in one place so nothing surprises you later.",
+            show: "ثَلَاثُ عَلَامَاتٍ ظَاهِرَةٍ:\nة · ى · اء",
+          },
+          {
+            say: "First the visible signs. Most feminine words end in ة. A few end in a shortened alif ى, and a few in اء.",
+            show: "مُعَلِّمَةٌ (ة)\nكُبْرَى · حُبْلَى (ى)\nصَحْرَاءُ · حَمْرَاءُ (اء)",
+          },
+          {
+            say: "Now the group you must memorise: feminine words with no sign whatsoever. Body parts that come in PAIRS are all feminine.",
+            show: "يَدٌ ✋ · عَيْنٌ 👁️ · أُذُنٌ 👂 · رِجْلٌ 🦵",
+          },
+          {
+            say: "And a short list of well-known nouns is feminine by convention. Learn these seven now and you will avoid most mistakes.",
+            show: "شَمْسٌ ☀️ · نَارٌ 🔥 · أَرْضٌ 🌍\nنَفْسٌ 🫀 · رِيحٌ 💨 · حَرْبٌ ⚔️ · دَارٌ 🏘️",
+          },
+          {
+            say: "There is also a trap in the other direction: three famous MEN'S names end in ة but are masculine. Never call them feminine.",
+            show: "حَمْزَةُ · أُسَامَةُ · مُعَاوِيَةُ",
+            warn: "❌ حَمْزَةُ طَالِبَةٌ\n✅ حَمْزَةُ طَالِبٌ",
+          },
+          {
+            say: "Finally, the rule with the widest reach in the whole language. A plural of NON-HUMAN things is treated as a single feminine word. Books are 'she', not 'they'.",
+            show: "اَلْكُتُبُ جَدِيدَةٌ 📚 ✅\nاَلْمَسَاجِدُ كَبِيرَةٌ 🕌 ✅",
+            warn: "❌ اَلْكُتُبُ جَدِيدُونَ",
+          },
+          {
+            say: "But plurals of PEOPLE behave normally. Keep these two apart and your Arabic will immediately sound correct.",
+            show: "اَلطُّلَّابُ مُجْتَهِدُونَ 🧑\u200d🎓 (عَاقِلٌ)\nاَلْكُتُبُ جَدِيدَةٌ 📚 (غَيْرُ عَاقِلٍ)",
+          },
+        ],
         ar: "أَوَّلًا: عَلَامَاتُ التَّأْنِيثِ الظَّاهِرَةُ\n١) اَلتَّاءُ الْمَرْبُوطَةُ ة: مُعَلِّمَةٌ · مَدْرَسَةٌ · سَيَّارَةٌ\n٢) اَلْأَلِفُ الْمَقْصُورَةُ ى: حُبْلَى 🤰 · كُبْرَى\n٣) اَلْأَلِفُ الْمَمْدُودَةُ اء: صَحْرَاءُ 🏜️ · حَمْرَاءُ\n\nثَانِيًا: مُؤَنَّثٌ بِلَا عَلَامَةٍ (يُحْفَظُ)\n• أَعْضَاءُ الْجِسْمِ الْمُزْدَوِجَةُ: يَدٌ ✋ عَيْنٌ 👁️ أُذُنٌ 👂 رِجْلٌ\n• أَسْمَاءٌ مَعْرُوفَةٌ: شَمْسٌ ☀️ نَارٌ 🔥 أَرْضٌ 🌍 نَفْسٌ 🫀 رِيحٌ 💨 حَرْبٌ ⚔️ دَارٌ 🏘️ بِئْرٌ\n• أَسْمَاءُ الْبُلْدَانِ وَالْمُدُنِ: مَكَّةُ 🕋 مِصْرُ 🇪🇬\n• أَسْمَاءُ النِّسَاءِ: مَرْيَمُ · زَيْنَبُ\n\nثَالِثًا: تَاءٌ لَكِنَّهُ مُذَكَّرٌ ⚠️\nحَمْزَةُ · أُسَامَةُ · مُعَاوِيَةُ (أَسْمَاءُ رِجَالٍ)\n\nرَابِعًا: اَلْقَاعِدَةُ الْكُبْرَى\nجَمْعُ غَيْرِ الْعَاقِلِ ← مُؤَنَّثٌ مُفْرَدٌ:\nاَلْكُتُبُ جَدِيدَةٌ 📚 · اَلْمَسَاجِدُ كَبِيرَةٌ 🕌\n\nخَامِسًا: مَا يُذَكَّرُ وَيُؤَنَّثُ\nطَرِيقٌ 🛤️ · سُوقٌ 🏪 · سِكِّينٌ",
         hint: "Three visible signs (ة، ى، اء), then a set you must simply learn: paired body parts, sun/fire/earth/soul/wind/war, place names, women's names. Watch the trap: حمزة and أسامة end in ة but are men.",
       },
@@ -289,99 +546,80 @@ export const CURRICULUM = {
       productionEn: "Write six sentences: three with feminine nouns that have no ة, three with non-human plurals",
     },
     {
-      id: "l3",
-      title: "اَلْمُبْتَدَأُ وَالْخَبَرُ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ",
+      id: "l8",
+      title: "اَلْإِضَافَةُ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ",
       vocab: [
-        { ar: "كَبِيرٌ", emoji: "🐘", en: "big" },
-        { ar: "صَغِيرٌ", emoji: "🐜", en: "small" },
-        { ar: "جَمِيلٌ", emoji: "🌸", en: "beautiful" },
-        { ar: "جَدِيدٌ", emoji: "✨", en: "new" },
-        { ar: "قَدِيمٌ", emoji: "🏚️", en: "old (thing)" },
-        { ar: "مَفْتُوحٌ", emoji: "📂", en: "open" },
-        { ar: "مَكْسُورٌ", emoji: "💔", en: "broken" },
-        { ar: "ثَقِيلٌ", emoji: "🏋️", en: "heavy" },
-        { ar: "خَفِيفٌ", en: "light (weight)", emoji: "🎈" },
-        { ar: "وَسِخٌ", emoji: "🧹", en: "dirty" },
+        { ar: "مِفْتَاحُ الْبَابِ", emoji: "🔑🚪" },
+        { ar: "كِتَابُ الطَّالِبِ", emoji: "📖🧑\u200d🎓" },
+        { ar: "بَيْتُ الْمُعَلِّمِ", emoji: "🏠👨\u200d🏫" },
+        { ar: "بَابُ الْمَسْجِدِ", emoji: "🚪🕌" },
+        { ar: "قَلَمُ الْبِنْتِ", emoji: "✏️👧" },
+        { ar: "حَقِيبَةُ الْأُخْتِ", emoji: "🎒👧🧕" },
+        { ar: "سَيَّارَةٌ", emoji: "🚗" },
+        { ar: "غُرْفَةٌ", emoji: "🛋️" },
+        { ar: "مِفْتَاحٌ", emoji: "🔑" },
+        { ar: "نَافِذَةٌ", emoji: "🪟" },
       ],
       examples: [
-        { ar: "هَذَا بَيْتٌ", emoji: "👉 🏠" },
-        { ar: "اَلْبَيْتُ كَبِيرٌ", emoji: "🏠 = 🐘" },
-        { ar: "هَذَا قَلَمٌ", emoji: "👉 ✏️" },
-        { ar: "اَلْقَلَمُ مَكْسُورٌ", emoji: "✏️ = 💔" },
-        { ar: "اَلْبَابُ مَفْتُوحٌ", emoji: "🚪 = 📂" },
-        { ar: "اَلْمَسْجِدُ جَمِيلٌ", emoji: "🕌 = 🌸" },
-        { ar: "اَلْكِتَابُ جَدِيدٌ وَالْقَلَمُ قَدِيمٌ", emoji: "📖 = ✨ ، ✏️ = 🏚️" },
+        { ar: "هَذَا مِفْتَاحُ الْبَابِ", emoji: "🔑🚪" },
+        { ar: "هَذَا كِتَابُ الطَّالِبِ", emoji: "📖🧑\u200d🎓" },
+        { ar: "هَذِهِ حَقِيبَةُ الْأُخْتِ", emoji: "🎒👧🧕" },
+        { ar: "بَيْتُ الْمُعَلِّمِ كَبِيرٌ", emoji: "🏠👨\u200d🏫 🐘" },
+        { ar: "بَابُ الْمَسْجِدِ جَمِيلٌ", emoji: "🚪🕌 🌸" },
+        { ar: "سَيَّارَةُ الْأَبِ جَدِيدَةٌ", emoji: "🚗👨 ✨" },
+        { ar: "نَافِذَةُ الْغُرْفَةِ صَغِيرَةٌ", emoji: "🪟🛋️ 🐣" },
       ],
       rule: {
-        name: "اَلْجُمْلَةُ الاِسْمِيَّةُ: مُبْتَدَأٌ + خَبَرٌ",
-        ar: "اَلْبَيْتُ كَبِيرٌ\n⬆ مُبْتَدَأٌ (اَلْـ + ـُ) … ⬆ خَبَرٌ (ـٌ)\nاَلْمُبْتَدَأُ: مَعْرِفَةٌ بِـ «اَلْـ» وَمَرْفُوعٌ\nاَلْخَبَرُ: نَكِرَةٌ بِالتَّنْوِينِ وَمَرْفُوعٌ",
-        hint: "The nominal sentence: مُبْتَدَأ (subject, with الـ and damma) + خَبَر (predicate, with tanwin). البيتُ كبيرٌ = The house is big.",
+        name: "اَلْإِضَافَةُ: مُضَافٌ وَمُضَافٌ إِلَيْهِ",
+        teach: [
+          {
+            say: "How do you say 'the door of the house'? English uses 'of'. Arabic uses no word at all — you simply place the two nouns side by side.",
+            show: "بَابٌ + بَيْتٌ\n← بَابُ الْبَيْتِ 🚪🏠",
+          },
+          {
+            say: "Look closely at what happened to each word. The FIRST word lost its tanwin and took a single damma. The SECOND word took الـ and ends in kasra.",
+            show: "بَابُ الْبَيْتِ\n⬆️ بِلَا تَنْوِينٍ · ⬇️ بِالْكَسْرَةِ",
+          },
+          {
+            say: "This is the most common mistake beginners make. The first word can NEVER carry الـ, and can NEVER carry tanwin. It is already definite by position.",
+            show: "✅ بَابُ الْبَيْتِ",
+            warn: "❌ اَلْبَابُ الْبَيْتِ\n❌ بَابٌ الْبَيْتِ",
+          },
+          {
+            say: "The two parts have names. The first is المُضَاف — the thing owned. The second is المُضَاف إِلَيْه — the owner. And the owner is always مجرور, exactly like after a preposition.",
+            show: "بَابُ    الْبَيْتِ\nمُضَافٌ  مُضَافٌ إِلَيْهِ",
+          },
+          {
+            say: "You now have two ways to make a word definite: put الـ on it, or make it the first half of an إضافة. And you already use this every day — بِسْمِ اللهِ is an إضافة.",
+            show: "مِفْتَاحُ الْبَابِ 🔑\nكِتَابُ الطَّالِبِ 📖\nبِسْمِ اللهِ 🤲",
+          },
+        ],
+        ar: "مِفْتَاحُ الْبَابِ 🔑🚪\nمُضَافٌ (بِلَا الـ وَبِلَا تَنْوِينٍ) + مُضَافٌ إِلَيْهِ (مَجْرُورٌ ـِ)\n\n❌ اَلْمِفْتَاحُ الْبَابِ\n❌ مِفْتَاحٌ الْبَابِ\n✅ مِفْتَاحُ الْبَابِ\n\nاَلْأَوَّلُ يَتْرُكُ الـ وَالتَّنْوِينَ · اَلثَّانِي مَجْرُورٌ دَائِمًا",
+        hint: "In إضافة the first word never takes الـ or tanwin; the second word is always in the genitive (مجرور).",
       },
       drills: [
-        { t: "mcq", q: "🐜", options: ["صَغِيرٌ", "كَبِيرٌ", "ثَقِيلٌ", "قَدِيمٌ"], a: "صَغِيرٌ" },
-        { t: "mcq", q: "🎈", options: ["خَفِيفٌ", "ثَقِيلٌ", "مَكْسُورٌ", "جَمِيلٌ"], a: "خَفِيفٌ" },
-        { t: "mcq", q: "🏠 = 🐘", options: ["اَلْبَيْتُ كَبِيرٌ", "هَذَا بَيْتٌ", "اَلْبَيْتُ صَغِيرٌ", "بَيْتٌ كَبِيرٌ"], a: "اَلْبَيْتُ كَبِيرٌ" },
-        { t: "mcq", q: "🚪 = 📂", options: ["اَلْبَابُ مَفْتُوحٌ", "اَلْبَابُ مَكْسُورٌ", "هَذَا بَابٌ", "اَلْبَيْتُ مَفْتُوحٌ"], a: "اَلْبَابُ مَفْتُوحٌ" },
-        { t: "mcq", q: "أَيْنَ الْمُبْتَدَأُ؟ ← «اَلْقَمَرُ جَمِيلٌ»", options: ["اَلْقَمَرُ", "جَمِيلٌ", "اَلْـ", "هَذَا"], a: "اَلْقَمَرُ" },
-        { t: "mcq", q: "أَيْنَ الْخَبَرُ؟ ← «اَلْكُرْسِيُّ ثَقِيلٌ»", options: ["ثَقِيلٌ", "اَلْكُرْسِيُّ", "اَلْـ", "ذَلِكَ"], a: "ثَقِيلٌ" },
-        { t: "mcq", q: "✅ اَلْجُمْلَةُ الصَّحِيحَةُ؟", options: ["اَلْكِتَابُ جَدِيدٌ", "اَلْكِتَابُ الْجَدِيدُ", "كِتَابٌ الْجَدِيدُ", "اَلْكِتَابٌ جَدِيدُ"], a: "اَلْكِتَابُ جَدِيدٌ" },
-        { t: "mcq", q: "🕌 = 🌸", options: ["اَلْمَسْجِدُ جَمِيلٌ", "اَلْمَسْجِدُ وَسِخٌ", "مَسْجِدٌ جَمِيلٌ", "هَذَا مَسْجِدٌ"], a: "اَلْمَسْجِدُ جَمِيلٌ" },
-        { t: "assemble", q: "🛏️ = ✨", chips: ["اَلسَّرِيرُ", "جَدِيدٌ"], a: "اَلسَّرِيرُ جَدِيدٌ" },
-        { t: "assemble", q: "💧 = 🧹❌", chips: ["اَلْمَاءُ", "وَسِخٌ"], a: "اَلْمَاءُ وَسِخٌ" },
+        { t: "mcq", q: "🔑🚪", options: ["مِفْتَاحُ الْبَابِ", "اَلْمِفْتَاحُ الْبَابِ", "مِفْتَاحٌ الْبَابِ", "مِفْتَاحُ بَابٌ"], a: "مِفْتَاحُ الْبَابِ" },
+        { t: "mcq", q: "📖🧑\u200d🎓", options: ["كِتَابُ الطَّالِبِ", "اَلْكِتَابُ الطَّالِبِ", "كِتَابٌ الطَّالِبُ", "كِتَابُ الطَّالِبُ"], a: "كِتَابُ الطَّالِبِ" },
+        { t: "mcq", q: "🏠👨\u200d🏫", options: ["بَيْتُ الْمُعَلِّمِ", "بَيْتٌ الْمُعَلِّمِ", "اَلْبَيْتُ الْمُعَلِّمِ", "بَيْتُ الْمُعَلِّمُ"], a: "بَيْتُ الْمُعَلِّمِ" },
+        { t: "mcq", q: "✏️👧", options: ["قَلَمُ الْبِنْتِ", "قَلَمٌ الْبِنْتِ", "اَلْقَلَمُ الْبِنْتِ", "قَلَمُ الْبِنْتُ"], a: "قَلَمُ الْبِنْتِ" },
+        { t: "mcq", q: "أَيُّهَا خَطَأٌ؟ ❌", options: ["اَلْمِفْتَاحُ الْبَابِ", "مِفْتَاحُ الْبَابِ", "بَابُ الْمَسْجِدِ", "كِتَابُ الطَّالِبِ"], a: "اَلْمِفْتَاحُ الْبَابِ" },
+        { t: "mcq", q: "🚪🕌 🌸", options: ["بَابُ الْمَسْجِدِ جَمِيلٌ", "بَابُ الْمَسْجِدِ جَمِيلَةٌ", "اَلْبَابُ الْمَسْجِدِ جَمِيلٌ", "بَابٌ الْمَسْجِدِ جَمِيلٌ"], a: "بَابُ الْمَسْجِدِ جَمِيلٌ" },
+        { t: "mcq", q: "🚗👨 ✨", options: ["سَيَّارَةُ الْأَبِ جَدِيدَةٌ", "سَيَّارَةُ الْأَبِ جَدِيدٌ", "اَلسَّيَّارَةُ الْأَبِ جَدِيدَةٌ", "سَيَّارَةٌ الْأَبِ جَدِيدَةٌ"], a: "سَيَّارَةُ الْأَبِ جَدِيدَةٌ" },
+        { t: "mcq", q: "🎒👧🧕", options: ["حَقِيبَةُ الْأُخْتِ", "حَقِيبَةٌ الْأُخْتِ", "اَلْحَقِيبَةُ الْأُخْتِ", "حَقِيبَةُ الْأُخْتُ"], a: "حَقِيبَةُ الْأُخْتِ" },
+        { t: "mcq", q: "🪟🛋️ 🐣", options: ["نَافِذَةُ الْغُرْفَةِ صَغِيرَةٌ", "نَافِذَةُ الْغُرْفَةِ صَغِيرٌ", "نَافِذَةٌ الْغُرْفَةِ صَغِيرَةٌ", "اَلنَّافِذَةُ الْغُرْفَةِ صَغِيرَةٌ"], a: "نَافِذَةُ الْغُرْفَةِ صَغِيرَةٌ" },
+        { t: "mcq", q: "🏠👨\u200d🏫 🐘", options: ["بَيْتُ الْمُعَلِّمِ كَبِيرٌ", "بَيْتُ الْمُعَلِّمِ كَبِيرَةٌ", "بَيْتٌ الْمُعَلِّمِ كَبِيرٌ", "اَلْبَيْتُ الْمُعَلِّمِ كَبِيرٌ"], a: "بَيْتُ الْمُعَلِّمِ كَبِيرٌ" },
+        { t: "assemble", q: "🔑🚪", chips: ["مِفْتَاحُ", "الْبَابِ"], a: "مِفْتَاحُ الْبَابِ" },
+        { t: "assemble", q: "📖🧑\u200d🎓", chips: ["هَذَا", "كِتَابُ", "الطَّالِبِ"], a: "هَذَا كِتَابُ الطَّالِبِ" },
+        { t: "assemble", q: "🚗👨 ✨", chips: ["سَيَّارَةُ", "الْأَبِ", "جَدِيدَةٌ"], a: "سَيَّارَةُ الْأَبِ جَدِيدَةٌ" },
       ],
-      production: "اُكْتُبْ ثَلَاثَ جُمَلٍ اِسْمِيَّةٍ: مُبْتَدَأٌ + خَبَرٌ ✍️ (🏠 🚪 📖 ✏️ 🐎 ...)",
-      productionEn: "Write three nominal sentences: subject (مبتدأ) + predicate (خبر)",
-    },
-    {
-      id: "l4",
-      title: "حُرُوفُ الْجَرِّ",
-      subtitle: "اَلدَّرْسُ السَّابِعُ",
-      vocab: [
-        { ar: "مَكْتَبٌ", emoji: "🗄️" },
-        { ar: "مَطْبَخٌ", emoji: "🍳" },
-        { ar: "شَارِعٌ", emoji: "🛣️" },
-        { ar: "جَبَلٌ", emoji: "⛰️" },
-        { ar: "حَقْلٌ", emoji: "🌾" },
-        { ar: "جِدَارٌ", emoji: "🧱" },
-        { ar: "سَقْفٌ", emoji: "🔝" },
-        { ar: "فِي", emoji: "📦⬅️🔵" },
-        { ar: "عَلَى", emoji: "🔵⬆️📦" },
-        { ar: "أَيْنَ؟", emoji: "📍❓" },
-      ],
-      examples: [
-        { ar: "أَيْنَ الْكِتَابُ؟", emoji: "📖 📍❓" },
-        { ar: "اَلْكِتَابُ عَلَى الْمَكْتَبِ", emoji: "📖 ⬆️ 🗄️" },
-        { ar: "أَيْنَ الْقِطُّ؟", emoji: "🐈 📍❓" },
-        { ar: "اَلْقِطُّ فِي الْمَطْبَخِ", emoji: "🐈 ⬅️ 🍳" },
-        { ar: "اَلرَّجُلُ فِي الْمَسْجِدِ", emoji: "👨 ⬅️ 🕌" },
-        { ar: "اَلدِّيكُ عَلَى الْجِدَارِ", emoji: "🐓 ⬆️ 🧱" },
-        { ar: "اَلْحِصَانُ فِي الْحَقْلِ", emoji: "🐎 ⬅️ 🌾" },
-      ],
-      rule: {
-        name: "حَرْفُ الْجَرِّ + اَلاِسْمُ الْمَجْرُورُ",
-        ar: "فِي / عَلَى + اِسْمٌ ← مَجْرُورٌ (ـِ)\nاَلْكِتَابُ عَلَى الْمَكْتَبِ\n⬆ ـُ مَرْفُوعٌ … ⬆ ـِ مَجْرُورٌ\nاَلسُّؤَالُ: أَيْنَ...؟ 📍",
-        hint: "Prepositions (في in, على on) pull kasra onto the noun after them — that noun is مَجْرُور. Ask location with أَيْنَ.",
-      },
-      drills: [
-        { t: "mcq", q: "⛰️", options: ["جَبَلٌ", "جِدَارٌ", "حَقْلٌ", "شَارِعٌ"], a: "جَبَلٌ" },
-        { t: "mcq", q: "🍳", options: ["مَطْبَخٌ", "مَكْتَبٌ", "سَقْفٌ", "بَيْتٌ"], a: "مَطْبَخٌ" },
-        { t: "mcq", q: "📖 ⬆️ 🗄️", options: ["اَلْكِتَابُ عَلَى الْمَكْتَبِ", "اَلْكِتَابُ فِي الْمَكْتَبِ", "اَلْمَكْتَبُ عَلَى الْكِتَابِ", "اَلْكِتَابُ عَلَى الْمَكْتَبُ"], a: "اَلْكِتَابُ عَلَى الْمَكْتَبِ" },
-        { t: "mcq", q: "🐈 ⬅️ 🍳", options: ["اَلْقِطُّ فِي الْمَطْبَخِ", "اَلْقِطُّ عَلَى الْمَطْبَخِ", "اَلْمَطْبَخُ فِي الْقِطِّ", "اَلْقِطُّ فِي الْمَطْبَخُ"], a: "اَلْقِطُّ فِي الْمَطْبَخِ" },
-        { t: "mcq", q: "✅ اَلصَّحِيحُ؟", options: ["اَلرَّجُلُ فِي الْمَسْجِدِ", "اَلرَّجُلُ فِي الْمَسْجِدُ", "اَلرَّجُلِ فِي الْمَسْجِدِ", "اَلرَّجُلُ فِي مَسْجِدُ"], a: "اَلرَّجُلُ فِي الْمَسْجِدِ" },
-        { t: "mcq", q: "🐎 📍❓ … السُّؤَالُ؟", options: ["أَيْنَ الْحِصَانُ؟", "مَا الْحِصَانُ؟", "مَنْ الْحِصَانُ؟", "أَهَذَا حِصَانٌ؟"], a: "أَيْنَ الْحِصَانُ؟" },
-        { t: "mcq", q: "أَيْنَ الدِّيكُ؟ 🐓 ⬆️ 🧱", options: ["اَلدِّيكُ عَلَى الْجِدَارِ", "اَلدِّيكُ فِي الْجِدَارِ", "اَلدِّيكُ عَلَى السَّقْفِ", "اَلْجِدَارُ عَلَى الدِّيكِ"], a: "اَلدِّيكُ عَلَى الْجِدَارِ" },
-        { t: "mcq", q: "اَلاِسْمُ الْمَجْرُورُ؟ ← «اَلْوَلَدُ فِي الشَّارِعِ»", options: ["اَلشَّارِعِ", "اَلْوَلَدُ", "فِي", "اَلْـ"], a: "اَلشَّارِعِ" },
-        { t: "assemble", q: "👨 ⬅️ 🌾", chips: ["اَلرَّجُلُ", "فِي", "الْحَقْلِ"], a: "اَلرَّجُلُ فِي الْحَقْلِ" },
-        { t: "assemble", q: "⭐ 📍❓", chips: ["أَيْنَ", "النَّجْمُ؟"], a: "أَيْنَ النَّجْمُ؟" },
-      ],
-      production: "أَيْنَ الْأَشْيَاءُ فِي بَيْتِكَ؟ اُكْتُبْ ثَلَاثَ جُمَلٍ بِـ «فِي» وَ «عَلَى» ✍️",
-      productionEn: "Where are things in your house? Write three sentences using «فِي» (in) and «عَلَى» (on)",
+      production: "اُكْتُبْ ثَلَاثَ إِضَافَاتٍ مِنْ بَيْتِكَ ✍️ (🔑🚪 📖🧑\u200d🎓 🚗👨 ...)",
+      productionEn: "Write three إضافة (possessive) phrases from your own home — remember: no الـ on the first word, and the second is مجرور",
     },
     {
       id: "l46",
       title: "اَلْبَيْتُ وَغُرَفُهُ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ",
       vocab: [
         { ar: "بَيْتٌ / مَنْزِلٌ", emoji: "🏠", en: "house / home" },
         { ar: "شَقَّةٌ", emoji: "🏢", en: "flat / apartment" },
@@ -425,6 +663,28 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "ظُرُوفُ الْمَكَانِ وَالْإِضَافَةُ",
+        teach: [
+          {
+            say: "You know فِي and عَلَى. Now we add the words that place things precisely: above, under, in front, behind, beside, between.",
+            show: "فَوْقَ ⬆️ · تَحْتَ ⬇️\nأَمَامَ 👉 · خَلْفَ 👈\nبِجَانِبِ ➡️⬅️ · بَيْنَ ↔️",
+          },
+          {
+            say: "These behave exactly like prepositions: whatever follows them takes a kasra. You already know this rule — it is the same one from حروف الجر.",
+            show: "تَحْتَ الْمَائِدَةِ ⬇️\nفَوْقَ الْخِزَانَةِ ⬇️",
+          },
+          {
+            say: "بَيْنَ is special: it needs TWO things, joined by وَ, and both take kasra.",
+            show: "بَيْنَ الْبَابِ وَالنَّافِذَةِ\n= between the door and the window",
+          },
+          {
+            say: "Now notice how room names are built — they are إضافة constructions, which you learned last lesson. First word: no الـ, no tanwin. Second word: kasra.",
+            show: "غُرْفَةُ النَّوْمِ 🛏️\nغُرْفَةُ الْجُلُوسِ 🛋️",
+          },
+          {
+            say: "Put it all together and you can describe an entire house — which is exactly what the writing task asks you to do.",
+            show: "اَلثَّلَّاجَةُ فِي الْمَطْبَخِ 🧊🍳\nاَلْكُرْسِيُّ بِجَانِبِ السَّرِيرِ 🪑🛏️",
+          },
+        ],
         ar: "١) ظُرُوفُ الْمَكَانِ — وَمَا بَعْدَهَا مَجْرُورٌ:\nفِي 📍 · عَلَى ⬆️ · تَحْتَ ⬇️ · فَوْقَ ⬆️\nأَمَامَ 👉 · خَلْفَ 👈 · بِجَانِبِ · بَيْنَ ↔️\nاَلْكِتَابُ تَحْتَ الْمَائِدَةِ ✅ (مَجْرُورٌ)\n\n⚠️ «بَيْنَ» تَحْتَاجُ شَيْئَيْنِ:\nبَيْنَ الْبَابِ وَالنَّافِذَةِ (كِلَاهُمَا مَجْرُورٌ)\n\n٢) أَسْمَاءُ الْغُرَفِ إِضَافَةٌ:\nغُرْفَةُ النَّوْمِ 🛏️ (مُضَافٌ + مُضَافٌ إِلَيْهِ)\nغُرْفَةُ الْجُلُوسِ · سَاعَةُ حَائِطٍ\n⚠️ اَلْأَوَّلُ بِلَا الـ وَبِلَا تَنْوِينٍ\n\n٣) اَلْعَدُّ:\nأَرْبَعُ غُرَفٍ (غُرْفَةٌ مُؤَنَّثٌ ← أَرْبَعُ بِلَا تَاءٍ)",
         hint: "Place adverbs (تحت، فوق، أمام، خلف، بجانب، بين) all put the following noun in the genitive. Room names are إضافة constructions — the first word drops الـ and tanwin.",
       },
@@ -450,110 +710,177 @@ export const CURRICULUM = {
       productionEn: "Describe your home room by room: eight sentences using place adverbs",
     },
     {
-      id: "l8",
-      title: "اَلْإِضَافَةُ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ",
-      vocab: [
-        { ar: "مِفْتَاحُ الْبَابِ", emoji: "🔑🚪" },
-        { ar: "كِتَابُ الطَّالِبِ", emoji: "📖🧑\u200d🎓" },
-        { ar: "بَيْتُ الْمُعَلِّمِ", emoji: "🏠👨\u200d🏫" },
-        { ar: "بَابُ الْمَسْجِدِ", emoji: "🚪🕌" },
-        { ar: "قَلَمُ الْبِنْتِ", emoji: "✏️👧" },
-        { ar: "حَقِيبَةُ الْأُخْتِ", emoji: "🎒👧🧕" },
-        { ar: "سَيَّارَةٌ", emoji: "🚗" },
-        { ar: "غُرْفَةٌ", emoji: "🛋️" },
-        { ar: "مِفْتَاحٌ", emoji: "🔑" },
-        { ar: "نَافِذَةٌ", emoji: "🪟" },
-      ],
-      examples: [
-        { ar: "هَذَا مِفْتَاحُ الْبَابِ", emoji: "🔑🚪" },
-        { ar: "هَذَا كِتَابُ الطَّالِبِ", emoji: "📖🧑\u200d🎓" },
-        { ar: "هَذِهِ حَقِيبَةُ الْأُخْتِ", emoji: "🎒👧🧕" },
-        { ar: "بَيْتُ الْمُعَلِّمِ كَبِيرٌ", emoji: "🏠👨\u200d🏫 🐘" },
-        { ar: "بَابُ الْمَسْجِدِ جَمِيلٌ", emoji: "🚪🕌 🌸" },
-        { ar: "سَيَّارَةُ الْأَبِ جَدِيدَةٌ", emoji: "🚗👨 ✨" },
-        { ar: "نَافِذَةُ الْغُرْفَةِ صَغِيرَةٌ", emoji: "🪟🛋️ 🐣" },
-      ],
-      rule: {
-        name: "اَلْإِضَافَةُ: مُضَافٌ وَمُضَافٌ إِلَيْهِ",
-        ar: "مِفْتَاحُ الْبَابِ 🔑🚪\nمُضَافٌ (بِلَا الـ وَبِلَا تَنْوِينٍ) + مُضَافٌ إِلَيْهِ (مَجْرُورٌ ـِ)\n\n❌ اَلْمِفْتَاحُ الْبَابِ\n❌ مِفْتَاحٌ الْبَابِ\n✅ مِفْتَاحُ الْبَابِ\n\nاَلْأَوَّلُ يَتْرُكُ الـ وَالتَّنْوِينَ · اَلثَّانِي مَجْرُورٌ دَائِمًا",
-        hint: "In إضافة the first word never takes الـ or tanwin; the second word is always in the genitive (مجرور).",
-      },
-      drills: [
-        { t: "mcq", q: "🔑🚪", options: ["مِفْتَاحُ الْبَابِ", "اَلْمِفْتَاحُ الْبَابِ", "مِفْتَاحٌ الْبَابِ", "مِفْتَاحُ بَابٌ"], a: "مِفْتَاحُ الْبَابِ" },
-        { t: "mcq", q: "📖🧑\u200d🎓", options: ["كِتَابُ الطَّالِبِ", "اَلْكِتَابُ الطَّالِبِ", "كِتَابٌ الطَّالِبُ", "كِتَابُ الطَّالِبُ"], a: "كِتَابُ الطَّالِبِ" },
-        { t: "mcq", q: "🏠👨\u200d🏫", options: ["بَيْتُ الْمُعَلِّمِ", "بَيْتٌ الْمُعَلِّمِ", "اَلْبَيْتُ الْمُعَلِّمِ", "بَيْتُ الْمُعَلِّمُ"], a: "بَيْتُ الْمُعَلِّمِ" },
-        { t: "mcq", q: "✏️👧", options: ["قَلَمُ الْبِنْتِ", "قَلَمٌ الْبِنْتِ", "اَلْقَلَمُ الْبِنْتِ", "قَلَمُ الْبِنْتُ"], a: "قَلَمُ الْبِنْتِ" },
-        { t: "mcq", q: "أَيُّهَا خَطَأٌ؟ ❌", options: ["اَلْمِفْتَاحُ الْبَابِ", "مِفْتَاحُ الْبَابِ", "بَابُ الْمَسْجِدِ", "كِتَابُ الطَّالِبِ"], a: "اَلْمِفْتَاحُ الْبَابِ" },
-        { t: "mcq", q: "🚪🕌 🌸", options: ["بَابُ الْمَسْجِدِ جَمِيلٌ", "بَابُ الْمَسْجِدِ جَمِيلَةٌ", "اَلْبَابُ الْمَسْجِدِ جَمِيلٌ", "بَابٌ الْمَسْجِدِ جَمِيلٌ"], a: "بَابُ الْمَسْجِدِ جَمِيلٌ" },
-        { t: "mcq", q: "🚗👨 ✨", options: ["سَيَّارَةُ الْأَبِ جَدِيدَةٌ", "سَيَّارَةُ الْأَبِ جَدِيدٌ", "اَلسَّيَّارَةُ الْأَبِ جَدِيدَةٌ", "سَيَّارَةٌ الْأَبِ جَدِيدَةٌ"], a: "سَيَّارَةُ الْأَبِ جَدِيدَةٌ" },
-        { t: "mcq", q: "🎒👧🧕", options: ["حَقِيبَةُ الْأُخْتِ", "حَقِيبَةٌ الْأُخْتِ", "اَلْحَقِيبَةُ الْأُخْتِ", "حَقِيبَةُ الْأُخْتُ"], a: "حَقِيبَةُ الْأُخْتِ" },
-        { t: "mcq", q: "🪟🛋️ 🐣", options: ["نَافِذَةُ الْغُرْفَةِ صَغِيرَةٌ", "نَافِذَةُ الْغُرْفَةِ صَغِيرٌ", "نَافِذَةٌ الْغُرْفَةِ صَغِيرَةٌ", "اَلنَّافِذَةُ الْغُرْفَةِ صَغِيرَةٌ"], a: "نَافِذَةُ الْغُرْفَةِ صَغِيرَةٌ" },
-        { t: "mcq", q: "🏠👨\u200d🏫 🐘", options: ["بَيْتُ الْمُعَلِّمِ كَبِيرٌ", "بَيْتُ الْمُعَلِّمِ كَبِيرَةٌ", "بَيْتٌ الْمُعَلِّمِ كَبِيرٌ", "اَلْبَيْتُ الْمُعَلِّمِ كَبِيرٌ"], a: "بَيْتُ الْمُعَلِّمِ كَبِيرٌ" },
-        { t: "assemble", q: "🔑🚪", chips: ["مِفْتَاحُ", "الْبَابِ"], a: "مِفْتَاحُ الْبَابِ" },
-        { t: "assemble", q: "📖🧑\u200d🎓", chips: ["هَذَا", "كِتَابُ", "الطَّالِبِ"], a: "هَذَا كِتَابُ الطَّالِبِ" },
-        { t: "assemble", q: "🚗👨 ✨", chips: ["سَيَّارَةُ", "الْأَبِ", "جَدِيدَةٌ"], a: "سَيَّارَةُ الْأَبِ جَدِيدَةٌ" },
-      ],
-      production: "اُكْتُبْ ثَلَاثَ إِضَافَاتٍ مِنْ بَيْتِكَ ✍️ (🔑🚪 📖🧑\u200d🎓 🚗👨 ...)",
-      productionEn: "Write three إضافة (possessive) phrases from your own home — remember: no الـ on the first word, and the second is مجرور",
-    },
-    {
       id: "l27",
-      title: "اَلْإِعْرَابُ: اَلْحَالَاتُ الثَّلَاثُ",
+      title: "اَلْإِعْرَابُ: نِهَايَاتُ الْكَلِمَاتِ",
       subtitle: "اَلدَّرْسُ الْعَاشِرُ",
       vocab: [
-        { ar: "إِعْرَابٌ", emoji: "⚖️", en: "case ending / parsing" },
-        { ar: "مَرْفُوعٌ", emoji: "⬆️", en: "nominative (ـُ / ـٌ)" },
-        { ar: "مَنْصُوبٌ", emoji: "➡️", en: "accusative (ـَ / ـً)" },
-        { ar: "مَجْرُورٌ", emoji: "⬇️", en: "genitive (ـِ / ـٍ)" },
-        { ar: "ضَمَّةٌ", emoji: "◌ُ", en: "the ـُ mark" },
-        { ar: "فَتْحَةٌ", emoji: "◌َ", en: "the ـَ mark" },
-        { ar: "كَسْرَةٌ", emoji: "◌ِ", en: "the ـِ mark" },
-        { ar: "عَلَامَةٌ", emoji: "🔖", en: "sign / marker" },
-        { ar: "اَلْفَاعِلُ", emoji: "🧍⚙️", en: "the doer (always مرفوع)" },
-        { ar: "اَلْمَفْعُولُ بِهِ", emoji: "📦⚙️", en: "the object (always منصوب)" },
-        { ar: "اَلْمُضَافُ إِلَيْهِ", emoji: "🔗", en: "the possessor (always مجرور)" },
+        { ar: "اَلْبَيْتُ", emoji: "🏠⬆️", en: "the house — ending in U" },
+        { ar: "اَلْبَيْتَ", emoji: "🏠➡️", en: "the house — ending in A" },
+        { ar: "اَلْبَيْتِ", emoji: "🏠⬇️", en: "the house — ending in I" },
+        { ar: "ضَمَّةٌ", emoji: "◌ُ", en: "the U mark" },
+        { ar: "فَتْحَةٌ", emoji: "◌َ", en: "the A mark" },
+        { ar: "كَسْرَةٌ", emoji: "◌ِ", en: "the I mark" },
+        { ar: "مَرْفُوعٌ", emoji: "⬆️", en: "a word ending in U" },
+        { ar: "مَنْصُوبٌ", emoji: "➡️", en: "a word ending in A" },
+        { ar: "مَجْرُورٌ", emoji: "⬇️", en: "a word ending in I" },
+        { ar: "فَاعِلٌ", emoji: "🧍", en: "the one DOING the action" },
+        { ar: "مَفْعُولٌ بِهِ", emoji: "📦", en: "the thing the action is DONE TO" },
       ],
       examples: [
-        { ar: "اَلْبَيْتُ كَبِيرٌ — مَرْفُوعٌ ⬆️", emoji: "🏠 ⬆️" },
-        { ar: "كَتَبَ الطَّالِبُ — فَاعِلٌ مَرْفُوعٌ ⬆️", emoji: "🧑\u200d🎓 ⬆️" },
-        { ar: "قَرَأَ الْكِتَابَ — مَفْعُولٌ بِهِ مَنْصُوبٌ ➡️", emoji: "📖 ➡️" },
-        { ar: "فِي الْبَيْتِ — مَجْرُورٌ بِحَرْفِ الْجَرِّ ⬇️", emoji: "🏠 ⬇️" },
-        { ar: "بَابُ الْمَسْجِدِ — مُضَافٌ إِلَيْهِ مَجْرُورٌ ⬇️", emoji: "🚪🕌 ⬇️" },
-        { ar: "كَانَ الْبَيْتُ كَبِيرًا — اِسْمٌ ⬆️ وَخَبَرٌ ➡️", emoji: "🏠 ⬆️➡️" },
-        { ar: "إِنَّ الْبَيْتَ كَبِيرٌ — اِسْمٌ ➡️ وَخَبَرٌ ⬆️", emoji: "🏠 ➡️⬆️" },
+        { ar: "اَلْبَيْتُ كَبِيرٌ", emoji: "🏠 ⬆️" },
+        { ar: "رَأَيْتُ الْبَيْتَ", emoji: "👁️ 🏠 ➡️" },
+        { ar: "فِي الْبَيْتِ", emoji: "📍 🏠 ⬇️" },
+        { ar: "كَتَبَ الطَّالِبُ الدَّرْسَ", emoji: "🧍⬆️ 📦➡️" },
+        { ar: "قَرَأَ الْوَلَدُ الْكِتَابَ", emoji: "🧍⬆️ 📦➡️" },
       ],
       rule: {
-        name: "كُلُّ اسْمٍ فِي حَالَةٍ مِنْ ثَلَاثٍ",
-        ar: "١) مَرْفُوعٌ ⬆️ (ـُ أَوْ ـٌ) — مَتَى؟\nاَلْمُبْتَدَأُ: اَلْبَيْتُ كَبِيرٌ\nاَلْخَبَرُ: اَلْبَيْتُ كَبِيرٌ\nاَلْفَاعِلُ: كَتَبَ الطَّالِبُ\nاِسْمُ كَانَ: كَانَ الْبَيْتُ...\nخَبَرُ إِنَّ: إِنَّ الْبَيْتَ كَبِيرٌ\n\n٢) مَنْصُوبٌ ➡️ (ـَ أَوْ ـً) — مَتَى؟\nاَلْمَفْعُولُ بِهِ: قَرَأَ الْكِتَابَ\nخَبَرُ كَانَ: كَانَ الْبَيْتُ كَبِيرًا\nاِسْمُ إِنَّ: إِنَّ الْبَيْتَ كَبِيرٌ\nخَبَرُ لَيْسَ: لَيْسَ الطَّالِبُ مَرِيضًا\n\n٣) مَجْرُورٌ ⬇️ (ـِ أَوْ ـٍ) — مَتَى؟\nبَعْدَ حَرْفِ الْجَرِّ: فِي الْبَيْتِ · عَلَى الْمَكْتَبِ\nاَلْمُضَافُ إِلَيْهِ: بَابُ الْمَسْجِدِ\nبَعْدَ قَبْلَ وَبَعْدَ: قَبْلَ الْمَغْرِبِ",
-        hint: "Every Arabic noun sits in one of three cases. This lesson gathers everything you have already met into one system: what raises a word, what makes it accusative, what makes it genitive.",
+        name: "لِمَاذَا تَتَغَيَّرُ نِهَايَةُ الْكَلِمَةِ؟",
+        teach: [
+          {
+            say: "In English, a word never changes its ending. 'House' is always 'house' — the house is big, I saw the house, in the house. Arabic is different. Watch the LAST letter here:",
+            show: "اَلْبَيْتُ كَبِيرٌ\nرَأَيْتُ الْبَيْتَ\nفِي الْبَيْتِ",
+          },
+          {
+            say: "Same word — بيت — but three different endings: ـُ then ـَ then ـِ. The ending changed because the word's JOB in the sentence changed. That is the whole idea of إعراب.",
+            show: "بَيْتُ ← بَيْتَ ← بَيْتِ",
+          },
+          {
+            say: "These three little marks have names you should learn now. The U-mark is ضَمَّة. The A-mark is فَتْحَة. The I-mark is كَسْرَة. You already write them with the tashkeel keyboard.",
+            show: "◌ُ ضَمَّةٌ\n◌َ فَتْحَةٌ\n◌ِ كَسْرَةٌ",
+          },
+          {
+            say: "And a word carrying each mark has a name too. This is only a label — do not be afraid of it. A word ending in ضمة is called مَرْفُوع. Ending in فتحة: مَنْصُوب. Ending in كسرة: مَجْرُور.",
+            show: "اَلْبَيْتُ ← مَرْفُوعٌ ⬆️\nاَلْبَيْتَ ← مَنْصُوبٌ ➡️\nاَلْبَيْتِ ← مَجْرُورٌ ⬇️",
+          },
+          {
+            say: "Now the useful part: WHEN does each one happen? Start with the doer. In 'the student wrote', who did the writing? الطالب. The doer always ends in ضمة. Its label is فَاعِل.",
+            show: "كَتَبَ الطَّالِبُ\n🧍 اَلَّذِي فَعَلَ ← ـُ",
+          },
+          {
+            say: "Next, the thing the action landed on. He wrote WHAT? الدرس. The thing receiving the action always ends in فتحة. Its label is مَفْعُول بِه.",
+            show: "كَتَبَ الطَّالِبُ الدَّرْسَ\n🧍 ـُ · 📦 ـَ",
+            warn: "❌ كَتَبَ الطَّالِبَ الدَّرْسُ\n(هَذَا يَعْنِي أَنَّ الدَّرْسَ كَتَبَ الطَّالِبَ!)",
+          },
+          {
+            say: "Last one, and it is the easiest. After في، على، من، إلى، بـ، لـ — after ANY preposition — the word ends in كسرة. Every single time, no exceptions.",
+            show: "فِي الْبَيْتِ ⬇️\nعَلَى الْمَكْتَبِ ⬇️\nمِنَ الْمَسْجِدِ ⬇️",
+          },
+          {
+            say: "That is all of إعراب in one picture. Three endings, three names, three simple triggers. Everything else in Arabic grammar is just adding more triggers to these same three endings.",
+            show: "⬆️ ـُ فَاعِلٌ · مُبْتَدَأٌ · خَبَرٌ\n➡️ ـَ مَفْعُولٌ بِهِ\n⬇️ ـِ بَعْدَ حَرْفِ الْجَرِّ",
+          },
+        ],
+        ar: "⬆️ مَرْفُوعٌ ـُ · ➡️ مَنْصُوبٌ ـَ · ⬇️ مَجْرُورٌ ـِ",
+        hint: "Three endings, three names, three triggers: the doer takes ـُ, the receiver takes ـَ, and anything after a preposition takes ـِ.",
       },
       drills: [
-        { t: "mcq", q: "⬆️ عَلَامَتُهُ؟", options: ["اَلضَّمَّةُ ـُ", "اَلْفَتْحَةُ ـَ", "اَلْكَسْرَةُ ـِ", "اَلسُّكُونُ ـْ"], a: "اَلضَّمَّةُ ـُ" },
-        { t: "mcq", q: "➡️ عَلَامَتُهُ؟", options: ["اَلْفَتْحَةُ ـَ", "اَلضَّمَّةُ ـُ", "اَلْكَسْرَةُ ـِ", "اَلسُّكُونُ ـْ"], a: "اَلْفَتْحَةُ ـَ" },
-        { t: "mcq", q: "⬇️ عَلَامَتُهُ؟", options: ["اَلْكَسْرَةُ ـِ", "اَلضَّمَّةُ ـُ", "اَلْفَتْحَةُ ـَ", "اَلسُّكُونُ ـْ"], a: "اَلْكَسْرَةُ ـِ" },
-        { t: "mcq", q: "اَلْفَاعِلُ دَائِمًا؟", options: ["مَرْفُوعٌ ⬆️", "مَنْصُوبٌ ➡️", "مَجْرُورٌ ⬇️", "يَتَغَيَّرُ"], a: "مَرْفُوعٌ ⬆️" },
-        { t: "mcq", q: "اَلْمَفْعُولُ بِهِ دَائِمًا؟", options: ["مَنْصُوبٌ ➡️", "مَرْفُوعٌ ⬆️", "مَجْرُورٌ ⬇️", "يَتَغَيَّرُ"], a: "مَنْصُوبٌ ➡️" },
-        { t: "mcq", q: "بَعْدَ «فِي» و «عَلَى» و «مِنْ»؟", options: ["مَجْرُورٌ ⬇️", "مَرْفُوعٌ ⬆️", "مَنْصُوبٌ ➡️", "بِلَا عَلَامَةٍ"], a: "مَجْرُورٌ ⬇️" },
-        { t: "mcq", q: "اَلْمُضَافُ إِلَيْهِ؟", options: ["مَجْرُورٌ ⬇️", "مَرْفُوعٌ ⬆️", "مَنْصُوبٌ ➡️", "يَتَغَيَّرُ"], a: "مَجْرُورٌ ⬇️" },
-        { t: "mcq", q: "خَبَرُ كَانَ؟", options: ["مَنْصُوبٌ ➡️", "مَرْفُوعٌ ⬆️", "مَجْرُورٌ ⬇️", "بِلَا تَغْيِيرٍ"], a: "مَنْصُوبٌ ➡️" },
-        { t: "mcq", q: "اِسْمُ إِنَّ؟", options: ["مَنْصُوبٌ ➡️", "مَرْفُوعٌ ⬆️", "مَجْرُورٌ ⬇️", "بِلَا تَغْيِيرٍ"], a: "مَنْصُوبٌ ➡️" },
-        { t: "mcq", q: "«اَلطَّالِبُ» فِي: كَتَبَ الطَّالِبُ الدَّرْسَ", options: ["فَاعِلٌ مَرْفُوعٌ", "مَفْعُولٌ بِهِ مَنْصُوبٌ", "مُضَافٌ إِلَيْهِ مَجْرُورٌ", "مُبْتَدَأٌ مَنْصُوبٌ"], a: "فَاعِلٌ مَرْفُوعٌ" },
-        { t: "mcq", q: "«الدَّرْسَ» فِي: كَتَبَ الطَّالِبُ الدَّرْسَ", options: ["مَفْعُولٌ بِهِ مَنْصُوبٌ", "فَاعِلٌ مَرْفُوعٌ", "مُضَافٌ إِلَيْهِ مَجْرُورٌ", "خَبَرٌ مَرْفُوعٌ"], a: "مَفْعُولٌ بِهِ مَنْصُوبٌ" },
-        { t: "mcq", q: "«الْمَسْجِدِ» فِي: بَابُ الْمَسْجِدِ", options: ["مُضَافٌ إِلَيْهِ مَجْرُورٌ", "فَاعِلٌ مَرْفُوعٌ", "مَفْعُولٌ بِهِ مَنْصُوبٌ", "خَبَرٌ مَرْفُوعٌ"], a: "مُضَافٌ إِلَيْهِ مَجْرُورٌ" },
-        { t: "mcq", q: "«كَبِيرًا» فِي: كَانَ الْبَيْتُ كَبِيرًا", options: ["خَبَرُ كَانَ مَنْصُوبٌ", "خَبَرٌ مَرْفُوعٌ", "مَفْعُولٌ بِهِ", "مُضَافٌ إِلَيْهِ"], a: "خَبَرُ كَانَ مَنْصُوبٌ" },
-        { t: "mcq", q: "«الْبَيْتَ» فِي: إِنَّ الْبَيْتَ كَبِيرٌ", options: ["اِسْمُ إِنَّ مَنْصُوبٌ", "فَاعِلٌ مَرْفُوعٌ", "مَجْرُورٌ", "خَبَرٌ مَرْفُوعٌ"], a: "اِسْمُ إِنَّ مَنْصُوبٌ" },
-        { t: "assemble", q: "🧑\u200d🎓 ✍️ 📚 (فَاعِلٌ ⬆️ مَفْعُولٌ ➡️)", chips: ["كَتَبَ", "الطَّالِبُ", "الدَّرْسَ"], a: "كَتَبَ الطَّالِبُ الدَّرْسَ" },
-        { t: "assemble", q: "🚪🕌 ⬇️", chips: ["بَابُ", "الْمَسْجِدِ"], a: "بَابُ الْمَسْجِدِ" },
-        { t: "assemble", q: "🏠 ⬆️➡️", chips: ["كَانَ", "الْبَيْتُ", "كَبِيرًا"], a: "كَانَ الْبَيْتُ كَبِيرًا" },
+        { t: "match", q: "صِلْ كُلَّ عَلَامَةٍ بِاسْمِهَا", pairs: [["◌ُ","ضَمَّةٌ"],["◌َ","فَتْحَةٌ"],["◌ِ","كَسْرَةٌ"]] },
+        { t: "match", q: "صِلْ كُلَّ نِهَايَةٍ بِاسْمِهَا", pairs: [["ـُ","مَرْفُوعٌ ⬆️"],["ـَ","مَنْصُوبٌ ➡️"],["ـِ","مَجْرُورٌ ⬇️"]] },
+        { t: "mcq", q: "🧍 اَلَّذِي فَعَلَ — نِهَايَتُهُ؟", options: ["ـُ ضَمَّةٌ", "ـَ فَتْحَةٌ", "ـِ كَسْرَةٌ", "ـْ سُكُونٌ"], a: "ـُ ضَمَّةٌ" },
+        { t: "mcq", q: "📦 اَلَّذِي وَقَعَ عَلَيْهِ الْفِعْلُ — نِهَايَتُهُ؟", options: ["ـَ فَتْحَةٌ", "ـُ ضَمَّةٌ", "ـِ كَسْرَةٌ", "ـْ سُكُونٌ"], a: "ـَ فَتْحَةٌ" },
+        { t: "mcq", q: "بَعْدَ «فِي» و «عَلَى» — اَلنِّهَايَةُ؟", options: ["ـِ كَسْرَةٌ", "ـُ ضَمَّةٌ", "ـَ فَتْحَةٌ", "بِلَا عَلَامَةٍ"], a: "ـِ كَسْرَةٌ" },
+        { t: "complete", q: "كَتَبَ الطَّالِبُ الدَّرْ___", options: ["سَ", "سُ", "سِ", "سْ"], a: "سَ" },
+        { t: "complete", q: "جَلَسَ الْوَلَدُ فِي الْبَيْ___", options: ["تِ", "تُ", "تَ", "تْ"], a: "تِ" },
+        { t: "complete", q: "قَرَأَ الطَّالِ___ الْكِتَابَ", options: ["بُ", "بَ", "بِ", "بْ"], a: "بُ" },
+        { t: "mcq", q: "مَنِ الْفَاعِلُ؟ كَتَبَ الطَّالِبُ الدَّرْسَ", options: ["الطَّالِبُ", "الدَّرْسَ", "كَتَبَ", "لَا يُوجَدُ"], a: "الطَّالِبُ" },
+        { t: "mcq", q: "مَا الْمَفْعُولُ بِهِ؟ قَرَأَ الْوَلَدُ الْكِتَابَ", options: ["الْكِتَابَ", "الْوَلَدُ", "قَرَأَ", "لَا يُوجَدُ"], a: "الْكِتَابَ" },
+        { t: "mcq", q: "أَيُّهَا صَحِيحٌ؟ 🧍⬆️ 📦➡️", options: ["كَتَبَ الطَّالِبُ الدَّرْسَ", "كَتَبَ الطَّالِبَ الدَّرْسُ", "كَتَبَ الطَّالِبِ الدَّرْسِ", "كَتَبَ الطَّالِبُ الدَّرْسُ"], a: "كَتَبَ الطَّالِبُ الدَّرْسَ" },
+        { t: "mcq", q: "📍 🏠 (بَعْدَ حَرْفِ جَرٍّ)", options: ["فِي الْبَيْتِ", "فِي الْبَيْتُ", "فِي الْبَيْتَ", "فِي الْبَيْتْ"], a: "فِي الْبَيْتِ" },
+        { t: "assemble", q: "🧍⬆️ 📦➡️", chips: ["كَتَبَ", "الطَّالِبُ", "الدَّرْسَ"], a: "كَتَبَ الطَّالِبُ الدَّرْسَ" },
+        { t: "assemble", q: "📍 🏠 ⬇️", chips: ["جَلَسْتُ", "فِي", "الْبَيْتِ"], a: "جَلَسْتُ فِي الْبَيْتِ" },
       ],
-      production: "اُكْتُبْ ثَلَاثَ جُمَلٍ وَبَيِّنْ إِعْرَابَ كُلِّ اسْمٍ فِيهَا: مَرْفُوعٌ أَمْ مَنْصُوبٌ أَمْ مَجْرُورٌ ✍️",
-      productionEn: "Write three sentences and identify each noun's case: nominative, accusative, or genitive",
+      production: "اُكْتُبْ ثَلَاثَ جُمَلٍ، وَضَعْ تَحْتَ كُلِّ كَلِمَةٍ: ⬆️ أَوْ ➡️ أَوْ ⬇️ ✍️",
+      productionEn: "Write three sentences and mark under each word whether it ends in U (doer), A (receiver) or I (after a preposition)",
+    },
+    {
+      id: "l67",
+      title: "اَلْكِتَابَةُ وَالْإِمْلَاءُ",
+      subtitle: "اَلدَّرْسُ الْحَادِيَ عَشَرَ",
+      vocab: [
+        { ar: "هَمْزَةُ الْوَصْلِ", emoji: "🔗", en: "connecting hamza (ٱ — not pronounced mid-speech)" },
+        { ar: "هَمْزَةُ الْقَطْعِ", emoji: "✂️", en: "cutting hamza (أ / إ — always pronounced)" },
+        { ar: "اَلتَّاءُ الْمَرْبُوطَةُ", emoji: "ة", en: "tied taa" },
+        { ar: "اَلتَّاءُ الْمَفْتُوحَةُ", emoji: "ت", en: "open taa" },
+        { ar: "اَلْأَلِفُ الْمَقْصُورَةُ", emoji: "ى", en: "shortened alif" },
+        { ar: "اَلْأَلِفُ الْمَمْدُودَةُ", emoji: "ا", en: "long alif" },
+        { ar: "اَلتَّنْوِينُ", emoji: "ـً ـٌ ـٍ", en: "nunation" },
+        { ar: "اَلشَّدَّةُ", emoji: "ـّ", en: "doubling mark" },
+        { ar: "اَلسُّكُونُ", emoji: "ـْ", en: "no-vowel mark" },
+        { ar: "عَلَامَاتُ التَّرْقِيمِ", emoji: "،؟!", en: "punctuation" },
+        { ar: "اَلْفَاصِلَةُ", emoji: "،", en: "comma" },
+        { ar: "اَلنُّقْطَةُ", emoji: ".", en: "full stop" },
+        { ar: "عَلَامَةُ الِاسْتِفْهَامِ", emoji: "؟", en: "question mark" },
+        { ar: "إِمْلَاءٌ", emoji: "✍️👂", en: "dictation" },
+        { ar: "خَطٌّ", emoji: "🖋️", en: "handwriting / script" },
+        { ar: "أَخْطَاءٌ شَائِعَةٌ", emoji: "⚠️", en: "common mistakes" },
+      ],
+      examples: [
+        { ar: "اِسْمٌ — وَاسْمُ الْوَلَدِ (سَقَطَتِ الْهَمْزَةُ)", emoji: "🔗" },
+        { ar: "أَحْمَدُ — وَأَحْمَدُ (بَقِيَتِ الْهَمْزَةُ)", emoji: "✂️" },
+        { ar: "مَدْرَسَةٌ ← مَدْرَسَتُهُ (ة تَصِيرُ ت)", emoji: "ة ➡️ ت" },
+        { ar: "كَتَبَ الطَّالِبُ، ثُمَّ قَرَأَ.", emoji: "، ." },
+        { ar: "هَلْ فَهِمْتَ الدَّرْسَ؟", emoji: "؟" },
+        { ar: "مُصْطَفَى — عَلَى — إِلَى (بِالْأَلِفِ الْمَقْصُورَةِ)", emoji: "ى" },
+        { ar: "دَعَا — عَصَا (بِالْأَلِفِ الْمَمْدُودَةِ)", emoji: "ا" },
+      ],
+      rule: {
+        name: "قَوَاعِدُ الْكِتَابَةِ الصَّحِيحَةِ",
+        teach: [
+          {
+            say: "You have been reading اِسْمٌ and أَحْمَدُ without noticing that their hamzas behave differently. This lesson makes you write correctly, not just read.",
+            show: "اِسْمٌ ← هَمْزَةُ وَصْلٍ 🔗\nأَحْمَدُ ← هَمْزَةُ قَطْعٍ ✂️",
+          },
+          {
+            say: "A hamzat WASL is pronounced only when you START with it. Put any word before it and it goes silent.",
+            show: "اِسْمٌ (alone) = ism\nوَاسْمُ الْوَلَدِ = wa-smu (no 'i')",
+          },
+          {
+            say: "A hamzat QAT' is always pronounced, wherever it sits. It is written with a visible أ or إ.",
+            show: "أَحْمَدُ = Ahmad\nوَأَحْمَدُ = wa-Ahmad (still there)",
+          },
+          {
+            say: "Here is a test you can use forever: put وَ in front and say it aloud. If the hamza disappears it is wasl; if it survives it is qat'.",
+            show: "وَاسْمٌ → اِخْتَفَتْ = وَصْلٌ 🔗\nوَأَحْمَدُ → بَقِيَتْ = قَطْعٌ ✂️",
+          },
+          {
+            say: "Which words take wasl? الـ, the words اِسْم and اِبْن, and command verbs — plus the verb patterns you met: انفعل، افتعل، استفعل.",
+            show: "اَلـ · اِسْمٌ · اِبْنٌ · اِثْنَانِ\nاِكْتُبْ · اِنْكَسَرَ · اِسْتَغْفَرَ",
+          },
+          {
+            say: "Second rule, and it catches everyone: the ة becomes an open ت the moment you attach a pronoun to it.",
+            show: "مَدْرَسَةٌ ← مَدْرَسَتُهُ\nحَقِيبَةٌ ← حَقِيبَتِي",
+            warn: "❌ مَدْرَسَةُهُ",
+          },
+          {
+            say: "Last, Arabic punctuation is mirrored. The comma curves the other way, and so does the question mark.",
+            show: "، اَلْفَاصِلَةُ\n؟ عَلَامَةُ الِاسْتِفْهَامِ\n. اَلنُّقْطَةُ",
+          },
+        ],
+        ar: "① هَمْزَةُ الْوَصْلِ 🔗 وَهَمْزَةُ الْقَطْعِ ✂️\nاَلْوَصْلُ: تُنْطَقُ فِي الِابْتِدَاءِ وَتَسْقُطُ فِي الْوَصْلِ\nاِسْمٌ · اِبْنٌ · اِثْنَانِ · الـ · وَأَفْعَالُ الْأَمْرِ: اِكْتُبْ\nوَفِي الْأَوْزَانِ: اِنْفَعَلَ · اِفْتَعَلَ · اِسْتَفْعَلَ\n\nاَلْقَطْعُ: تُنْطَقُ دَائِمًا وَتُكْتَبُ أ أَوْ إ\nأَحْمَدُ · إِبْرَاهِيمُ · أَكَلَ · أَفْعَلَ (اَلْوَزْنُ)\n\n⚠️ اَلِاخْتِبَارُ: ضَعْ «وَ» قَبْلَهَا:\nوَاسْمٌ (سَقَطَتْ) ← وَصْلٌ\nوَأَحْمَدُ (بَقِيَتْ) ← قَطْعٌ\n\n② اَلتَّاءُ الْمَرْبُوطَةُ ة وَالْمَفْتُوحَةُ ت\nة: فِي آخِرِ الِاسْمِ الْمُؤَنَّثِ — مَدْرَسَةٌ · شَجَرَةٌ\n⚠️ تَصِيرُ ت عِنْدَ الْإِضَافَةِ لِلضَّمِيرِ:\nمَدْرَسَةٌ ← مَدْرَسَتُهُ · حَقِيبَةٌ ← حَقِيبَتِي\nت: فِي آخِرِ الْفِعْلِ — كَتَبَتْ · ذَهَبْتُ\nوَفِي جَمْعِ الْمُؤَنَّثِ — مُسْلِمَاتٌ\n\n③ اَلْأَلِفُ فِي آخِرِ الْكَلِمَةِ:\nى (مَقْصُورَةٌ): عَلَى · إِلَى · مُوسَى · مُصْطَفَى\nا (مَمْدُودَةٌ): دَعَا · عَصَا · هُنَا\n\n④ عَلَامَاتُ التَّرْقِيمِ:\nاَلْفَاصِلَةُ ، · اَلنُّقْطَةُ . · اَلِاسْتِفْهَامُ ؟ · التَّعَجُّبُ !\n⚠️ اَلْفَاصِلَةُ الْعَرَبِيَّةُ مَقْلُوبَةٌ ، لَا ,",
+        hint: "Test a hamza by putting وَ before it: if it disappears in speech it is وصل (اسم → واسم), if it stays it is قطع (أحمد → وأحمد). And remember ة becomes ت the moment you attach a pronoun: مدرسة → مدرستُه.",
+      },
+      drills: [
+        { t: "match", q: "صِلْ كُلَّ كَلِمَةٍ بِنَوْعِ هَمْزَتِهَا", pairs: [["اِسْمٌ","وَصْلٌ 🔗"],["أَحْمَدُ","قَطْعٌ ✂️"],["اِبْنٌ","وَصْلٌ 🔗"],["إِبْرَاهِيمُ","قَطْعٌ ✂️"]] },
+        { t: "mcq", q: "🔗 أَيُّهَا هَمْزَةُ وَصْلٍ؟", options: ["اِسْمٌ", "أَحْمَدُ", "أَكَلَ", "إِنَّ"], a: "اِسْمٌ" },
+        { t: "mcq", q: "✂️ أَيُّهَا هَمْزَةُ قَطْعٍ؟", options: ["أَحْمَدُ", "اِثْنَانِ", "اِكْتُبْ", "اِسْتَغْفَرَ"], a: "أَحْمَدُ" },
+        { t: "mcq", q: "مَدْرَسَةٌ + هُ = ؟", options: ["مَدْرَسَتُهُ", "مَدْرَسَةُهُ", "مَدْرَسَهُ", "مَدْرَسَتْهُ"], a: "مَدْرَسَتُهُ" },
+        { t: "mcq", q: "حَقِيبَةٌ + ي = ؟", options: ["حَقِيبَتِي", "حَقِيبَةِي", "حَقِيبِي", "حَقِيبَتْي"], a: "حَقِيبَتِي" },
+        { t: "mcq", q: "أَيْنَ التَّاءُ الْمَفْتُوحَةُ؟", options: ["كَتَبَتْ", "مَدْرَسَةٌ", "شَجَرَةٌ", "حَقِيبَةٌ"], a: "كَتَبَتْ" },
+        { t: "mcq", q: "ى أَمْ ا؟ «عَلَ...»", options: ["عَلَى", "عَلَا", "عَلَاء", "عَلِي"], a: "عَلَى" },
+        { t: "mcq", q: "ى أَمْ ا؟ «دَعَ...» (فِعْلٌ)", options: ["دَعَا", "دَعَى", "دَعَاء", "دُعَا"], a: "دَعَا" },
+        { t: "mcq", q: "اِخْتِبَارُ الْهَمْزَةِ: ضَعْ قَبْلَهَا؟", options: ["وَ", "بِ", "لِ", "فِي"], a: "وَ" },
+        { t: "mcq", q: "؟ (اَلْفَاصِلَةُ الْعَرَبِيَّةُ)", options: ["،", ",", ";", ":"], a: "،" },
+        { t: "mcq", q: "أَفْعَالُ الْأَمْرِ الثُّلَاثِيَّةُ هَمْزَتُهَا؟", options: ["وَصْلٌ: اِكْتُبْ", "قَطْعٌ: أُكْتُبْ", "لَا هَمْزَةَ", "يَخْتَلِفُ"], a: "وَصْلٌ: اِكْتُبْ" },
+        { t: "assemble", q: "، .", chips: ["كَتَبَ", "الطَّالِبُ،", "ثُمَّ", "قَرَأَ."], a: "كَتَبَ الطَّالِبُ، ثُمَّ قَرَأَ." },
+        { t: "assemble", q: "؟", chips: ["هَلْ", "فَهِمْتَ", "الدَّرْسَ؟"], a: "هَلْ فَهِمْتَ الدَّرْسَ؟" },
+      ],
+      production: "اُكْتُبْ فِقْرَةً مِنْ سِتِّ جُمَلٍ مَعَ التَّشْكِيلِ وَعَلَامَاتِ التَّرْقِيمِ، وَاسْتَعْمِلْ ثَلَاثَ كَلِمَاتٍ بِهَمْزَةِ وَصْلٍ وَثَلَاثًا بِهَمْزَةِ قَطْعٍ ✍️",
+      productionEn: "Write a six-sentence paragraph with full harakat and punctuation, using three words with hamzat wasl and three with hamzat qat'",
     },
     {
       id: "l7",
       title: "اَلْأُسْرَةُ وَالْأَقَارِبُ",
-      subtitle: "اَلدَّرْسُ الْحَادِيَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الثَّانِيَ عَشَرَ",
       vocab: [
         { ar: "أُسْرَةٌ", emoji: "👨\u200d👩\u200d👧\u200d👦", en: "family" },
         { ar: "أَبٌ / وَالِدٌ", emoji: "👨", en: "father" },
@@ -591,6 +918,25 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "اَلْأَقَارِبُ وَمُطَابَقَةُ الْخَبَرِ",
+        teach: [
+          {
+            say: "Arabic makes a distinction English does not. In English 'uncle' is one word. In Arabic it depends entirely on WHICH side of the family he comes from.",
+            show: "عَمٌّ 🧔👨 = father's brother\nخَالٌ 🧔👩 = mother's brother",
+          },
+          {
+            say: "The same split applies to aunts. Learn each one as a definition, not a translation — that is how it stays.",
+            show: "عَمَّتِي = أُخْتُ أَبِي 👩👨\nخَالَتِي = أُخْتُ أُمِّي 👩👩",
+          },
+          {
+            say: "Now apply what you already know about gender. The predicate must copy the subject: masculine with masculine, feminine with feminine.",
+            show: "اَلْأَبُ كَبِيرٌ 👨\nاَلْأُمُّ كَبِيرَةٌ 👩",
+            warn: "❌ اَلْأُمُّ كَبِيرٌ",
+          },
+          {
+            say: "One more detail you will meet constantly: أَب and أَخ grow a waw when they own something — but only when a NOUN follows, not the ي of 'my'.",
+            show: "أَبُو مُحَمَّدٍ · أَخُو عَلِيٍّ\nلَكِنْ: أَبِي · أَخِي",
+          },
+        ],
         ar: "١) اَلْفَرْقُ الْمُهِمُّ فِي الْعَرَبِيَّةِ:\nمِنْ جِهَةِ الْأَبِ: عَمٌّ 🧔👨 · عَمَّةٌ 👩👨\nمِنْ جِهَةِ الْأُمِّ: خَالٌ 🧔👩 · خَالَةٌ 👩👩\n(اَلْإِنْجِلِيزِيَّةُ لَا تُفَرِّقُ — اَلْعَرَبِيَّةُ تُفَرِّقُ)\n\nعَمِّي = أَخُو أَبِي · خَالِي = أَخُو أُمِّي\nعَمَّتِي = أُخْتُ أَبِي · خَالَتِي = أُخْتُ أُمِّي\n\n٢) اَلْمُطَابَقَةُ فِي الْخَبَرِ:\nمُبْتَدَأٌ مُذَكَّرٌ ← خَبَرٌ مُذَكَّرٌ: اَلْأَبُ كَبِيرٌ\nمُبْتَدَأٌ مُؤَنَّثٌ ← خَبَرٌ مُؤَنَّثٌ: اَلْأُمُّ كَبِيرَةٌ\n\n٣) أَبٌ وَأَخٌ فِي الْإِضَافَةِ تَأْخُذَانِ وَاوًا:\nأَبُو مُحَمَّدٍ · أَخُو عَلِيٍّ\nلَكِنْ مَعَ الْيَاءِ: أَبِي · أَخِي",
         hint: "Arabic distinguishes what English does not: عم/عمة are on the father's side, خال/خالة on the mother's. The predicate must always match its subject in gender.",
       },
@@ -618,7 +964,7 @@ export const CURRICULUM = {
     {
       id: "l11",
       title: "اَلطَّعَامُ وَالشَّرَابُ",
-      subtitle: "اَلدَّرْسُ الثَّانِيَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثَ عَشَرَ",
       vocab: [
         { ar: "طَعَامٌ", emoji: "🍽️", en: "food" },
         { ar: "شَرَابٌ", emoji: "🥤", en: "drink" },
@@ -670,6 +1016,28 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "اَلنَّعْتُ وَاسْمُ الْجِنْسِ",
+        teach: [
+          {
+            say: "You already know اَلْبَيْتُ كَبِيرٌ — the house is big. Now compare it with something that looks almost identical but is NOT a sentence.",
+            show: "اَلْمَاءُ بَارِدٌ = the water IS cold ✅\nاَلْمَاءُ الْبَارِدُ = the cold water",
+          },
+          {
+            say: "One tiny الـ made all the difference. Without it on the second word, you have made a statement. With it, you have only named a thing.",
+            show: "بِلَا الـ ← جُمْلَةٌ (a sentence)\nمَعَ الـ ← وَصْفٌ (a phrase)",
+          },
+          {
+            say: "When the adjective DOES follow with الـ, it is called النَّعْت — a describing word. It must copy its noun: definite with definite, masculine with masculine.",
+            show: "مَاءٌ بَارِدٌ (نَكِرَةٌ + نَكِرَةٌ)\nاَلْمَاءُ الْبَارِدُ (مَعْرِفَةٌ + مَعْرِفَةٌ)",
+          },
+          {
+            say: "Second idea in this lesson: many food words are COLLECTIVE — تُفَّاح means apples in general. To speak of one, add ة.",
+            show: "تُفَّاحٌ 🍎 = apples\nتُفَّاحَةٌ = one apple",
+          },
+          {
+            say: "The same works for dates, eggs, fish and trees. Recognise this pattern and a whole class of nouns becomes predictable.",
+            show: "تَمْرٌ ← تَمْرَةٌ 🌴\nبَيْضٌ ← بَيْضَةٌ 🥚\nسَمَكٌ ← سَمَكَةٌ 🐟",
+          },
+        ],
         ar: "١) اَلنَّعْتُ يَتْبَعُ الْمَنْعُوتَ:\nمَاءٌ بَارِدٌ 💧❄️ — نَكِرَةٌ + نَكِرَةٌ\nاَلْمَاءُ الْبَارِدُ — مَعْرِفَةٌ + مَعْرِفَةٌ\n\n⚠️ اَلْفَرْقُ الْمُهِمُّ:\nاَلْمَاءُ بَارِدٌ = جُمْلَةٌ ✅ (the water IS cold)\nاَلْمَاءُ الْبَارِدُ = وَصْفٌ فَقَطْ (the cold water)\n\n٢) اِسْمُ الْجِنْسِ وَوَاحِدَتُهُ:\nكَثِيرٌ مِنَ الثِّمَارِ اِسْمُ جِنْسٍ جَمْعِيٌّ،\nوَالْوَاحِدَةُ بِزِيَادَةِ التَّاءِ:\nتُفَّاحٌ 🍎 ← تُفَّاحَةٌ (وَاحِدَةٌ)\nتَمْرٌ 🌴 ← تَمْرَةٌ · بَيْضٌ 🥚 ← بَيْضَةٌ\nسَمَكٌ 🐟 ← سَمَكَةٌ · شَجَرٌ ← شَجَرَةٌ\n\n٣) اَلْمَفْعُولُ بِهِ بَعْدَ الْأَكْلِ وَالشُّرْبِ مَنْصُوبٌ:\nآكُلُ الْخُبْزَ · أَشْرَبُ الْقَهْوَةَ",
         hint: "Note: الماءُ باردٌ is a SENTENCE; الماءُ الباردُ is only a phrase. Also learn اسم الجنس — تفّاح means apples in general, تفّاحة is one apple.",
       },
@@ -699,7 +1067,7 @@ export const CURRICULUM = {
     {
       id: "l12",
       title: "اَلْأَلْوَانُ",
-      subtitle: "اَلدَّرْسُ الثَّالِثَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعَ عَشَرَ",
       vocab: [
         { ar: "لَوْنٌ", emoji: "🎨", en: "colour" },
         { ar: "أَبْيَضُ / بَيْضَاءُ", emoji: "⚪", en: "white" },
@@ -732,6 +1100,33 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "لَوْنَانِ: أَفْعَلُ وَالنِّسْبَةُ",
+        teach: [
+          {
+            say: "Colours in Arabic come in two completely different families, and mixing them up is a common mistake. Let us take them one at a time.",
+            show: "① أَفْعَلُ / فَعْلَاءُ\n② نِسْبَةٌ ـِيٌّ",
+          },
+          {
+            say: "The core colours follow a fixed shape. Masculine on the pattern أَفْعَل, feminine on فَعْلَاء. Say them as pairs and they stick.",
+            show: "أَحْمَرُ 🔴 ← حَمْرَاءُ\nأَخْضَرُ 🟢 ← خَضْرَاءُ\nأَبْيَضُ ⚪ ← بَيْضَاءُ",
+          },
+          {
+            say: "Now something important about their endings. These colours NEVER take tanwin — only a single damma. They belong to a group called المَمْنُوع مِنَ الصَّرْف.",
+            show: "✅ كِتَابٌ أَحْمَرُ",
+            warn: "❌ كِتَابٌ أَحْمَرٌ",
+          },
+          {
+            say: "The second family is made by adding ـيّ to a thing's name — the colour of coffee, of ash, of an orange. These behave like ordinary words and DO take tanwin.",
+            show: "بُنٌّ ← بُنِّيٌّ 🟫\nرَمَادٌ ← رَمَادِيٌّ 🩶\nبُرْتُقَالٌ ← بُرْتُقَالِيٌّ 🟠",
+          },
+          {
+            say: "And their feminine is made simply with ة, not with فعلاء.",
+            show: "بُنِّيٌّ ← بُنِّيَّةٌ\nرَمَادِيٌّ ← رَمَادِيَّةٌ",
+          },
+          {
+            say: "Finally, shades. Add فَاتِح for light and غَامِق for dark, and they follow the colour like any adjective.",
+            show: "أَزْرَقُ فَاتِحٌ 🔵🔆\nبُنِّيٌّ غَامِقٌ 🟫🌑",
+          },
+        ],
         ar: "١) اَلْأَلْوَانُ الْأَصْلِيَّةُ عَلَى وَزْنِ أَفْعَلَ:\nمُذَكَّرٌ: أَحْمَرُ 🔴 أَخْضَرُ 🟢 أَزْرَقُ 🔵 أَصْفَرُ 🟡 أَبْيَضُ ⚪ أَسْوَدُ ⚫ أَسْمَرُ 🟤\nمُؤَنَّثٌ عَلَى فَعْلَاءَ: حَمْرَاءُ · خَضْرَاءُ · زَرْقَاءُ · صَفْرَاءُ · بَيْضَاءُ · سَوْدَاءُ\n⚠️ مَمْنُوعَةٌ مِنَ الصَّرْفِ: كِتَابٌ أَحْمَرُ (لَا أَحْمَرٌ)\n\n٢) أَلْوَانٌ بِيَاءِ النِّسْبَةِ ـِيٌّ — وَهَذِهِ تُنَوَّنُ:\nبُنِّيٌّ 🟫 · رَمَادِيٌّ 🩶 · بُرْتُقَالِيٌّ 🟠\nبَنَفْسَجِيٌّ 🟣 · وَرْدِيٌّ 🌸 · ذَهَبِيٌّ 🥇 · فِضِّيٌّ 🥈\nمُؤَنَّثُهَا بِالتَّاءِ: بُنِّيَّةٌ · رَمَادِيَّةٌ\n\n٣) اَلدَّرَجَاتُ:\nفَاتِحٌ 🔆 (light) · غَامِقٌ 🌑 (dark)\nأَزْرَقُ فَاتِحٌ · بُنِّيٌّ غَامِقٌ\n\n٤) اَلسُّؤَالُ: مَا لَوْنُهُ؟ 🎨❓",
         hint: "Two families: the core colours on أَفْعَل / فَعْلَاء (never tanwin), and the rest formed with نسبة ـيّ (which DO take tanwin, and take ة for feminine). Shades add فاتح / غامق.",
       },
@@ -760,7 +1155,7 @@ export const CURRICULUM = {
     {
       id: "l47",
       title: "اَللِّبَاسُ",
-      subtitle: "اَلدَّرْسُ الرَّابِعَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسَ عَشَرَ",
       vocab: [
         { ar: "لِبَاسٌ / مَلَابِسُ", emoji: "👕", en: "clothing" },
         { ar: "ثَوْبٌ", emoji: "👳", en: "thawb / garment" },
@@ -800,6 +1195,29 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "يَلْبَسُ + مَفْعُولٌ بِهِ، وَالْوَصْفُ بِالْمَادَّةِ",
+        teach: [
+          {
+            say: "This lesson quietly combines three rules you already know. Watch how they stack in a single short sentence.",
+            show: "يَلْبَسُ الرَّجُلُ ثَوْبًا أَبْيَضَ",
+          },
+          {
+            say: "First: after a verb, the thing acted upon takes fatha. He wears WHAT? ثوبًا — with tanwin fath.",
+            show: "يَلْبَسُ ثَوْبًا ➡️",
+          },
+          {
+            say: "Second: an adjective copies its noun's ending. The garment is accusative, so its colour must be accusative too.",
+            show: "ثَوْبًا أَبْيَضَ ➡️➡️",
+          },
+          {
+            say: "Third — and this is why it is أَبْيَضَ and not أَبْيَضًا — colours never take tanwin. Accusative for them is a bare fatha.",
+            show: "✅ ثَوْبًا أَبْيَضَ",
+            warn: "❌ ثَوْبًا أَبْيَضًا",
+          },
+          {
+            say: "To say what something is made of, use مِنْ — and remember what always follows a preposition.",
+            show: "قَمِيصٌ مِنْ قُطْنٍ ⬇️\nمِعْطَفٌ مِنْ صُوفٍ ⬇️",
+          },
+        ],
         ar: "١) اَلْمَفْعُولُ بِهِ بَعْدَ «يَلْبَسُ» مَنْصُوبٌ:\nيَلْبَسُ ثَوْبًا ✅ · تَلْبَسُ عَبَاءَةً ✅\n\n٢) اَلصِّفَةُ تَتْبَعُ الْمَوْصُوفَ فِي الْإِعْرَابِ:\nثَوْبًا أَبْيَضَ ➡️➡️ (كِلَاهُمَا مَنْصُوبٌ)\n⚠️ «أَبْيَضَ» مَمْنُوعٌ مِنَ الصَّرْفِ — بِالْفَتْحَةِ بِلَا تَنْوِينٍ\nعَبَاءَةً سَوْدَاءَ · حِذَاءً أَحْمَرَ\n\n٣) اَلْوَصْفُ بِالْمَادَّةِ بِـ «مِنْ»:\nقَمِيصٌ مِنْ قُطْنٍ 🌾 · مِعْطَفٌ مِنْ صُوفٍ 🐑\n(وَمَا بَعْدَ «مِنْ» مَجْرُورٌ)\n\n٤) مَا يُلْبَسُ زَوْجًا يُثَنَّى:\nجَوْرَبٌ ← جَوْرَبَانِ 🧦 · حِذَاءٌ ← حِذَاءَانِ",
         hint: "Wearing takes a direct object in the accusative, and its adjective must match — remember colours are diptotes, so ثوبًا أبيضَ with fatha and no tanwin. Say the material with مِنْ.",
       },
@@ -826,7 +1244,7 @@ export const CURRICULUM = {
     {
       id: "l31",
       title: "اَلْجِسْمُ وَالصِّحَّةُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ السَّادِسَ عَشَرَ",
       vocab: [
         { ar: "جِسْمٌ", emoji: "🧍", en: "body" },
         { ar: "رَأْسٌ", emoji: "🗣️", en: "head (m)" },
@@ -872,6 +1290,33 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "أَعْضَاءُ الْجِسْمِ: اَلْمُؤَنَّثُ بِلَا تَاءٍ",
+        teach: [
+          {
+            say: "Body parts are where the 'feminine without ة' rule becomes practical. Here is the pattern, and it is beautifully simple.",
+            show: "مُزْدَوِجٌ ← مُؤَنَّثٌ\nمُفْرَدٌ ← مُذَكَّرٌ",
+          },
+          {
+            say: "Anything you have TWO of is feminine — hand, eye, ear, leg, foot — even though not one of them carries a ة.",
+            show: "يَدٌ ✋ · عَيْنٌ 👁️ · أُذُنٌ 👂 · رِجْلٌ 🦵 · قَدَمٌ 🦶",
+          },
+          {
+            say: "So their adjectives must take ة. This is the mistake learners make for years.",
+            show: "✅ يَدِي نَظِيفَةٌ\n✅ عَيْنُهَا جَمِيلَةٌ",
+            warn: "❌ يَدِي نَظِيفٌ",
+          },
+          {
+            say: "Anything you have ONE of is masculine — head, nose, mouth, heart, back, chest.",
+            show: "✅ أَنْفُهُ صَغِيرٌ 👃\n✅ قَلْبُهُ سَلِيمٌ 🫀",
+          },
+          {
+            say: "And since these come in pairs, you will use the dual constantly. Add ـَانِ and you have two of them.",
+            show: "يَدَانِ ✋✋ · عَيْنَانِ 👀 · قَدَمَانِ 🦶🦶",
+          },
+          {
+            say: "Finally, how to say something hurts. The verb comes first and the pronoun attaches to it.",
+            show: "يُؤْلِمُنِي رَأْسِي 😖\n= my head hurts me",
+          },
+        ],
         ar: "قَاعِدَةٌ: اَلْأَعْضَاءُ الْمُزْدَوِجَةُ مُؤَنَّثَةٌ وَإِنْ لَمْ تَكُنْ فِيهَا تَاءٌ:\nيَدٌ ✋ · عَيْنٌ 👁️ · أُذُنٌ 👂 · رِجْلٌ 🦵 · قَدَمٌ 🦶\n✅ يَدِي نَظِيفَةٌ · عَيْنُهَا جَمِيلَةٌ\n\nوَالْمُفْرَدَةُ مُذَكَّرَةٌ:\nرَأْسٌ 🗣️ · أَنْفٌ 👃 · فَمٌ 👄 · قَلْبٌ 🫀 · ظَهْرٌ 🔙 · صَدْرٌ · بَطْنٌ\n✅ أَنْفُهُ صَغِيرٌ\n\n⚠️ وَبَعْضُهَا بِالتَّاءِ: رَقَبَةٌ · رُكْبَةٌ\n\nاَلتَّثْنِيَةُ:\nيَدَانِ · عَيْنَانِ · أُذُنَانِ · رِجْلَانِ · قَدَمَانِ · كَتِفَانِ\n\nاَلْجَمْعُ:\nإِصْبَعٌ ← أَصَابِعُ ☝️ · سِنٌّ ← أَسْنَانٌ 🦷\n\nاَلتَّعْبِيرُ عَنِ الْأَلَمِ:\nيُؤْلِمُنِي رَأْسِي 😖 · عِنْدِي أَلَمٌ فِي بَطْنِي\nوَالدُّعَاءُ: شَفَاكَ اللهُ 🤲",
         hint: "Paired parts (hand, eye, ear, leg, foot) are feminine with no ة — so adjectives take ة. Single parts (head, nose, mouth, heart, back, chest) are masculine. Say pain with يُؤْلِمُنِي.",
       },
@@ -901,7 +1346,7 @@ export const CURRICULUM = {
     {
       id: "l58",
       title: "اَلْحَيَوَانَاتُ",
-      subtitle: "اَلدَّرْسُ السَّادِسَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ السَّابِعَ عَشَرَ",
       vocab: [
         { ar: "حَيَوَانٌ", emoji: "🐾", en: "animal" },
         { ar: "قِطٌّ / هِرَّةٌ", emoji: "🐈", en: "cat" },
@@ -967,7 +1412,7 @@ export const CURRICULUM = {
     {
       id: "l59",
       title: "اَلطَّبِيعَةُ وَالْكَوْنُ",
-      subtitle: "اَلدَّرْسُ السَّابِعَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنَ عَشَرَ",
       vocab: [
         { ar: "اَلسَّمَاءُ", emoji: "🌌", en: "sky / heaven (feminine)" },
         { ar: "اَلْأَرْضُ", emoji: "🌍", en: "earth (feminine)" },
@@ -1029,7 +1474,7 @@ export const CURRICULUM = {
     {
       id: "l29",
       title: "اَلْمُثَنَّى",
-      subtitle: "اَلدَّرْسُ الثَّامِنَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعَ عَشَرَ",
       vocab: [
         { ar: "كِتَابَانِ", emoji: "📖📖", en: "two books" },
         { ar: "بَيْتَانِ", emoji: "🏠🏠", en: "two houses" },
@@ -1055,6 +1500,34 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "اَلْمُثَنَّى: زِيَادَةُ ـَانِ",
+        teach: [
+          {
+            say: "English has two numbers: one book, many books. Arabic has THREE. Between singular and plural sits a form used only for exactly two.",
+            show: "مُفْرَدٌ 1️⃣\nمُثَنًّى 2️⃣\nجَمْعٌ 3️⃣+",
+          },
+          {
+            say: "Making the dual is the easiest rule in the language: add ـَانِ to the singular.",
+            show: "كِتَابٌ ← كِتَابَانِ 📖📖\nبَيْتٌ ← بَيْتَانِ 🏠🏠",
+          },
+          {
+            say: "For a feminine word, the ة opens into a ت first, then the ending is added — the same change you saw with pronouns.",
+            show: "بِنْتٌ ← بِنْتَانِ 👧👧\nطَالِبَةٌ ← طَالِبَتَانِ",
+          },
+          {
+            say: "Now the part that surprises people: EVERYTHING agreeing with a dual must itself become dual. The pointing word changes too.",
+            show: "هَذَانِ كِتَابَانِ 📖📖\nهَاتَانِ بِنْتَانِ 👧👧",
+          },
+          {
+            say: "And so does the adjective. Never pair a dual noun with a singular description.",
+            show: "✅ كِتَابَانِ جَدِيدَانِ",
+            warn: "❌ كِتَابَانِ جَدِيدٌ",
+          },
+          {
+            say: "One irregular form worth memorising now, because you will need it when speaking about your family.",
+            show: "أَخٌ ← أَخَوَانِ 🧑🧑",
+            warn: "❌ أَخَانِ",
+          },
+        ],
         ar: "اَلْعَرَبِيَّةُ ثَلَاثَةُ أَعْدَادٍ:\nمُفْرَدٌ 1️⃣ · مُثَنًّى 2️⃣ · جَمْعٌ 3️⃣+\n\nاَلْمُثَنَّى: اِسْمٌ + ـَانِ\nكِتَابٌ ← كِتَابَانِ 📖📖\nبَيْتٌ ← بَيْتَانِ 🏠🏠\n\nاَلْمُؤَنَّثُ: تَعُودُ التَّاءُ مَفْتُوحَةً\nبِنْتٌ ← بِنْتَانِ · طَالِبَةٌ ← طَالِبَتَانِ\n\n⚠️ كُلُّ شَيْءٍ يُثَنَّى مَعَهُ:\nاِسْمُ الْإِشَارَةِ: هَذَانِ 👦👦 · هَاتَانِ 👧👧\nاَلصِّفَةُ: كِتَابَانِ جَدِيدَانِ ✨✨\nاَلضَّمِيرُ: هُمَا · أَنْتُمَا\n\n⚠️ شَاذٌّ: أَخٌ ← أَخَوَانِ (لَا أَخَانِ)",
         hint: "Arabic has THREE numbers, not two: singular, dual, plural. The dual adds ـَانِ — and everything agrees with it: the demonstrative, the adjective, and the pronoun all take dual form too.",
       },
@@ -1080,7 +1553,7 @@ export const CURRICULUM = {
     {
       id: "l19",
       title: "جَمْعُ التَّكْسِيرِ",
-      subtitle: "اَلدَّرْسُ التَّاسِعَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الْعِشْرُونَ",
       vocab: [
         { ar: "كُتُبٌ", emoji: "📚" },
         { ar: "أَقْلَامٌ", emoji: "✏️✏️" },
@@ -1106,6 +1579,29 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "جَمْعُ التَّكْسِيرِ وَحُكْمُهُ",
+        teach: [
+          {
+            say: "In English, plurals are predictable: add -s. In Arabic, many plurals BREAK the word apart and rebuild it. You cannot guess them — you learn each one with its singular.",
+            show: "كِتَابٌ ← كُتُبٌ 📚\nبَيْتٌ ← بُيُوتٌ 🏠🏠",
+          },
+          {
+            say: "The letters stay the same — ك ت ب — but the vowels between them change completely. That is why it is called a BROKEN plural.",
+            show: "ك‍ِتَاب ← كُ‍تُب\nنَفْسُ الْحُرُوفِ، وَزْنٌ آخَرُ",
+          },
+          {
+            say: "Learn each new noun together with its plural, exactly as you would learn a word's gender. Never learn one without the other.",
+            show: "قَلَمٌ ← أَقْلَامٌ ✏️\nرَجُلٌ ← رِجَالٌ 🧔\nمَسْجِدٌ ← مَسَاجِدُ 🕌",
+          },
+          {
+            say: "Now the rule that matters more than the plurals themselves. When the plural is of THINGS, not people, Arabic treats it as a single feminine word.",
+            show: "اَلْكُتُبُ جَدِيدَةٌ 📚 ✅\nاَلْمَسَاجِدُ كَبِيرَةٌ 🕌 ✅",
+            warn: "❌ اَلْكُتُبُ جَدِيدُونَ",
+          },
+          {
+            say: "Plurals of PEOPLE behave the way you expect. Hold these two side by side until the difference is automatic.",
+            show: "اَلطُّلَّابُ مُجْتَهِدُونَ 🧑\u200d🎓\nاَلْكُتُبُ جَدِيدَةٌ 📚",
+          },
+        ],
         ar: "اَلْجَمْعُ يُكَسِّرُ بِنَاءَ الْكَلِمَةِ:\nكِتَابٌ ← كُتُبٌ 📚 · قَلَمٌ ← أَقْلَامٌ · بَيْتٌ ← بُيُوتٌ\n\n⚠️ حُكْمٌ مُهِمٌّ:\nجَمْعُ غَيْرِ الْعَاقِلِ يُعَامَلُ مُعَامَلَةَ الْمُفْرَدِ الْمُؤَنَّثِ:\n✅ اَلْكُتُبُ جَدِيدَةٌ (لَا: جَدِيدُونَ)\n✅ اَلْمَسَاجِدُ كَبِيرَةٌ\n\nأَمَّا الْعَاقِلُ:\n✅ اَلطُّلَّابُ كَثِيرُونَ · اَلرِّجَالُ مُسْلِمُونَ",
         hint: "Broken plurals change the word's shape. Crucially: plurals of NON-humans are treated as feminine singular — الكتب جديدة, not جديدون.",
       },
@@ -1130,7 +1626,7 @@ export const CURRICULUM = {
     {
       id: "l30",
       title: "جَمْعُ الْمُذَكَّرِ وَالْمُؤَنَّثِ السَّالِمُ",
-      subtitle: "اَلدَّرْسُ الْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالْعِشْرُونَ",
       vocab: [
         { ar: "مُسْلِمُونَ", emoji: "☝️☝️☝️", en: "Muslims (sound masc. plural)" },
         { ar: "مُسْلِمَاتٌ", emoji: "🧕🧕🧕", en: "Muslim women (sound fem. plural)" },
@@ -1156,6 +1652,28 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "اَلْجَمْعُ السَّالِمُ: يَسْلَمُ بِنَاءُ الْكَلِمَةِ",
+        teach: [
+          {
+            say: "Last lesson the word broke apart. This lesson the word stays perfectly intact — you only add an ending. That is why it is called the SOUND plural.",
+            show: "تَكْسِيرٌ: كِتَابٌ ← كُتُبٌ (تَغَيَّرَ)\nسَالِمٌ: مُسْلِمٌ ← مُسْلِمُونَ (سَلِمَ)",
+          },
+          {
+            say: "For a group of men, add ـُونَ. The word itself is untouched.",
+            show: "مُسْلِمٌ ← مُسْلِمُونَ ☝️\nمُعَلِّمٌ ← مُعَلِّمُونَ 👨\u200d🏫",
+          },
+          {
+            say: "For a group of women, the ة opens into ت and you add ـَات. Notice the 'a' lengthens: muslimatun becomes muslimaat.",
+            show: "مُسْلِمَةٌ ← مُسْلِمَاتٌ 🧕\nمُعَلِّمَةٌ ← مُعَلِّمَاتٌ",
+          },
+          {
+            say: "Which words take the sound plural? Usually those describing PEOPLE by what they do or are — Muslim, teacher, engineer, believer.",
+            show: "مُهَنْدِسُونَ 👷 · مُؤْمِنُونَ 🤲\nمُجْتَهِدُونَ 💪",
+          },
+          {
+            say: "And to point at a group of people, near or far, Arabic has one word for each — used for men and women alike.",
+            show: "هَؤُلَاءِ 👉👥 = these\nأُولَئِكَ 👉🔭👥 = those",
+          },
+        ],
         ar: "جَمْعَانِ فِي الْعَرَبِيَّةِ:\n١) تَكْسِيرٌ — يَتَغَيَّرُ الْبِنَاءُ: كِتَابٌ ← كُتُبٌ 📚\n٢) سَالِمٌ — يَسْلَمُ الْبِنَاءُ وَتُزَادُ نِهَايَةٌ\n\nمُذَكَّرٌ سَالِمٌ: + ـُونَ\nمُسْلِمٌ ← مُسْلِمُونَ ☝️☝️☝️\nمُعَلِّمٌ ← مُعَلِّمُونَ\n\nمُؤَنَّثٌ سَالِمٌ: ة ← ـَاتٌ\nمُسْلِمَةٌ ← مُسْلِمَاتٌ 🧕🧕🧕\nاَلتَّاءُ الْمَرْبُوطَةُ تَصِيرُ مَفْتُوحَةً وَالْأَلِفُ تَطُولُ\n\n⚠️ اِسْمُ الْإِشَارَةِ لِلْجَمْعِ الْعَاقِلِ:\nقَرِيبٌ: هَؤُلَاءِ 👉 · بَعِيدٌ: أُولَئِكَ 👉🔭\nوَهُمَا لِلْمُذَكَّرِ وَالْمُؤَنَّثِ مَعًا",
         hint: "The SOUND plural keeps the word intact and just adds an ending: ـُونَ for men, ـَاتٌ for women. Compare with the BROKEN plural, which reshapes the word entirely. هؤلاء and أولئك serve both genders.",
       },
@@ -1181,7 +1699,7 @@ export const CURRICULUM = {
     {
       id: "l9",
       title: "اَلْأَعْدَادُ",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالْعِشْرُونَ",
       vocab: [
         { ar: "وَاحِدٌ", emoji: "1️⃣" },
         { ar: "اِثْنَانِ", emoji: "2️⃣" },
@@ -1230,7 +1748,7 @@ export const CURRICULUM = {
     {
       id: "l25",
       title: "اَلْعَدُّ مِنْ ١ إِلَى ٩٩",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "وَاحِدٌ", emoji: "1️⃣", en: "one" },
         { ar: "اِثْنَانِ", emoji: "2️⃣", en: "two" },
@@ -1297,7 +1815,7 @@ export const CURRICULUM = {
     {
       id: "l26",
       title: "اَلْمِئَاتُ وَالْأُلُوفُ وَالْمَلَايِينُ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "مِئَةٌ", emoji: "💯", en: "100" },
         { ar: "مِئَتَانِ", emoji: "2️⃣💯", en: "200" },
@@ -1361,7 +1879,7 @@ export const CURRICULUM = {
     {
       id: "l13",
       title: "اَلْوَقْتُ وَالسَّاعَةُ وَالتَّارِيخُ",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "اَلسَّاعَةُ", emoji: "🕐", en: "the hour / clock / watch" },
         { ar: "دَقِيقَةٌ", emoji: "⏱️", en: "minute" },
@@ -1426,7 +1944,7 @@ export const CURRICULUM = {
     {
       id: "l37",
       title: "اَلتَّارِيخُ وَالْعُمْرُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "كَمْ عُمْرُكَ؟", emoji: "🎂❓", en: "how old are you?" },
         { ar: "عُمْرِي", emoji: "🎂🧍", en: "my age is" },
@@ -1498,7 +2016,7 @@ export const CURRICULUM = {
     {
       id: "l10",
       title: "اَلضَّمَائِرُ الْمُنْفَصِلَةُ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "هُوَ", emoji: "🧔", en: "he — 1 male, absent" },
         { ar: "هُمَا", emoji: "🧔🧔", en: "they two — dual (male or female)" },
@@ -1566,7 +2084,7 @@ export const CURRICULUM = {
     {
       id: "l24",
       title: "اَلضَّمَائِرُ الْمُتَّصِلَةُ",
-      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "كِتَابِي", emoji: "📖🧍" },
         { ar: "كِتَابُكَ", emoji: "📖👉🧔" },
@@ -1616,7 +2134,7 @@ export const CURRICULUM = {
     {
       id: "l5",
       title: "تَعْبِيرَاتٌ يَوْمِيَّةٌ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "السَّلَامُ عَلَيْكُمْ", emoji: "👋" },
         { ar: "وَعَلَيْكُمُ السَّلَامُ", emoji: "🤝" },
@@ -1665,7 +2183,7 @@ export const CURRICULUM = {
     {
       id: "l17",
       title: "اَلْأَسْئِلَةُ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الثَّلَاثُونَ",
       vocab: [
         { ar: "مَنْ؟", emoji: "🧍❓" },
         { ar: "مَا؟", emoji: "❔" },
@@ -1716,7 +2234,7 @@ export const CURRICULUM = {
     {
       id: "l18",
       title: "اَلْحِوَارُ",
-      subtitle: "اَلدَّرْسُ الثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالثَّلَاثُونَ",
       vocab: [
         { ar: "اِسْمِي", emoji: "🏷️🧍" },
         { ar: "مَا اسْمُكَ؟", emoji: "🏷️❓" },
@@ -1767,7 +2285,7 @@ export const CURRICULUM = {
     {
       id: "l22",
       title: "اَلْمَدِينَةُ وَالسُّوقُ",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالثَّلَاثُونَ",
       vocab: [
         { ar: "مَدِينَةٌ", emoji: "🏙️" },
         { ar: "سُوقٌ", emoji: "🏪" },
@@ -1821,7 +2339,7 @@ export const CURRICULUM = {
     {
       id: "l32",
       title: "اَلسَّفَرُ وَالْبُلْدَانُ",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "سَفَرٌ", emoji: "🧳", en: "travel" },
         { ar: "مَطَارٌ", emoji: "🛫", en: "airport" },
@@ -1876,7 +2394,7 @@ export const CURRICULUM = {
     {
       id: "l42",
       title: "اَلطَّقْسُ وَالْفُصُولُ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "اَلطَّقْسُ", emoji: "🌤️", en: "the weather" },
         { ar: "اَلْجَوُّ", emoji: "🌥️", en: "the air / weather" },
@@ -1932,7 +2450,7 @@ export const CURRICULUM = {
     {
       id: "l44",
       title: "اَلْمِهَنُ وَالْعَمَلُ",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "مِهْنَةٌ", emoji: "🔨", en: "profession" },
         { ar: "طَبِيبٌ", emoji: "🧑‍⚕️", en: "doctor" },
@@ -1988,7 +2506,7 @@ export const CURRICULUM = {
     {
       id: "l60",
       title: "اَلتِّقْنِيَةُ وَالْأَدَوَاتُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "هَاتِفٌ / جَوَّالٌ", emoji: "📱", en: "phone / mobile" },
         { ar: "حَاسُوبٌ", emoji: "💻", en: "computer" },
@@ -2049,7 +2567,7 @@ export const CURRICULUM = {
     {
       id: "l14",
       title: "اَلْفِعْلُ الْمَاضِي",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "ذَهَبَ", emoji: "🚶➡️" },
         { ar: "جَلَسَ", emoji: "🪑" },
@@ -2100,7 +2618,7 @@ export const CURRICULUM = {
     {
       id: "l38",
       title: "تَصْرِيفُ الْمَاضِي",
-      subtitle: "اَلدَّرْسُ السَّابِعُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "ذَهَبَ", emoji: "🧔🚶", en: "he went" },
         { ar: "ذَهَبَا", emoji: "🧔🧔🚶", en: "they two went (m)" },
@@ -2155,7 +2673,7 @@ export const CURRICULUM = {
     {
       id: "l15",
       title: "اَلْفِعْلُ الْمُضَارِعُ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "يَذْهَبُ", emoji: "🚶➡️" },
         { ar: "يَجْلِسُ", emoji: "🪑" },
@@ -2205,7 +2723,7 @@ export const CURRICULUM = {
     {
       id: "l39",
       title: "تَصْرِيفُ الْمُضَارِعِ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الْأَرْبَعُونَ",
       vocab: [
         { ar: "يَذْهَبُ", emoji: "🧔🚶", en: "he goes" },
         { ar: "يَذْهَبَانِ", emoji: "🧔🧔🚶", en: "they two go (m)" },
@@ -2256,7 +2774,7 @@ export const CURRICULUM = {
     {
       id: "l16",
       title: "اَلنَّفْيُ",
-      subtitle: "اَلدَّرْسُ الْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "لَا", emoji: "❌" },
         { ar: "مَا", emoji: "🚫" },
@@ -2306,7 +2824,7 @@ export const CURRICULUM = {
     {
       id: "l40",
       title: "النَّصْبُ وَالْجَزْمُ: لَنْ وَلَمْ",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "لَنْ", emoji: "🚫➡️", en: "will never (future negation)" },
         { ar: "لَمْ", emoji: "🚫⬅️", en: "did not (past negation)" },
@@ -2357,7 +2875,7 @@ export const CURRICULUM = {
     {
       id: "l33",
       title: "اَلْأَمْرُ وَالنَّهْيُ",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "اِقْرَأْ", emoji: "📖👉", en: "read! (command)" },
         { ar: "اُكْتُبْ", emoji: "✍️👉", en: "write!" },
@@ -2408,7 +2926,7 @@ export const CURRICULUM = {
     {
       id: "l36",
       title: "فِي الْبَيْتِ: كَلَامُ الْأُسْرَةِ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "تَعَالَ", emoji: "👋➡️", en: "come! (to a man)" },
         { ar: "تَعَالَيْ", emoji: "👋➡️👩", en: "come! (to a woman)" },
@@ -2468,7 +2986,7 @@ export const CURRICULUM = {
     {
       id: "l48",
       title: "اَلدُّعَاءُ وَالطَّلَبُ",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "اَللَّهُمَّ", emoji: "🤲☝️", en: "O Allah" },
         { ar: "يَا رَبِّ", emoji: "🤲", en: "O my Lord" },
@@ -2531,7 +3049,7 @@ export const CURRICULUM = {
     {
       id: "l54",
       title: "اَلْأَفْعَالُ الْمُعْتَلَّةُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "قَالَ / يَقُولُ", emoji: "🗣️", en: "he said / says (hollow: و)" },
         { ar: "كَانَ / يَكُونُ", emoji: "⬅️", en: "he was / is (hollow: و)" },
@@ -2591,7 +3109,7 @@ export const CURRICULUM = {
     {
       id: "l45",
       title: "اَلْمَبْنِيُّ لِلْمَجْهُولِ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "كُتِبَ", emoji: "✍️❓", en: "it was written" },
         { ar: "قُرِئَ", emoji: "📖❓", en: "it was read" },
@@ -2642,7 +3160,7 @@ export const CURRICULUM = {
     {
       id: "l51",
       title: "أَوْزَانُ الْفِعْلِ: فَعَّلَ وَفَاعَلَ وَأَفْعَلَ",
-      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "عَلِمَ", emoji: "📗", en: "he knew (form I)" },
         { ar: "عَلَّمَ", emoji: "👨\u200d🏫", en: "he TAUGHT (form II — made someone know)" },
@@ -2703,7 +3221,7 @@ export const CURRICULUM = {
     {
       id: "l52",
       title: "أَوْزَانُ الْفِعْلِ: تَفَعَّلَ وَتَفَاعَلَ وَانْفَعَلَ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "عَلَّمَ", emoji: "👨\u200d🏫", en: "he taught (II)" },
         { ar: "تَعَلَّمَ", emoji: "🧑\u200d🎓", en: "he LEARNED (V — for himself)" },
@@ -2764,7 +3282,7 @@ export const CURRICULUM = {
     {
       id: "l53",
       title: "أَوْزَانُ الْفِعْلِ: اِفْتَعَلَ وَاسْتَفْعَلَ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الْخَمْسُونَ",
       vocab: [
         { ar: "جَمَعَ", emoji: "➕", en: "he gathered (I)" },
         { ar: "اِجْتَمَعَ", emoji: "👥", en: "they gathered / met (VIII)" },
@@ -2824,7 +3342,7 @@ export const CURRICULUM = {
     {
       id: "l35",
       title: "اَلْمَصْدَرُ وَاسْمُ الْفَاعِلِ",
-      subtitle: "اَلدَّرْسُ الْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالْخَمْسُونَ",
       vocab: [
         { ar: "اَلْعِلْمُ", emoji: "📗", en: "knowledge (verbal noun)", quran: "وَقُل رَّبِّ زِدْنِي عِلْمًا", quranRef: "طه ١١٤" },
         { ar: "اَلْعَمَلُ", emoji: "🔨", en: "action / working" },
@@ -2876,7 +3394,7 @@ export const CURRICULUM = {
     {
       id: "l20",
       title: "كَانَ وَأَخَوَاتُهَا",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالْخَمْسُونَ",
       vocab: [
         { ar: "كَانَ", emoji: "⬅️" },
         { ar: "كَانَتْ", emoji: "⬅️👩" },
@@ -2926,7 +3444,7 @@ export const CURRICULUM = {
     {
       id: "l21",
       title: "إِنَّ وَأَخَوَاتُهَا",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "إِنَّ", emoji: "❗" },
         { ar: "أَنَّ", emoji: "➕❗" },
@@ -2976,7 +3494,7 @@ export const CURRICULUM = {
     {
       id: "l23",
       title: "اَلِاسْمُ الْمَوْصُولُ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "اَلَّذِي", emoji: "👉🧔" },
         { ar: "اَلَّتِي", emoji: "👉👩" },
@@ -3026,7 +3544,7 @@ export const CURRICULUM = {
     {
       id: "l41",
       title: "أَفْعَلُ التَّفْضِيلِ",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "أَكْبَرُ", emoji: "⬆️🐘", en: "bigger / biggest" },
         { ar: "أَصْغَرُ", emoji: "⬇️🐣", en: "smaller / smallest" },
@@ -3076,7 +3594,7 @@ export const CURRICULUM = {
     {
       id: "l49",
       title: "اَلْحَرَكَةُ وَالْمُشَاهَدَةُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "يَمْشِي", emoji: "🚶", en: "he walks" },
         { ar: "يَجْرِي", emoji: "🏃", en: "he runs" },
@@ -3149,7 +3667,7 @@ export const CURRICULUM = {
     {
       id: "l50",
       title: "اَلْحَالُ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "اَلْحَالُ", emoji: "🔄", en: "the circumstantial state" },
         { ar: "رَاكِضًا", emoji: "🏃", en: "running (as a state)" },
@@ -3205,7 +3723,7 @@ export const CURRICULUM = {
     {
       id: "l56",
       title: "اَلتَّمْيِيزُ وَالِاسْتِثْنَاءُ",
-      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "اَلتَّمْيِيزُ", emoji: "🔍", en: "the specifier" },
         { ar: "اَلِاسْتِثْنَاءُ", emoji: "➖", en: "the exception" },
@@ -3261,7 +3779,7 @@ export const CURRICULUM = {
     {
       id: "l57",
       title: "اَلْعَطْفُ وَالتَّوْكِيدُ وَالْبَدَلُ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "وَ", emoji: "➕", en: "and" },
         { ar: "فَ", emoji: "➡️", en: "and then (immediately)" },
@@ -3315,7 +3833,7 @@ export const CURRICULUM = {
     {
       id: "l55",
       title: "اَلشَّرْطُ: إِنْ وَإِذَا وَمَنْ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ السِّتُّونَ",
       vocab: [
         { ar: "إِنْ", emoji: "❓➡️", en: "if (uncertain)" },
         { ar: "إِذَا", emoji: "⏰➡️", en: "when / if (expected)" },
@@ -3366,9 +3884,64 @@ export const CURRICULUM = {
       productionEn: "Write five conditional sentences: three with إن or من (both verbs jussive), two with إذا",
     },
     {
+      id: "l68",
+      title: "اَلْأَسَالِيبُ: اَلتَّعَجُّبُ وَالْمَدْحُ وَالْقَسَمُ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالسِّتُّونَ",
+      vocab: [
+        { ar: "مَا أَجْمَلَ!", emoji: "😲🌸", en: "how beautiful!" },
+        { ar: "مَا أَعْظَمَ!", emoji: "😲⬆️", en: "how great!" },
+        { ar: "سُبْحَانَ اللهِ", emoji: "✨", en: "glory be to Allah (wonder)" },
+        { ar: "مَا شَاءَ اللهُ", emoji: "✨👍", en: "as Allah willed" },
+        { ar: "نِعْمَ", emoji: "👍", en: "how excellent is" },
+        { ar: "بِئْسَ", emoji: "👎", en: "how bad is" },
+        { ar: "وَاللهِ", emoji: "🤲❗", en: "by Allah (oath)" },
+        { ar: "إِنْ شَاءَ اللهُ", emoji: "🌙", en: "if Allah wills" },
+        { ar: "لَعَمْرِي", emoji: "❗", en: "by my life" },
+        { ar: "يَا لَهُ مِنْ", emoji: "😲", en: "what a ...!" },
+        { ar: "كَمْ", emoji: "❗🔢", en: "how many! (exclamatory)" },
+        { ar: "أَيْ نَعَمْ", emoji: "✅", en: "yes indeed" },
+        { ar: "كَلَّا", emoji: "🚫", en: "no indeed!" },
+        { ar: "لَا سِيَّمَا", emoji: "⭐", en: "especially" },
+        { ar: "حَقًّا", emoji: "💯", en: "truly" },
+      ],
+      examples: [
+        { ar: "مَا أَجْمَلَ السَّمَاءَ!", emoji: "😲 🌌" },
+        { ar: "مَا أَعْظَمَ خَلْقَ اللهِ!", emoji: "😲 ✨" },
+        { ar: "نِعْمَ الرَّجُلُ عُمَرُ", emoji: "👍 🧔" },
+        { ar: "بِئْسَ الْخُلُقُ الْكَذِبُ", emoji: "👎 🤥" },
+        { ar: "وَاللهِ لَأَجْتَهِدَنَّ", emoji: "🤲❗ 💪" },
+        { ar: "سَأَزُورُكَ غَدًا إِنْ شَاءَ اللهُ", emoji: "🌙 📅" },
+        { ar: "كَمْ مِنْ نِعْمَةٍ عِنْدَنَا!", emoji: "❗ 🎁" },
+        { ar: "أُحِبُّ الْعِلْمَ لَا سِيَّمَا الْعَرَبِيَّةَ", emoji: "📗 ⭐" },
+      ],
+      rule: {
+        name: "أَسَالِيبُ الْعَرَبِيَّةِ الْبَلِيغَةُ",
+        ar: "① اَلتَّعَجُّبُ 😲 — صِيغَتَانِ:\nمَا أَفْعَلَهُ! ← مَا أَجْمَلَ السَّمَاءَ! 🌌\n(مَا: مُبْتَدَأٌ · أَجْمَلَ: فِعْلٌ · السَّمَاءَ: مَفْعُولٌ بِهِ مَنْصُوبٌ ➡️)\nأَفْعِلْ بِهِ! ← أَجْمِلْ بِالسَّمَاءِ!\n\n⚠️ وَالْمُسْلِمُ يَتَعَجَّبُ بِـ:\nسُبْحَانَ اللهِ ✨ · مَا شَاءَ اللهُ · اَللهُ أَكْبَرُ\n\n② اَلْمَدْحُ وَالذَّمُّ:\nنِعْمَ 👍 لِلْمَدْحِ · بِئْسَ 👎 لِلذَّمِّ\nنِعْمَ الرَّجُلُ عُمَرُ · بِئْسَ الْخُلُقُ الْكَذِبُ\n(اَلْفَاعِلُ بَعْدَهُمَا مُعَرَّفٌ بِـ الـ)\n\n③ اَلْقَسَمُ 🤲❗:\nوَاللهِ · تَاللهِ · بِاللهِ (وَالِاسْمُ بَعْدَهَا مَجْرُورٌ)\nوَجَوَابُهُ يُؤَكَّدُ بِاللَّامِ وَالنُّونِ:\nوَاللهِ لَأَجْتَهِدَنَّ 💪\n\n⚠️ وَلَا يَحْلِفُ الْمُسْلِمُ إِلَّا بِاللهِ\n\n④ اَلِاسْتِثْنَاءُ التَّفْضِيلِيُّ:\nلَا سِيَّمَا ⭐ (وَمَا بَعْدَهَا مَجْرُورٌ أَوْ مَرْفُوعٌ)\n\n⑤ «كَمْ» الْخَبَرِيَّةُ لِلْكَثْرَةِ:\nكَمْ مِنْ نِعْمَةٍ عِنْدَنَا! 🎁 (تَعْجِيبٌ لَا سُؤَالٌ)",
+        hint: "Wonder is expressed with مَا أَفْعَلَ (and what follows is accusative), praise with نِعْمَ and blame with بِئْسَ, oaths with وَاللهِ followed by a genitive. A Muslim swears by none but Allah.",
+      },
+      drills: [
+        { t: "match", q: "صِلْ كُلَّ أُسْلُوبٍ بِمَعْنَاهُ", pairs: [["مَا أَجْمَلَ!","تَعَجُّبٌ"],["نِعْمَ","مَدْحٌ"],["بِئْسَ","ذَمٌّ"],["وَاللهِ","قَسَمٌ"]] },
+        { t: "mcq", q: "😲 🌌 (تَعَجُّبٌ)", options: ["مَا أَجْمَلَ السَّمَاءَ!", "مَا أَجْمَلُ السَّمَاءُ!", "مَا أَجْمَلَ السَّمَاءُ!", "مَا أَجْمَلِ السَّمَاءِ!"], a: "مَا أَجْمَلَ السَّمَاءَ!" },
+        { t: "mcq", q: "بَعْدَ «مَا أَفْعَلَ» اَلِاسْمُ؟", options: ["مَنْصُوبٌ ➡️", "مَرْفُوعٌ ⬆️", "مَجْرُورٌ ⬇️", "مَجْزُومٌ"], a: "مَنْصُوبٌ ➡️" },
+        { t: "mcq", q: "👍 (لِلْمَدْحِ)", options: ["نِعْمَ", "بِئْسَ", "كَلَّا", "لَعَمْرِي"], a: "نِعْمَ" },
+        { t: "mcq", q: "👎 (لِلذَّمِّ)", options: ["بِئْسَ", "نِعْمَ", "حَقًّا", "أَيْ نَعَمْ"], a: "بِئْسَ" },
+        { t: "mcq", q: "🤲❗ (بَعْدَ الْقَسَمِ)", options: ["وَاللهِ", "وَاللهُ", "وَاللهَ", "وَاللهٍ"], a: "وَاللهِ" },
+        { t: "mcq", q: "بِمَ يَحْلِفُ الْمُسْلِمُ؟", options: ["بِاللهِ وَحْدَهُ", "بِأَبِيهِ", "بِالْكَعْبَةِ", "بِأَيِّ شَيْءٍ"], a: "بِاللهِ وَحْدَهُ" },
+        { t: "mcq", q: "✨ (تَعَجُّبُ الْمُسْلِمِ)", options: ["سُبْحَانَ اللهِ", "يَا سَلَامُ", "وَاللهِ", "كَلَّا"], a: "سُبْحَانَ اللهِ" },
+        { t: "mcq", q: "👍 🧔", options: ["نِعْمَ الرَّجُلُ عُمَرُ", "نِعْمَ الرَّجُلَ عُمَرُ", "نِعْمَ رَجُلٌ عُمَرُ", "نِعْمَ الرَّجُلِ عُمَرُ"], a: "نِعْمَ الرَّجُلُ عُمَرُ" },
+        { t: "mcq", q: "❗ 🎁 (كَمْ الْخَبَرِيَّةُ)", options: ["كَمْ مِنْ نِعْمَةٍ عِنْدَنَا!", "كَمْ نِعْمَةٌ عِنْدَنَا!", "كَمْ مِنْ نِعْمَةً عِنْدَنَا!", "كَمْ نِعْمَةَ عِنْدَنَا!"], a: "كَمْ مِنْ نِعْمَةٍ عِنْدَنَا!" },
+        { t: "mcq", q: "🌙 (لِلْمُسْتَقْبَلِ)", options: ["إِنْ شَاءَ اللهُ", "مَا شَاءَ اللهُ", "سُبْحَانَ اللهِ", "الْحَمْدُ لِلَّهِ"], a: "إِنْ شَاءَ اللهُ" },
+        { t: "assemble", q: "😲 ✨", chips: ["مَا", "أَعْظَمَ", "خَلْقَ", "اللهِ!"], a: "مَا أَعْظَمَ خَلْقَ اللهِ!" },
+        { t: "assemble", q: "🤲❗ 💪", chips: ["وَاللهِ", "لَأَجْتَهِدَنَّ"], a: "وَاللهِ لَأَجْتَهِدَنَّ" },
+        { t: "assemble", q: "📗 ⭐", chips: ["أُحِبُّ", "الْعِلْمَ", "لَا", "سِيَّمَا", "الْعَرَبِيَّةَ"], a: "أُحِبُّ الْعِلْمَ لَا سِيَّمَا الْعَرَبِيَّةَ" },
+      ],
+      production: "اُكْتُبْ سِتَّ جُمَلٍ: اِثْنَتَيْنِ بِالتَّعَجُّبِ، وَاثْنَتَيْنِ بِـ «نِعْمَ» وَ «بِئْسَ»، وَاثْنَتَيْنِ بِالْقَسَمِ ✍️",
+      productionEn: "Write six sentences: two expressing wonder, two with نعم and بئس, and two with an oath",
+    },
+    {
       id: "l34",
       title: "لُغَةُ الْعِلْمِ",
-      subtitle: "اَلدَّرْسُ السِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالسِّتُّونَ",
       vocab: [
         { ar: "اَلتَّوْحِيدُ", emoji: "☝️", en: "affirming Allah's oneness" },
         { ar: "اَلدَّلِيلُ", emoji: "📜", en: "the evidence / proof" },
@@ -3425,7 +3998,7 @@ export const CURRICULUM = {
     {
       id: "l61",
       title: "أَلْفَاظُ الْقُرْآنِ الشَّائِعَةُ",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالسِّتُّونَ",
       vocab: [
         { ar: "اَلَّذِينَ", emoji: "👥", en: "those who", quran: "الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ", quranRef: "البقرة ٢٧٧" },
         { ar: "آمَنَ / يُؤْمِنُ", emoji: "🤲✅", en: "he believed", quran: "وَمَنْ يُؤْمِنْ بِاللَّهِ يَهْدِ قَلْبَهُ", quranRef: "التغابن ١١" },
@@ -3488,7 +4061,7 @@ export const CURRICULUM = {
     {
       id: "l62",
       title: "تَطْبِيقُ الْإِعْرَابِ",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالسِّتُّونَ",
       vocab: [
         { ar: "أَعْرِبْ", emoji: "🔍⚖️", en: "parse it (give the case analysis)" },
         { ar: "مُبْتَدَأٌ", emoji: "1️⃣⬆️", en: "subject of a nominal sentence" },
@@ -3543,7 +4116,7 @@ export const CURRICULUM = {
     {
       id: "l65",
       title: "مَهَارَةُ الْقِرَاءَةِ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالسِّتُّونَ",
       vocab: [
         { ar: "نَصٌّ", emoji: "📄", en: "text" },
         { ar: "فِقْرَةٌ", emoji: "¶", en: "paragraph" },
@@ -3597,7 +4170,7 @@ export const CURRICULUM = {
     {
       id: "l66",
       title: "مَهَارَةُ الِاسْتِمَاعِ",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالسِّتُّونَ",
       vocab: [
         { ar: "اَلِاسْتِمَاعُ", emoji: "👂", en: "listening" },
         { ar: "اَلْمُحَاضَرَةُ", emoji: "🎙️", en: "the lecture" },
@@ -3651,7 +4224,7 @@ export const CURRICULUM = {
     {
       id: "l63",
       title: "اَلرَّأْيُ وَالتَّعْبِيرُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالسِّتُّونَ",
       vocab: [
         { ar: "فِي رَأْيِي", emoji: "💭", en: "in my opinion" },
         { ar: "أَظُنُّ أَنَّ", emoji: "🤔", en: "I think that" },
@@ -3709,7 +4282,7 @@ export const CURRICULUM = {
     {
       id: "l64",
       title: "اَلْمُقَابَلَةُ وَالْحِوَارُ الطَّوِيلُ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالسِّتُّونَ",
       vocab: [
         { ar: "مُقَابَلَةٌ", emoji: "🎙️", en: "interview" },
         { ar: "حَدِّثْنِي عَنْ", emoji: "🗣️➡️", en: "tell me about" },

@@ -10,7 +10,7 @@ import { QURAN } from "../data/quran";
 const LEVELS = [
   {
     ar: "اَلْوَحْدَةُ الْأُولَى — اَلْجُمْلَةُ الِاسْمِيَّةُ",
-    range: "Lessons 1–10",
+    range: "Lessons 1–11",
     colour: "#0E5237",
     can: [
       "Operate inside an Arabic-only classroom: ask what a word means, say they didn't understand, request a repeat",
@@ -19,12 +19,13 @@ const LEVELS = [
       "Know the full gender system, including feminine nouns with no ة",
       "Build nominal sentences with correct agreement, and use prepositions and place adverbs",
       "Form the إضافة possessive construction",
+      "Write correctly: hamzat wasl vs qat\u02bc, ة vs ت, ى vs ا, and Arabic punctuation",
       "Parse any noun as مرفوع, منصوب or مجرور",
     ],
   },
   {
     ar: "اَلْوَحْدَةُ الثَّانِيَةُ — تَوْسِعَةُ الِاسْمِ",
-    range: "Lessons 11–25",
+    range: "Lessons 12–26",
     colour: "#B9862F",
     can: [
       "Name and describe family, food, colours, clothing, the body, animals and nature",
@@ -36,7 +37,7 @@ const LEVELS = [
   },
   {
     ar: "اَلْوَحْدَةُ الثَّالِثَةُ — اَلْمُحَادَثَةُ",
-    range: "Lessons 26–35",
+    range: "Lessons 27–36",
     colour: "#7A4E9E",
     can: [
       "Use all 14 pronouns, detached and attached",
@@ -47,7 +48,7 @@ const LEVELS = [
   },
   {
     ar: "اَلْوَحْدَةُ الرَّابِعَةُ — اَلْفِعْلُ",
-    range: "Lessons 36–46",
+    range: "Lessons 37–47",
     colour: "#0E5237",
     can: [
       "Conjugate any sound verb across all 14 forms, past and present",
@@ -59,7 +60,7 @@ const LEVELS = [
   },
   {
     ar: "اَلْوَحْدَةُ الْخَامِسَةُ — نِظَامُ الْأَوْزَانِ",
-    range: "Lessons 47–50",
+    range: "Lessons 48–51",
     colour: "#B9862F",
     can: [
       "Derive verbs across forms II–X and know what each pattern means",
@@ -70,7 +71,7 @@ const LEVELS = [
   },
   {
     ar: "اَلْوَحْدَةُ السَّادِسَةُ — اَلتَّرَاكِيبُ",
-    range: "Lessons 51–59",
+    range: "Lessons 52–61",
     colour: "#7A4E9E",
     can: [
       "Use كان and إنَّ families with correct case endings",
@@ -78,11 +79,12 @@ const LEVELS = [
       "Describe a live scene and narrate with الحال",
       "Use تمييز, exception with إلا, conjunction, emphasis and apposition",
       "Build conditional sentences with إن، من، إذا",
+      "Express wonder, praise, blame and oaths in classical style",
     ],
   },
   {
     ar: "اَلْوَحْدَةُ السَّابِعَةُ — اَلِاسْتِقْلَالُ",
-    range: "Lessons 60–66",
+    range: "Lessons 62–68",
     colour: "#0E5237",
     can: [
       "Recognise the language of a scholar's dars: قال، أي، يعني، الدليل، المسألة",

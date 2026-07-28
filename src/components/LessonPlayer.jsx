@@ -192,39 +192,119 @@ function PatternStage({ lesson, onDone }) {
 }
 
 function RuleStage({ lesson, onDone }) {
+  // A rule is TAUGHT one step at a time, not dumped as a summary.
+  // Each step: a plain-English explanation, then the Arabic it produces.
+  const steps = lesson.rule.teach || null;
+  const [i, setI] = useState(0);
   const [hint, setHint] = useState(false);
+
+  if (!steps) {
+    // legacy lessons that have no teaching sequence yet
+    return (
+      <div className="fadein">
+        <div className="card" style={{ padding: "26px 20px", borderColor: C.gold, borderWidth: 1.5 }}>
+          <div className="arabic" dir="rtl" style={{ fontSize: 26, color: C.gold, fontWeight: 700, textAlign: "center" }}>
+            {lesson.rule.name}
+          </div>
+          <div className="arabic" dir="rtl" style={{ fontSize: 26, marginTop: 16, whiteSpace: "pre-line", textAlign: "center" }}>
+            {lesson.rule.ar}
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 14 }}>
+            <Speaker text={lesson.rule.ar} size={20} />
+          </div>
+        </div>
+        <div style={{ textAlign: "center", marginTop: 14 }}>
+          <button onClick={() => setHint(!hint)} style={{ color: C.faded, fontSize: 13, textDecoration: "underline" }}>؟</button>
+          {hint && (
+            <div className="card fadein" style={{ padding: 12, marginTop: 8, fontSize: 13, color: C.faded }}>
+              {lesson.rule.hint}
+            </div>
+          )}
+        </div>
+        <button className="btn-primary arabic" style={{ width: "100%", marginTop: 16, fontSize: 22 }} onClick={onDone}>
+          إِلَى التَّدْرِيبَاتِ ←
+        </button>
+      </div>
+    );
+  }
+
+  const step = steps[i];
+  const last = i === steps.length - 1;
+
   return (
     <div className="fadein">
-      <div className="card" style={{ padding: "26px 20px", borderColor: C.gold, borderWidth: 1.5 }}>
-        <div className="arabic" dir="rtl" style={{ fontSize: 26, color: C.gold, fontWeight: 700, textAlign: "center" }}>
-          {lesson.rule.name}
-        </div>
-        <div className="arabic" dir="rtl" style={{ fontSize: 26, marginTop: 16, whiteSpace: "pre-line", textAlign: "center" }}>
-          {lesson.rule.ar}
-        </div>
-        <div style={{ display: "flex", justifyContent: "center", marginTop: 14 }}>
-          <Speaker text={lesson.rule.ar} size={20} />
-        </div>
+      <div className="arabic" dir="rtl" style={{ fontSize: 24, color: C.gold, fontWeight: 700, textAlign: "center" }}>
+        {lesson.rule.name}
       </div>
-      <div style={{ textAlign: "center", marginTop: 14 }}>
-        <button onClick={() => setHint(!hint)} style={{ color: C.faded, fontSize: 13, textDecoration: "underline" }}>؟</button>
-        {hint && (
-          <div className="card fadein" style={{ padding: 12, marginTop: 8, fontSize: 13, color: C.faded }}>
-            {lesson.rule.hint}
+
+      {/* progress through the teaching steps */}
+      <div style={{ display: "flex", justifyContent: "center", gap: 5, margin: "10px 0 14px" }}>
+        {steps.map((_, k) => (
+          <span key={k} style={{
+            width: k === i ? 18 : 7, height: 7, borderRadius: 99,
+            background: k <= i ? C.gold : C.border, transition: "width .2s",
+          }} />
+        ))}
+      </div>
+
+      <div className="card fadein" key={i} style={{ padding: "20px 18px", borderColor: C.gold }}>
+        {/* the explanation, in plain language */}
+        <p style={{ fontSize: 14.5, lineHeight: 1.75, color: C.ink, margin: 0 }}>{step.say}</p>
+
+        {/* the Arabic it produces */}
+        {step.show && (
+          <div dir="rtl" style={{
+            marginTop: 14, padding: "12px 14px", borderRadius: 12,
+            background: C.emeraldSoft, border: `1px solid ${C.emerald}`,
+          }}>
+            <div className="arabic" style={{ fontSize: 25, lineHeight: 2, whiteSpace: "pre-line", textAlign: "center" }}>
+              {step.show}
+            </div>
+            <div style={{ display: "flex", justifyContent: "center", marginTop: 6 }}>
+              <Speaker text={String(step.show).split("\n")[0]} size={17} />
+            </div>
+          </div>
+        )}
+
+        {/* the warning / common mistake */}
+        {step.warn && (
+          <div dir="rtl" style={{
+            marginTop: 10, padding: "10px 12px", borderRadius: 10,
+            background: C.redSoft, border: `1px solid ${C.red}`,
+          }}>
+            <div className="arabic" style={{ fontSize: 20, color: C.red, whiteSpace: "pre-line", textAlign: "center" }}>
+              {step.warn}
+            </div>
           </div>
         )}
       </div>
-      <button className="btn-primary arabic" style={{ width: "100%", marginTop: 16, fontSize: 22 }} onClick={onDone}>
-        إِلَى التَّدْرِيبَاتِ ←
-      </button>
+
+      <div dir="rtl" style={{ display: "flex", gap: 10, marginTop: 16 }}>
+        <button
+          className="btn-primary arabic"
+          style={{ flex: 1, fontSize: 21 }}
+          onClick={() => (last ? onDone() : setI(i + 1))}
+        >
+          {last ? "إِلَى التَّدْرِيبَاتِ ←" : "فَهِمْتُ ✓"}
+        </button>
+        {i > 0 && (
+          <button className="card" style={{ padding: "0 18px", color: C.faded }} onClick={() => setI(i - 1)}>↪</button>
+        )}
+      </div>
+      <p style={{ textAlign: "center", fontSize: 10.5, color: C.faded, marginTop: 8 }}>
+        Step {i + 1} of {steps.length}
+      </p>
     </div>
   );
 }
+
 
 function normalizeDrill(d) {
   if (d.t === "mcq") return { ...d, options: shuffle(d.options) };
   if (d.t === "assemble") return { ...d, pool: shuffle(d.chips) };
   if (d.t === "match") return { ...d, right: shuffle(d.pairs.map((p) => p[1])) };
+  if (d.t === "arrange") return { ...d, pool: shuffle(d.letters) };
+  if (d.t === "complete") return { ...d, options: shuffle(d.options) };
   return d;
 }
 
@@ -400,6 +480,100 @@ function DrillStage({ lesson, onDone }) {
               {needsHint("instr:reveal") && (
                 <div style={{ fontSize: 11, color: C.faded, fontStyle: "italic" }}>The correct answer</div>
               )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {item.t === "arrange" && (
+        <div style={{ marginTop: 16 }}>
+          <p style={{ textAlign: "center", fontSize: 12, color: C.faded, marginBottom: 8 }}>
+            رَتِّبِ الْحُرُوفَ لِتُكَوِّنَ الْكَلِمَةَ
+            {needsHint("instr:arrange") && <span style={{ display: "block", fontSize: 10.5 }}>Arrange the letters to form the word</span>}
+          </p>
+          <div className="card" style={{ padding: "18px 14px", textAlign: "center", minHeight: 60 }}>
+            <span className="arabic" dir="rtl" style={{ fontSize: 34, letterSpacing: 2 }}>
+              {built.length ? built.join("") : "..."}
+            </span>
+          </div>
+          <div dir="rtl" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12, justifyContent: "center" }}>
+            {item.pool.map((ch, k) => {
+              const used = built.filter((b) => b === ch).length >= item.pool.filter((x) => x === ch).length;
+              return (
+                <button key={ch + k} disabled={picked || used}
+                  onClick={() => {
+                    const nb = [...built, ch];
+                    setBuilt(nb);
+                    if (nb.length === item.letters.length) {
+                      markSeen("instr:arrange");
+                      const ok = nb.join("") === item.a;
+                      setPicked({ opt: nb.join(""), correct: ok, revealed: !ok });
+                      if (ok && !isRetry && !item._requeued) setFirstTry((f) => ({ ...f, right: f.right + 1 }));
+                    }
+                  }}
+                  style={{
+                    background: C.surface, border: `1.5px solid ${C.border}`, borderRadius: 12,
+                    padding: "10px 16px", opacity: used ? 0.3 : 1,
+                  }}>
+                  <span className="arabic" style={{ fontSize: 28 }}>{ch}</span>
+                </button>
+              );
+            })}
+            {built.length > 0 && !picked && (
+              <button onClick={() => setBuilt(built.slice(0, -1))}
+                style={{ background: C.redSoft, border: `1px solid ${C.red}`, borderRadius: 12, padding: "10px 14px", color: C.red }}>
+                ⌫
+              </button>
+            )}
+          </div>
+          {picked && picked.revealed && (
+            <div dir="rtl" className="arabic fadein" style={{ textAlign: "center", marginTop: 10, fontSize: 24, color: C.emerald }}>
+              ✅ {item.a}
+            </div>
+          )}
+        </div>
+      )}
+
+      {item.t === "complete" && (
+        <div style={{ marginTop: 16 }}>
+          <p style={{ textAlign: "center", fontSize: 12, color: C.faded, marginBottom: 8 }}>
+            أَكْمِلِ النَّاقِصَ
+            {needsHint("instr:complete") && <span style={{ display: "block", fontSize: 10.5 }}>Complete the missing part</span>}
+          </p>
+          <div className="card" style={{ padding: "20px 14px" }}>
+            <div className="arabic" dir="rtl" style={{ fontSize: 26, textAlign: "center", lineHeight: 2 }}>
+              {item.q.split("___").map((part, k, arr) => (
+                <span key={k}>
+                  {part}
+                  {k < arr.length - 1 && (
+                    <span style={{
+                      display: "inline-block", minWidth: 70, borderBottom: `2px dashed ${picked ? (picked.correct ? C.emerald : C.red) : C.gold}`,
+                      color: picked ? (picked.correct ? C.emerald : C.red) : C.gold, textAlign: "center",
+                    }}>
+                      {picked ? picked.opt : "؟"}
+                    </span>
+                  )}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div dir="rtl" style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12, justifyContent: "center" }}>
+            {item.options.map((o) => (
+              <button key={o} disabled={!!picked}
+                onClick={() => {
+                  markSeen("instr:complete");
+                  const ok = o === item.a;
+                  setPicked({ opt: o, correct: ok, revealed: !ok });
+                  if (ok && !isRetry && !item._requeued) setFirstTry((f) => ({ ...f, right: f.right + 1 }));
+                }}
+                style={{ background: C.surface, border: `1.5px solid ${C.border}`, borderRadius: 12, padding: "9px 16px" }}>
+                <span className="arabic" style={{ fontSize: 23 }}>{o}</span>
+              </button>
+            ))}
+          </div>
+          {picked && picked.revealed && (
+            <div dir="rtl" className="arabic fadein" style={{ textAlign: "center", marginTop: 10, fontSize: 22, color: C.emerald }}>
+              ✅ {item.a}
             </div>
           )}
         </div>

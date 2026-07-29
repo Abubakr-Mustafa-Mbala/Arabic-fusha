@@ -26,6 +26,7 @@ const EXTRAS = [
 ];
 
 export default function TashkeelBar({ targetRef, onInsert }) {
+  // targetRef may hold whichever input is currently focused
   const lastRef = useRef(null);
 
   const insert = (ch) => {

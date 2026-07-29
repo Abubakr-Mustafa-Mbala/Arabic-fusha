@@ -130,6 +130,7 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
 }
 
 function VocabStage({ lesson, onDone }) {
+  const [peek, setPeek] = useState({});
   const [idx, setIdx] = useState(0);
   const w = lesson.vocab[idx];
   useEffect(() => { speak(w.ar); markSeen(`word:${w.ar}`); }, [idx]); // eslint-disable-line
@@ -145,8 +146,23 @@ function VocabStage({ lesson, onDone }) {
           <div style={{ fontSize: 72 }}>{w.emoji}</div>
         ) : null}
         <div className="arabic" dir="rtl" style={{ fontSize: 52 }}>{w.ar}</div>
-        {showEn && (
-          <div style={{ marginTop: 6, fontSize: 13, color: C.faded, fontStyle: "italic" }}>{w.en}</div>
+        {w.en && (
+          showEn ? (
+            <div style={{
+              marginTop: 10, padding: "7px 14px", borderRadius: 10, display: "inline-block",
+              background: C.emeraldSoft, border: `1px solid ${C.emerald}`,
+              fontSize: 15, color: C.emerald, fontWeight: 500,
+            }}>
+              {w.en}
+            </div>
+          ) : (
+            <button
+              onClick={() => setPeek((p) => ({ ...p, [w.ar]: true }))}
+              style={{ marginTop: 8, fontSize: 11.5, color: C.faded, textDecoration: "underline" }}
+            >
+              {peek[w.ar] ? w.en : "meaning?"}
+            </button>
+          )
         )}
         {w.quran && (
           <div className="fadein" style={{
@@ -301,6 +317,16 @@ function RuleStage({ lesson, onDone }) {
           <button className="card" style={{ padding: "0 18px", color: C.faded }} onClick={() => setI(i - 1)}>↪</button>
         )}
       </div>
+      {last && lesson.rule.extra && (
+        <div className="card fadein" dir="rtl" style={{ marginTop: 12, padding: 14, borderColor: C.gold }}>
+          <div style={{ fontSize: 9.5, color: C.gold, letterSpacing: "0.12em", textAlign: "center" }}>
+            زِيَادَةُ شَرْحٍ
+          </div>
+          <div className="arabic" style={{ fontSize: 21, whiteSpace: "pre-line", lineHeight: 2, marginTop: 6 }}>
+            {lesson.rule.extra}
+          </div>
+        </div>
+      )}
       <p style={{ textAlign: "center", fontSize: 10.5, color: C.faded, marginTop: 8 }}>
         Step {i + 1} of {steps.length}
       </p>

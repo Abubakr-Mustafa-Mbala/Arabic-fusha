@@ -112,7 +112,7 @@ export function setLevel(l) {
 // This mirrors how a teacher uses a little English at the start, then abandons it.
 
 const SEEN_KEY = "fusha_seen_v1";
-const FADE_AFTER = 3; // met this many times -> English hint disappears
+const FADE_AFTER = 6; // met this many times -> English hint disappears
 
 function loadSeen() {
   try { return JSON.parse(localStorage.getItem(SEEN_KEY) || "{}"); } catch { return {}; }

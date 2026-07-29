@@ -15,6 +15,7 @@ import Passages from "./components/Passages";
 import Syllabus from "./components/Syllabus";
 import Vocabulary from "./components/Vocabulary";
 import QuranStudio from "./components/QuranStudio";
+import Editor, { fetchOverrides } from "./components/Editor";
 import { fetchRecordings, isRecorder, audioUrl } from "./lib/recordings";
 
 const PASS_GATE = 60; // مقبول unlocks the next lesson; retake anytime to raise the grade
@@ -29,6 +30,8 @@ export default function App() {
   const [moreOpen, setMoreOpen] = useState(false);
   const wide = useWide();
   const [humanOnly, setHumanOnlyState] = useState(getHumanOnly);
+  const [overrides, setOverrides] = useState({});
+  useEffect(() => { if (session) fetchOverrides().then(setOverrides).catch(() => {}); }, [session]);
   useEffect(() => { setHumanOnly(humanOnly); }, [humanOnly]);
 
   // Remember where the learner was scrolled in each view, and restore it on return —
@@ -72,11 +75,25 @@ export default function App() {
     fetchRemoteState(session.user.id)
       .then((remote) => {
         setState((s) => {
-          const merged = {
-            ...s,
-            lessons: { ...s.lessons, ...remote.lessons },
-            srs: { ...s.srs, ...remote.srs },
-          };
+          // Never let an older server copy erase newer local progress.
+          // For every lesson, keep whichever record is further along.
+          const lessons = { ...s.lessons };
+          Object.entries(remote.lessons || {}).forEach(([id, r]) => {
+            const l = lessons[id];
+            if (!l) { lessons[id] = r; return; }
+            lessons[id] = {
+              score: Math.max(l.score ?? 0, r.score ?? 0),
+              pct: Math.max(l.pct ?? 0, r.pct ?? 0),
+              stage: (l.pct ?? 0) >= (r.pct ?? 0) ? (l.stage || r.stage) : (r.stage || l.stage),
+              completedAt: Math.max(l.completedAt ?? 0, r.completedAt ?? 0),
+            };
+          });
+          const srs = { ...s.srs };
+          Object.entries(remote.srs || {}).forEach(([w, r]) => {
+            const c = srs[w];
+            srs[w] = !c ? r : (r.reps ?? 0) > (c.reps ?? 0) ? r : c;
+          });
+          const merged = { ...s, lessons, srs };
           save(merged);
           return merged;
         });
@@ -113,7 +130,29 @@ export default function App() {
     () => Object.values(state.srs || {}).filter((c) => c.reps >= 4).length,
     [state]
   );
-  const lessons = CURRICULUM.lessons;
+  // admin edits are merged over the built-in curriculum at runtime
+  const lessons = useMemo(() => {
+    if (!overrides || !Object.keys(overrides).length) return CURRICULUM.lessons;
+    return CURRICULUM.lessons.map((l) => {
+      const p = overrides[l.id];
+      if (!p) return l;
+      const out = { ...l };
+      if (p.vocab) {
+        out.vocab = (l.vocab || []).map((w) => {
+          const o = p.vocab[w.ar];
+          return o ? { ...w, ...(o.en ? { en: o.en } : {}), ...(o.img ? { img: o.img } : {}) } : w;
+        });
+      }
+      if (p.teach?.length || p.extra) {
+        out.rule = {
+          ...l.rule,
+          ...(p.teach?.length ? { teach: p.teach } : {}),
+          ...(p.extra ? { extra: p.extra } : {}),
+        };
+      }
+      return out;
+    });
+  }, [overrides]);
 
   const highestUnlocked = useMemo(() => {
     // Admins/recorders can see the whole curriculum — they review and record it.
@@ -154,7 +193,7 @@ export default function App() {
       };
     });
     if (supabase && session) {
-      saveRemoteLesson(session.user.id, lesson.id, finalScore).catch(() => {});
+      saveRemoteLesson(session.user.id, lesson.id, { score: finalScore, pct: finalPct, stage }).catch(() => {});
       saveRemoteCards(session.user.id, newCards).catch(() => {});
     }
   };
@@ -304,6 +343,14 @@ export default function App() {
           </div>
           <Studio session={session} onExit={() => go({ name: "home" })} />
         </>
+      </Shell>
+    );
+  }
+
+  if (view.name === "editor") {
+    return (
+      <Shell nav={navBar} sidebar={sideBar}>
+        <Editor session={session} onExit={() => go({ name: "home" })} />
       </Shell>
     );
   }
@@ -488,7 +535,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v8.3 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v8.7 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>
@@ -505,6 +552,7 @@ function MoreSheet({ go, canRecord, onClose, session }) {
   if (canRecord) {
     items.push({ v: "studio", emoji: "🎙️", ar: "اَلتَّسْجِيلُ", en: "Recording studio — words & sentences" });
     items.push({ v: "qstudio", emoji: "📖", ar: "تَسْجِيلُ التِّلَاوَةِ", en: "Quran recitation — record ayah by ayah" });
+    items.push({ v: "editor", emoji: "✎", ar: "تَحْرِيرُ الدُّرُوسِ", en: "Edit lessons — fix meanings, add pictures" });
     items.push({ v: "syllabus", emoji: "📋", ar: "اَلْمَنْهَجُ", en: "Full curriculum — review every lesson" });
   }
 
@@ -601,6 +649,7 @@ function SideBar({ current, go, canRecord, session, dueCount, bareCount }) {
   if (canRecord) {
     items.push({ v: "studio", emoji: "🎙️", ar: "اَلتَّسْجِيل", en: "Recording studio (words)" });
     items.push({ v: "qstudio", emoji: "📖", ar: "تَسْجِيلُ التِّلَاوَةِ", en: "Recite the Quran" });
+    items.push({ v: "editor", emoji: "✎", ar: "تَحْرِيرُ الدُّرُوسِ", en: "Edit lessons & pictures" });
     items.push({ v: "syllabus", emoji: "📋", ar: "اَلْمَنْهَج", en: "Full curriculum (review)" });
   }
 
@@ -702,7 +751,7 @@ function BottomNav({ current, go, onMore }) {
     { v: "home", emoji: "🏠", ar: "اَلدُّرُوس", en: "Lessons" },
     { v: "tutor", emoji: "🎓", ar: "اَلْمُعَلِّم", en: "AI teacher" },
     { v: "quran", emoji: "📖", ar: "اَلْقُرْآن", en: "Quran" },
-    { v: "vocab", emoji: "📗", ar: "مُفْرَدَات", en: "Words" },
+    { v: "vocab", emoji: "📗", ar: "مُفْرَدَات", en: "Vocabulary" },
     { v: "__more", emoji: "☰", ar: "اَلْمَزِيد", en: "More" },
   ];
   return (

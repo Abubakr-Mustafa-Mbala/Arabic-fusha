@@ -57,6 +57,17 @@ export default function Vocabulary({ onExit, onAddWord }) {
   const sets = useMemo(buildSets, []);
   const [view, setView] = useState({ name: "list" });
 
+  if (view.name === "learn") {
+    return (
+      <LearnSet
+        set={sets[view.i]}
+        index={view.i}
+        onExit={() => setView({ name: "list" })}
+        onReady={() => setView({ name: "train", i: view.i })}
+      />
+    );
+  }
+
   if (view.name === "train") {
     return (
       <Trainer
@@ -76,7 +87,7 @@ export default function Vocabulary({ onExit, onAddWord }) {
       </p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
         {sets.map((set, i) => (
-          <button key={i} onClick={() => setView({ name: "train", i })} className="card"
+          <button key={i} onClick={() => setView({ name: "learn", i })} className="card"
             style={{ flex: "1 1 calc(33% - 6px)", minWidth: 96, padding: "14px 8px", textAlign: "center" }}>
             <div style={{ fontSize: 20, fontWeight: 700, color: C.emerald }}>{i + 1}</div>
             <div className="arabic" dir="rtl" style={{ fontSize: 15, color: C.ink, marginTop: 2 }}>
@@ -89,6 +100,67 @@ export default function Vocabulary({ onExit, onAddWord }) {
           </button>
         ))}
       </div>
+    </div>
+  );
+}
+
+// اِحْفَظْ أَوَّلًا — meet every word before being tested on any of it.
+function LearnSet({ set, index, onExit, onReady }) {
+  const [i, setI] = useState(0);
+  const w = set[i];
+  const last = i === set.length - 1;
+
+  return (
+    <div className="fadein">
+      <Header title={`مَجْمُوعَةٌ ${index + 1}`} onBack={onExit} />
+      <p style={{ textAlign: "center", fontSize: 11.5, color: C.faded, marginTop: 2 }}>
+        Learn the words first — the exercises come after
+      </p>
+
+      <div style={{ display: "flex", justifyContent: "center", gap: 4, margin: "10px 0 12px" }}>
+        {set.map((_, k) => (
+          <span key={k} style={{
+            width: k === i ? 16 : 6, height: 6, borderRadius: 99,
+            background: k <= i ? C.emerald : C.border, transition: "width .2s",
+          }} />
+        ))}
+      </div>
+
+      <div className="card" key={i} style={{ padding: "30px 20px", textAlign: "center" }}>
+        {w.img && <img src={w.img} alt="" style={{ maxWidth: 170, maxHeight: 140, objectFit: "contain", marginBottom: 10 }} />}
+        <div className="arabic" dir="rtl" style={{ fontSize: 42, lineHeight: 1.6 }}>{w.ar}</div>
+        <button onClick={() => speak(w.ar)} style={{ fontSize: 20, color: C.emerald, marginTop: 4 }}>🔊</button>
+        <div style={{ fontSize: 19, color: C.ink, marginTop: 10, fontWeight: 500 }}>{w.en}</div>
+        {w.ctx && (
+          <div dir="rtl" style={{ marginTop: 14, paddingTop: 12, borderTop: `1px dashed ${C.border}` }}>
+            <div style={{ fontSize: 9.5, color: C.faded, letterSpacing: "0.12em" }}>فِي جُمْلَةٍ</div>
+            <div className="arabic" style={{ fontSize: 22, marginTop: 4, lineHeight: 1.9 }}>{w.ctx}</div>
+            <button onClick={() => speak(w.ctx)} style={{ fontSize: 14, color: C.emerald }}>🔊</button>
+          </div>
+        )}
+        {w.quran && (
+          <div dir="rtl" style={{ marginTop: 12, padding: "8px 12px", borderRadius: 10, background: C.goldSoft }}>
+            <div style={{ fontSize: 9.5, color: C.gold, letterSpacing: "0.12em" }}>فِي الْقُرْآنِ</div>
+            <div className="arabic" style={{ fontSize: 19, color: C.gold, marginTop: 3, lineHeight: 1.9 }}>{w.quran}</div>
+          </div>
+        )}
+      </div>
+
+      <div dir="rtl" style={{ display: "flex", gap: 8, marginTop: 14 }}>
+        <button
+          className="btn-primary arabic"
+          style={{ flex: 1, fontSize: 21 }}
+          onClick={() => (last ? onReady() : setI(i + 1))}
+        >
+          {last ? "اِبْدَإِ التَّدْرِيبَاتِ ←" : "اَلتَّالِيَةُ"}
+        </button>
+        {i > 0 && (
+          <button className="card" style={{ padding: "0 18px", color: C.faded }} onClick={() => setI(i - 1)}>↪</button>
+        )}
+      </div>
+      <p style={{ textAlign: "center", fontSize: 10, color: C.faded, marginTop: 8 }}>
+        Word {i + 1} of {set.length}
+      </p>
     </div>
   );
 }

@@ -28,14 +28,14 @@ export const CURRICULUM = {
         { ar: "مَا هَذَا؟", emoji: "❓📦", en: "What is this? (thing)" },
         { ar: "مَنْ هَذَا؟", emoji: "❓🧍", en: "Who is this? (person)" },
         { ar: "هَذَا", emoji: "👉", en: "this (masculine)" },
-        { ar: "بَيْتٌ", emoji: "🏠" },
-        { ar: "بَابٌ", emoji: "🚪" },
+        { ar: "بَيْتٌ", emoji: "🏠" , quran: "وَاللَّهُ جَعَلَ لَكُم مِّن بُيُوتِكُمْ سَكَنًا", quranRef: "النحل ٨٠" },
+        { ar: "بَابٌ", emoji: "🚪" , quran: "وَادْخُلُوا الْبَابَ سُجَّدًا", quranRef: "البقرة ٥٨" },
         { ar: "كِتَابٌ", emoji: "📖", quran: "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ", quranRef: "البقرة ٢" },
-        { ar: "قَلَمٌ", emoji: "✏️" },
-        { ar: "مِفْتَاحٌ", emoji: "🔑" },
-        { ar: "مَسْجِدٌ", emoji: "🕌" },
+        { ar: "قَلَمٌ", emoji: "✏️" , quran: "الَّذِي عَلَّمَ بِالْقَلَمِ", quranRef: "العلق ٤" },
+        { ar: "مِفْتَاحٌ", emoji: "🔑" , quran: "وَعِندَهُ مَفَاتِحُ الْغَيْبِ", quranRef: "الأنعام ٥٩" },
+        { ar: "مَسْجِدٌ", emoji: "🕌" , quran: "مِنَ الْمَسْجِدِ الْحَرَامِ", quranRef: "الإسراء ١" },
         { ar: "وَلَدٌ", emoji: "👦" },
-        { ar: "رَجُلٌ", emoji: "🧔" },
+        { ar: "رَجُلٌ", emoji: "🧔" , quran: "وَجَاءَ مِنْ أَقْصَى الْمَدِينَةِ رَجُلٌ يَسْعَىٰ", quranRef: "يس ٢٠" },
         { ar: "مُعَلِّمٌ", emoji: "👨\u200d🏫" },
         { ar: "طَالِبٌ", emoji: "🧑\u200d🎓" },
       ],
@@ -119,7 +119,7 @@ export const CURRICULUM = {
         { ar: "قِطٌّ", emoji: "🐈" },
         { ar: "جَمَلٌ", emoji: "🐪" },
         { ar: "دِيكٌ", emoji: "🐓" },
-        { ar: "مَاءٌ", emoji: "💧" },
+        { ar: "مَاءٌ", emoji: "💧" , quran: "وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ", quranRef: "الأنبياء ٣٠" },
         { ar: "لَبَنٌ", emoji: "🥛" },
       ],
       examples: [
@@ -175,9 +175,9 @@ export const CURRICULUM = {
       title: "اَلْمُبْتَدَأُ وَالْخَبَرُ",
       subtitle: "اَلدَّرْسُ الثَّالِثُ",
       vocab: [
-        { ar: "كَبِيرٌ", emoji: "🐘", en: "big" },
+        { ar: "كَبِيرٌ", emoji: "🐘", en: "big" , quran: "وَهُوَ الْعَلِيُّ الْكَبِيرُ", quranRef: "سبأ ٢٣" },
         { ar: "صَغِيرٌ", emoji: "🐜", en: "small" },
-        { ar: "جَمِيلٌ", emoji: "🌸", en: "beautiful" },
+        { ar: "جَمِيلٌ", emoji: "🌸", en: "beautiful" , quran: "فَصَبْرٌ جَمِيلٌ", quranRef: "يوسف ١٨" },
         { ar: "جَدِيدٌ", emoji: "✨", en: "new" },
         { ar: "قَدِيمٌ", emoji: "🏚️", en: "old (thing)" },
         { ar: "مَفْتُوحٌ", emoji: "📂", en: "open" },
@@ -244,7 +244,7 @@ export const CURRICULUM = {
       subtitle: "اَلدَّرْسُ الرَّابِعُ",
       vocab: [
         { ar: "اَلشَّمْسُ", emoji: "☀️", en: "the sun (a solar letter word)" },
-        { ar: "اَلْقَمَرُ", emoji: "🌙", en: "the moon (a lunar letter word)" },
+        { ar: "اَلْقَمَرُ", emoji: "🌙", en: "the moon (a lunar letter word)" , quran: "وَالْقَمَرِ إِذَا تَلَاهَا", quranRef: "الشمس ٢" },
         { ar: "اَلنَّجْمُ", emoji: "⭐", en: "the star" },
         { ar: "اَلرَّجُلُ", emoji: "🧔", en: "the man" },
         { ar: "اَلطَّالِبُ", emoji: "🧑\u200d🎓" },
@@ -322,7 +322,7 @@ export const CURRICULUM = {
         { ar: "مَكْتَبٌ", emoji: "🗄️" },
         { ar: "مَطْبَخٌ", emoji: "🍳" },
         { ar: "شَارِعٌ", emoji: "🛣️" },
-        { ar: "جَبَلٌ", emoji: "⛰️" },
+        { ar: "جَبَلٌ", emoji: "⛰️" , quran: "وَإِلَى الْجِبَالِ كَيْفَ نُصِبَتْ", quranRef: "الغاشية ١٩" },
         { ar: "حَقْلٌ", emoji: "🌾" },
         { ar: "جِدَارٌ", emoji: "🧱" },
         { ar: "سَقْفٌ", emoji: "🔝" },
@@ -887,7 +887,7 @@ export const CURRICULUM = {
         { ar: "أُمٌّ / وَالِدَةٌ", emoji: "👩", en: "mother" },
         { ar: "اِبْنٌ", emoji: "👦", en: "son" },
         { ar: "بِنْتٌ", emoji: "👧", en: "daughter" },
-        { ar: "أَخٌ", emoji: "🧑", en: "brother" },
+        { ar: "أَخٌ", emoji: "🧑", en: "brother" , quran: "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ", quranRef: "الحجرات ١٠" },
         { ar: "أُخْتٌ", emoji: "👧🧕", en: "sister" },
         { ar: "جَدٌّ", emoji: "👴", en: "grandfather" },
         { ar: "جَدَّةٌ", emoji: "👵", en: "grandmother" },
@@ -966,7 +966,7 @@ export const CURRICULUM = {
       title: "اَلطَّعَامُ وَالشَّرَابُ",
       subtitle: "اَلدَّرْسُ الثَّالِثَ عَشَرَ",
       vocab: [
-        { ar: "طَعَامٌ", emoji: "🍽️", en: "food" },
+        { ar: "طَعَامٌ", emoji: "🍽️", en: "food" , quran: "فَلْيَنظُرِ الْإِنسَانُ إِلَىٰ طَعَامِهِ", quranRef: "عبس ٢٤" },
         { ar: "شَرَابٌ", emoji: "🥤", en: "drink" },
         { ar: "مَاءٌ", emoji: "💧", en: "water" },
         { ar: "خُبْزٌ", emoji: "🍞", en: "bread" },
@@ -975,7 +975,7 @@ export const CURRICULUM = {
         { ar: "دَجَاجٌ", emoji: "🍗", en: "chicken" },
         { ar: "سَمَكٌ", emoji: "🐟", en: "fish" },
         { ar: "بَيْضٌ", emoji: "🥚", en: "eggs" },
-        { ar: "لَبَنٌ / حَلِيبٌ", emoji: "🥛", en: "milk" },
+        { ar: "لَبَنٌ / حَلِيبٌ", emoji: "🥛", en: "milk" , quran: "لَّبَنًا خَالِصًا سَائِغًا لِّلشَّارِبِينَ", quranRef: "النحل ٦٦" },
         { ar: "جُبْنٌ", emoji: "🧀", en: "cheese" },
         { ar: "عَسَلٌ", emoji: "🍯", en: "honey" },
         { ar: "زَيْتٌ", emoji: "🫒", en: "oil" },
@@ -985,7 +985,7 @@ export const CURRICULUM = {
         { ar: "تُفَّاحٌ", emoji: "🍎", en: "apples" },
         { ar: "مَوْزٌ", emoji: "🍌", en: "bananas" },
         { ar: "بُرْتُقَالٌ", emoji: "🍊", en: "oranges" },
-        { ar: "عِنَبٌ", emoji: "🍇", en: "grapes" },
+        { ar: "عِنَبٌ", emoji: "🍇", en: "grapes" , quran: "وَجَنَّاتٍ مِّنْ أَعْنَابٍ", quranRef: "النبأ ٣٢" },
         { ar: "بَطِيخٌ", emoji: "🍉", en: "watermelon" },
         { ar: "خُضَارٌ", emoji: "🥗", en: "vegetables" },
         { ar: "طَمَاطِمُ", emoji: "🍅", en: "tomatoes" },
@@ -1073,7 +1073,7 @@ export const CURRICULUM = {
         { ar: "أَبْيَضُ / بَيْضَاءُ", emoji: "⚪", en: "white" },
         { ar: "أَسْوَدُ / سَوْدَاءُ", emoji: "⚫", en: "black" },
         { ar: "أَحْمَرُ / حَمْرَاءُ", emoji: "🔴", en: "red" },
-        { ar: "أَخْضَرُ / خَضْرَاءُ", emoji: "🟢", en: "green" },
+        { ar: "أَخْضَرُ / خَضْرَاءُ", emoji: "🟢", en: "green" , quran: "مِنَ الشَّجَرِ الْأَخْضَرِ نَارًا", quranRef: "يس ٨٠" },
         { ar: "أَزْرَقُ / زَرْقَاءُ", emoji: "🔵", en: "blue" },
         { ar: "أَصْفَرُ / صَفْرَاءُ", emoji: "🟡", en: "yellow" },
         { ar: "أَسْمَرُ / سَمْرَاءُ", emoji: "🟤", en: "brown (of skin/complexion)" },
@@ -1251,15 +1251,15 @@ export const CURRICULUM = {
         { ar: "شَعْرٌ", emoji: "💇", en: "hair (m)" },
         { ar: "وَجْهٌ", emoji: "😊", en: "face (m)" },
         { ar: "جَبِينٌ", emoji: "🧑", en: "forehead (m)" },
-        { ar: "عَيْنٌ", emoji: "👁️", en: "eye (FEMININE)" },
+        { ar: "عَيْنٌ", emoji: "👁️", en: "eye (FEMININE)" , quran: "أَلَمْ نَجْعَل لَّهُ عَيْنَيْنِ", quranRef: "البلد ٨" },
         { ar: "أُذُنٌ", emoji: "👂", en: "ear (FEMININE)" },
         { ar: "أَنْفٌ", emoji: "👃", en: "nose (m)" },
         { ar: "فَمٌ", emoji: "👄", en: "mouth (m)" },
-        { ar: "لِسَانٌ", emoji: "👅", en: "tongue (m)" },
+        { ar: "لِسَانٌ", emoji: "👅", en: "tongue (m)" , quran: "وَلِسَانًا وَشَفَتَيْنِ", quranRef: "البلد ٩" },
         { ar: "سِنٌّ / أَسْنَانٌ", emoji: "🦷", en: "tooth / teeth" },
         { ar: "رَقَبَةٌ", emoji: "🧣", en: "neck (f)" },
         { ar: "كَتِفٌ", emoji: "💪", en: "shoulder (f)" },
-        { ar: "يَدٌ", emoji: "✋", en: "hand (FEMININE)" },
+        { ar: "يَدٌ", emoji: "✋", en: "hand (FEMININE)" , quran: "وَلَا تَجْعَلْ يَدَكَ مَغْلُولَةً إِلَىٰ عُنُقِكَ", quranRef: "الإسراء ٢٩" },
         { ar: "ذِرَاعٌ", emoji: "💪", en: "arm (f)" },
         { ar: "إِصْبَعٌ / أَصَابِعُ", emoji: "☝️", en: "finger / fingers" },
         { ar: "ظَهْرٌ", emoji: "🔙", en: "back (m)" },
@@ -1270,7 +1270,7 @@ export const CURRICULUM = {
         { ar: "رُكْبَةٌ", emoji: "🦵", en: "knee (f)" },
         { ar: "قَدَمٌ", emoji: "🦶", en: "foot (FEMININE)" },
         { ar: "صِحَّةٌ", emoji: "💪", en: "health" },
-        { ar: "مَرِيضٌ", emoji: "🤒", en: "ill" },
+        { ar: "مَرِيضٌ", emoji: "🤒", en: "ill" , quran: "فَمَن كَانَ مِنكُم مَّرِيضًا", quranRef: "البقرة ١٨٤" },
         { ar: "أَلَمٌ", emoji: "😖", en: "pain" },
         { ar: "يُؤْلِمُنِي", emoji: "😖👉", en: "it hurts me" },
         { ar: "طَبِيبٌ", emoji: "🧑‍⚕️", en: "doctor" },
@@ -1353,24 +1353,24 @@ export const CURRICULUM = {
         { ar: "كَلْبٌ", emoji: "🐕", en: "dog" },
         { ar: "حِصَانٌ / خَيْلٌ", emoji: "🐎", en: "horse" },
         { ar: "حِمَارٌ", emoji: "🫏", en: "donkey" },
-        { ar: "جَمَلٌ / نَاقَةٌ", emoji: "🐫", en: "camel (m / she-camel)" },
-        { ar: "بَقَرَةٌ", emoji: "🐄", en: "cow" },
+        { ar: "جَمَلٌ / نَاقَةٌ", emoji: "🐫", en: "camel (m / she-camel)" , quran: "هَٰذِهِ نَاقَةُ اللَّهِ لَكُمْ آيَةً", quranRef: "الأعراف ٧٣" },
+        { ar: "بَقَرَةٌ", emoji: "🐄", en: "cow" , quran: "إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تَذْبَحُوا بَقَرَةً", quranRef: "البقرة ٦٧" },
         { ar: "غَنَمٌ / شَاةٌ", emoji: "🐑", en: "sheep" },
         { ar: "مَاعِزٌ", emoji: "🐐", en: "goat" },
         { ar: "دَجَاجَةٌ", emoji: "🐔", en: "hen" },
         { ar: "دِيكٌ", emoji: "🐓", en: "rooster" },
         { ar: "أَسَدٌ", emoji: "🦁", en: "lion" },
         { ar: "ذِئْبٌ", emoji: "🐺", en: "wolf" },
-        { ar: "فِيلٌ", emoji: "🐘", en: "elephant" },
-        { ar: "قِرْدٌ", emoji: "🐒", en: "monkey" },
+        { ar: "فِيلٌ", emoji: "🐘", en: "elephant" , quran: "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ", quranRef: "الفيل ١" },
+        { ar: "قِرْدٌ", emoji: "🐒", en: "monkey" , quran: "كُونُوا قِرَدَةً خَاسِئِينَ", quranRef: "البقرة ٦٥" },
         { ar: "ثُعْبَانٌ / حَيَّةٌ", emoji: "🐍", en: "snake" },
-        { ar: "نَمْلَةٌ", emoji: "🐜", en: "ant" },
-        { ar: "نَحْلَةٌ", emoji: "🐝", en: "bee" },
-        { ar: "عَنْكَبُوتٌ", emoji: "🕷️", en: "spider" },
+        { ar: "نَمْلَةٌ", emoji: "🐜", en: "ant" , quran: "قَالَتْ نَمْلَةٌ يَا أَيُّهَا النَّمْلُ", quranRef: "النمل ١٨" },
+        { ar: "نَحْلَةٌ", emoji: "🐝", en: "bee" , quran: "وَأَوْحَىٰ رَبُّكَ إِلَى النَّحْلِ", quranRef: "النحل ٦٨" },
+        { ar: "عَنْكَبُوتٌ", emoji: "🕷️", en: "spider" , quran: "كَمَثَلِ الْعَنكَبُوتِ اتَّخَذَتْ بَيْتًا", quranRef: "العنكبوت ٤١" },
         { ar: "سَمَكَةٌ", emoji: "🐟", en: "fish" },
         { ar: "عُصْفُورٌ", emoji: "🐦", en: "sparrow" },
         { ar: "غُرَابٌ", emoji: "🐦‍⬛", en: "crow" },
-        { ar: "خِنْزِيرٌ", emoji: "🐖", en: "pig" },
+        { ar: "خِنْزِيرٌ", emoji: "🐖", en: "pig" , quran: "وَلَحْمُ الْخِنزِيرِ", quranRef: "المائدة ٣" },
         { ar: "أَلِيفٌ", emoji: "🏠🐾", en: "domestic / tame" },
         { ar: "مُفْتَرِسٌ", emoji: "🦁⚠️", en: "predatory" },
       ],
@@ -1414,14 +1414,14 @@ export const CURRICULUM = {
       title: "اَلطَّبِيعَةُ وَالْكَوْنُ",
       subtitle: "اَلدَّرْسُ الثَّامِنَ عَشَرَ",
       vocab: [
-        { ar: "اَلسَّمَاءُ", emoji: "🌌", en: "sky / heaven (feminine)" },
+        { ar: "اَلسَّمَاءُ", emoji: "🌌", en: "sky / heaven (feminine)" , quran: "وَإِلَى السَّمَاءِ كَيْفَ رُفِعَتْ", quranRef: "الغاشية ١٨" },
         { ar: "اَلْأَرْضُ", emoji: "🌍", en: "earth (feminine)" },
         { ar: "اَلْقَمَرُ", emoji: "🌙", en: "moon" },
-        { ar: "اَلنَّجْمُ / النُّجُومُ", emoji: "⭐", en: "star / stars" },
+        { ar: "اَلنَّجْمُ / النُّجُومُ", emoji: "⭐", en: "star / stars" , quran: "وَالنَّجْمِ إِذَا هَوَىٰ", quranRef: "النجم ١" },
         { ar: "اَلسَّحَابُ", emoji: "☁️", en: "clouds" },
         { ar: "اَلرَّعْدُ", emoji: "⛈️", en: "thunder" },
         { ar: "اَلْبَرْقُ", emoji: "⚡", en: "lightning" },
-        { ar: "شَجَرَةٌ / أَشْجَارٌ", emoji: "🌳", en: "tree / trees" },
+        { ar: "شَجَرَةٌ / أَشْجَارٌ", emoji: "🌳", en: "tree / trees" , quran: "كَشَجَرَةٍ طَيِّبَةٍ أَصْلُهَا ثَابِتٌ", quranRef: "إبراهيم ٢٤" },
         { ar: "وَرَقَةٌ", emoji: "🍃", en: "leaf" },
         { ar: "زَهْرَةٌ", emoji: "🌸", en: "flower" },
         { ar: "ثَمَرَةٌ", emoji: "🍎", en: "fruit" },
@@ -1433,7 +1433,7 @@ export const CURRICULUM = {
         { ar: "ظِلٌّ", emoji: "🌥️", en: "shade" },
         { ar: "نُورٌ", emoji: "💡", en: "light" },
         { ar: "ظَلَامٌ", emoji: "🌑", en: "darkness" },
-        { ar: "خَلَقَ", emoji: "✨", en: "he created" },
+        { ar: "خَلَقَ", emoji: "✨", en: "he created" , quran: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ", quranRef: "العلق ١" },
         { ar: "اَلْخَالِقُ", emoji: "☝️", en: "the Creator" },
         { ar: "اَلْمَخْلُوقَاتُ", emoji: "🌍🐾", en: "creation" },
       ],
@@ -1485,7 +1485,7 @@ export const CURRICULUM = {
         { ar: "هَذَانِ", emoji: "👉👦👦", en: "these two (masc.)" },
         { ar: "هَاتَانِ", emoji: "👉👧👧", en: "these two (fem.)" },
         { ar: "أَخَوَانِ", emoji: "🧑🧑", en: "two brothers (irregular)" },
-        { ar: "اِثْنَانِ", emoji: "2️⃣" },
+        { ar: "اِثْنَانِ", emoji: "2️⃣" , quran: "ثَانِيَ اثْنَيْنِ إِذْ هُمَا فِي الْغَارِ", quranRef: "التوبة ٤٠" },
         { ar: "اِثْنَتَانِ", emoji: "2️⃣👧", en: "two (feminine)" },
         { ar: "جَدِيدَانِ", emoji: "✨✨", en: "two new (adjective, dual)" },
       ],
@@ -1710,7 +1710,7 @@ export const CURRICULUM = {
         { ar: "سَبْعَةٌ", emoji: "7️⃣" },
         { ar: "ثَمَانِيَةٌ", emoji: "8️⃣" },
         { ar: "تِسْعَةٌ", emoji: "9️⃣" },
-        { ar: "عَشَرَةٌ", emoji: "🔟" },
+        { ar: "عَشَرَةٌ", emoji: "🔟" , quran: "تِلْكَ عَشَرَةٌ كَامِلَةٌ", quranRef: "البقرة ١٩٦" },
         { ar: "كَمْ؟", emoji: "🔢❓" },
       ],
       examples: [
@@ -1724,6 +1724,51 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "اَلْعَدَدُ مِنْ ٣ إِلَى ١٠",
+        teach: [
+          {
+            say: "Counting in Arabic starts simply. Learn one to ten as a chain, out loud, until it runs without thinking — exactly as you learned it in your own language.",
+            show: "وَاحِدٌ · اِثْنَانِ · ثَلَاثَةٌ · أَرْبَعَةٌ · خَمْسَةٌ\nسِتَّةٌ · سَبْعَةٌ · ثَمَانِيَةٌ · تِسْعَةٌ · عَشَرَةٌ",
+          },
+          {
+            say: "Say them again in the other direction. If you can count down as easily as up, the numbers are yours.",
+            show: "عَشَرَةٌ · تِسْعَةٌ · ثَمَانِيَةٌ · سَبْعَةٌ · سِتَّةٌ\nخَمْسَةٌ · أَرْبَعَةٌ · ثَلَاثَةٌ · اِثْنَانِ · وَاحِدٌ",
+          },
+          {
+            say: "Now, to ask 'how many?' Arabic uses كَمْ. You will hear it constantly.",
+            show: "كَمْ كِتَابًا عِنْدَكَ؟ 📖❓\nكَمْ طَالِبًا فِي الْفَصْلِ؟ 🧑\u200d🎓❓",
+          },
+          {
+            say: "One and two behave differently from the rest. They follow the noun like an adjective, and usually you can leave them out — the dual form already says 'two'.",
+            show: "كِتَابٌ وَاحِدٌ 📖\nكِتَابَانِ 📖📖",
+          },
+          {
+            say: "From three to ten the pattern changes completely, and the next lesson takes you through the whole chain up to ninety-nine.",
+            show: "ثَلَاثَةُ كُتُبٍ 📚\n(عَدَدٌ + جَمْعٌ مَجْرُورٌ)",
+          },
+        ],
+        teach: [
+          {
+            say: "Counting in Arabic is not just learning ten words. The NUMBER changes shape depending on what you are counting. Let us take it slowly, starting with the ten words themselves.",
+            show: "١ وَاحِدٌ · ٢ اِثْنَانِ · ٣ ثَلَاثَةٌ\n٤ أَرْبَعَةٌ · ٥ خَمْسَةٌ · ٦ سِتَّةٌ\n٧ سَبْعَةٌ · ٨ ثَمَانِيَةٌ · ٩ تِسْعَةٌ · ١٠ عَشَرَةٌ",
+          },
+          {
+            say: "One and two are different from the rest. They behave like ADJECTIVES — they come after the noun, and often you can drop them entirely because the word already shows the number.",
+            show: "كِتَابٌ وَاحِدٌ 📖\nكِتَابَانِ 📖📖 (اِثْنَانِ لِلتَّأْكِيدِ)",
+          },
+          {
+            say: "From three to ten, everything changes. The number comes FIRST, and the thing counted becomes a plural in the genitive — exactly like an إضافة.",
+            show: "ثَلَاثَةُ كُتُبٍ 📚\nخَمْسَةُ أَقْلَامٍ ✏️",
+          },
+          {
+            say: "Now the rule that feels backwards to everyone. If the thing counted is MASCULINE, the number takes a ة. If it is FEMININE, the number drops the ة.",
+            show: "كِتَابٌ (مُذَكَّرٌ) ← ثَلَاثَةُ كُتُبٍ\nغُرْفَةٌ (مُؤَنَّثٌ) ← ثَلَاثُ غُرَفٍ",
+            warn: "❌ ثَلَاثَةُ غُرَفٍ",
+          },
+          {
+            say: "This is called المُخَالَفَة — opposition. It only applies to numbers three through ten, and it is the single most common counting mistake. Say both examples aloud until it feels natural.",
+            show: "ثَلَاثَةُ رِجَالٍ 🧔 (بِالتَّاءِ)\nثَلَاثُ نِسَاءٍ 👩 (بِلَا تَاءٍ)",
+          },
+        ],
         ar: "١ وَ ٢ صِفَةٌ: كِتَابٌ وَاحِدٌ 📖 · كِتَابَانِ 📖📖\n\nمِنْ ٣ إِلَى ١٠: عَدَدٌ + جَمْعٌ مَجْرُورٌ\nثَلَاثَةُ كُتُبٍ 📖📖📖 · خَمْسَةُ أَقْلَامٍ ✏️\n\n⚠️ اَلْمُخَالَفَةُ: اَلْمَعْدُودُ مُذَكَّرٌ ← اَلْعَدَدُ بِالتَّاءِ (ثَلَاثَةُ كُتُبٍ)\nاَلْمَعْدُودُ مُؤَنَّثٌ ← اَلْعَدَدُ بِلَا تَاءٍ (ثَلَاثُ غُرَفٍ)",
         hint: "Numbers 3–10 are followed by a broken plural in the genitive — and the number takes the OPPOSITE gender to the thing counted (مخالفة).",
       },
@@ -1787,6 +1832,60 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "اَلْعَدُّ الْمُتَّصِلُ ١-٩٩",
+        teach: [
+          {
+            say: "You can count to ten. Now we build the rest in four clear blocks, and you will be able to say any number up to ninety-nine.",
+            show: "① ١-١٠ · ② ١١-١٩\n③ اَلْعُقُودُ · ④ مَا بَيْنَهَا",
+          },
+          {
+            say: "Eleven to nineteen: take the unit you know and add عَشَرَ after it. Nothing more.",
+            show: "أَحَدَ عَشَرَ · اِثْنَا عَشَرَ\nثَلَاثَةَ عَشَرَ · أَرْبَعَةَ عَشَرَ\nخَمْسَةَ عَشَرَ … تِسْعَةَ عَشَرَ",
+          },
+          {
+            say: "The tens are just as regular: take the unit and add ـُونَ. Twenty is the odd one — it comes from عشرة.",
+            show: "عِشْرُونَ · ثَلَاثُونَ · أَرْبَعُونَ\nخَمْسُونَ · سِتُّونَ · سَبْعُونَ\nثَمَانُونَ · تِسْعُونَ",
+          },
+          {
+            say: "Now everything in between. Here Arabic does something English does not: the SMALL number comes first, joined by وَ. Twenty-one is literally 'one and twenty'.",
+            show: "٢١ = وَاحِدٌ وَعِشْرُونَ\n٣٥ = خَمْسَةٌ وَثَلَاثُونَ\n٩٩ = تِسْعَةٌ وَتِسْعُونَ",
+            warn: "❌ عِشْرُونَ وَوَاحِدٌ",
+          },
+          {
+            say: "Last piece: what happens to the thing you are counting. From three to ten it becomes a plural with kasra.",
+            show: "ثَلَاثَةُ كُتُبٍ 📚 ⬇️\nخَمْسَةُ أَقْلَامٍ ✏️ ⬇️",
+          },
+          {
+            say: "But from eleven upward it goes back to SINGULAR, with a fatha. This surprises everyone — count aloud with both patterns until it feels natural.",
+            show: "عِشْرُونَ كِتَابًا 📖 ➡️\nخَمْسَةٌ وَثَلَاثُونَ طَالِبًا 🧑\u200d🎓 ➡️",
+          },
+        ],
+        teach: [
+          {
+            say: "You can count to ten. Now we go all the way to ninety-nine, and the good news is that it happens in only three simple blocks.",
+            show: "١١-١٩ · اَلْعُقُودُ · مَا بَيْنَهُمَا",
+          },
+          {
+            say: "First the teens. Take the unit and stick عَشَرَ on the end. Eleven and twelve are slightly special, the rest are perfectly regular.",
+            show: "أَحَدَ عَشَرَ ١١\nاِثْنَا عَشَرَ ١٢\nثَلَاثَةَ عَشَرَ ١٣ … تِسْعَةَ عَشَرَ ١٩",
+          },
+          {
+            say: "Second, the tens. Take the unit and add ـُونَ. Notice ثَلَاثُونَ comes from ثَلَاثَة, أَرْبَعُونَ from أَرْبَعَة — the pattern is completely regular.",
+            show: "عِشْرُونَ ٢٠ · ثَلَاثُونَ ٣٠\nأَرْبَعُونَ ٤٠ · خَمْسُونَ ٥٠\n… تِسْعُونَ ٩٠",
+          },
+          {
+            say: "Third, everything in between. Say the UNIT first, then وَ, then the ten. Arabic says 'five and twenty' where English says 'twenty-five'.",
+            show: "٢١ = وَاحِدٌ وَعِشْرُونَ\n٢٥ = خَمْسَةٌ وَعِشْرُونَ\n٣٧ = سَبْعَةٌ وَثَلَاثُونَ",
+            warn: "❌ عِشْرُونَ وَخَمْسَةٌ",
+          },
+          {
+            say: "And the counted noun changes too. From three to ten it was a plural. From eleven upward it becomes SINGULAR with a fatha.",
+            show: "٣-١٠ ← ثَلَاثَةُ كُتُبٍ (جَمْعٌ ⬇️)\n١١-٩٩ ← عِشْرُونَ كِتَابًا (مُفْرَدٌ ➡️)",
+          },
+          {
+            say: "Say your own age aloud right now using this. That is the fastest way to make it stick.",
+            show: "كَمْ عُمْرُكَ؟\nعُمْرِي خَمْسَةٌ وَعِشْرُونَ سَنَةً",
+          },
+        ],
         ar: "١) اَلْآحَادُ ١-١٠:\nوَاحِدٌ · اِثْنَانِ · ثَلَاثَةٌ · أَرْبَعَةٌ · خَمْسَةٌ\nسِتَّةٌ · سَبْعَةٌ · ثَمَانِيَةٌ · تِسْعَةٌ · عَشَرَةٌ\n\n٢) ١١-١٩: اَلْآحَادُ + «عَشَرَ»\nأَحَدَ عَشَرَ · اِثْنَا عَشَرَ · ثَلَاثَةَ عَشَرَ\nأَرْبَعَةَ عَشَرَ … تِسْعَةَ عَشَرَ\n\n٣) اَلْعُقُودُ: زِيَادَةُ «ـُونَ»\nعِشْرُونَ · ثَلَاثُونَ · أَرْبَعُونَ · خَمْسُونَ\nسِتُّونَ · سَبْعُونَ · ثَمَانُونَ · تِسْعُونَ\n\n٤) مَا بَيْنَهَا: آحَادٌ + وَ + عُقُودٌ\nوَاحِدٌ وَعِشْرُونَ 2️⃣1️⃣ · خَمْسَةٌ وَثَلَاثُونَ 3️⃣5️⃣\n(اَلْآحَادُ أَوَّلًا ثُمَّ الْعُقُودُ)\n\n⚠️ اَلْمَعْدُودُ:\n٣-١٠ ← جَمْعٌ مَجْرُورٌ: ثَلَاثَةُ كُتُبٍ\n١١-٩٩ ← مُفْرَدٌ مَنْصُوبٌ: عِشْرُونَ كِتَابًا",
         hint: "Count in four blocks: units 1-10, teens (unit + عشر), tens (add ـُونَ), and everything between (unit + و + ten — units come FIRST in Arabic: 'one and twenty').",
       },
@@ -1817,7 +1916,7 @@ export const CURRICULUM = {
       title: "اَلْمِئَاتُ وَالْأُلُوفُ وَالْمَلَايِينُ",
       subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْعِشْرُونَ",
       vocab: [
-        { ar: "مِئَةٌ", emoji: "💯", en: "100" },
+        { ar: "مِئَةٌ", emoji: "💯", en: "100" , quran: "فَأَمَاتَهُ اللَّهُ مِائَةَ عَامٍ", quranRef: "البقرة ٢٥٩" },
         { ar: "مِئَتَانِ", emoji: "2️⃣💯", en: "200" },
         { ar: "ثَلَاثُمِئَةٍ", emoji: "3️⃣💯", en: "300" },
         { ar: "أَرْبَعُمِئَةٍ", emoji: "4️⃣💯", en: "400" },
@@ -1826,7 +1925,7 @@ export const CURRICULUM = {
         { ar: "سَبْعُمِئَةٍ", emoji: "7️⃣💯", en: "700" },
         { ar: "ثَمَانِمِئَةٍ", emoji: "8️⃣💯", en: "800" },
         { ar: "تِسْعُمِئَةٍ", emoji: "9️⃣💯", en: "900" },
-        { ar: "أَلْفٌ", emoji: "1️⃣0️⃣0️⃣0️⃣", en: "1,000" },
+        { ar: "أَلْفٌ", emoji: "1️⃣0️⃣0️⃣0️⃣", en: "1,000" , quran: "أَلْفَ سَنَةٍ إِلَّا خَمْسِينَ عَامًا", quranRef: "العنكبوت ١٤" },
         { ar: "أَلْفَانِ", emoji: "2️⃣🔢", en: "2,000" },
         { ar: "ثَلَاثَةُ آلَافٍ", emoji: "3️⃣🔢", en: "3,000" },
         { ar: "عَشَرَةُ آلَافٍ", emoji: "🔟🔢", en: "10,000" },
@@ -1850,6 +1949,58 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "بِنَاءُ الْأَعْدَادِ الْكَبِيرَةِ",
+        teach: [
+          {
+            say: "Hundreds and thousands work differently from everything so far — and more simply. They behave like the first half of an إضافة, which you already know.",
+            show: "مِئَةُ رَجُلٍ 💯🧔\nأَلْفُ طَالِبٍ 🧑\u200d🎓",
+          },
+          {
+            say: "So the counted thing is SINGULAR and takes kasra — no tanwin on the number, exactly as with بَابُ الْبَيْتِ.",
+            show: "مِئَةُ رَجُلٍ ⬇️\nأَلْفُ طَالِبٍ ⬇️\nمِلْيُونُ نَسَمَةٍ ⬇️",
+          },
+          {
+            say: "The hundreds themselves are formed by joining the unit to مئة.",
+            show: "مِئَتَانِ ٢٠٠ · ثَلَاثُمِئَةٍ ٣٠٠\nخَمْسُمِئَةٍ ٥٠٠ · تِسْعُمِئَةٍ ٩٠٠",
+          },
+          {
+            say: "Thousands follow the counting rules you already learned: two takes the dual, three to ten takes the plural آلاف.",
+            show: "أَلْفٌ · أَلْفَانِ\nثَلَاثَةُ آلَافٍ · عَشَرَةُ آلَافٍ",
+          },
+          {
+            say: "Now build any large number: say it from the biggest part down, joining with وَ.",
+            show: "١٥٠٠ = أَلْفٌ وَخَمْسُمِئَةٍ\n٢٠٢٦ = أَلْفَانِ وَسِتَّةٌ وَعِشْرُونَ\n٥٠٠٠٠٠ = خَمْسُمِئَةِ أَلْفٍ",
+          },
+          {
+            say: "And beyond: مِلْيُون for a million, مِلْيَار for a billion — both behaving like مئة and ألف.",
+            show: "مِئَةٌ وَخَمْسُونَ مِلْيُونَ سَنَةٍ\n= 150 million years",
+          },
+        ],
+        teach: [
+          {
+            say: "Now the large numbers — and they are easier than the tens, because مئة and ألف behave like a word you already know well: the first half of an إضافة.",
+            show: "مِئَةُ رَجُلٍ 💯\nأَلْفُ طَالِبٍ 🔢",
+          },
+          {
+            say: "Look at the ending of what is counted: singular, with a kasra. Exactly like بَابُ الْبَيْتِ. No tanwin fath here.",
+            show: "مِئَةُ رَجُلٍ ⬇️\nأَلْفُ طَالِبٍ ⬇️\nمِلْيُونُ نَسَمَةٍ ⬇️",
+          },
+          {
+            say: "The hundreds are written as one word with مئة. Learn them as a set.",
+            show: "مِئَتَانِ ٢٠٠ · ثَلَاثُمِئَةٍ ٣٠٠\nأَرْبَعُمِئَةٍ ٤٠٠ · خَمْسُمِئَةٍ ٥٠٠ …",
+          },
+          {
+            say: "For thousands, ألف has a broken plural you must know: آلاف. And three to ten of them follow the counting rule you already learned.",
+            show: "أَلْفٌ · أَلْفَانِ · ثَلَاثَةُ آلَافٍ\nعَشَرَةُ آلَافٍ ١٠٠٠٠",
+          },
+          {
+            say: "Building a big number: say the LARGEST part first, then join with وَ, working down. This is the opposite direction from the units-first rule of the tens.",
+            show: "١٥٠٠ = أَلْفٌ وَخَمْسُمِئَةٍ\n٢٠٢٦ = أَلْفَانِ وَسِتَّةٌ وَعِشْرُونَ",
+          },
+          {
+            say: "And millions work identically. Now you can say any number you will ever need.",
+            show: "٥٠٠٠٠٠ = خَمْسُمِئَةِ أَلْفٍ\n١٥٠ مِلْيُونًا = مِئَةٌ وَخَمْسُونَ مِلْيُونًا",
+          },
+        ],
         ar: "١) اَلْمِئَاتُ ١٠٠-٩٠٠:\nمِئَةٌ 💯 · مِئَتَانِ · ثَلَاثُمِئَةٍ · أَرْبَعُمِئَةٍ\nخَمْسُمِئَةٍ · سِتُّمِئَةٍ · سَبْعُمِئَةٍ · ثَمَانِمِئَةٍ · تِسْعُمِئَةٍ\n\n٢) اَلْأُلُوفُ:\nأَلْفٌ · أَلْفَانِ · ثَلَاثَةُ آلَافٍ … عَشَرَةُ آلَافٍ\nثُمَّ: أَحَدَ عَشَرَ أَلْفًا · مِئَةُ أَلْفٍ · خَمْسُمِئَةِ أَلْفٍ\n\n٣) اَلْمَلَايِينُ:\nمِلْيُونٌ · مِلْيُونَانِ · ثَلَاثَةُ مَلَايِينَ · مِلْيَارٌ\n\n٤) اَلتَّرْكِيبُ — مِنَ الْأَكْبَرِ إِلَى الْأَصْغَرِ بِـ «وَ»:\n١٥٠٠ ← أَلْفٌ وَخَمْسُمِئَةٍ\n٢٠٢٠ ← أَلْفَانِ وَعِشْرُونَ\n١٢٣ ← مِئَةٌ وَثَلَاثَةٌ وَعِشْرُونَ\n(اَلْمِئَاتُ ثُمَّ الْآحَادُ ثُمَّ الْعُقُودُ)\n\n⚠️ اَلْمَعْدُودُ بَعْدَ مِئَةٍ وَأَلْفٍ وَمِلْيُونٍ:\nمُفْرَدٌ مَجْرُورٌ بِالْإِضَافَةِ\nمِئَةُ رَجُلٍ · أَلْفُ طَالِبٍ · مِلْيُونُ نَسَمَةٍ\n\n⚠️ فِي التَّرْكِيبِ، اَلْمَعْدُودُ يَتْبَعُ آخِرَ عَدَدٍ:\nأَلْفٌ وَخَمْسُمِئَةِ طَالِبٍ (إِضَافَةٌ)\nمِئَةٌ وَخَمْسُونَ طَالِبًا (مُفْرَدٌ مَنْصُوبٌ)",
         hint: "Hundreds, thousands and millions all behave as the first word of an إضافة — the counted noun stays singular and مجرور. Build big numbers largest-first joined by و, and let the LAST number decide the ending of the counted noun.",
       },
@@ -1894,9 +2045,9 @@ export const CURRICULUM = {
         { ar: "ظُهْرًا", emoji: "☀️", en: "at noon" },
         { ar: "لَيْلًا", emoji: "🌙", en: "at night" },
         { ar: "تَمَامًا", emoji: "🎯", en: "exactly / sharp" },
-        { ar: "شَهْرٌ", emoji: "🌙", en: "month" },
+        { ar: "شَهْرٌ", emoji: "🌙", en: "month" , quran: "شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ", quranRef: "البقرة ١٨٥" },
         { ar: "مُحَرَّمٌ", emoji: "1️⃣🌙", en: "Muharram" },
-        { ar: "رَمَضَانُ", emoji: "9️⃣🌙", en: "Ramadan" },
+        { ar: "رَمَضَانُ", emoji: "9️⃣🌙", en: "Ramadan" , quran: "شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ", quranRef: "البقرة ١٨٥" },
         { ar: "شَوَّالٌ", emoji: "🔟🌙", en: "Shawwal" },
         { ar: "ذُو الْحِجَّةِ", emoji: "🕋🌙", en: "Dhul-Hijjah" },
         { ar: "يَنَايِرُ", emoji: "1️⃣📅", en: "January" },
@@ -1916,6 +2067,59 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "قِرَاءَةُ السَّاعَةِ وَالتَّارِيخِ",
+        teach: [
+          {
+            say: "To ask the time, Arabic says كَمِ السَّاعَةُ؟ — literally 'how much is the hour?'",
+            show: "كَمِ السَّاعَةُ؟ 🕐❓",
+          },
+          {
+            say: "Now something that catches everyone. The hour uses ORDINAL numbers, and they are always FEMININE — because الساعة itself is feminine.",
+            show: "اَلسَّاعَةُ الثَّالِثَةُ 3:00\nاَلسَّاعَةُ الْخَامِسَةُ 5:00",
+            warn: "❌ اَلسَّاعَةُ الثَّالِثُ",
+          },
+          {
+            say: "Learn the twelve of them as a set — they are simply the ordinals you know, with ة added.",
+            show: "اَلْوَاحِدَةُ · الثَّانِيَةُ · الثَّالِثَةُ · الرَّابِعَةُ\nالْخَامِسَةُ · السَّادِسَةُ · السَّابِعَةُ · الثَّامِنَةُ\nالتَّاسِعَةُ · الْعَاشِرَةُ · الْحَادِيَةَ عَشْرَةَ · الثَّانِيَةَ عَشْرَةَ",
+          },
+          {
+            say: "For minutes past the hour, add وَ and the fraction. These three cover most of what you need.",
+            show: "وَالرُّبْعُ = :15 ¼\nوَالثُّلْثُ = :20 ⅓\nوَالنِّصْفُ = :30 ½",
+          },
+          {
+            say: "For time BEFORE the hour, jump to the next hour and subtract with إِلَّا — the same word you use for 'except'.",
+            show: "٤:٤٥ = اَلْخَامِسَةُ إِلَّا رُبْعًا\n٥:٥٠ = السَّادِسَةُ إِلَّا عَشْرَ دَقَائِقَ",
+          },
+          {
+            say: "Finally, say which part of the day, and add تَمَامًا when it is exactly on the hour.",
+            show: "صَبَاحًا 🌅 · ظُهْرًا ☀️\nمَسَاءً 🌇 · لَيْلًا 🌙\nاَلتَّاسِعَةُ تَمَامًا صَبَاحًا",
+          },
+        ],
+        teach: [
+          {
+            say: "To tell the time, Arabic uses ORDINAL numbers — first, second, third — not the counting numbers you just learned. And they are always FEMININE, because السَّاعَة is feminine.",
+            show: "اَلسَّاعَةُ الثَّالِثَةُ = 3:00\n(لَا: اَلسَّاعَةُ ثَلَاثَةٌ)",
+          },
+          {
+            say: "Learn the twelve feminine ordinals as a block. They are simply the ordinals with ة added.",
+            show: "اَلْوَاحِدَةُ · الثَّانِيَةُ · الثَّالِثَةُ\nالرَّابِعَةُ · الْخَامِسَةُ · السَّادِسَةُ …",
+          },
+          {
+            say: "To add minutes past the hour, use وَ plus the fraction. Half, quarter and third each have their own word.",
+            show: "وَالنِّصْفُ ½ (٣٠)\nوَالرُّبْعُ ¼ (١٥)\nوَالثُّلْثُ ⅓ (٢٠)",
+          },
+          {
+            say: "For any other number of minutes, just say the number of دَقَائِق — and apply the counting rule you already know.",
+            show: "اَلسَّابِعَةُ وَعَشْرُ دَقَائِقَ 7:10\n(دَقِيقَةٌ مُؤَنَّثٌ ← عَشْرُ بِلَا تَاءٍ)",
+          },
+          {
+            say: "For time BEFORE the hour, Arabic does not count backwards from the previous hour. It names the coming hour and subtracts with إِلَّا.",
+            show: "4:45 = اَلْخَامِسَةُ إِلَّا رُبْعًا\n= 'five, less a quarter'",
+          },
+          {
+            say: "Finally, mark the part of day, since Arabic has no am/pm. And learn the twelve Hijri months — they order the Muslim year.",
+            show: "صَبَاحًا 🌅 · ظُهْرًا ☀️\nمَسَاءً 🌇 · لَيْلًا 🌙",
+          },
+        ],
         ar: "١) اَلسُّؤَالُ: كَمِ السَّاعَةُ؟ 🕐❓\n\n٢) اَلسَّاعَةُ + عَدَدٌ تَرْتِيبِيٌّ مُؤَنَّثٌ:\nاَلْوَاحِدَةُ · الثَّانِيَةُ · الثَّالِثَةُ · الرَّابِعَةُ · الْخَامِسَةُ\nالسَّادِسَةُ · السَّابِعَةُ · الثَّامِنَةُ · التَّاسِعَةُ · الْعَاشِرَةُ\nالْحَادِيَةَ عَشْرَةَ · الثَّانِيَةَ عَشْرَةَ\n\n٣) اَلْكُسُورُ:\n+ ١٥ ← وَالرُّبْعُ ¼\n+ ٢٠ ← وَالثُّلْثُ ⅓\n+ ٣٠ ← وَالنِّصْفُ ½\n+ دَقَائِقُ ← وَعَشْرُ دَقَائِقَ\n\n٤) قَبْلَ السَّاعَةِ ← «إِلَّا»:\n٤:٤٥ ← اَلْخَامِسَةُ إِلَّا رُبْعًا ➖\n٥:٥٠ ← السَّادِسَةُ إِلَّا عَشْرَ دَقَائِقَ\n\n٥) اَلْوَقْتُ مِنَ الْيَوْمِ:\nصَبَاحًا 🌅 · ظُهْرًا ☀️ · مَسَاءً 🌇 · لَيْلًا 🌙\nوَ «تَمَامًا» 🎯 لِلدِّقَّةِ\n\n٦) اَلشُّهُورُ الْهِجْرِيَّةُ (١٢):\nمُحَرَّمٌ · صَفَرٌ · رَبِيعٌ الْأَوَّلُ · رَبِيعٌ الْآخِرُ\nجُمَادَى الْأُولَى · جُمَادَى الْآخِرَةُ · رَجَبٌ · شَعْبَانُ\nرَمَضَانُ · شَوَّالٌ · ذُو الْقَعْدَةِ · ذُو الْحِجَّةِ",
         hint: "The hour uses FEMININE ordinals (الثالثة, not الثالث). Add fractions with و, and use إلا for time before the hour. Learn the twelve Hijri months — they order the Muslim year.",
       },
@@ -2049,6 +2253,58 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "جَدْوَلُ الضَّمَائِرِ الْأَرْبَعَةَ عَشَرَ",
+        teach: [
+          {
+            say: "English has seven pronouns. Arabic has fourteen — because it distinguishes male from female, and adds a special form for exactly TWO people.",
+            show: "أَنَا · نَحْنُ\nأَنْتَ · أَنْتِ · أَنْتُمَا · أَنْتُمْ · أَنْتُنَّ\nهُوَ · هِيَ · هُمَا · هُمْ · هُنَّ",
+          },
+          {
+            say: "The grammarians arrange them in three groups, and this order is how you should memorise them. Start with the ABSENT person — the one you are talking about.",
+            show: "اَلْغَائِبُ (٦):\nهُوَ · هُمَا · هُمْ\nهِيَ · هُمَا · هُنَّ",
+          },
+          {
+            say: "Then the one you are speaking TO. Five forms, because the dual is shared between men and women.",
+            show: "اَلْمُخَاطَبُ (٥):\nأَنْتَ · أَنْتُمَا · أَنْتُمْ\nأَنْتِ · أَنْتُنَّ",
+          },
+          {
+            say: "And last the speaker — just two, and they never change for gender. A man and a woman both say أَنَا.",
+            show: "اَلْمُتَكَلِّمُ (٢):\nأَنَا · نَحْنُ",
+          },
+          {
+            say: "One thing that confuses people when counting: هُمَا and أَنْتُمَا each fill TWO slots in the table — masculine dual and feminine dual — which is why fourteen positions need only twelve words.",
+            show: "هُمَا طَالِبَانِ 🧔🧔\nهُمَا طَالِبَتَانِ 👩👩",
+          },
+          {
+            say: "Use them as the start of a sentence, exactly like المبتدأ. Whatever follows must agree.",
+            show: "أَنَا طَالِبٌ 🧍\nهِيَ مُعَلِّمَةٌ 👩\u200d🏫\nهُمْ مُسْلِمُونَ ☝️",
+          },
+        ],
+        teach: [
+          {
+            say: "English has seven pronouns. Arabic has fourteen — because it distinguishes male from female, and adds a special form for exactly two people.",
+            show: "أَنَا · نَحْنُ · أَنْتَ · أَنْتِ · هُوَ · هِيَ …",
+          },
+          {
+            say: "The grammarians arrange them in three groups, and always in this order. Start with the person who is ABSENT — the one you are talking about.",
+            show: "اَلْغَائِبُ: هُوَ · هُمَا · هُمْ\nهِيَ · هُمَا · هُنَّ",
+          },
+          {
+            say: "Then the person PRESENT — the one you are talking to.",
+            show: "اَلْمُخَاطَبُ: أَنْتَ · أَنْتُمَا · أَنْتُمْ\nأَنْتِ · أَنْتُنَّ",
+          },
+          {
+            say: "And last, the SPEAKER. These two never change for gender — a man and a woman both say أَنَا.",
+            show: "اَلْمُتَكَلِّمُ: أَنَا 🧍 · نَحْنُ 🧍🧍",
+          },
+          {
+            say: "You may notice the list totals fourteen slots but only twelve different words. That is because هُمَا and أَنْتُمَا each serve both genders in the dual.",
+            show: "هُمَا مُسْلِمَانِ 🧔🧔\nهُمَا مُسْلِمَتَانِ 👩👩",
+          },
+          {
+            say: "Use them as the subject of a sentence and everything after must agree — which is the same مبتدأ وخبر rule you already know.",
+            show: "أَنَا طَالِبٌ 🧑\u200d🎓\nهِيَ طَالِبَةٌ 👧\nهُمْ طُلَّابٌ 🧔🧔🧔",
+          },
+        ],
         ar: "١) اَلْغَائِبُ (٦):\nمُذَكَّرٌ: هُوَ 🧔 · هُمَا 🧔🧔 · هُمْ 🧔🧔🧔\nمُؤَنَّثٌ: هِيَ 👩 · هُمَا 👩👩 · هُنَّ 👩👩👩\n\n٢) اَلْمُخَاطَبُ (٥):\nمُذَكَّرٌ: أَنْتَ 👉🧔 · أَنْتُمَا 👉🧔🧔 · أَنْتُمْ 👉🧔🧔🧔\nمُؤَنَّثٌ: أَنْتِ 👉👩 · أَنْتُنَّ 👉👩👩👩\n\n٣) اَلْمُتَكَلِّمُ (٢): أَنَا 🧍 · نَحْنُ 🧍🧍\n\n⚠️ هُمَا وَأَنْتُمَا: لَفْظٌ وَاحِدٌ لِلْمُذَكَّرِ وَالْمُؤَنَّثِ\nهُمَا مُسْلِمَانِ 🧔🧔 · هُمَا مُسْلِمَتَانِ 👩👩\nيُعْرَفُ الْمَقْصُودُ مِنَ الْخَبَرِ\n\n⚠️ اَلْمُتَكَلِّمُ لَا يَتَغَيَّرُ: أَنَا لِلرَّجُلِ وَالْمَرْأَةِ",
         hint: "The 14 pronouns fill 14 grammatical slots. Note هُمَا and أَنْتُمَا each serve BOTH genders in the dual — so 14 slots are covered by 12 distinct words. The speaker forms (أنا، نحن) never change for gender.",
       },
@@ -2110,6 +2366,62 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "اَلضَّمِيرُ الْمُتَّصِلُ بِالِاسْمِ وَالْفِعْلِ وَالْحَرْفِ",
+        teach: [
+          {
+            say: "The pronouns you just learned stand alone. Now meet their shorter forms, which never stand alone — they stick to the end of another word.",
+            show: "أَنَا ← ـِي\nأَنْتَ ← ـكَ\nهُوَ ← ـهُ",
+          },
+          {
+            say: "On a NOUN, they mean ownership. This replaces the English words my, your, his.",
+            show: "كِتَابٌ + ي ← كِتَابِي 📖🧍\nكِتَابٌ + كَ ← كِتَابُكَ\nكِتَابٌ + هَا ← كِتَابُهَا",
+          },
+          {
+            say: "Notice the tanwin disappeared. A word with a pronoun attached is definite — it has become the first half of an إضافة.",
+            show: "كِتَابٌ ← كِتَابُهُ ✅",
+            warn: "❌ كِتَابٌهُ · ❌ الْكِتَابُهُ",
+          },
+          {
+            say: "The very same endings go on a VERB — but there they mean the object, not ownership.",
+            show: "سَمِعَ + هَا ← سَمِعَهَا 👂\n= he heard HER",
+          },
+          {
+            say: "One detail to get right: before the ي of 'me' on a verb, an extra نـ appears. It is called نون الوقاية — the protecting noon.",
+            show: "سَمِعَ + نِي ← سَمِعَنِي ✅\nاِرْحَمْ + نِي ← اِرْحَمْنِي 🤲",
+            warn: "❌ سَمِعِي",
+          },
+          {
+            say: "And the same endings attach to prepositions too. You already say these every day.",
+            show: "عِنْدِي 🤲 · لَهُ ➡️ · مَعِي 🤝\nمِنْهُ · إِلَيْهَا · بِهِ",
+          },
+        ],
+        teach: [
+          {
+            say: "You know the standalone pronouns. Now meet their shorter forms, which never stand alone — they attach to the end of a word. One set does three completely different jobs.",
+            show: "ي · كَ · كِ · هُ · هَا · نَا · هُمْ",
+          },
+          {
+            say: "Job one: attached to a NOUN, they show ownership. This replaces the English word 'my', 'your', 'his'.",
+            show: "كِتَابٌ + ي ← كِتَابِي 📖🧍\nكِتَابٌ + كَ ← كِتَابُكَ\nكِتَابٌ + هَا ← كِتَابُهَا",
+          },
+          {
+            say: "Notice the tanwin disappeared — a noun with an attached pronoun is already definite, exactly like the first half of an إضافة. In fact, that is precisely what it is.",
+            show: "كِتَابٌ ← كِتَابُهُ ✅",
+            warn: "❌ كِتَابٌهُ",
+          },
+          {
+            say: "Job two: attached to a VERB, the same letters mean the object — him, her, me.",
+            show: "سَمِعَ + هَا ← سَمِعَهَا 👂👩\nرَأَى + هُ ← رَآهُ 👁️",
+          },
+          {
+            say: "But for 'me' on a verb, a نون appears first. It is called نُون الْوِقَايَة — the protecting nūn — because it protects the verb's ending from changing.",
+            show: "✅ سَمِعَنِي · اِرْحَمْنِي",
+            warn: "❌ سَمِعِي",
+          },
+          {
+            say: "Job three: attached to a PARTICLE. You already say these every day without thinking about them.",
+            show: "عِنْدِي 🤲 · لَهُ ➡️ · مَعِي 🤝\nمِنْهُ · فِيهَا · عَلَيْكَ",
+          },
+        ],
         ar: "مَعَ الِاسْمِ (مِلْكِيَّةٌ):\nكِتَابٌ + ي ← كِتَابِي 📖🧍\n+ كَ ← كِتَابُكَ 🧔 · + كِ ← كِتَابُكِ 👩\n+ هُ ← كِتَابُهُ · + هَا ← كِتَابُهَا\n+ نَا ← كِتَابُنَا · + هُمْ ← كِتَابُهُمْ\n\nمَعَ الْفِعْلِ (مَفْعُولٌ بِهِ):\nسَمِعَ + هَا ← سَمِعَهَا 👂👩\n⚠️ مَعَ الْفِعْلِ لِلْمُتَكَلِّمِ: نُونُ الْوِقَايَةِ\nسَمِعَ + نِي ← سَمِعَنِي (لَا: سَمِعِي)\n\nمَعَ الْحَرْفِ: لَهُ ➡️ · عِنْدِي 🤲 · مَعِي 🤝",
         hint: "One set of attached pronouns serves three jobs: possession on nouns, object on verbs, and with prepositions. Note نون الوقاية: سَمِعَنِي, not سَمِعِي.",
       },
@@ -2210,6 +2522,33 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "أَدَوَاتُ الِاسْتِفْهَامِ",
+        teach: [
+          {
+            say: "You already know two question words from the very first lesson. Now we complete the set — and there is one distinction that matters more than the rest.",
+            show: "مَا هَذَا؟ ❔ لِلشَّيْءِ\nمَنْ هَذَا؟ 🧍 لِلْعَاقِلِ",
+          },
+          {
+            say: "Here is the trap. مَا is used before a NOUN. But before a VERB you must say مَاذَا. Almost every learner gets this wrong for years.",
+            show: "مَا هَذَا؟ (اِسْمٌ) 📖\nمَاذَا تَقْرَأُ؟ (فِعْلٌ) 📖👀",
+            warn: "❌ مَا تَقْرَأُ؟",
+          },
+          {
+            say: "Then the ones for place, time, manner and reason. Each expects a particular kind of answer, so learn them with their answers attached.",
+            show: "أَيْنَ؟ 📍 ← فِي الْبَيْتِ\nمَتَى؟ 🕐 ← بَعْدَ الظُّهْرِ\nكَيْفَ؟ 🔄 ← بِخَيْرٍ\nلِمَاذَا؟ 🤔 ← لِأَنَّ...",
+          },
+          {
+            say: "Notice that لِمَاذَا is answered with لِأَنَّ. The two belong together — the question carries لـ and so does the answer.",
+            show: "لِمَاذَا تَدْرُسُ الْعَرَبِيَّةَ؟\n— لِأَنَّهَا لُغَةُ الْقُرْآنِ 📖",
+          },
+          {
+            say: "And for a yes-or-no question, put هَلْ at the front of any ordinary sentence. Nothing else changes.",
+            show: "أَنْتَ طَالِبٌ ← هَلْ أَنْتَ طَالِبٌ؟\n— نَعَمْ ✅ / لَا ❌",
+          },
+          {
+            say: "With these ten words you can ask about anything. A conversation is not built from answers — it is built from questions.",
+            show: "مَنْ · مَا · مَاذَا · أَيْنَ · مَتَى\nكَيْفَ · لِمَاذَا · كَمْ · هَلْ · أَيُّ",
+          },
+        ],
         ar: "لِلْعَاقِلِ ← مَنْ؟ 🧍 · لِغَيْرِ الْعَاقِلِ ← مَا؟ ❔\n\n⚠️ مَا + اِسْمٌ: مَا هَذَا؟ 📖\n⚠️ مَاذَا + فِعْلٌ: مَاذَا تَقْرَأُ؟ 📖👀\n\nهَلْ ← جَوَابُهُ نَعَمْ ✅ أَوْ لَا ❌\nهَلْ أَنْتَ طَالِبٌ؟ — نَعَمْ\n\nاَلْجَوَابُ عَنْ «لِمَاذَا» بِـ «لِأَنَّ»:\nلِمَاذَا تَدْرُسُ؟ — لِأَنَّهَا لُغَةُ الْقُرْآنِ",
         hint: "مَنْ asks about people, مَا about things. Use مَا before a noun but مَاذَا before a verb. هَلْ expects yes/no.",
       },
@@ -2341,7 +2680,7 @@ export const CURRICULUM = {
       title: "اَلسَّفَرُ وَالْبُلْدَانُ",
       subtitle: "اَلدَّرْسُ الثَّالِثُ وَالثَّلَاثُونَ",
       vocab: [
-        { ar: "سَفَرٌ", emoji: "🧳", en: "travel" },
+        { ar: "سَفَرٌ", emoji: "🧳", en: "travel" , quran: "أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ", quranRef: "البقرة ١٨٥" },
         { ar: "مَطَارٌ", emoji: "🛫", en: "airport" },
         { ar: "طَائِرَةٌ", emoji: "✈️", en: "aeroplane" },
         { ar: "بَلَدٌ", emoji: "🌍", en: "country" },
@@ -2573,8 +2912,8 @@ export const CURRICULUM = {
         { ar: "جَلَسَ", emoji: "🪑" },
         { ar: "أَكَلَ", emoji: "🍽️" },
         { ar: "شَرِبَ", emoji: "🥤" },
-        { ar: "كَتَبَ", emoji: "✍️" },
-        { ar: "قَرَأَ", emoji: "📖👀" },
+        { ar: "كَتَبَ", emoji: "✍️" , quran: "كُتِبَ عَلَيْكُمُ الصِّيَامُ", quranRef: "البقرة ١٨٣" },
+        { ar: "قَرَأَ", emoji: "📖👀" , quran: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ", quranRef: "العلق ١" },
         { ar: "سَمِعَ", emoji: "👂" },
         { ar: "فَتَحَ", emoji: "🚪↔️" },
         { ar: "خَرَجَ", emoji: "🚪➡️" },
@@ -2593,6 +2932,33 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "اَلْجُمْلَةُ الْفِعْلِيَّةُ: فِعْلٌ وَفَاعِلٌ وَمَفْعُولٌ بِهِ",
+        teach: [
+          {
+            say: "Until now every sentence began with a noun. Now we begin with a VERB — and Arabic has a strict order that English does not.",
+            show: "اَلْجُمْلَةُ الْفِعْلِيَّةُ:\nفِعْلٌ ← فَاعِلٌ ← مَفْعُولٌ بِهِ",
+          },
+          {
+            say: "The past tense is the simplest form in the language. Three letters, all with fatha, and it means 'he did it'.",
+            show: "ذَهَبَ = he went\nكَتَبَ = he wrote\nأَكَلَ = he ate",
+          },
+          {
+            say: "Put the doer straight after the verb. It takes a damma — this is the فَاعِل you met in the الإعراب lesson.",
+            show: "ذَهَبَ الطَّالِبُ ⬆️\n= the student went",
+          },
+          {
+            say: "Then the thing acted upon, with a fatha. Now the whole sentence is built.",
+            show: "أَكَلَ الْوَلَدُ الْخُبْزَ\n⬆️ فَاعِلٌ · ➡️ مَفْعُولٌ بِهِ",
+            warn: "❌ أَكَلَ الْوَلَدَ الْخُبْزُ\n(هَذَا: الْخُبْزُ أَكَلَ الْوَلَدَ!)",
+          },
+          {
+            say: "One more thing to notice from the start. If the doer is FEMININE, a تْ is added to the verb. The verb tells you the gender before you even hear the doer.",
+            show: "ذَهَبَ الطَّالِبُ 🧑\u200d🎓\nذَهَبَتِ الْبِنْتُ 👧",
+          },
+          {
+            say: "And when you speak about YOURSELF, the ending changes instead of the beginning. The full table comes in the next lesson.",
+            show: "ذَهَبَ = he went\nذَهَبْتُ = I went\nذَهَبْنَا = we went",
+          },
+        ],
         ar: "أَكَلَ الْوَلَدُ الْخُبْزَ 👦🍽️🍞\nفِعْلٌ + فَاعِلٌ (مَرْفُوعٌ ـُ) + مَفْعُولٌ بِهِ (مَنْصُوبٌ ـَ)\n\nاَلْفَاعِلُ مُؤَنَّثٌ ← تَاءُ التَّأْنِيثِ:\nذَهَبَ الطَّالِبُ 🧑\u200d🎓 · ذَهَبَتِ الْبِنْتُ 👧\n\nضَمَائِرُ الْمَاضِي:\nأَنَا ← فَعَلْتُ · نَحْنُ ← فَعَلْنَا\nأَنْتَ ← فَعَلْتَ · أَنْتِ ← فَعَلْتِ\nهُوَ ← فَعَلَ · هِيَ ← فَعَلَتْ",
         hint: "In a verbal sentence: verb + doer (فاعل, nominative) + object (مفعول به, accusative). A feminine doer adds تْ to the verb.",
       },
@@ -2699,6 +3065,32 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "حُرُوفُ الْمُضَارَعَةِ: أَنَيْتُ",
+        teach: [
+          {
+            say: "The past tense changed its ENDING to show who did it. The present tense is different — it changes the BEGINNING.",
+            show: "ذَهَبَ (مَاضٍ)\nيَذْهَبُ (مُضَارِعٌ)",
+          },
+          {
+            say: "Four letters can sit at the front, and they are famously remembered as one word: أَنَيْتُ.",
+            show: "أ ← أَنَا\nن ← نَحْنُ\nي ← هُوَ\nت ← هِيَ / أَنْتَ",
+          },
+          {
+            say: "So from one verb you get the whole present tense simply by changing the first letter.",
+            show: "أَذْهَبُ 🧍 = I go\nنَذْهَبُ 🧍🧍 = we go\nيَذْهَبُ 🧔 = he goes\nتَذْهَبُ 👩 = she goes",
+          },
+          {
+            say: "Note one overlap that you must read from context: تَذْهَبُ serves BOTH 'she goes' and 'you (m) go'. Arabic accepts this; the sentence makes it clear.",
+            show: "هِيَ تَذْهَبُ 👩\nأَنْتَ تَذْهَبُ 👉🧔",
+          },
+          {
+            say: "The present tense normally ends in a damma. Remember that ending — several particles will change it, and that is a later lesson.",
+            show: "يَذْهَبُ ⬆️\nيَكْتُبُ ⬆️ · يَقْرَأُ ⬆️",
+          },
+          {
+            say: "Use it for what happens now, and for what happens habitually — Arabic makes no separate form for the two.",
+            show: "أَذْهَبُ إِلَى الْمَسْجِدِ كُلَّ يَوْمٍ 🕌\n= I go to the mosque every day",
+          },
+        ],
         ar: "اَلْمَاضِي ← اَلْمُضَارِعُ\nذَهَبَ ← يَذْهَبُ 🚶➡️\n\nحُرُوفُ الْمُضَارَعَةِ (أَنَيْتُ):\nأَنَا ← أَذْهَبُ (أ)\nنَحْنُ ← نَذْهَبُ (ن)\nهُوَ ← يَذْهَبُ (ي)\nهِيَ ← تَذْهَبُ (ت)\nأَنْتَ ← تَذْهَبُ (ت)\nأَنْتِ ← تَذْهَبِينَ\n\n⚠️ تَذْهَبُ لِـ «هِيَ» وَلِـ «أَنْتَ» — يُفَرِّقُ بَيْنَهُمَا السِّيَاقُ",
         hint: "The present tense adds a prefix letter (أ ن ي ت — remembered as أَنَيْتُ). Note تَذْهَبُ serves both هي and أنتَ.",
       },
@@ -2778,7 +3170,7 @@ export const CURRICULUM = {
       vocab: [
         { ar: "لَا", emoji: "❌" },
         { ar: "مَا", emoji: "🚫" },
-        { ar: "لَمْ", emoji: "⬅️❌" },
+        { ar: "لَمْ", emoji: "⬅️❌" , quran: "لَمْ يَلِدْ وَلَمْ يُولَدْ", quranRef: "الإخلاص ٣" },
         { ar: "لَيْسَ", emoji: "❌☝️" },
         { ar: "لَيْسَتْ", emoji: "❌👩" },
         { ar: "أَبَدًا", emoji: "🚫♾️" },
@@ -2800,6 +3192,33 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "أَدَوَاتُ النَّفْيِ",
+        teach: [
+          {
+            say: "English negates almost everything with 'not'. Arabic chooses a different tool depending on WHAT you are negating. Four tools, four jobs.",
+            show: "لَا · مَا · لَمْ · لَيْسَ",
+          },
+          {
+            say: "For something happening now — the present tense — use لَا. Nothing else changes.",
+            show: "أَفْهَمُ ← لَا أَفْهَمُ 💡❌\nيَذْهَبُ ← لَا يَذْهَبُ",
+          },
+          {
+            say: "For something that did not happen — the past tense — use مَا. Again nothing changes.",
+            show: "ذَهَبَ ← مَا ذَهَبَ 🚫🚶",
+          },
+          {
+            say: "There is a second way to negate the past, and it is more common in the Quran and in speech: لَمْ with a PRESENT verb whose ending becomes sukun.",
+            show: "يَذْهَبُ ← لَمْ يَذْهَبْ ⬅️❌\nلَمْ يَلِدْ وَلَمْ يُولَدْ",
+          },
+          {
+            say: "And for a nominal sentence — one with no verb at all — none of those work. You need لَيْسَ.",
+            show: "اَلطَّالِبُ مَرِيضٌ\n← لَيْسَ الطَّالِبُ مَرِيضًا",
+            warn: "❌ لَا الطَّالِبُ مَرِيضٌ",
+          },
+          {
+            say: "Look closely at what لَيْسَ did to the ending. The first word kept its damma, but the second turned to fatha. Remember that pattern — a whole family of words behaves this way.",
+            show: "مَرِيضٌ ← مَرِيضًا ➡️\nلَيْسَتِ الْبِنْتُ غَائِبَةً 👧",
+          },
+        ],
         ar: "لِلْمُضَارِعِ ← لَا: لَا أَفْهَمُ ❌💡\nلِلْمَاضِي ← مَا: مَا ذَهَبَ 🚫🚶\nلِلْمَاضِي بِالْمُضَارِعِ ← لَمْ + جَزْمٌ: لَمْ يَذْهَبْ ⬅️❌\n\nلِلْجُمْلَةِ الِاسْمِيَّةِ ← لَيْسَ:\nاَلطَّالِبُ مَرِيضٌ ← لَيْسَ الطَّالِبُ مَرِيضًا\n⚠️ لَيْسَ تَرْفَعُ الِاسْمَ وَتَنْصِبُ الْخَبَرَ (ـً)\nمُؤَنَّثٌ ← لَيْسَتْ: لَيْسَتِ الْبِنْتُ غَائِبَةً",
         hint: "لا negates the present, ما negates the past, لم negates the past using a jussive present verb, and ليس negates a nominal sentence — putting its predicate in the accusative.",
       },
@@ -2826,7 +3245,7 @@ export const CURRICULUM = {
       title: "النَّصْبُ وَالْجَزْمُ: لَنْ وَلَمْ",
       subtitle: "اَلدَّرْسُ الثَّانِي وَالْأَرْبَعُونَ",
       vocab: [
-        { ar: "لَنْ", emoji: "🚫➡️", en: "will never (future negation)" },
+        { ar: "لَنْ", emoji: "🚫➡️", en: "will never (future negation)" , quran: "لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ", quranRef: "آل عمران ٩٢" },
         { ar: "لَمْ", emoji: "🚫⬅️", en: "did not (past negation)" },
         { ar: "أَنْ", emoji: "🔗", en: "to (that)" },
         { ar: "لِـ", emoji: "🎯", en: "in order to" },
@@ -2850,6 +3269,32 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "نَوَاصِبُ الْمُضَارِعِ وَجَوَازِمُهُ",
+        teach: [
+          {
+            say: "You learned that the present tense ends in a damma: يَذْهَبُ. Now we meet the words that change that ending — and there are only two kinds.",
+            show: "يَذْهَبُ ⬆️ (اَلْأَصْلُ)",
+          },
+          {
+            say: "The first group puts a FATHA on the end. The most useful are أَنْ, لَنْ, and لِـ meaning 'in order to'.",
+            show: "أُرِيدُ أَنْ أَذْهَبَ ➡️\nلَنْ يَذْهَبَ ➡️\nأَدْرُسُ لِأَنْجَحَ ➡️",
+          },
+          {
+            say: "لَنْ is worth pausing on: it negates the FUTURE, and firmly. Not 'he will not go' casually, but 'he never will'.",
+            show: "لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا\n(آل عمران ٩٢)",
+          },
+          {
+            say: "The second group puts a SUKUN on the end — no vowel at all. The two you need are لَمْ and the prohibiting لَا.",
+            show: "لَمْ يَذْهَبْ ⬇️\nلَا تَذْهَبْ ⬇️",
+          },
+          {
+            say: "Now a detail that trips people up. Five present-tense forms end in a nūn — the duals, the masculine plural, and 'you' feminine singular. When these are changed, that nūn simply DROPS.",
+            show: "يَذْهَبُونَ ← لَنْ يَذْهَبُوا\nتَذْهَبِينَ ← لَمْ تَذْهَبِي",
+          },
+          {
+            say: "Finally the future, which needs no new endings at all — just سَـ or سَوْفَ in front.",
+            show: "سَأَذْهَبُ · سَوْفَ أَذْهَبُ ➡️📅",
+          },
+        ],
         ar: "اَلْمُضَارِعُ مَرْفُوعٌ بِالْأَصْلِ: يَذْهَبُ ⬆️\n\n١) اَلنَّوَاصِبُ ← ـَ فِي آخِرِهِ:\nأَنْ 🔗 · لَنْ 🚫➡️ · كَيْ 🎯 · لِـ 🎯 · حَتَّى ⏳\nيَذْهَبُ ← لَنْ يَذْهَبَ · أُرِيدُ أَنْ أَذْهَبَ\n\n٢) اَلْجَوَازِمُ ← ـْ (سُكُونٌ):\nلَمْ 🚫⬅️ · لَا النَّاهِيَةُ 🚫\nيَذْهَبُ ← لَمْ يَذْهَبْ · لَا تَذْهَبْ\n\n⚠️ فِي الْأَفْعَالِ الْخَمْسَةِ تُحْذَفُ النُّونُ:\nيَذْهَبُونَ ← لَنْ يَذْهَبُوا · لَمْ يَذْهَبُوا\nتَذْهَبِينَ ← لَنْ تَذْهَبِي\n\n٣) اَلْمُسْتَقْبَلُ: سَـ ➡️ أَوْ سَوْفَ\nسَأَذْهَبُ · سَوْفَ أَذْهَبُ",
         hint: "The present verb is normally مرفوع. Certain particles make it منصوب (أن، لن، كي، لـ، حتى) and others make it مجزوم (لم، لا الناهية). In the five forms ending in nūn, that nūn simply drops.",
       },
@@ -2901,6 +3346,32 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "فِعْلُ الْأَمْرِ وَالنَّهْيُ بِـ «لَا»",
+        teach: [
+          {
+            say: "To tell someone to do something, Arabic does not invent a new word — it carves the command out of the present tense you already know.",
+            show: "يَكْتُبُ ← اُكْتُبْ ✍️👉",
+          },
+          {
+            say: "Three steps. Remove the prefix letter. Put a sukun on the end. Then add a hamza at the front so the word can be pronounced.",
+            show: "يَكْتُبُ\n← كْتُبُ (حَذْفُ الْيَاءِ)\n← كْتُبْ (سُكُونٌ)\n← اُكْتُبْ (هَمْزَةُ وَصْلٍ)",
+          },
+          {
+            say: "Do the same with any verb and you can instruct anyone. Notice the ending is always silent — that sukun is the mark of a command.",
+            show: "يَقْرَأُ ← اِقْرَأْ 📖\nيَجْلِسُ ← اِجْلِسْ 🪑\nيَسْمَعُ ← اِسْمَعْ 👂",
+          },
+          {
+            say: "To tell someone NOT to do it, you do not need a new form. Put لَا in front of the ordinary present verb and give it a sukun.",
+            show: "تَكْذِبُ ← لَا تَكْذِبْ 🚫🤥\nتَتَكَلَّمُ ← لَا تَتَكَلَّمْ 🚫🗣️",
+          },
+          {
+            say: "And the object after a command behaves exactly as it always does — fatha.",
+            show: "اُكْتُبِ الدَّرْسَ ➡️\nاِفْتَحِ الْبَابَ ➡️",
+          },
+          {
+            say: "Last, change the ending for who you are addressing. A husband and wife speaking Arabic at home need both forms.",
+            show: "اُكْتُبْ 🧔 · اُكْتُبِي 👩\nاُكْتُبُوا 🧔🧔🧔",
+          },
+        ],
         ar: "١) اَلْأَمْرُ 👉 — مِنَ الْمُضَارِعِ:\nيَكْتُبُ ← اُكْتُبْ ✍️\nيَقْرَأُ ← اِقْرَأْ 📖\nيَجْلِسُ ← اِجْلِسْ 🪑\nنَحْذِفُ حَرْفَ الْمُضَارَعَةِ وَنَضَعُ هَمْزَةَ وَصْلٍ، وَآخِرُهُ سَاكِنٌ ـْ\n\n٢) اَلنَّهْيُ 🚫 — «لَا» + مُضَارِعٌ مَجْزُومٌ:\nتَكْذِبُ ← لَا تَكْذِبْ 🤥\nتَنْسَى ← لَا تَنْسَ 🧠\n\n⚠️ اَلْمَفْعُولُ بَعْدَ الْأَمْرِ مَنْصُوبٌ:\nاُكْتُبِ الدَّرْسَ ✅ (لَا: الدَّرْسُ)\n\n⚠️ لِلْمُؤَنَّثِ: اُكْتُبِي · اِقْرَئِي\nلِلْجَمْعِ: اُكْتُبُوا · اِقْرَؤُوا",
         hint: "The imperative is built from the present tense: drop the prefix, add a connecting hamza, and end in sukun. Prohibition is لا + jussive present. The object after a command stays accusative.",
       },
@@ -2988,18 +3459,18 @@ export const CURRICULUM = {
       title: "اَلدُّعَاءُ وَالطَّلَبُ",
       subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْأَرْبَعُونَ",
       vocab: [
-        { ar: "اَللَّهُمَّ", emoji: "🤲☝️", en: "O Allah" },
+        { ar: "اَللَّهُمَّ", emoji: "🤲☝️", en: "O Allah" , quran: "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ", quranRef: "آل عمران ٢٦" },
         { ar: "يَا رَبِّ", emoji: "🤲", en: "O my Lord" },
         { ar: "يَا", emoji: "📣", en: "O (calling someone)" },
-        { ar: "اِغْفِرْ لِي", emoji: "🤲🧍", en: "forgive me" },
-        { ar: "ارْحَمْنِي", emoji: "💗🧍", en: "have mercy on me" },
-        { ar: "اهْدِنِي", emoji: "🧭🧍", en: "guide me" },
+        { ar: "اِغْفِرْ لِي", emoji: "🤲🧍", en: "forgive me" , quran: "رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ", quranRef: "نوح ٢٨" },
+        { ar: "ارْحَمْنِي", emoji: "💗🧍", en: "have mercy on me" , quran: "رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا", quranRef: "الإسراء ٢٤" },
+        { ar: "اهْدِنِي", emoji: "🧭🧍", en: "guide me" , quran: "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ", quranRef: "الفاتحة ٦" },
         { ar: "أَعِنِّي", emoji: "💪🧍", en: "help me" },
         { ar: "ارْزُقْنِي", emoji: "🌾🧍", en: "provide for me" },
         { ar: "عَافِنِي", emoji: "💪✨", en: "grant me wellbeing" },
         { ar: "بَارِكْ", emoji: "✨", en: "bless" },
         { ar: "أَسْأَلُ اللهَ", emoji: "🤲❓", en: "I ask Allah" },
-        { ar: "أَعُوذُ بِاللهِ مِنْ", emoji: "🛡️", en: "I seek refuge in Allah from" },
+        { ar: "أَعُوذُ بِاللهِ مِنْ", emoji: "🛡️", en: "I seek refuge in Allah from" , quran: "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ", quranRef: "الفلق ١" },
         { ar: "اَلْعِلْمُ النَّافِعُ", emoji: "📗✨", en: "beneficial knowledge" },
         { ar: "اَلرِّزْقُ الطَّيِّبُ", emoji: "🌾✨", en: "good provision" },
         { ar: "لَوْ سَمَحْتَ", emoji: "🙏", en: "excuse me / please" },
@@ -3051,7 +3522,7 @@ export const CURRICULUM = {
       title: "اَلْأَفْعَالُ الْمُعْتَلَّةُ",
       subtitle: "اَلدَّرْسُ السَّادِسُ وَالْأَرْبَعُونَ",
       vocab: [
-        { ar: "قَالَ / يَقُولُ", emoji: "🗣️", en: "he said / says (hollow: و)" },
+        { ar: "قَالَ / يَقُولُ", emoji: "🗣️", en: "he said / says (hollow: و)" , quran: "قَالَ رَبِّ اشْرَحْ لِي صَدْرِي", quranRef: "طه ٢٥" },
         { ar: "كَانَ / يَكُونُ", emoji: "⬅️", en: "he was / is (hollow: و)" },
         { ar: "بَاعَ / يَبِيعُ", emoji: "🤝💵", en: "he sold / sells (hollow: ي)" },
         { ar: "زَارَ / يَزُورُ", emoji: "🚪👋", en: "he visited (hollow)" },
@@ -3162,8 +3633,8 @@ export const CURRICULUM = {
       title: "أَوْزَانُ الْفِعْلِ: فَعَّلَ وَفَاعَلَ وَأَفْعَلَ",
       subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْأَرْبَعُونَ",
       vocab: [
-        { ar: "عَلِمَ", emoji: "📗", en: "he knew (form I)" },
-        { ar: "عَلَّمَ", emoji: "👨\u200d🏫", en: "he TAUGHT (form II — made someone know)" },
+        { ar: "عَلِمَ", emoji: "📗", en: "he knew (form I)" , quran: "عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ", quranRef: "العلق ٥" },
+        { ar: "عَلَّمَ", emoji: "👨\u200d🏫", en: "he TAUGHT (form II — made someone know)" , quran: "عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ", quranRef: "العلق ٥" },
         { ar: "أَعْلَمَ", emoji: "📢", en: "he INFORMED (form IV)" },
         { ar: "فَرِحَ", emoji: "😄", en: "he rejoiced (I)" },
         { ar: "فَرَّحَ", emoji: "😄➡️", en: "he made happy (II)" },
@@ -3396,7 +3867,7 @@ export const CURRICULUM = {
       title: "كَانَ وَأَخَوَاتُهَا",
       subtitle: "اَلدَّرْسُ الثَّانِي وَالْخَمْسُونَ",
       vocab: [
-        { ar: "كَانَ", emoji: "⬅️" },
+        { ar: "كَانَ", emoji: "⬅️" , quran: "وَكَانَ اللَّهُ غَفُورًا رَّحِيمًا", quranRef: "النساء ٩٦" },
         { ar: "كَانَتْ", emoji: "⬅️👩" },
         { ar: "أَصْبَحَ", emoji: "🌅➡️" },
         { ar: "صَارَ", emoji: "🔄" },
@@ -3446,7 +3917,7 @@ export const CURRICULUM = {
       title: "إِنَّ وَأَخَوَاتُهَا",
       subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْخَمْسُونَ",
       vocab: [
-        { ar: "إِنَّ", emoji: "❗" },
+        { ar: "إِنَّ", emoji: "❗" , quran: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ", quranRef: "البقرة ١٥٣" },
         { ar: "أَنَّ", emoji: "➕❗" },
         { ar: "لَكِنَّ", emoji: "↔️" },
         { ar: "لَعَلَّ", emoji: "🤲" },
@@ -3456,7 +3927,7 @@ export const CURRICULUM = {
         { ar: "اَلْعِلْمُ", emoji: "📗" },
         { ar: "اَلصَّبْرُ", emoji: "🧗", quran: "وَتَوَاصَوْا بِالصَّبْرِ", quranRef: "العصر ٣" },
         { ar: "اَلرِّزْقُ", emoji: "🌾", quran: "وَاللَّهُ يَرْزُقُ مَن يَشَاءُ", quranRef: "البقرة ٢١٢" },
-        { ar: "قَرِيبٌ", emoji: "📍" },
+        { ar: "قَرِيبٌ", emoji: "📍" , quran: "إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِّنَ الْمُحْسِنِينَ", quranRef: "الأعراف ٥٦" },
         { ar: "وَاسِعٌ", emoji: "🌌" },
       ],
       examples: [
@@ -3496,11 +3967,11 @@ export const CURRICULUM = {
       title: "اَلِاسْمُ الْمَوْصُولُ",
       subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْخَمْسُونَ",
       vocab: [
-        { ar: "اَلَّذِي", emoji: "👉🧔" },
-        { ar: "اَلَّتِي", emoji: "👉👩" },
+        { ar: "اَلَّذِي", emoji: "👉🧔" , quran: "الْحَمْدُ لِلَّهِ الَّذِي خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ", quranRef: "الأنعام ١" },
+        { ar: "اَلَّتِي", emoji: "👉👩" , quran: "فَاتَّقُوا النَّارَ الَّتِي وَقُودُهَا النَّاسُ", quranRef: "البقرة ٢٤" },
         { ar: "اَلَّذِينَ", emoji: "👉🧔🧔🧔" },
         { ar: "اَللَّاتِي", emoji: "👉👩👩👩" },
-        { ar: "مَنْ", emoji: "🧍" },
+        { ar: "مَنْ", emoji: "🧍" , quran: "مَن يَعْمَلْ سُوءًا يُجْزَ بِهِ", quranRef: "النساء ١٢٣" },
         { ar: "مَا", emoji: "📦" },
         { ar: "آمَنَ", emoji: "🤲✅" },
         { ar: "عَمِلَ", emoji: "🔨" },
@@ -3546,12 +4017,12 @@ export const CURRICULUM = {
       title: "أَفْعَلُ التَّفْضِيلِ",
       subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْخَمْسُونَ",
       vocab: [
-        { ar: "أَكْبَرُ", emoji: "⬆️🐘", en: "bigger / biggest" },
+        { ar: "أَكْبَرُ", emoji: "⬆️🐘", en: "bigger / biggest" , quran: "وَلَذِكْرُ اللَّهِ أَكْبَرُ", quranRef: "العنكبوت ٤٥" },
         { ar: "أَصْغَرُ", emoji: "⬇️🐣", en: "smaller / smallest" },
         { ar: "أَجْمَلُ", emoji: "⬆️🌸", en: "more beautiful" },
         { ar: "أَطْوَلُ", emoji: "⬆️📏", en: "taller / longer" },
         { ar: "أَقْصَرُ", emoji: "⬇️📏", en: "shorter" },
-        { ar: "أَفْضَلُ", emoji: "⭐", en: "better / best" },
+        { ar: "أَفْضَلُ", emoji: "⭐", en: "better / best" , quran: "وَأَن تَصُومُوا خَيْرٌ لَّكُمْ", quranRef: "البقرة ١٨٤" },
         { ar: "أَحْسَنُ", emoji: "✨", en: "better" },
         { ar: "أَعْلَمُ", emoji: "📗⬆️", en: "more knowledgeable" },
         { ar: "أَقْرَبُ", emoji: "📍⬆️", en: "nearer" },
@@ -3835,8 +4306,8 @@ export const CURRICULUM = {
       title: "اَلشَّرْطُ: إِنْ وَإِذَا وَمَنْ",
       subtitle: "اَلدَّرْسُ السِّتُّونَ",
       vocab: [
-        { ar: "إِنْ", emoji: "❓➡️", en: "if (uncertain)" },
-        { ar: "إِذَا", emoji: "⏰➡️", en: "when / if (expected)" },
+        { ar: "إِنْ", emoji: "❓➡️", en: "if (uncertain)" , quran: "إِن تَنصُرُوا اللَّهَ يَنصُرْكُمْ", quranRef: "محمد ٧" },
+        { ar: "إِذَا", emoji: "⏰➡️", en: "when / if (expected)" , quran: "إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ", quranRef: "النصر ١" },
         { ar: "مَنْ", emoji: "🧍➡️", en: "whoever" },
         { ar: "مَا", emoji: "📦➡️", en: "whatever" },
         { ar: "مَتَى", emoji: "🕐➡️", en: "whenever" },
@@ -4005,16 +4476,16 @@ export const CURRICULUM = {
         { ar: "كَفَرَ", emoji: "🚫", en: "he disbelieved", quran: "إِنَّ الَّذِينَ كَفَرُوا سَوَاءٌ عَلَيْهِمْ", quranRef: "البقرة ٦" },
         { ar: "اَلصَّالِحَاتُ", emoji: "✅🌸", en: "righteous deeds" },
         { ar: "اَلْأَجْرُ", emoji: "🎁", en: "reward", quran: "لَهُمْ أَجْرُهُمْ عِندَ رَبِّهِمْ", quranRef: "البقرة ٦٢" },
-        { ar: "اَلرَّحْمَةُ", emoji: "💗", en: "mercy" },
-        { ar: "اَلْمَغْفِرَةُ", emoji: "🤲", en: "forgiveness" },
-        { ar: "اَلتَّقْوَى", emoji: "🛡️", en: "God-consciousness" },
+        { ar: "اَلرَّحْمَةُ", emoji: "💗", en: "mercy" , quran: "وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ", quranRef: "الأعراف ١٥٦" },
+        { ar: "اَلْمَغْفِرَةُ", emoji: "🤲", en: "forgiveness" , quran: "وَاللَّهُ يَعِدُكُم مَّغْفِرَةً مِّنْهُ وَفَضْلًا", quranRef: "البقرة ٢٦٨" },
+        { ar: "اَلتَّقْوَى", emoji: "🛡️", en: "God-consciousness" , quran: "وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ", quranRef: "البقرة ١٩٧" },
         { ar: "اَلْهُدَى", emoji: "🧭", en: "guidance", quran: "هُدًى لِّلْمُتَّقِينَ", quranRef: "البقرة ٢" },
         { ar: "اَلضَّلَالُ", emoji: "🌫️", en: "misguidance" },
-        { ar: "اَلْجَنَّةُ", emoji: "🌳✨", en: "paradise" },
+        { ar: "اَلْجَنَّةُ", emoji: "🌳✨", en: "paradise" , quran: "جَنَّاتٍ تَجْرِي مِن تَحْتِهَا الْأَنْهَارُ", quranRef: "البقرة ٢٥" },
         { ar: "اَلنَّارُ", emoji: "🔥", en: "the fire" },
-        { ar: "اَلْآخِرَةُ", emoji: "⏭️🌍", en: "the hereafter" },
-        { ar: "اَلدُّنْيَا", emoji: "🌍", en: "this world" },
-        { ar: "اَلرَّسُولُ", emoji: "📜🧔", en: "the messenger" },
+        { ar: "اَلْآخِرَةُ", emoji: "⏭️🌍", en: "the hereafter" , quran: "وَلَلْآخِرَةُ خَيْرٌ لَّكَ مِنَ الْأُولَىٰ", quranRef: "الضحى ٤" },
+        { ar: "اَلدُّنْيَا", emoji: "🌍", en: "this world" , quran: "الْمَالُ وَالْبَنُونَ زِينَةُ الْحَيَاةِ الدُّنْيَا", quranRef: "الكهف ٤٦" },
+        { ar: "اَلرَّسُولُ", emoji: "📜🧔", en: "the messenger" , quran: "مُّحَمَّدٌ رَّسُولُ اللَّهِ", quranRef: "الفتح ٢٩" },
         { ar: "اَلنَّبِيُّ", emoji: "☝️🧔", en: "the prophet" },
         { ar: "اَلْكِتَابُ", emoji: "📖", en: "the Book" },
         { ar: "اَلْحِسَابُ", emoji: "⚖️", en: "the reckoning" },

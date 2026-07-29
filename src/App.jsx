@@ -300,7 +300,7 @@ export default function App() {
     const upto = Math.max(0, highestUnlocked - (state.lessons[lessons[highestUnlocked]?.id] ? 0 : 1));
     return (
       <Shell nav={navBar} sidebar={sideBar}>
-        <Tutor learnedVocab={learnedUpto(Math.max(0, upto))} onExit={() => go({ name: "home" })} />
+        <Tutor session={session} learnedVocab={learnedUpto(Math.max(0, upto))} onExit={() => go({ name: "home" })} />
       </Shell>
     );
   }
@@ -535,7 +535,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v8.7 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v9.8 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

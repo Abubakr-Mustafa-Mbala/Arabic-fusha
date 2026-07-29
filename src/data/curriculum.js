@@ -136,20 +136,20 @@ export const CURRICULUM = {
         name: "«هَذَا» وَ «ذَلِكَ» — «مَا» وَ «مَنْ»",
         teach: [
           {
-            say: "You know هَذَا for something NEAR you. For something FAR from you — across the room, down the street — Arabic uses a different word: ذَلِكَ.",
-            show: "هَذَا near\nذَلِكَ far",
+            say: "Read these aloud.",
+            show: "هَذَا بَيْتٌ · ذَلِكَ مَسْجِدٌ\nهَذَا كِتَابٌ · ذَلِكَ قَلَمٌ\nهَذَا وَلَدٌ · ذَلِكَ رَجُلٌ",
           },
           {
-            say: "Everything else in the sentence stays exactly the same. Only the pointing word changes.",
+            say: "١. هَذَا is for something near you. ذَلِكَ is for something further away. Nothing else in the sentence changes.",
             show: "هَذَا بَيْتٌ = this is a house\nذَلِكَ بَيْتٌ = that is a house",
           },
           {
-            say: "Now you can contrast two things in one sentence, using وَ which means 'and'. Notice وَ is written joined to the next word, never standing alone.",
-            show: "هَذَا بَيْتٌ وَذَلِكَ مَسْجِدٌ\n= this is a house and that is a mosque",
+            say: "٢. وَ means 'and'. It is written joined to the word after it, never standing alone.",
+            show: "هَذَا بَيْتٌ وَذَلِكَ مَسْجِدٌ",
           },
           {
-            say: "One spelling note worth knowing now: هَذَا and ذَلِكَ are both pronounced with a long 'aa' — haadhaa, dhaalika — but the alif is not written. Do not be confused when you see them.",
-            show: "هَذَا (يُنْطَقُ هَاذَا)\nذَلِكَ (يُنْطَقُ ذَالِكَ)",
+            say: "٣. Note on spelling: هَذَا is pronounced هَاذَا and ذَلِكَ is pronounced ذَالِكَ, but in both the alif is not written.",
+            show: "هَذَا (هَاذَا)\nذَلِكَ (ذَالِكَ)",
           },
         ],
         ar: "هَذَا 👉 قَرِيبٌ … ذَلِكَ 👈 بَعِيدٌ\nمَنْ؟ ← 🧑 لِلْعَاقِلِ\nمَا؟ ← 📦 لِغَيْرِ الْعَاقِلِ",
@@ -199,25 +199,37 @@ export const CURRICULUM = {
         name: "اَلْجُمْلَةُ الاِسْمِيَّةُ: مُبْتَدَأٌ + خَبَرٌ",
         teach: [
           {
-            say: "So far every word has ended with tanwin: بَيْتٌ = A house. Now we learn how to say THE house. Arabic puts الـ on the FRONT of the word.",
-            show: "بَيْتٌ = a house\nاَلْبَيْتُ = the house",
+            say: "Read these five aloud, slowly.",
+            show: "اَلْبَيْتُ كَبِيرٌ\nاَلْبَابُ مَفْتُوحٌ\nاَلْقَلَمُ جَدِيدٌ\nاَلْكِتَابُ صَغِيرٌ\nاَلْمَسْجِدُ قَرِيبٌ",
           },
           {
-            say: "Look carefully at what happened to the ending. When الـ goes on the front, the tanwin ٌ disappears and only ONE damma ُ is left. A word never carries الـ and tanwin at the same time.",
-            show: "بَيْتٌ اَلْبَيْتُ",
-            warn: "اَلْبَيْتٌ — never both",
+            say: "Five more.",
+            show: "اَلْوَلَدُ طَوِيلٌ\nاَلطَّالِبُ مُجْتَهِدٌ\nاَلطَّعَامُ لَذِيذٌ\nاَلْمَاءُ بَارِدٌ\nاَلدَّرْسُ سَهْلٌ",
           },
           {
-            say: "Now we can build a real sentence. Take a definite word, then follow it with an indefinite one, and you have said something complete.",
+            say: "Each of those is a complete sentence — a whole statement — yet there is no word for 'is'. Arabic simply does not use one.",
             show: "اَلْبَيْتُ كَبِيرٌ\n= the house (is) big",
           },
           {
-            say: "The grammarians give these two parts names. The first is المُبْتَدَأ — literally 'the one begun with'. The second is الخَبَر — 'the news', what you are telling us about it.",
-            show: "اَلْبَيْتُ كَبِيرٌ\nمُبْتَدَأٌ خَبَرٌ",
+            say: "Now look at the first word of each. Every one begins with الـ. And look at the second — none of them do; they end in tanwin instead.",
+            show: "اَلْبَيْتُ  كَبِيرٌ\nمَعَ الـ    بِالتَّنْوِينِ",
           },
           {
-            say: "The pattern is always the same: DEFINITE first, INDEFINITE second. If you make both definite you no longer have a sentence — just a phrase.",
-            show: "اَلْبَيْتُ كَبِيرٌ = the house is big \nاَلْبَيْتُ الْكَبِيرُ = the big house (not a sentence)",
+            say: "That is the whole pattern. Definite first, indefinite second — and you have a sentence.",
+            show: "مَعْرِفَةٌ + نَكِرَةٌ = جُمْلَةٌ",
+          },
+          {
+            say: "Watch what happens if you put الـ on both. It stops being a statement and becomes only a description — like saying 'the big house' and then stopping.",
+            show: "اَلْبَيْتُ كَبِيرٌ = the house is big ✅\nاَلْبَيْتُ الْكَبِيرُ = the big house",
+          },
+          {
+            say: "Also notice: when الـ goes onto a word, its tanwin disappears. A word never carries both.",
+            show: "بَيْتٌ ← اَلْبَيْتُ",
+            warn: "❌ اَلْبَيْتٌ",
+          },
+          {
+            say: "The names for the two parts: the first is المُبْتَدَأ — 'the one begun with'. The second is الخَبَر — 'the news' you are giving about it.",
+            show: "اَلْبَيْتُ    كَبِيرٌ\nمُبْتَدَأٌ   خَبَرٌ",
           },
         ],
         ar: "اَلْبَيْتُ كَبِيرٌ\n⬆ مُبْتَدَأٌ (اَلْـ + ـُ) … ⬆ خَبَرٌ (ـٌ)\nاَلْمُبْتَدَأُ: مَعْرِفَةٌ بِـ «اَلْـ» وَمَرْفُوعٌ\nاَلْخَبَرُ: نَكِرَةٌ بِالتَّنْوِينِ وَمَرْفُوعٌ",
@@ -268,28 +280,36 @@ export const CURRICULUM = {
         name: "لَامُ التَّعْرِيفِ: تُنْطَقُ أَوْ تُدْغَمُ",
         teach: [
           {
-            say: "You have just learned الـ. Now the surprise: الـ is not always PRONOUNCED the same way, even though it is always WRITTEN the same way.",
-            show: "اَلْقَمَرُ = al-qamar \nاَلشَّمْسُ = ash-shams",
+            say: "Say these two aloud, carefully. Listen to what happens after الـ.",
+            show: "اَلْقَمَرُ\nاَلشَّمْسُ",
           },
           {
-            say: "In الْقَمَر you can hear the L clearly: al-qamar. In الشَّمْس the L vanishes and the SH doubles instead: ash-shams. Say them both aloud now.",
-            show: "أَلْ-قَمَرُ \nأَشْ-شَمْسُ",
+            say: "In the first you can hear the L: al-qamar. In the second the L disappears and the SH doubles: ash-shams. Say them again.",
+            show: "أَلْ-قَمَرُ\nأَشْ-شَمْسُ",
           },
           {
-            say: "Which happens depends on the first letter of the word. The 28 letters split into two halves, named after these very two examples: MOON letters and SUN letters.",
-            show: "قَمَرِيَّةٌ — the L is heard\nشَمْسِيَّةٌ — the L disappears",
+            say: "Read this list aloud. In every one you can hear the L clearly.",
+            show: "اَلْقَمَرُ · اَلْبَيْتُ · اَلْكِتَابُ\nاَلْمَسْجِدُ · اَلْوَلَدُ · اَلْجَبَلُ",
           },
           {
-            say: "You do not have to memorise both lists. Memorise the sun letters and everything else is a moon letter. Notice they are all made near the front of the mouth — that is why the L merges into them.",
-            show: "اَلشَّمْسِيَّةُ:\nت ث د ذ ر ز س ش ص ض ط ظ ل ن",
+            say: "Now this list. In every one the L vanishes and the next letter doubles instead.",
+            show: "اَلشَّمْسُ · اَلرَّجُلُ · اَلنَّجْمُ\nاَلطَّالِبُ · اَلدَّرْسُ · اَلسَّمَاءُ",
           },
           {
-            say: "And there is a written clue. When the L merges, a shadda ّ appears on the first letter of the word. See a shadda after الـ and you know: this is a sun letter, do not pronounce the L.",
-            show: "اَلشَّمْسُ · اَلرَّجُلُ · اَلنَّجْمُ\n(كُلُّهَا بِالشَّدَّةِ ّ)",
+            say: "So which happens depends only on the letter that follows الـ. Those in the second list are called SUN letters, after الشمس itself.",
+            show: "ت ث د ذ ر ز س ش ص ض ط ظ ل ن",
           },
           {
-            say: "The spelling never changes — only your tongue changes. This one habit will make your recitation sound immediately more correct.",
-            show: "اَلطَّالِبُ = at-taalib\nاَلْمَسْجِدُ = al-masjid",
+            say: "Everything else is a MOON letter, after القمر — and with those, the L is pronounced.",
+            show: "ا ب ج ح خ ع غ ف ق ك م ه و ي",
+          },
+          {
+            say: "There is a written clue so you never have to guess. When the L merges, a shadda appears on the following letter.",
+            show: "اَلشَّمْسُ · اَلرَّجُلُ · اَلنَّجْمُ\n(كُلُّهَا بِالشَّدَّةِ)",
+          },
+          {
+            say: "The spelling never changes — only your tongue. Read these six aloud and get each one right.",
+            show: "اَلطَّالِبُ · اَلْمُعَلِّمُ\nاَلدَّرْسُ · اَلْكِتَابُ\nاَلسُّوقُ · اَلْبَابُ",
           },
         ],
         ar: "حُرُوفُ الْعَرَبِيَّةِ ٢٨: نِصْفُهَا شَمْسِيَّةٌ ☀️ وَنِصْفُهَا قَمَرِيَّةٌ 🌙\n\n١) اَلْقَمَرِيَّةُ: تُنْطَقُ اللَّامُ\nاَلْقَمَرُ = أَلْ-قَمَرُ 🌙 · اَلْبَيْتُ = أَلْ-بَيْتُ\nحُرُوفُهَا: ا ب ج ح خ ع غ ف ق ك م ه و ي\n\n٢) اَلشَّمْسِيَّةُ: تُدْغَمُ اللَّامُ وَتُشَدَّدُ ◌ّ\nاَلشَّمْسُ = أَشْ-شَمْسُ ☀️ · اَلرَّجُلُ = أَرْ-رَجُلُ\nحُرُوفُهَا: ت ث د ذ ر ز س ش ص ض ط ظ ل ن\n\n⚠️ اَلْكِتَابَةُ لَا تَتَغَيَّرُ — اَلنُّطْقُ فَقَطْ\nوَعَلَامَتُهَا الشَّدَّةُ عَلَى الْحَرْفِ الْأَوَّلِ",
@@ -343,25 +363,33 @@ export const CURRICULUM = {
         name: "حَرْفُ الْجَرِّ + اَلاِسْمُ الْمَجْرُورُ",
         teach: [
           {
-            say: "Now we place things. Arabic uses small words like فِي (in) and عَلَى (on) exactly where English does — but something happens to the word AFTER them.",
-            show: "اَلْبَيْتُ = the house\nفِي الْبَيْتِ = in the house",
+            say: "Read these six aloud. Each one places something.",
+            show: "فِي الْبَيْتِ\nفِي الْمَسْجِدِ\nفِي الْمَدْرَسَةِ\nعَلَى الْمَكْتَبِ\nعَلَى السَّرِيرِ\nعَلَى الْكُرْسِيِّ",
           },
           {
-            say: "Look at the ending. On its own it was الْبَيْتُ with a damma. After فِي it became الْبَيْتِ with a kasra. The preposition changed the ending.",
-            show: "اَلْبَيْتُ alone\nفِي الْبَيْتِ after فِي",
+            say: "Six more, with the other little words.",
+            show: "مِنَ الْبَيْتِ\nمِنَ السُّوقِ\nإِلَى الْمَسْجِدِ\nإِلَى الْمَدْرَسَةِ\nتَحْتَ الْمَائِدَةِ\nمَعَ الْمُعَلِّمِ",
           },
           {
-            say: "This happens after EVERY preposition, without exception. You will never see a damma directly after فِي، عَلَى، مِنْ، إِلَى، بِـ، لِـ.",
-            show: "عَلَى الْمَكْتَبِ \nمِنَ الْمَسْجِدِ \nإِلَى الْمَدْرَسَةِ",
-            warn: "فِي الْبَيْتُ — never a damma after a preposition",
+            say: "Now listen only to the last sound of every one of those twelve. It is the same sound every time.",
+            show: "الْبَيْتِ · الْمَسْجِدِ · الْمَكْتَبِ\nالسُّوقِ · الْمَدْرَسَةِ · الْمَائِدَةِ",
           },
           {
-            say: "A word in this state has a name: مَجْرُور. Do not worry about the term yet — just remember the sound. After a preposition, the ending is 'i'.",
-            show: "فِي الْبَيْتِ\nاَلْبَيْتِ مَجْرُورٌ",
+            say: "A kasra — 'i'. Compare it with the word standing alone, which ends in 'u'.",
+            show: "اَلْبَيْتُ (alone)\nفِي الْبَيْتِ (after فِي)",
           },
           {
-            say: "Now put it together with what you already know, and you can describe where anything is.",
-            show: "اَلْكِتَابُ عَلَى الْمَكْتَبِ\n= the book is on the desk",
+            say: "So the small word in front changed the ending of the word after it. That is all that is happening, and it happens every single time with no exceptions.",
+            show: "فِي · عَلَى · مِنْ · إِلَى · بِـ · لِـ · عَنْ\nكُلُّهَا تُعْطِي الْكَسْرَةَ",
+            warn: "❌ فِي الْبَيْتُ",
+          },
+          {
+            say: "These little words are called حُرُوف الْجَرّ, and a word that has taken the kasra from one of them is called مَجْرُور. Just labels for what you already hear.",
+            show: "فِي الْبَيْتِ\nحَرْفُ جَرٍّ + اِسْمٌ مَجْرُورٌ",
+          },
+          {
+            say: "Now build full sentences with what you already know. Read these aloud.",
+            show: "اَلْكِتَابُ عَلَى الْمَكْتَبِ\nاَلْوَلَدُ فِي الْبَيْتِ\nاَلْمُعَلِّمُ فِي الْفَصْلِ",
           },
         ],
         ar: "فِي / عَلَى + اِسْمٌ ← مَجْرُورٌ (ـِ)\nاَلْكِتَابُ عَلَى الْمَكْتَبِ\n⬆ ـُ مَرْفُوعٌ … ⬆ ـِ مَجْرُورٌ\nاَلسُّؤَالُ: أَيْنَ...؟ 📍",
@@ -414,25 +442,29 @@ export const CURRICULUM = {
         name: "هَذَا وَهَذِهِ",
         teach: [
           {
-            say: "Every Arabic noun is either masculine or feminine — not only people, but objects too. A book is masculine; a school is feminine. You must learn each word's gender with the word itself.",
-            show: "كِتَابٌ مُذَكَّرٌ\nمَدْرَسَةٌ مُؤَنَّثٌ",
+            say: "Read these five aloud.",
+            show: "هَذَا كِتَابٌ\nهَذَا قَلَمٌ\nهَذَا بَابٌ\nهَذَا مَسْجِدٌ\nهَذَا وَلَدٌ",
           },
           {
-            say: "Most of the time there is a clear sign. Look at the last letter: if a word ends in ة, it is almost always feminine.",
-            show: "مَدْرَسَةٌ · حَقِيبَةٌ · كُرَّاسَةٌ\nكُلُّهَا مُؤَنَّثَةٌ",
+            say: "Now read these five. Something is different in every one.",
+            show: "هَذِهِ مَدْرَسَةٌ\nهَذِهِ حَقِيبَةٌ\nهَذِهِ سَبُّورَةٌ\nهَذِهِ نَافِذَةٌ\nهَذِهِ بِنْتٌ",
           },
           {
-            say: "And now the point of the lesson: هَذَا is only for masculine words. For a feminine word you must say هَذِهِ.",
-            show: "هَذَا كِتَابٌ \nهَذِهِ مَدْرَسَةٌ",
-            warn: "هَذَا مَدْرَسَةٌ",
+            say: "Two differences, and they go together. The pointing word became هَذِهِ — and look at the last letter of every word in the second list.",
+            show: "مَدْرَسَةٌ · حَقِيبَةٌ · سَبُّورَةٌ · نَافِذَةٌ\nكُلُّهَا تَنْتَهِي بِـ ة",
           },
           {
-            say: "Half the words in this lesson are feminine — school, notebook, bag, blackboard, library — so you will use هَذِهِ constantly when describing a classroom.",
-            show: "هَذِهِ سَبُّورَةٌ \nهَذِهِ حَقِيبَةٌ \nهَذَا مَكْتَبٌ",
+            say: "That ة is the sign of a feminine word. When you see it, use هَذِهِ. When you do not, use هَذَا.",
+            show: "◌ة ← هَذِهِ\nبِلَا ة ← هَذَا",
+            warn: "❌ هَذَا مَدْرَسَةٌ",
           },
           {
-            say: "The test is simple: look for the ة at the end. If it is there, use هَذِهِ. If not, use هَذَا. Later you will meet a few feminine words without ة — but that comes next lesson.",
-            show: "ة هَذِهِ\nبِلَا ة هَذَا",
+            say: "In Arabic every noun is one or the other — not only people, but objects too. A book is masculine; a school is feminine. Learn each word together with its gender.",
+            show: "كِتَابٌ (مُذَكَّرٌ)\nمَدْرَسَةٌ (مُؤَنَّثٌ)",
+          },
+          {
+            say: "One warning for later: a few feminine words have no ة at all. You will meet them soon — for now, the ة is your guide.",
+            show: "يَدٌ · عَيْنٌ · شَمْسٌ (مُؤَنَّثَةٌ بِلَا ة)",
           },
         ],
         ar: "لِلْمُذَكَّرِ: هَذَا 👈 هَذَا مُعَلِّمٌ 👨\u200d🏫 · هَذَا كِتَابٌ 📖\nلِلْمُؤَنَّثِ: هَذِهِ 👈 هَذِهِ مَدْرَسَةٌ 🏫 · هَذِهِ كُرَّاسَةٌ 📓\nعَلَامَةُ الْمُؤَنَّثِ: التَّاءُ الْمَرْبُوطَةُ ة",
@@ -574,25 +606,41 @@ export const CURRICULUM = {
         name: "اَلْإِضَافَةُ: مُضَافٌ وَمُضَافٌ إِلَيْهِ",
         teach: [
           {
-            say: "How do you say 'the door of the house'? English uses 'of'. Arabic uses no word at all — you simply place the two nouns side by side.",
-            show: "بَابٌ + بَيْتٌ\n بَابُ الْبَيْتِ",
+            say: "Read these aloud. Do not look for a rule — just read.",
+            show: "بَابُ الْبَيْتِ\nمِفْتَاحُ الْبَابِ\nكِتَابُ الطَّالِبِ\nقَلَمُ الْمُعَلِّمِ\nبَيْتُ الْإِمَامِ",
           },
           {
-            say: "Look closely at what happened to each word. The FIRST word lost its tanwin and took a single damma. The SECOND word took الـ and ends in kasra.",
-            show: "بَابُ الْبَيْتِ\n بِلَا تَنْوِينٍ · بِالْكَسْرَةِ",
+            say: "Five more. Read them too.",
+            show: "غُرْفَةُ النَّوْمِ\nمِفْتَاحُ السَّيَّارَةِ\nاِبْنُ الرَّجُلِ\nبِنْتُ الْجَارِ\nطَعَامُ الضَّيْفِ",
           },
           {
-            say: "This is the most common mistake beginners make. The first word can NEVER carry الـ, and can NEVER carry tanwin. It is already definite by position.",
-            show: "بَابُ الْبَيْتِ",
-            warn: "اَلْبَابُ الْبَيْتِ\n بَابٌ الْبَيْتِ",
+            say: "Now you can hear it. Each one is two words joined, and English would need the word 'of' between them. Arabic uses nothing at all.",
+            show: "بَابُ الْبَيْتِ\n= the door OF the house",
           },
           {
-            say: "The two parts have names. The first is المُضَاف — the thing owned. The second is المُضَاف إِلَيْه — the owner. And the owner is always مجرور, exactly like after a preposition.",
-            show: "بَابُ الْبَيْتِ\nمُضَافٌ مُضَافٌ إِلَيْهِ",
+            say: "Look at the FIRST word in every example above. Notice what is NOT there.",
+            show: "بَابُ · مِفْتَاحُ · كِتَابُ · قَلَمُ · بَيْتُ",
           },
           {
-            say: "You now have two ways to make a word definite: put الـ on it, or make it the first half of an إضافة. And you already use this every day — بِسْمِ اللهِ is an إضافة.",
-            show: "مِفْتَاحُ الْبَابِ \nكِتَابُ الطَّالِبِ \nبِسْمِ اللهِ",
+            say: "No الـ, and no tanwin — just a single damma. That is the mark of the first word in this construction, every time.",
+            show: "بَابٌ ← بَابُ الْبَيْتِ",
+            warn: "❌ اَلْبَابُ الْبَيْتِ\n❌ بَابٌ الْبَيْتِ",
+          },
+          {
+            say: "Now look at the SECOND word in each. Every one ends with a kasra.",
+            show: "الْبَيْتِ · الْبَابِ · الطَّالِبِ · الْمُعَلِّمِ",
+          },
+          {
+            say: "So the whole thing is two rules: first word bare with a damma, second word with a kasra. You saw it ten times before being told once.",
+            show: "بَابُ  الْبَيْتِ\n  ـُ        ـِ",
+          },
+          {
+            say: "The names are simple: the first is المُضَاف, the thing owned. The second is المُضَاف إِلَيْه, the owner.",
+            show: "مُضَافٌ · مُضَافٌ إِلَيْهِ",
+          },
+          {
+            say: "And you already say this every day without thinking about it.",
+            show: "بِسْمِ اللهِ\nرَسُولُ اللهِ\nكِتَابُ اللهِ",
           },
         ],
         ar: "مِفْتَاحُ الْبَابِ 🔑🚪\nمُضَافٌ (بِلَا الـ وَبِلَا تَنْوِينٍ) + مُضَافٌ إِلَيْهِ (مَجْرُورٌ ـِ)\n\n❌ اَلْمِفْتَاحُ الْبَابِ\n❌ مِفْتَاحٌ الْبَابِ\n✅ مِفْتَاحُ الْبَابِ\n\nاَلْأَوَّلُ يَتْرُكُ الـ وَالتَّنْوِينَ · اَلثَّانِي مَجْرُورٌ دَائِمًا",
@@ -1030,20 +1078,24 @@ export const CURRICULUM = {
         name: "اَلْأَقَارِبُ وَمُطَابَقَةُ الْخَبَرِ",
         teach: [
           {
-            say: "Arabic makes a distinction English does not. In English 'uncle' is one word. In Arabic it depends entirely on WHICH side of the family he comes from.",
-            show: "عَمٌّ = father's brother\nخَالٌ = mother's brother",
+            say: "Read these aloud.",
+            show: "هَذَا أَبِي · هَذِهِ أُمِّي\nهَذَا أَخِي · هَذِهِ أُخْتِي\nهَذَا جَدِّي · هَذِهِ جَدَّتِي",
           },
           {
-            say: "The same split applies to aunts. Learn each one as a definition, not a translation — that is how it stays.",
-            show: "عَمَّتِي = أُخْتُ أَبِي \nخَالَتِي = أُخْتُ أُمِّي",
+            say: "١. Arabic makes a distinction English does not. 'Uncle' depends entirely on which side of the family he comes from.",
+            show: "اَلْعَمُّ = أَخُو الْأَبِ\nاَلْخَالُ = أَخُو الْأُمِّ",
           },
           {
-            say: "Now apply what you already know about gender. The predicate must copy the subject: masculine with masculine, feminine with feminine.",
-            show: "اَلْأَبُ كَبِيرٌ \nاَلْأُمُّ كَبِيرَةٌ",
-            warn: "اَلْأُمُّ كَبِيرٌ",
+            say: "٢. The same for aunts. Learn each as a definition, not a translation — that is how it stays.",
+            show: "اَلْعَمَّةُ = أُخْتُ الْأَبِ\nاَلْخَالَةُ = أُخْتُ الْأُمِّ",
           },
           {
-            say: "One more detail you will meet constantly: أَب and أَخ grow a waw when they own something — but only when a NOUN follows, not the ي of 'my'.",
+            say: "٣. The predicate must match its subject in gender — you already know this rule; here you apply it constantly.",
+            show: "اَلْأَبُ كَبِيرٌ\nاَلْأُمُّ كَبِيرَةٌ",
+            warn: "❌ اَلْأُمُّ كَبِيرٌ",
+          },
+          {
+            say: "٤. Note a peculiarity: أَبٌ and أَخٌ grow a waw when they own something — but not with the ي of 'my'.",
             show: "أَبُو مُحَمَّدٍ · أَخُو عَلِيٍّ\nلَكِنْ: أَبِي · أَخِي",
           },
         ],
@@ -1691,25 +1743,37 @@ export const CURRICULUM = {
         name: "جَمْعُ التَّكْسِيرِ وَحُكْمُهُ",
         teach: [
           {
-            say: "In English, plurals are predictable: add -s. In Arabic, many plurals BREAK the word apart and rebuild it. You cannot guess them — you learn each one with its singular.",
-            show: "كِتَابٌ كُتُبٌ \nبَيْتٌ بُيُوتٌ",
+            say: "Read these pairs aloud. One thing, then many of them.",
+            show: "كِتَابٌ ← كُتُبٌ\nبَيْتٌ ← بُيُوتٌ\nقَلَمٌ ← أَقْلَامٌ\nرَجُلٌ ← رِجَالٌ\nوَلَدٌ ← أَوْلَادٌ",
           },
           {
-            say: "The letters stay the same — ك ت ب — but the vowels between them change completely. That is why it is called a BROKEN plural.",
-            show: "كِتَاب كُتُب\nنَفْسُ الْحُرُوفِ، وَزْنٌ آخَرُ",
+            say: "Five more pairs.",
+            show: "بَابٌ ← أَبْوَابٌ\nمَسْجِدٌ ← مَسَاجِدُ\nطَالِبٌ ← طُلَّابٌ\nنَجْمٌ ← نُجُومٌ\nشَجَرَةٌ ← أَشْجَارٌ",
           },
           {
-            say: "Learn each new noun together with its plural, exactly as you would learn a word's gender. Never learn one without the other.",
-            show: "قَلَمٌ أَقْلَامٌ \nرَجُلٌ رِجَالٌ \nمَسْجِدٌ مَسَاجِدُ",
+            say: "In English you would just add an -s. Here the whole shape of the word changed — yet the letters themselves stayed.",
+            show: "كِتَاب ← كُتُب\nك · ت · ب ثَابِتَةٌ",
           },
           {
-            say: "Now the rule that matters more than the plurals themselves. When the plural is of THINGS, not people, Arabic treats it as a single feminine word.",
-            show: "اَلْكُتُبُ جَدِيدَةٌ \nاَلْمَسَاجِدُ كَبِيرَةٌ",
-            warn: "اَلْكُتُبُ جَدِيدُونَ",
+            say: "That is why it is called a BROKEN plural: the word is taken apart and rebuilt on a different pattern. You cannot guess it — learn each plural with its singular, exactly as you learn a word's gender.",
+            show: "قَلَمٌ · أَقْلَامٌ\nرَجُلٌ · رِجَالٌ",
           },
           {
-            say: "Plurals of PEOPLE behave the way you expect. Hold these two side by side until the difference is automatic.",
-            show: "اَلطُّلَّابُ مُجْتَهِدُونَ \u200d\nاَلْكُتُبُ جَدِيدَةٌ",
+            say: "Now something more important than the plurals themselves. Read these four.",
+            show: "اَلْكُتُبُ جَدِيدَةٌ\nاَلْأَبْوَابُ مَفْتُوحَةٌ\nاَلْمَسَاجِدُ كَبِيرَةٌ\nاَلنُّجُومُ جَمِيلَةٌ",
+          },
+          {
+            say: "Every adjective there is FEMININE SINGULAR — جديدة, not جدد. When the plural is of things rather than people, Arabic treats it as one feminine thing.",
+            show: "اَلْكُتُبُ جَدِيدَةٌ ✅",
+            warn: "❌ اَلْكُتُبُ جُدُدٌ",
+          },
+          {
+            say: "But plurals of PEOPLE behave as you expect. Read this pair and hold the difference.",
+            show: "اَلطُّلَّابُ مُجْتَهِدُونَ (نَاسٌ)\nاَلْكُتُبُ جَدِيدَةٌ (أَشْيَاءُ)",
+          },
+          {
+            say: "This one rule appears in almost every page of Arabic you will ever read. Say both sentences aloud until choosing correctly is automatic.",
+            show: "عَاقِلٌ ← جَمْعٌ\nغَيْرُ عَاقِلٍ ← مُفْرَدٌ مُؤَنَّثٌ",
           },
         ],
         ar: "اَلْجَمْعُ يُكَسِّرُ بِنَاءَ الْكَلِمَةِ:\nكِتَابٌ ← كُتُبٌ 📚 · قَلَمٌ ← أَقْلَامٌ · بَيْتٌ ← بُيُوتٌ\n\n⚠️ حُكْمٌ مُهِمٌّ:\nجَمْعُ غَيْرِ الْعَاقِلِ يُعَامَلُ مُعَامَلَةَ الْمُفْرَدِ الْمُؤَنَّثِ:\n✅ اَلْكُتُبُ جَدِيدَةٌ (لَا: جَدِيدُونَ)\n✅ اَلْمَسَاجِدُ كَبِيرَةٌ\n\nأَمَّا الْعَاقِلُ:\n✅ اَلطُّلَّابُ كَثِيرُونَ · اَلرِّجَالُ مُسْلِمُونَ",
@@ -1944,29 +2008,61 @@ export const CURRICULUM = {
         name: "اَلْعَدُّ الْمُتَّصِلُ ١-٩٩",
         teach: [
           {
-            say: "You can count to ten. Now we build the rest in four clear blocks, and you will be able to say any number up to ninety-nine.",
-            show: "١-١٠ · ١١-١٩\n اَلْعُقُودُ · مَا بَيْنَهَا",
+            say: "You can already count to ten. Say them aloud now, twice, before we go on.",
+            show: "وَاحِدٌ · اِثْنَانِ · ثَلَاثَةٌ · أَرْبَعَةٌ · خَمْسَةٌ\nسِتَّةٌ · سَبْعَةٌ · ثَمَانِيَةٌ · تِسْعَةٌ · عَشَرَةٌ",
           },
           {
-            say: "Eleven to nineteen: take the unit you know and add عَشَرَ after it. Nothing more.",
-            show: "أَحَدَ عَشَرَ · اِثْنَا عَشَرَ\nثَلَاثَةَ عَشَرَ · أَرْبَعَةَ عَشَرَ\nخَمْسَةَ عَشَرَ … تِسْعَةَ عَشَرَ",
+            say: "Eleven to nineteen. Every one of them is simply a unit you already know with عَشَرَ added after it. Here they all are — read every line aloud.",
+            show: "١١ أَحَدَ عَشَرَ\n١٢ اِثْنَا عَشَرَ\n١٣ ثَلَاثَةَ عَشَرَ\n١٤ أَرْبَعَةَ عَشَرَ\n١٥ خَمْسَةَ عَشَرَ\n١٦ سِتَّةَ عَشَرَ\n١٧ سَبْعَةَ عَشَرَ\n١٨ ثَمَانِيَةَ عَشَرَ\n١٩ تِسْعَةَ عَشَرَ",
           },
           {
-            say: "The tens are just as regular: take the unit and add ـُونَ. Twenty is the odd one — it comes from عشرة.",
-            show: "عِشْرُونَ · ثَلَاثُونَ · أَرْبَعُونَ\nخَمْسُونَ · سِتُّونَ · سَبْعُونَ\nثَمَانُونَ · تِسْعُونَ",
+            say: "Now the tens. Take the unit and add ـُونَ. Only twenty is slightly different — it comes from عشرة, not from two.",
+            show: "٢٠ عِشْرُونَ\n٣٠ ثَلَاثُونَ\n٤٠ أَرْبَعُونَ\n٥٠ خَمْسُونَ\n٦٠ سِتُّونَ\n٧٠ سَبْعُونَ\n٨٠ ثَمَانُونَ\n٩٠ تِسْعُونَ",
           },
           {
-            say: "Now everything in between. Here Arabic does something English does not: the SMALL number comes first, joined by وَ. Twenty-one is literally 'one and twenty'.",
-            show: "٢١ = وَاحِدٌ وَعِشْرُونَ\n٣٥ = خَمْسَةٌ وَثَلَاثُونَ\n٩٩ = تِسْعَةٌ وَتِسْعُونَ",
-            warn: "عِشْرُونَ وَوَاحِدٌ",
+            say: "Everything between them follows one rule, and it is the opposite of English: the SMALL number comes first. Twenty-one is 'one and twenty'. Read this whole column aloud.",
+            show: "٢١ وَاحِدٌ وَعِشْرُونَ\n٢٢ اِثْنَانِ وَعِشْرُونَ\n٢٣ ثَلَاثَةٌ وَعِشْرُونَ\n٢٤ أَرْبَعَةٌ وَعِشْرُونَ\n٢٥ خَمْسَةٌ وَعِشْرُونَ\n٢٦ سِتَّةٌ وَعِشْرُونَ\n٢٧ سَبْعَةٌ وَعِشْرُونَ\n٢٨ ثَمَانِيَةٌ وَعِشْرُونَ\n٢٩ تِسْعَةٌ وَعِشْرُونَ",
+            warn: "❌ عِشْرُونَ وَوَاحِدٌ",
           },
           {
-            say: "Last piece: what happens to the thing you are counting. From three to ten it becomes a plural with kasra.",
-            show: "ثَلَاثَةُ كُتُبٍ \nخَمْسَةُ أَقْلَامٍ",
+            say: "The thirties work exactly the same way. Once you have seen one decade, you have seen them all.",
+            show: "٣١ وَاحِدٌ وَثَلَاثُونَ\n٣٢ اِثْنَانِ وَثَلَاثُونَ\n٣٣ ثَلَاثَةٌ وَثَلَاثُونَ\n٣٥ خَمْسَةٌ وَثَلَاثُونَ\n٣٨ ثَمَانِيَةٌ وَثَلَاثُونَ",
           },
           {
-            say: "But from eleven upward it goes back to SINGULAR, with a fatha. This surprises everyone — count aloud with both patterns until it feels natural.",
-            show: "عِشْرُونَ كِتَابًا \nخَمْسَةٌ وَثَلَاثُونَ طَالِبًا \u200d",
+            say: "And so do the rest. Read these and you will hear that nothing new is happening — only the ten changes.",
+            show: "٤٧ سَبْعَةٌ وَأَرْبَعُونَ\n٥٤ أَرْبَعَةٌ وَخَمْسُونَ\n٦٩ تِسْعَةٌ وَسِتُّونَ\n٧٢ اِثْنَانِ وَسَبْعُونَ\n٨٦ سِتَّةٌ وَثَمَانُونَ\n٩٩ تِسْعَةٌ وَتِسْعُونَ",
+          },
+          {
+            say: "Now the hundreds. مِئَة is one hundred; two hundred takes the dual; from three hundred upward the unit joins onto مئة as a single word.",
+            show: "١٠٠ مِئَةٌ\n٢٠٠ مِئَتَانِ\n٣٠٠ ثَلَاثُمِئَةٍ\n٤٠٠ أَرْبَعُمِئَةٍ\n٥٠٠ خَمْسُمِئَةٍ\n٦٠٠ سِتُّمِئَةٍ\n٧٠٠ سَبْعُمِئَةٍ\n٨٠٠ ثَمَانِمِئَةٍ\n٩٠٠ تِسْعُمِئَةٍ",
+          },
+          {
+            say: "Thousands behave like the counting you already know: one, then the dual, then three-to-ten with the plural آلاف.",
+            show: "١٠٠٠ أَلْفٌ\n٢٠٠٠ أَلْفَانِ\n٣٠٠٠ ثَلَاثَةُ آلَافٍ\n٤٠٠٠ أَرْبَعَةُ آلَافٍ\n٥٠٠٠ خَمْسَةُ آلَافٍ\n١٠٠٠٠ عَشَرَةُ آلَافٍ",
+          },
+          {
+            say: "Above ten thousand, أَلْف is simply counted like any other noun — and مِئَةُ أَلْفٍ is a hundred thousand.",
+            show: "٢٠٠٠٠ عِشْرُونَ أَلْفًا\n٥٠٠٠٠ خَمْسُونَ أَلْفًا\n١٠٠٠٠٠ مِئَةُ أَلْفٍ\n٥٠٠٠٠٠ خَمْسُمِئَةِ أَلْفٍ",
+          },
+          {
+            say: "Then millions and billions, which behave the same way again.",
+            show: "١٠٠٠٠٠٠ مِلْيُونٌ\n٢٠٠٠٠٠٠ مِلْيُونَانِ\n٣٠٠٠٠٠٠ ثَلَاثَةُ مَلَايِينَ\n١٠٠٠٠٠٠٠٠٠ مِلْيَارٌ",
+          },
+          {
+            say: "To say any large number, start with the biggest part and work down, joining with وَ. Read these three aloud.",
+            show: "١٥٠٠ أَلْفٌ وَخَمْسُمِئَةٍ\n٢٠٢٦ أَلْفَانِ وَسِتَّةٌ وَعِشْرُونَ\n١٢٣ مِئَةٌ وَثَلَاثَةٌ وَعِشْرُونَ",
+          },
+          {
+            say: "One last thing: what happens to the thing you are counting. From three to ten it becomes plural with a kasra.",
+            show: "ثَلَاثَةُ كُتُبٍ\nخَمْسَةُ أَقْلَامٍ\nعَشَرَةُ رِجَالٍ",
+          },
+          {
+            say: "But from eleven upward it goes back to SINGULAR with a fatha. This surprises everyone — read both patterns aloud until the difference is automatic.",
+            show: "ثَلَاثَةُ كُتُبٍ (٣-١٠)\nعِشْرُونَ كِتَابًا (١١+)\nمِئَةُ كِتَابٍ (مُضَافٌ)",
+          },
+          {
+            say: "Now count out loud from one to a hundred without looking. Then write your age, today's date, and the population of your city.",
+            show: "مِنْ وَاحِدٍ إِلَى مِئَةٍ",
           },
         ],
         teach: [
@@ -2000,6 +2096,16 @@ export const CURRICULUM = {
         hint: "Count in four blocks: units 1-10, teens (unit + عشر), tens (add ـُونَ), and everything between (unit + و + ten — units come FIRST in Arabic: 'one and twenty').",
       },
       drills: [
+        { t: "mcq", q: "17", options: ["سَبْعَةَ عَشَرَ", "سَبْعُونَ", "سَبْعَةٌ", "سَبْعُمِئَةٍ"], a: "سَبْعَةَ عَشَرَ", why: "Eleven to nineteen = the unit + عَشَرَ.", example: "سَبْعَةَ عَشَرَ طَالِبًا" },
+        { t: "mcq", q: "70", options: ["سَبْعُونَ", "سَبْعَةَ عَشَرَ", "سَبْعَةٌ", "سَبْعُمِئَةٍ"], a: "سَبْعُونَ", why: "The tens are the unit + ـُونَ.", example: "سَبْعُونَ رَجُلًا" },
+        { t: "mcq", q: "47", options: ["سَبْعَةٌ وَأَرْبَعُونَ", "أَرْبَعُونَ وَسَبْعَةٌ", "أَرْبَعَةٌ وَسَبْعُونَ", "سَبْعَةَ عَشَرَ"], a: "سَبْعَةٌ وَأَرْبَعُونَ", why: "The small number comes FIRST in Arabic: seven and forty.", example: "سَبْعَةٌ وَأَرْبَعُونَ" },
+        { t: "mcq", q: "99", options: ["تِسْعَةٌ وَتِسْعُونَ", "تِسْعُونَ وَتِسْعَةٌ", "تِسْعُمِئَةٍ", "تِسْعَةَ عَشَرَ"], a: "تِسْعَةٌ وَتِسْعُونَ", why: "Units first, then the ten, joined by وَ.", example: "تِسْعَةٌ وَتِسْعُونَ اِسْمًا" },
+        { t: "mcq", q: "300", options: ["ثَلَاثُمِئَةٍ", "ثَلَاثَةُ مِئَةٍ", "ثَلَاثُونَ مِئَةً", "ثَلَاثَةُ آلَافٍ"], a: "ثَلَاثُمِئَةٍ", why: "From 300 upward the unit joins onto مئة as one word.", example: "ثَلَاثُمِئَةِ رَجُلٍ" },
+        { t: "mcq", q: "800", options: ["ثَمَانِمِئَةٍ", "ثَمَانُونَ", "ثَمَانِيَةُ آلَافٍ", "ثَمَانِيَةَ عَشَرَ"], a: "ثَمَانِمِئَةٍ", why: "Eight hundred: ثَمَانِ + مِئَة.", example: "ثَمَانِمِئَةِ سَنَةٍ" },
+        { t: "mcq", q: "5,000", options: ["خَمْسَةُ آلَافٍ", "خَمْسُمِئَةٍ", "خَمْسُونَ أَلْفًا", "خَمْسَةُ أَلْفٍ"], a: "خَمْسَةُ آلَافٍ", why: "Three to ten thousand uses the plural آلاف.", example: "خَمْسَةُ آلَافِ رَجُلٍ" },
+        { t: "mcq", q: "50,000", options: ["خَمْسُونَ أَلْفًا", "خَمْسَةُ آلَافٍ", "خَمْسُمِئَةِ أَلْفٍ", "خَمْسُمِئَةٍ"], a: "خَمْسُونَ أَلْفًا", why: "Above ten thousand, ألف is counted like any singular noun with fatha.", example: "خَمْسُونَ أَلْفًا" },
+        { t: "mcq", q: "2,026", options: ["أَلْفَانِ وَسِتَّةٌ وَعِشْرُونَ", "أَلْفَانِ وَعِشْرُونَ وَسِتَّةٌ", "أَلْفٌ وَسِتَّةٌ وَعِشْرُونَ", "أَلْفَانِ وَسِتُّونَ"], a: "أَلْفَانِ وَسِتَّةٌ وَعِشْرُونَ", why: "Largest part first, then down, joined by وَ — and units before tens.", example: "عَامُ أَلْفَيْنِ وَسِتَّةٍ وَعِشْرِينَ" },
+        { t: "mcq", q: "3 million", options: ["ثَلَاثَةُ مَلَايِينَ", "ثَلَاثَةُ مِلْيُونٍ", "ثَلَاثُمِئَةٍ", "ثَلَاثَةُ آلَافٍ"], a: "ثَلَاثَةُ مَلَايِينَ", why: "Three to ten takes the plural — مَلَايِين.", example: "ثَلَاثَةُ مَلَايِينِ نَسَمَةٍ" },
         { t: "mcq", q: "one", options: ["وَاحِدٌ", "اِثْنَانِ", "عَشَرَةٌ", "أَحَدَ عَشَرَ"], a: "وَاحِدٌ" },
         { t: "mcq", q: "four", options: ["أَرْبَعَةٌ", "أَرْبَعُونَ", "أَرْبَعَةَ عَشَرَ", "خَمْسَةٌ"], a: "أَرْبَعَةٌ" },
         { t: "mcq", q: "eight", options: ["ثَمَانِيَةٌ", "ثَمَانُونَ", "سَبْعَةٌ", "تِسْعَةٌ"], a: "ثَمَانِيَةٌ" },
@@ -2527,30 +2633,30 @@ export const CURRICULUM = {
         name: "اَلضَّمِيرُ الْمُتَّصِلُ بِالِاسْمِ وَالْفِعْلِ وَالْحَرْفِ",
         teach: [
           {
-            say: "The pronouns you just learned stand alone. Now meet their shorter forms, which never stand alone — they stick to the end of another word.",
-            show: "أَنَا ـِي\nأَنْتَ ـكَ\nهُوَ ـهُ",
+            say: "Read these aloud. Each is one word.",
+            show: "كِتَابِي · كِتَابُكَ · كِتَابُكِ\nكِتَابُهُ · كِتَابُهَا · كِتَابُنَا",
           },
           {
-            say: "On a NOUN, they mean ownership. This replaces the English words my, your, his.",
-            show: "كِتَابٌ + ي كِتَابِي \nكِتَابٌ + كَ كِتَابُكَ\nكِتَابٌ + هَا كِتَابُهَا",
+            say: "١. Where English uses two words — 'my book' — Arabic adds a short ending to the noun. These endings are the pronouns you already know, in shortened form.",
+            show: "أَنَا ← ـِي\nأَنْتَ ← ـكَ\nهُوَ ← ـهُ\nنَحْنُ ← ـنَا",
           },
           {
-            say: "Notice the tanwin disappeared. A word with a pronoun attached is definite — it has become the first half of an إضافة.",
-            show: "كِتَابٌ كِتَابُهُ",
-            warn: "كِتَابٌهُ · الْكِتَابُهُ",
+            say: "٢. Notice the tanwin has gone. A word carrying one of these endings is definite — it has become a مُضَاف, exactly like بَابُ الْبَيْتِ.",
+            show: "كِتَابٌ ← كِتَابُهُ",
+            warn: "❌ كِتَابٌهُ · ❌ الْكِتَابُهُ",
           },
           {
-            say: "The very same endings go on a VERB — but there they mean the object, not ownership.",
-            show: "سَمِعَ + هَا سَمِعَهَا \n= he heard HER",
+            say: "٣. The very same endings go onto a verb — but there they mean the object, not ownership.",
+            show: "سَمِعَهُ = he heard HIM\nرَأَيْتُهَا = I saw HER",
           },
           {
-            say: "One detail to get right: before the ي of 'me' on a verb, an extra نـ appears. It is called نون الوقاية — the protecting noon.",
-            show: "سَمِعَ + نِي سَمِعَنِي \nاِرْحَمْ + نِي اِرْحَمْنِي",
-            warn: "سَمِعِي",
+            say: "٤. Before the ي of 'me' on a verb, an extra نـ appears. It is called نُونُ الْوِقَايَةِ — the protecting noon.",
+            show: "سَمِعَ + نِي ← سَمِعَنِي\nاِرْحَمْ + نِي ← اِرْحَمْنِي",
+            warn: "❌ سَمِعِي",
           },
           {
-            say: "And the same endings attach to prepositions too. You already say these every day.",
-            show: "عِنْدِي · لَهُ · مَعِي \nمِنْهُ · إِلَيْهَا · بِهِ",
+            say: "٥. And they attach to the little words too. You already say all of these.",
+            show: "عِنْدِي · لَهُ · مَعِي · مِنْهُ · فِيهَا · بِهِ",
           },
         ],
         teach: [
@@ -2633,6 +2739,32 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "أَدَبُ الْكَلَامِ: سُؤَالٌ وَجَوَابٌ",
+        teach: [
+          {
+            say: "Read these greetings aloud, as pairs — the greeting and its reply.",
+            show: "اَلسَّلَامُ عَلَيْكُمْ\n— وَعَلَيْكُمُ السَّلَامُ\nكَيْفَ حَالُكَ؟\n— بِخَيْرٍ وَالْحَمْدُ لِلَّهِ",
+          },
+          {
+            say: "١. The greeting of Islam is a statement, not a question. Its reply returns it, and adding وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ increases the reward.",
+            show: "اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ",
+          },
+          {
+            say: "٢. These four phrases carry most of daily courtesy. Read each aloud twice.",
+            show: "شُكْرًا = thank you\nجَزَاكَ اللهُ خَيْرًا = may Allah reward you\nمِنْ فَضْلِكَ = please\nعَفْوًا = you're welcome",
+          },
+          {
+            say: "٣. And these are said when hearing good news or seeing something pleasing.",
+            show: "مَا شَاءَ اللهُ\nبَارَكَ اللهُ فِيكَ\nاَلْحَمْدُ لِلَّهِ",
+          },
+          {
+            say: "٤. When you intend something in the future, a Muslim adds إِنْ شَاءَ اللهُ. Never leave it out.",
+            show: "سَأَزُورُكَ غَدًا إِنْ شَاءَ اللهُ",
+          },
+          {
+            say: "٥. On parting.",
+            show: "إِلَى اللِّقَاءِ · مَعَ السَّلَامَةِ\nفِي أَمَانِ اللهِ",
+          },
+        ],
         ar: "السَّلَامُ عَلَيْكُمْ 👋 ← وَعَلَيْكُمُ السَّلَامُ 🤝\nكَيْفَ حَالُكَ؟ 🙂❓ ← الْحَمْدُ لِلَّهِ 🤲\nشَيْءٌ جَمِيلٌ 🌸 ← مَا شَاءَ اللهُ ✨\nمَعْرُوفٌ 🎁 ← جَزَاكَ اللهُ خَيْرًا",
         hint: "Daily expressions come in pairs: each greeting or situation has its proper response. Learn the pair, not just the phrase.",
       },
@@ -2683,28 +2815,36 @@ export const CURRICULUM = {
         name: "أَدَوَاتُ الِاسْتِفْهَامِ",
         teach: [
           {
-            say: "You already know two question words from the very first lesson. Now we complete the set — and there is one distinction that matters more than the rest.",
-            show: "مَا هَذَا؟ لِلشَّيْءِ\nمَنْ هَذَا؟ لِلْعَاقِلِ",
+            say: "Read these questions and their answers aloud, as pairs.",
+            show: "مَا هَذَا؟ — هَذَا كِتَابٌ\nمَنْ هَذَا؟ — هَذَا مُعَلِّمٌ\nأَيْنَ الْكِتَابُ؟ — عَلَى الْمَكْتَبِ\nمَتَى الدَّرْسُ؟ — بَعْدَ الظُّهْرِ",
           },
           {
-            say: "Here is the trap. مَا is used before a NOUN. But before a VERB you must say مَاذَا. Almost every learner gets this wrong for years.",
-            show: "مَا هَذَا؟ (اِسْمٌ) \nمَاذَا تَقْرَأُ؟ (فِعْلٌ)",
-            warn: "مَا تَقْرَأُ؟",
+            say: "Four more pairs.",
+            show: "كَيْفَ حَالُكَ؟ — بِخَيْرٍ\nكَمْ كِتَابًا عِنْدَكَ؟ — ثَلَاثَةٌ\nلِمَاذَا تَدْرُسُ؟ — لِأَنَّهَا لُغَةُ الْقُرْآنِ\nهَلْ أَنْتَ طَالِبٌ؟ — نَعَمْ",
           },
           {
-            say: "Then the ones for place, time, manner and reason. Each expects a particular kind of answer, so learn them with their answers attached.",
-            show: "أَيْنَ؟ فِي الْبَيْتِ\nمَتَى؟ بَعْدَ الظُّهْرِ\nكَيْفَ؟ بِخَيْرٍ\nلِمَاذَا؟ لِأَنَّ...",
+            say: "Each question word expects its own kind of answer. Learn them as pairs, never alone — the answer teaches you the question.",
+            show: "أَيْنَ ← مَكَانٌ\nمَتَى ← وَقْتٌ\nكَيْفَ ← حَالٌ\nكَمْ ← عَدَدٌ\nلِمَاذَا ← سَبَبٌ",
           },
           {
-            say: "Notice that لِمَاذَا is answered with لِأَنَّ. The two belong together — the question carries لـ and so does the answer.",
-            show: "لِمَاذَا تَدْرُسُ الْعَرَبِيَّةَ؟\n— لِأَنَّهَا لُغَةُ الْقُرْآنِ",
+            say: "Now one distinction that catches everybody. Read these two carefully.",
+            show: "مَا هَذَا؟ (before a noun)\nمَاذَا تَقْرَأُ؟ (before a verb)",
+            warn: "❌ مَا تَقْرَأُ؟",
           },
           {
-            say: "And for a yes-or-no question, put هَلْ at the front of any ordinary sentence. Nothing else changes.",
-            show: "أَنْتَ طَالِبٌ هَلْ أَنْتَ طَالِبٌ؟\n— نَعَمْ / لَا",
+            say: "مَا before a thing, مَاذَا before an action. And مَنْ is only for people — never for objects.",
+            show: "مَا هَذَا؟ — كِتَابٌ\nمَنْ هَذَا؟ — مُحَمَّدٌ",
           },
           {
-            say: "With these ten words you can ask about anything. A conversation is not built from answers — it is built from questions.",
+            say: "Notice too that لِمَاذَا is answered with لِأَنَّ. The question carries لـ and so does the answer.",
+            show: "لِمَاذَا؟ — لِأَنَّ ...",
+          },
+          {
+            say: "And for a yes-or-no question you change nothing at all — just put هَلْ in front of an ordinary sentence.",
+            show: "أَنْتَ طَالِبٌ\nهَلْ أَنْتَ طَالِبٌ؟",
+          },
+          {
+            say: "A conversation is built from questions, not answers. Learn these ten and you can keep any conversation alive.",
             show: "مَنْ · مَا · مَاذَا · أَيْنَ · مَتَى\nكَيْفَ · لِمَاذَا · كَمْ · هَلْ · أَيُّ",
           },
         ],
@@ -2759,6 +2899,32 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "بِنَاءُ الْحِوَارِ",
+        teach: [
+          {
+            say: "Read this whole conversation aloud, both sides, twice.",
+            show: "— اَلسَّلَامُ عَلَيْكُمْ\n— وَعَلَيْكُمُ السَّلَامُ\n— مَا اسْمُكَ؟\n— اِسْمِي عَبْدُ اللهِ. وَأَنْتَ؟\n— اِسْمِي مُحَمَّدٌ\n— مِنْ أَيْنَ أَنْتَ؟\n— أَنَا مِنْ زَامْبِيَا",
+          },
+          {
+            say: "١. اِسْمِي means 'my name'. The ي at the end is 'my' — you met it with the attached pronouns.",
+            show: "اِسْمٌ ← اِسْمِي · اِسْمُكَ · اِسْمُهُ",
+          },
+          {
+            say: "٢. وَأَنْتَ؟ turns the question back. It is the shortest way to keep a conversation moving, and you should use it constantly.",
+            show: "وَأَنْتَ؟ (to a man)\nوَأَنْتِ؟ (to a woman)",
+          },
+          {
+            say: "٣. After مِنْ the country name takes a kasra — the same rule as every preposition.",
+            show: "أَنَا مِنْ مِصْرَ\nأَنَا مِنَ الْيَمَنِ",
+          },
+          {
+            say: "٤. Note: some country names never take tanwin — you will learn why in the lesson on الممنوع من الصرف.",
+            show: "مِنْ مِصْرَ · إِلَى مَكَّةَ",
+          },
+          {
+            say: "٥. Now cover the right side and answer each question yourself, aloud, before looking.",
+            show: "مَا اسْمُكَ؟ · مِنْ أَيْنَ أَنْتَ؟\nكَيْفَ حَالُكَ؟ · مَاذَا تَعْمَلُ؟",
+          },
+        ],
         ar: "اَلْحِوَارُ: سُؤَالٌ ← جَوَابٌ ← سُؤَالٌ مُقَابِلٌ\n\nكَيْفَ حَالُكَ؟ — الْحَمْدُ لِلَّهِ، وَأَنْتَ؟ 🔄\n«وَأَنْتَ؟» تُعِيدُ السُّؤَالَ بِاخْتِصَارٍ\n\nاَلضَّمِيرُ الْمُتَّصِلُ:\nاِسْمٌ + ي ← اِسْمِي 🏷️🧍\nاِسْمٌ + كَ ← اِسْمُكَ 🏷️👉\nبَيْتٌ + ي ← بَيْتِي · بَيْتٌ + كَ ← بَيْتُكَ",
         hint: "A real conversation returns the question: وَأَنْتَ؟ Attached pronouns (ي = my, كَ = your) turn any noun personal.",
       },
@@ -2813,6 +2979,29 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "اِسْمُ الْإِشَارَةِ لِلْبَعِيدِ وَالسُّؤَالُ بِالثَّمَنِ",
+        teach: [
+          {
+            say: "Read these aloud, then read them again.",
+            show: "هَذَا سُوقٌ كَبِيرٌ\nفِي السُّوقِ دَكَاكِينُ كَثِيرَةٌ\nبِكَمْ هَذَا الْكِتَابُ؟\nثَمَنُهُ عَشَرَةُ رِيَالَاتٍ\nهَذَا غَالٍ · هَذَا رَخِيصٌ",
+          },
+          {
+            say: "١. To ask a price, say بِكَمْ. The بِـ carries the sense of 'for how much'.",
+            show: "بِكَمْ هَذَا؟\nبِكَمْ الْكِتَابُ؟",
+          },
+          {
+            say: "٢. تِلْكَ is the feminine of ذَلِكَ, just as هَذِهِ is the feminine of هَذَا.",
+            show: "ذَلِكَ سُوقٌ · تِلْكَ مَدِينَةٌ\nذَلِكَ رَجُلٌ · تِلْكَ اِمْرَأَةٌ",
+          },
+          {
+            say: "٣. Remember what you learned about plurals of things: they take a feminine singular adjective.",
+            show: "دَكَاكِينُ كَثِيرَةٌ ✅",
+            warn: "❌ دَكَاكِينُ كَثِيرُونَ",
+          },
+          {
+            say: "٤. And the price itself follows the number rules you already know.",
+            show: "عَشَرَةُ رِيَالَاتٍ\nعِشْرُونَ رِيَالًا",
+          },
+        ],
         ar: "لِلْقَرِيبِ: هَذَا 👉 · هَذِهِ 👉\nلِلْبَعِيدِ: ذَلِكَ 👉🔭 · تِلْكَ 👉🔭\n\nذَلِكَ الْكِتَابُ 📖 · تِلْكَ السَّيَّارَةُ 🚗\n\nاَلسُّؤَالُ عَنِ الثَّمَنِ:\nبِكَمْ هَذَا؟ 🏷️❓ — بِعَشَرَةٍ 🔟\nوَمَا بَعْدَ «بِـ» مَجْرُورٌ دَائِمًا",
         hint: "تِلْكَ is the feminine of ذَلِكَ (that, far away). Ask a price with بِكَمْ — and anything after بِـ is مجرور.",
       },
@@ -3285,28 +3474,36 @@ export const CURRICULUM = {
         name: "حُرُوفُ الْمُضَارَعَةِ: أَنَيْتُ",
         teach: [
           {
-            say: "The past tense changed its ENDING to show who did it. The present tense is different — it changes the BEGINNING.",
-            show: "ذَهَبَ (مَاضٍ)\nيَذْهَبُ (مُضَارِعٌ)",
+            say: "Read these. Each one is something happening now.",
+            show: "يَذْهَبُ الْوَلَدُ\nيَكْتُبُ الطَّالِبُ\nيَقْرَأُ الْمُعَلِّمُ\nيَجْلِسُ الرَّجُلُ\nيَخْرُجُ الْإِمَامُ",
           },
           {
-            say: "Four letters can sit at the front, and they are famously remembered as one word: أَنَيْتُ.",
-            show: "أ أَنَا\nن نَحْنُ\nي هُوَ\nت هِيَ / أَنْتَ",
+            say: "Compare each with its past form. Only one thing changed — at the FRONT.",
+            show: "ذَهَبَ ← يَذْهَبُ\nكَتَبَ ← يَكْتُبُ\nقَرَأَ ← يَقْرَأُ\nجَلَسَ ← يَجْلِسُ",
           },
           {
-            say: "So from one verb you get the whole present tense simply by changing the first letter.",
-            show: "أَذْهَبُ = I go\nنَذْهَبُ = we go\nيَذْهَبُ = he goes\nتَذْهَبُ = she goes",
+            say: "A يـ appeared at the beginning, and the last letter now carries a damma. That is the present tense.",
+            show: "ذَهَبَ (فَعَلَ)\nيَذْهَبُ (يَفْعَلُ)",
           },
           {
-            say: "Note one overlap that you must read from context: تَذْهَبُ serves BOTH 'she goes' and 'you (m) go'. Arabic accepts this; the sentence makes it clear.",
-            show: "هِيَ تَذْهَبُ \nأَنْتَ تَذْهَبُ",
+            say: "Now read these four. The first letter is different in each — and so is the person meant.",
+            show: "يَذْهَبُ = he goes\nتَذْهَبُ = she goes\nأَذْهَبُ = I go\nنَذْهَبُ = we go",
           },
           {
-            say: "The present tense normally ends in a damma. Remember that ending — several particles will change it, and that is a later lesson.",
-            show: "يَذْهَبُ \nيَكْتُبُ · يَقْرَأُ",
+            say: "So the front letter tells you WHO. Four letters, four people — and they are remembered as one nonsense word: أَنَيْتُ.",
+            show: "أ ← أَنَا\nن ← نَحْنُ\nي ← هُوَ\nت ← هِيَ",
           },
           {
-            say: "Use it for what happens now, and for what happens habitually — Arabic makes no separate form for the two.",
-            show: "أَذْهَبُ إِلَى الْمَسْجِدِ كُلَّ يَوْمٍ \n= I go to the mosque every day",
+            say: "One overlap you must read from context: تَذْهَبُ serves both 'she goes' and 'you (m) go'. The sentence always makes it clear.",
+            show: "هِيَ تَذْهَبُ\nأَنْتَ تَذْهَبُ",
+          },
+          {
+            say: "Use it for what is happening now AND for what you do habitually — Arabic makes no separate form.",
+            show: "أَذْهَبُ إِلَى الْمَسْجِدِ الْآنَ\nأَذْهَبُ إِلَى الْمَسْجِدِ كُلَّ يَوْمٍ",
+          },
+          {
+            say: "Remember that final damma. Several small words are going to change it, and that is the next lesson.",
+            show: "يَذْهَبُ · يَكْتُبُ · يَقْرَأُ",
           },
         ],
         ar: "اَلْمَاضِي ← اَلْمُضَارِعُ\nذَهَبَ ← يَذْهَبُ 🚶➡️\n\nحُرُوفُ الْمُضَارَعَةِ (أَنَيْتُ):\nأَنَا ← أَذْهَبُ (أ)\nنَحْنُ ← نَذْهَبُ (ن)\nهُوَ ← يَذْهَبُ (ي)\nهِيَ ← تَذْهَبُ (ت)\nأَنْتَ ← تَذْهَبُ (ت)\nأَنْتِ ← تَذْهَبِينَ\n\n⚠️ تَذْهَبُ لِـ «هِيَ» وَلِـ «أَنْتَ» — يُفَرِّقُ بَيْنَهُمَا السِّيَاقُ",
@@ -3438,29 +3635,41 @@ export const CURRICULUM = {
         name: "أَدَوَاتُ النَّفْيِ",
         teach: [
           {
-            say: "English negates almost everything with 'not'. Arabic chooses a different tool depending on WHAT you are negating. Four tools, four jobs.",
-            show: "لَا · مَا · لَمْ · لَيْسَ",
+            say: "Read these. Each one denies something.",
+            show: "لَا أَفْهَمُ\nلَا أَعْرِفُ\nلَا أُرِيدُ\nلَا يَذْهَبُ\nلَا تَتَكَلَّمُ",
           },
           {
-            say: "For something happening now — the present tense — use لَا. Nothing else changes.",
-            show: "أَفْهَمُ لَا أَفْهَمُ \nيَذْهَبُ لَا يَذْهَبُ",
+            say: "Every one of those is about NOW, and every one uses لَا. That is the tool for the present tense — nothing else changes.",
+            show: "أَفْهَمُ ← لَا أَفْهَمُ",
           },
           {
-            say: "For something that did not happen — the past tense — use مَا. Again nothing changes.",
-            show: "ذَهَبَ مَا ذَهَبَ",
+            say: "Now read these. Each one denies something that already happened.",
+            show: "مَا ذَهَبَ\nمَا كَتَبَ\nمَا سَمِعْتُ\nمَا رَأَيْتُ",
           },
           {
-            say: "There is a second way to negate the past, and it is more common in the Quran and in speech: لَمْ with a PRESENT verb whose ending becomes sukun.",
-            show: "يَذْهَبُ لَمْ يَذْهَبْ \nلَمْ يَلِدْ وَلَمْ يُولَدْ",
+            say: "So: لَا for now, مَا for the past. Two words, two jobs.",
+            show: "لَا + مُضَارِعٌ\nمَا + مَاضٍ",
           },
           {
-            say: "And for a nominal sentence — one with no verb at all — none of those work. You need لَيْسَ.",
-            show: "اَلطَّالِبُ مَرِيضٌ\n لَيْسَ الطَّالِبُ مَرِيضًا",
-            warn: "لَا الطَّالِبُ مَرِيضٌ",
+            say: "There is a second way to deny the past, and it is the one you will meet most in the Quran. Read these.",
+            show: "لَمْ يَذْهَبْ\nلَمْ أَفْهَمْ\nلَمْ يَلِدْ وَلَمْ يُولَدْ",
           },
           {
-            say: "Look closely at what لَيْسَ did to the ending. The first word kept its damma, but the second turned to fatha. Remember that pattern — a whole family of words behaves this way.",
-            show: "مَرِيضٌ مَرِيضًا \nلَيْسَتِ الْبِنْتُ غَائِبَةً",
+            say: "Look carefully: after لَمْ the verb LOOKS present but MEANS past, and its ending has gone silent.",
+            show: "يَذْهَبُ ← لَمْ يَذْهَبْ\nذَهَبَ = مَا ذَهَبَ = لَمْ يَذْهَبْ",
+          },
+          {
+            say: "Now a different kind of sentence — one with no verb at all. Read this pair and hear that لَا does not work here.",
+            show: "اَلطَّالِبُ مَرِيضٌ\nلَيْسَ الطَّالِبُ مَرِيضًا",
+            warn: "❌ لَا الطَّالِبُ مَرِيضٌ",
+          },
+          {
+            say: "For a sentence with no verb, the tool is لَيْسَ. And notice what it did to the last word — the damma became a fatha.",
+            show: "مَرِيضٌ ← مَرِيضًا",
+          },
+          {
+            say: "Four tools, four jobs. Read the summary aloud, then try the drills.",
+            show: "لَا ← اَلْآنَ\nمَا ← اَلْمَاضِي\nلَمْ ← اَلْمَاضِي (بِالْجَزْمِ)\nلَيْسَ ← جُمْلَةٌ بِلَا فِعْلٍ",
           },
         ],
         ar: "لِلْمُضَارِعِ ← لَا: لَا أَفْهَمُ ❌💡\nلِلْمَاضِي ← مَا: مَا ذَهَبَ 🚫🚶\nلِلْمَاضِي بِالْمُضَارِعِ ← لَمْ + جَزْمٌ: لَمْ يَذْهَبْ ⬅️❌\n\nلِلْجُمْلَةِ الِاسْمِيَّةِ ← لَيْسَ:\nاَلطَّالِبُ مَرِيضٌ ← لَيْسَ الطَّالِبُ مَرِيضًا\n⚠️ لَيْسَ تَرْفَعُ الِاسْمَ وَتَنْصِبُ الْخَبَرَ (ـً)\nمُؤَنَّثٌ ← لَيْسَتْ: لَيْسَتِ الْبِنْتُ غَائِبَةً",
@@ -3676,6 +3885,33 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "أُرِيدُ + أَنْ + مُضَارِعٌ مَنْصُوبٌ",
+        teach: [
+          {
+            say: "Read this exchange aloud, both sides.",
+            show: "— تَعَالَ يَا وَلَدِي\n— نَعَمْ يَا أَبِي\n— هَلْ أَنْتَ جَائِعٌ؟\n— نَعَمْ، أَنَا جَائِعٌ\n— مَاذَا تُرِيدُ؟\n— أُرِيدُ مَاءً",
+          },
+          {
+            say: "١. Commands change for whom you address. A husband and wife speaking Arabic at home need both forms.",
+            show: "تَعَالَ (لِلرَّجُلِ)\nتَعَالَيْ (لِلْمَرْأَةِ)\nكُلْ · كُلِي · اِشْرَبْ · اِشْرَبِي",
+          },
+          {
+            say: "٢. أُرِيدُ takes a noun directly, and that noun is accusative.",
+            show: "أُرِيدُ مَاءً\nأُرِيدُ كِتَابًا",
+          },
+          {
+            say: "٣. To want to DO something, put أَنْ before the verb — and أَنْ changes the verb's ending from a damma to a fatha.",
+            show: "أَشْرَبُ ← أُرِيدُ أَنْ أَشْرَبَ\nأَنَامُ ← أُرِيدُ أَنْ أَنَامَ",
+            warn: "❌ أُرِيدُ أَنْ أَشْرَبُ",
+          },
+          {
+            say: "٤. Note these adjectives on the shape فَعْلَان — they never take tanwin.",
+            show: "جَوْعَانُ · عَطْشَانُ · تَعْبَانُ",
+          },
+          {
+            say: "٥. And the two phrases said at every meal.",
+            show: "بِسْمِ اللهِ (قَبْلَ الْأَكْلِ)\nاَلْحَمْدُ لِلَّهِ (بَعْدَهُ)",
+          },
+        ],
         ar: "لِلتَّعْبِيرِ عَنِ الرَّغْبَةِ:\nأُرِيدُ + اِسْمًا: أُرِيدُ مَاءً 💧 (مَفْعُولٌ بِهِ مَنْصُوبٌ)\nأُرِيدُ + أَنْ + فِعْلًا: أُرِيدُ أَنْ أَشْرَبَ 🥤\n\n⚠️ «أَنْ» تَنْصِبُ الْمُضَارِعَ:\nيَشْرَبُ ← أَنْ يَشْرَبَ (اَلضَّمَّةُ تَصِيرُ فَتْحَةً)\nأَنَامُ ← أَنْ أَنَامَ · نَذْهَبُ ← أَنْ نَذْهَبَ\n\n٢) اَلْأَمْرُ لِلْمُذَكَّرِ وَالْمُؤَنَّثِ:\nتَعَالَ 🧔 ← تَعَالَيْ 👩\nكُلْ ← كُلِي · اِشْرَبْ ← اِشْرَبِي\n\n٣) الصِّفَاتُ عَلَى فَعْلَانَ (بِلَا تَنْوِينٍ):\nعَطْشَانُ 💧 · جَوْعَانُ 🍽️ · تَعْبَانُ 😴",
         hint: "أُرِيدُ takes either a noun (accusative) or أَنْ + a verb — and أَنْ turns the present verb's damma into a fatha. Commands change for men and women: تَعَالَ / تَعَالَيْ.",
       },
@@ -3737,6 +3973,37 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "اَلنِّدَاءُ وَالْأَمْرُ مَعَ الضَّمِيرِ",
+        teach: [
+          {
+            say: "Read these supplications aloud.",
+            show: "اَللَّهُمَّ اغْفِرْ لِي\nاَللَّهُمَّ ارْحَمْنِي\nاَللَّهُمَّ اهْدِنِي\nاَللَّهُمَّ عَافِنِي\nاَللَّهُمَّ ارْزُقْنِي",
+          },
+          {
+            say: "١. اَللَّهُمَّ simply means يَا اللهُ. The يا was dropped and a doubled meem put on the end instead — that is why it looks the way it does.",
+            show: "يَا اللهُ ← اَللَّهُمَّ",
+          },
+          {
+            say: "٢. Every du'a above is a command verb with a pronoun attached. Once you see this, you can build your own.",
+            show: "اِغْفِرْ + لِي ← اِغْفِرْ لِي\nاِرْحَمْ + نِي ← اِرْحَمْنِي\nاِهْدِ + نِي ← اِهْدِنِي",
+          },
+          {
+            say: "٣. Note the نـ before the ي. It is called نون الوقاية, and it is always there on a verb.",
+            show: "اِرْحَمْنِي ✅",
+            warn: "❌ اِرْحَمِي",
+          },
+          {
+            say: "٤. To ask for something specific, use أَسْأَلُ اللهَ أَنْ — and remember أَنْ makes the next verb accusative.",
+            show: "أَسْأَلُ اللهَ أَنْ يَرْزُقَنِي\nأَسْأَلُ اللهَ أَنْ يَشْفِيَهُ",
+          },
+          {
+            say: "٥. To seek refuge, use أَعُوذُ بِاللهِ مِنْ — and what follows مِنْ takes a kasra.",
+            show: "أَعُوذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيمِ",
+          },
+          {
+            say: "٦. And when asking a person rather than Allah, the words are different. Never confuse the two.",
+            show: "أَعِنِّي (لِلَّهِ)\nسَاعِدْنِي (لِلنَّاسِ)\nلَوْ سَمَحْتَ · مِنْ فَضْلِكَ",
+          },
+        ],
         ar: "١) اَلنِّدَاءُ بِـ «يَا» 📣:\nيَا أَخِي · يَا مُعَلِّمُ · يَا رَبِّ\n⚠️ اَلْمُنَادَى الْمُفْرَدُ الْعَلَمُ مَضْمُومٌ بِلَا تَنْوِينٍ:\nيَا مُحَمَّدُ ✅ (لَا: مُحَمَّدٌ)\n\n٢) «اَللَّهُمَّ» = يَا اللهُ 🤲\nحُذِفَتْ «يَا» وَعُوِّضَ عَنْهَا بِالْمِيمِ الْمُشَدَّدَةِ فِي آخِرِهِ\n\n٣) اَلدُّعَاءُ = فِعْلُ أَمْرٍ + ضَمِيرٌ:\nاِغْفِرْ + لِي ← اِغْفِرْ لِي 🤲\nاِرْحَمْ + نِي ← اِرْحَمْنِي 💗 (نُونُ الْوِقَايَةِ)\nاِهْدِ + نِي ← اِهْدِنِي 🧭\nأَعِنْ + نِي ← أَعِنِّي 💪\nبَارِكْ + لَنَا ← بَارِكْ لَنَا ✨\n\n⚠️ مَعَ الْمُتَكَلِّمِ نُونُ الْوِقَايَةِ:\nاِرْحَمْنِي (لَا: اِرْحَمِي)\n\n٤) صِيَغٌ أُخْرَى:\nأَسْأَلُ اللهَ أَنْ يَرْزُقَنِي (أَنْ + مَنْصُوبٌ)\nأَعُوذُ بِاللهِ مِنْ ... (مَجْرُورٌ بَعْدَ مِنْ) 🛡️\n\n٥) اَلطَّلَبُ مِنَ النَّاسِ بِأَدَبٍ:\nلَوْ سَمَحْتَ · مِنْ فَضْلِكَ · هَلْ يُمْكِنُكَ؟ · أَرْجُو مِنْكَ",
         hint: "Du'a is built from a command verb plus an attached pronoun: اغفرْ + لي, ارحمْ + ني. Remember نون الوقاية before the ي. اللهم is simply يا الله with the yaa replaced by a doubled meem.",
       },
@@ -4230,6 +4497,32 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "مِنَ الْفِعْلِ: مَصْدَرٌ وَاسْمُ فَاعِلٍ وَاسْمُ مَفْعُولٍ",
+        teach: [
+          {
+            say: "Read these four lines aloud. Each line is one root taking four different shapes.",
+            show: "كَتَبَ · كِتَابَةٌ · كَاتِبٌ · مَكْتُوبٌ\nقَرَأَ · قِرَاءَةٌ · قَارِئٌ · مَقْرُوءٌ\nعَلِمَ · عِلْمٌ · عَالِمٌ · مَعْلُومٌ\nفَتَحَ · فَتْحٌ · فَاتِحٌ · مَفْتُوحٌ",
+          },
+          {
+            say: "١. The second word in each line names the ACTION ITSELF — writing, reading, knowing. It is called المَصْدَر.",
+            show: "كِتَابَةٌ = the act of writing\nقِرَاءَةٌ = the act of reading",
+          },
+          {
+            say: "٢. The third names the ONE WHO DOES IT, always on the shape فَاعِل. This is اسم الفاعل.",
+            show: "كَاتِبٌ · قَارِئٌ · عَالِمٌ · فَاتِحٌ",
+          },
+          {
+            say: "٣. The fourth names THE THING IT WAS DONE TO, always on the shape مَفْعُول. This is اسم المفعول.",
+            show: "مَكْتُوبٌ · مَقْرُوءٌ · مَعْلُومٌ · مَفْتُوحٌ",
+          },
+          {
+            say: "٤. The مصدر behaves as an ordinary noun and can begin a sentence.",
+            show: "طَلَبُ الْعِلْمِ وَاجِبٌ\nاَلْقِرَاءَةُ مُفِيدَةٌ",
+          },
+          {
+            say: "٥. Learn a verb together with these three and you have learned four words, not one.",
+            show: "سَمِعَ · سَمَاعٌ · سَامِعٌ · مَسْمُوعٌ",
+          },
+        ],
         ar: "مِنْ كُلِّ فِعْلٍ تَتَوَلَّدُ أَسْمَاءٌ:\n\n١) اَلْمَصْدَرُ — اِسْمُ الْحَدَثِ نَفْسِهِ:\nكَتَبَ ← كِتَابَةٌ ✍️ · قَرَأَ ← قِرَاءَةٌ 📖\nذَهَبَ ← ذَهَابٌ 🚶 · عَلِمَ ← عِلْمٌ 📗\n\n٢) اِسْمُ الْفَاعِلِ (فَاعِلٌ) — مَنْ فَعَلَ:\nكَتَبَ ← كَاتِبٌ 🧑✍️ · عَلِمَ ← عَالِمٌ 🧔📗\nعَلَى وَزْنِ «فَاعِل»\n\n٣) اِسْمُ الْمَفْعُولِ (مَفْعُولٌ) — مَا وَقَعَ عَلَيْهِ:\nكَتَبَ ← مَكْتُوبٌ ✅ · عَلِمَ ← مَعْلُومٌ\nعَلَى وَزْنِ «مَفْعُول»\n\n⚠️ اَلْمَصْدَرُ يُعْرَبُ كَالِاسْمِ:\nطَلَبُ الْعِلْمِ وَاجِبٌ (مُبْتَدَأٌ + خَبَرٌ)",
         hint: "Every Arabic verb generates a family: the verbal noun (the act itself), the active participle (the one doing), and the passive participle (the thing done). Recognising فاعل and مفعول patterns lets you decode hundreds of new words.",
       },
@@ -4512,6 +4805,33 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "وَزْنُ أَفْعَلَ لِلْمُفَاضَلَةِ",
+        teach: [
+          {
+            say: "Read these comparisons aloud.",
+            show: "اَلْبَيْتُ أَكْبَرُ مِنَ الْغُرْفَةِ\nاَلْمَسْجِدُ أَقْرَبُ مِنَ السُّوقِ\nاَلْعِلْمُ أَفْضَلُ مِنَ الْمَالِ\nأَخِي أَطْوَلُ مِنِّي",
+          },
+          {
+            say: "١. To compare, put the adjective on the shape أَفْعَل and follow it with مِنْ.",
+            show: "كَبِيرٌ ← أَكْبَرُ مِنْ\nقَرِيبٌ ← أَقْرَبُ مِنْ\nجَمِيلٌ ← أَجْمَلُ مِنْ",
+          },
+          {
+            say: "٢. What follows مِنْ takes a kasra — the same rule as every preposition.",
+            show: "أَكْبَرُ مِنَ الْغُرْفَةِ",
+          },
+          {
+            say: "٣. Note that أَفْعَل never takes tanwin. It belongs to الممنوع من الصرف, like the colours.",
+            show: "اَلْبَيْتُ أَكْبَرُ ✅",
+            warn: "❌ اَلْبَيْتُ أَكْبَرٌ",
+          },
+          {
+            say: "٤. For 'the best of all', use إضافة instead of مِنْ.",
+            show: "أَحْسَنُ كِتَابٍ\nأَفْضَلُ الطُّلَّابِ",
+          },
+          {
+            say: "٥. And this is why we say اَللهُ أَكْبَرُ — a single damma, no tanwin, seventeen times a day.",
+            show: "اَللهُ أَكْبَرُ",
+          },
+        ],
         ar: "مِنَ الصِّفَةِ نَصُوغُ «أَفْعَلَ»:\nكَبِيرٌ ← أَكْبَرُ ⬆️ · صَغِيرٌ ← أَصْغَرُ\nجَمِيلٌ ← أَجْمَلُ · قَرِيبٌ ← أَقْرَبُ\n\n١) اَلْمُفَاضَلَةُ بِـ «مِنْ»:\nاَلْبَيْتُ أَكْبَرُ مِنَ الْغُرْفَةِ 🏠⬆️🛋️\n(وَمَا بَعْدَ «مِنْ» مَجْرُورٌ)\n\n٢) اَلتَّفْضِيلُ الْمُطْلَقُ بِالْإِضَافَةِ:\nأَحْسَنُ كِتَابٍ 📖 · أَفْضَلُ الطُّلَّابِ\n\n⚠️ أَفْعَلُ مَمْنُوعٌ مِنَ الصَّرْفِ — بِلَا تَنْوِينٍ:\n✅ أَكْبَرُ (لَا: أَكْبَرٌ)\n\n⚠️ اَلْمُؤَنَّثُ عَلَى «فُعْلَى»:\nأَكْبَرُ ← الْكُبْرَى · أَصْغَرُ ← الصُّغْرَى",
         hint: "Turn any adjective into a comparative on the pattern أَفْعَل. Compare with مِنْ (the following noun is مجرور), or make it superlative with إضافة. Like colours, these never take tanwin.",
       },
@@ -4971,6 +5291,32 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "أُسْلُوبُ الدُّرُوسِ: قَالَ … أَيْ … يَعْنِي",
+        teach: [
+          {
+            say: "Read these as a scholar would say them in a lesson.",
+            show: "قَالَ اللهُ تَعَالَى\nقَالَ رَسُولُ اللهِ ﷺ\nقَالَ الْمُؤَلِّفُ رَحِمَهُ اللهُ\nمَا الدَّلِيلُ عَلَى هَذَا؟",
+          },
+          {
+            say: "١. قَالَ introduces a quotation. When you hear it, what follows is not the speaker's own words but a transmission.",
+            show: "قَالَ · ذَكَرَ · رَوَى",
+          },
+          {
+            say: "٢. These two words are the most useful in the whole lesson. When a shaykh says أَيْ or يَعْنِي, what follows is the SIMPLE explanation of a hard word.",
+            show: "«اَلصِّرَاطَ» أَيِ: الطَّرِيقَ\nيَعْنِي: كَذَا وَكَذَا",
+          },
+          {
+            say: "٣. So even if you missed the difficult term, wait — the explanation is coming immediately after.",
+            show: "كَلِمَةٌ صَعْبَةٌ ← أَيْ ← شَرْحٌ سَهْلٌ",
+          },
+          {
+            say: "٤. Learn these five nouns and you will follow the shape of any lesson.",
+            show: "اَلدَّلِيلُ = the evidence\nاَلْمَسْأَلَةُ = the issue\nاَلْحُكْمُ = the ruling\nاَلْبَابُ = the chapter\nاَلْفَصْلُ = the section",
+          },
+          {
+            say: "٥. And these follow the names, always.",
+            show: "اَللهُ ← سُبْحَانَهُ وَتَعَالَى\nاَلنَّبِيُّ ← صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ\nاَلصَّحَابِيُّ ← رَضِيَ اللهُ عَنْهُ\nاَلْعَالِمُ ← رَحِمَهُ اللهُ",
+          },
+        ],
         ar: "لِلدَّرْسِ لُغَةٌ خَاصَّةٌ، تَعَرَّفْ عَلَيْهَا:\n\n١) اَلنَّقْلُ: قَالَ 🗣️ · ذَكَرَ 📝 · رَوَى\nقَالَ اللهُ تَعَالَى · قَالَ رَسُولُ اللهِ ﷺ\nقَالَ الْمُؤَلِّفُ رَحِمَهُ اللهُ\n\n٢) اَلشَّرْحُ: أَيْ ➡️💡 · يَعْنِي 💡\nيَشْرَحُ الشَّيْخُ الْكَلِمَةَ الصَّعْبَةَ بِهِمَا\n«اَلصِّرَاطَ» أَيِ: الطَّرِيقَ\n\n٣) اَلسُّؤَالُ: مَا الدَّلِيلُ؟ 📜 · مَا الْحُكْمُ؟ ⚖️\n\n⚠️ اِسْتَمِعْ إِلَى «أَيْ» وَ «يَعْنِي» — بَعْدَهُمَا يَأْتِي الْمَعْنَى الْبَسِيطُ",
         hint: "Lectures have their own signposts. قَالَ introduces a quotation; أَيْ and يَعْنِي introduce the simple explanation of a hard word. Training your ear on these two words alone will unlock much of a dars.",
       },

@@ -48,6 +48,7 @@ export function Beads({ total, filled }) {
 }
 
 const STAGE_LABELS = [
+  { id: "intro", ar: "فِي هَذَا الدَّرْسِ", en: "In this lesson" },
   { id: "vocab", ar: "مُفْرَدَات", en: "Vocabulary" },
   { id: "pattern", ar: "أَمْثِلَة", en: "Examples" },
   { id: "rule", ar: "اَلْقَاعِدَة", en: "The Rule" },
@@ -57,7 +58,7 @@ const STAGE_LABELS = [
 
 export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgress, onExit, saved }) {
   // Resume exactly where the learner left off last time.
-  const [stage, setStage] = useState(saved?.stage || "vocab");
+  const [stage, setStage] = useState(saved?.stage || "intro");
 
   // Report progress on EVERY stage change so nothing is ever lost by leaving.
   const goStage = (next) => {
@@ -129,6 +130,59 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
   );
 }
 
+// اَلْمُقَدِّمَةُ — exactly how a Madinah lesson opens:
+// state plainly what will be learned, showing the actual sentences.
+function IntroStage({ lesson, onDone }) {
+  const items = (lesson.examples || []).slice(0, 6);
+  return (
+    <div className="fadein">
+      <div className="card" style={{ padding: "22px 18px" }}>
+        <div className="arabic" dir="rtl" style={{ fontSize: 23, color: C.emerald, fontWeight: 700, textAlign: "center" }}>
+          فِي هَذَا الدَّرْسِ نَتَعَلَّمُ:
+        </div>
+        <div style={{ fontSize: 11, color: C.faded, textAlign: "center", marginTop: 2 }}>
+          In this lesson we learn the following
+        </div>
+
+        <div dir="rtl" style={{ marginTop: 16 }}>
+          {items.map((e, i) => (
+            <div key={i} style={{
+              display: "flex", alignItems: "flex-start", gap: 10,
+              padding: "9px 0", borderBottom: i < items.length - 1 ? `1px dashed ${C.border}` : "none",
+            }}>
+              <span style={{ color: C.gold, fontSize: 13, flexShrink: 0, marginTop: 5 }}>
+                {["١","٢","٣","٤","٥","٦"][i]}
+              </span>
+              <div style={{ flex: 1 }}>
+                <div className="arabic" style={{ fontSize: 24, lineHeight: 1.9 }}>{e.ar}</div>
+              </div>
+              <button onClick={() => speak(e.ar)} style={{ fontSize: 14, color: C.emerald, flexShrink: 0, marginTop: 4 }}>🔊</button>
+            </div>
+          ))}
+        </div>
+
+        {lesson.rule?.name && (
+          <div dir="rtl" style={{
+            marginTop: 14, padding: "9px 12px", borderRadius: 10,
+            background: C.goldSoft, textAlign: "center",
+          }}>
+            <div style={{ fontSize: 9.5, color: C.gold, letterSpacing: "0.12em" }}>اَلْقَاعِدَةُ</div>
+            <div className="arabic" style={{ fontSize: 19, color: C.gold, marginTop: 2 }}>{lesson.rule.name}</div>
+          </div>
+        )}
+      </div>
+
+      <p style={{ textAlign: "center", fontSize: 11, color: C.faded, marginTop: 12 }}>
+        Read them aloud once, then begin. You are not expected to understand yet.
+      </p>
+
+      <button className="btn-primary arabic" style={{ width: "100%", marginTop: 10, fontSize: 22 }} onClick={onDone}>
+        اِبْدَأْ ←
+      </button>
+    </div>
+  );
+}
+
 function VocabStage({ lesson, onDone }) {
   const [peek, setPeek] = useState({});
   const [idx, setIdx] = useState(0);
@@ -190,6 +244,13 @@ function VocabStage({ lesson, onDone }) {
       </div>
     </div>
   );
+}
+
+// Words appearing in an example that the learner has not met enough times yet
+function newWordsIn(sentence, lesson) {
+  const bare = (t) => String(t).replace(/[\u064B-\u0652\u0670\u0640]/g, "");
+  const b = bare(sentence);
+  return (lesson.vocab || []).filter((v) => v.en && b.includes(bare(v.ar)) && needsHint(`w:${v.ar}`));
 }
 
 function PatternStage({ lesson, onDone }) {
@@ -309,7 +370,7 @@ function RuleStage({ lesson, onDone }) {
         <button
           className="btn-primary arabic"
           style={{ flex: 1, fontSize: 21 }}
-          onClick={() => (last ? onDone() : setI(i + 1))}
+          onClick={() => { markSeen(`w:${w.ar}`); last ? onDone() : setI(i + 1); }}
         >
           {last ? "إِلَى التَّدْرِيبَاتِ ←" : "فَهِمْتُ ✓"}
         </button>

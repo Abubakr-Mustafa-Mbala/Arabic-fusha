@@ -117,23 +117,24 @@ const optionsCache = { current: [] };
 const CHAT_KEY = "fusha_tutor_chat_v1";
 const GREETING = { role: "assistant", content: "السَّلَامُ عَلَيْكُمْ! 👋\n👉 🏠 مَا هَذَا؟" };
 
-function loadChat() {
+function loadChat(key) {
   try {
-    const raw = JSON.parse(localStorage.getItem(CHAT_KEY) || "null");
+    const raw = JSON.parse(localStorage.getItem(key) || "null");
     return Array.isArray(raw) && raw.length ? raw : [GREETING];
   } catch {
     return [GREETING];
   }
 }
-function saveChat(messages) {
+function saveChat(key, messages) {
   try {
-    // keep the file bounded — last 80 messages is plenty of visible history
-    localStorage.setItem(CHAT_KEY, JSON.stringify(messages.slice(-80)));
+    localStorage.setItem(key, JSON.stringify(messages.slice(-80)));
   } catch {}
 }
 
-export function Tutor({ learnedVocab, onExit }) {
-  const [messages, setMessages] = useState(loadChat);
+export function Tutor({ session, learnedVocab, onExit }) {
+  // one conversation per account — never shared between users on a device
+  const chatKey = `fusha_chat_${session?.user?.id || "guest"}`;
+  const [messages, setMessages] = useState(() => loadChat(chatKey));
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -191,7 +192,7 @@ export function Tutor({ learnedVocab, onExit }) {
     setError(false);
     const next = [...messages, { role: "user", content: text }];
     setMessages(next);
-    saveChat(next);
+    saveChat(chatKey, next);
     setInput("");
     setLoading(true);
     try {
@@ -199,14 +200,14 @@ export function Tutor({ learnedVocab, onExit }) {
       const reply = await callAI({ mode: "tutor", vocab, level, messages: next });
       setMessages((m) => {
         const withReply = [...m, { role: "assistant", content: reply }];
-        saveChat(withReply);
+        saveChat(chatKey, withReply);
         return withReply;
       });
       speak(reply);
     } catch {
       setError(true);
       setMessages(next.slice(0, -1));
-      saveChat(next.slice(0, -1));
+      saveChat(chatKey, next.slice(0, -1));
       setInput(text);
     } finally {
       setLoading(false);
@@ -223,7 +224,7 @@ export function Tutor({ learnedVocab, onExit }) {
         <button
           onClick={() => {
             setMessages([GREETING]);
-            saveChat([GREETING]);
+            saveChat(chatKey, [GREETING]);
           }}
           style={{ color: C.faded, fontSize: 12, padding: 6 }}
           aria-label="start new conversation"

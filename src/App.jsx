@@ -13,6 +13,8 @@ import Studio from "./components/Studio";
 import Listening from "./components/Listening";
 import Passages from "./components/Passages";
 import Syllabus from "./components/Syllabus";
+import Vocabulary from "./components/Vocabulary";
+import QuranStudio from "./components/QuranStudio";
 import { fetchRecordings, isRecorder, audioUrl } from "./lib/recordings";
 
 const PASS_GATE = 60; // مقبول unlocks the next lesson; retake anytime to raise the grade
@@ -130,9 +132,13 @@ export default function App() {
 
   // Saves a lesson result to device + account. Called when drills finish AND at lesson end,
   // so progress is never lost by leaving before the final button.
-  const saveLessonResult = (lesson, score) => {
+  const saveLessonResult = (lesson, payload) => {
+    // payload may be a bare score (end of lesson) or { stage, pct, score }
+    const p = typeof payload === "number" ? { score: payload, pct: 100, stage: "produce" } : payload || {};
     const prev = state.lessons[lesson.id];
-    const finalScore = Math.max(prev?.score ?? 0, score ?? 0);
+    const finalScore = Math.max(prev?.score ?? 0, p.score ?? prev?.score ?? 0);
+    const finalPct = Math.max(prev?.pct ?? 0, p.pct ?? 0);
+    const stage = p.stage || prev?.stage || "vocab";
     const newCards = {};
     update((s) => {
       const seeded = seedLessonIntoSrs(s, lesson);
@@ -143,7 +149,7 @@ export default function App() {
         ...seeded,
         lessons: {
           ...seeded.lessons,
-          [lesson.id]: { score: finalScore, completedAt: Date.now() },
+          [lesson.id]: { score: finalScore, pct: finalPct, stage, completedAt: Date.now() },
         },
       };
     });
@@ -217,7 +223,8 @@ export default function App() {
           lesson={lesson}
           learnedVocab={learnedUpto(i)}
           onExit={() => go({ name: "home" })}
-          onProgress={(score) => saveLessonResult(lesson, score)}
+          saved={state.lessons[lesson.id]}
+          onProgress={(p) => saveLessonResult(lesson, p)}
           onFinish={(score) => {
             saveLessonResult(lesson, score);
             go({ name: "home" });
@@ -297,6 +304,22 @@ export default function App() {
           </div>
           <Studio session={session} onExit={() => go({ name: "home" })} />
         </>
+      </Shell>
+    );
+  }
+
+  if (view.name === "qstudio") {
+    return (
+      <Shell nav={navBar} sidebar={sideBar}>
+        <QuranStudio session={session} onExit={() => go({ name: "home" })} />
+      </Shell>
+    );
+  }
+
+  if (view.name === "vocab") {
+    return (
+      <Shell nav={navBar} sidebar={sideBar}>
+        <Vocabulary onExit={() => go({ name: "home" })} onAddWord={addVocab} />
       </Shell>
     );
   }
@@ -401,23 +424,52 @@ export default function App() {
               key={l.id}
               dir="rtl"
               disabled={!unlocked}
-              onClick={() => setView({ name: "lesson", index: i })}
+              onClick={() => go({ name: "lesson", index: i })}
               className="card"
               style={{
-                width: "100%", padding: "14px 16px", display: "flex",
-                alignItems: "center", justifyContent: "space-between",
+                width: "100%", padding: "13px 16px", display: "block",
                 opacity: unlocked ? 1 : 0.45,
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <span style={{ fontSize: 24 }}>{rec ? "✅" : unlocked ? "📖" : "🔒"}</span>
-                <div style={{ textAlign: "right" }}>
-                  <div className="arabic" style={{ fontSize: 26, color: C.ink }}>{l.title}</div>
-                  <div className="arabic" style={{ fontSize: 15, color: C.faded }}>{l.subtitle}</div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                  <span style={{
+                    width: 30, height: 30, borderRadius: "50%", flexShrink: 0,
+                    display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700,
+                    background: rec?.pct >= 100 ? C.emerald : unlocked ? C.emeraldSoft : C.border,
+                    color: rec?.pct >= 100 ? "#fff" : unlocked ? C.emerald : C.faded,
+                  }}>
+                    {rec?.pct >= 100 ? "✓" : unlocked ? i + 1 : "🔒"}
+                  </span>
+                  <div style={{ textAlign: "right" }}>
+                    <div className="arabic" style={{ fontSize: 24, color: C.ink }}>{l.title}</div>
+                    <div className="arabic" style={{ fontSize: 14, color: C.faded }}>{l.subtitle}</div>
+                  </div>
                 </div>
+                {band && (
+                  <span className="arabic" style={{ fontSize: 17, color: band.color, fontWeight: 700 }}>{band.ar}</span>
+                )}
               </div>
-              {band && (
-                <span className="arabic" style={{ fontSize: 18, color: band.color, fontWeight: 700 }}>{band.ar}</span>
+
+              {/* progress bar — fills as the learner moves through the stages */}
+              {unlocked && (
+                <div style={{ marginTop: 9 }}>
+                  <div style={{ height: 6, background: C.border, borderRadius: 99, overflow: "hidden" }}>
+                    <div style={{
+                      width: `${rec?.pct || 0}%`, height: "100%",
+                      background: (rec?.pct || 0) >= 100 ? C.emerald : C.gold,
+                      transition: "width .3s",
+                    }} />
+                  </div>
+                  <div dir="ltr" style={{ display: "flex", justifyContent: "space-between", marginTop: 3 }}>
+                    <span style={{ fontSize: 9.5, color: C.faded }}>
+                      {rec?.pct ? `${rec.pct}%` : "not started"}
+                    </span>
+                    {rec?.pct > 0 && rec.pct < 100 && (
+                      <span style={{ fontSize: 9.5, color: C.gold, fontWeight: 700 }}>tap to continue ←</span>
+                    )}
+                  </div>
+                </div>
               )}
             </button>
           );
@@ -436,7 +488,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v7.1 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v8.3 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>
@@ -445,12 +497,14 @@ export default function App() {
 
 function MoreSheet({ go, canRecord, onClose, session }) {
   const items = [
+    { v: "vocab", emoji: "📗", ar: "اَلْمُفْرَدَاتُ", en: "Vocabulary trainer — drill words six ways" },
     { v: "passages", emoji: "🎧", ar: "اَلنُّصُوصُ الْمَسْمُوعَةُ", en: "Recorded texts — hear a human read" },
     { v: "library", emoji: "📚", ar: "اَلْمَكْتَبَةُ", en: "My library — upload your own texts" },
     { v: "dict", emoji: "📕", ar: "اَلْمُعْجَمُ", en: "Dictionary — look up any word" },
   ];
   if (canRecord) {
-    items.push({ v: "studio", emoji: "🎙️", ar: "اَلتَّسْجِيلُ", en: "Recording studio (admin)" });
+    items.push({ v: "studio", emoji: "🎙️", ar: "اَلتَّسْجِيلُ", en: "Recording studio — words & sentences" });
+    items.push({ v: "qstudio", emoji: "📖", ar: "تَسْجِيلُ التِّلَاوَةِ", en: "Quran recitation — record ayah by ayah" });
     items.push({ v: "syllabus", emoji: "📋", ar: "اَلْمَنْهَجُ", en: "Full curriculum — review every lesson" });
   }
 
@@ -538,13 +592,15 @@ function SideBar({ current, go, canRecord, session, dueCount, bareCount }) {
     { v: "home", emoji: "🏠", ar: "اَلدُّرُوس", en: "Lessons" },
     { v: "tutor", emoji: "🎓", ar: "اَلْمُعَلِّم", en: "AI teacher" },
     { v: "quran", emoji: "📖", ar: "اَلْقُرْآن", en: "Quran & Salah" },
+    { v: "vocab", emoji: "📗", ar: "اَلْمُفْرَدَات", en: "Vocabulary" },
     { v: "listening", emoji: "👂", ar: "اَلِاسْتِمَاع", en: "Listening" },
     { v: "passages", emoji: "🎧", ar: "نُصُوصٌ مَسْمُوعَةٌ", en: "Recorded texts" },
     { v: "library", emoji: "📚", ar: "اَلْمَكْتَبَة", en: "My library" },
     { v: "dict", emoji: "📕", ar: "اَلْمُعْجَم", en: "Dictionary" },
   ];
   if (canRecord) {
-    items.push({ v: "studio", emoji: "🎙️", ar: "اَلتَّسْجِيل", en: "Recording studio" });
+    items.push({ v: "studio", emoji: "🎙️", ar: "اَلتَّسْجِيل", en: "Recording studio (words)" });
+    items.push({ v: "qstudio", emoji: "📖", ar: "تَسْجِيلُ التِّلَاوَةِ", en: "Recite the Quran" });
     items.push({ v: "syllabus", emoji: "📋", ar: "اَلْمَنْهَج", en: "Full curriculum (review)" });
   }
 
@@ -646,7 +702,7 @@ function BottomNav({ current, go, onMore }) {
     { v: "home", emoji: "🏠", ar: "اَلدُّرُوس", en: "Lessons" },
     { v: "tutor", emoji: "🎓", ar: "اَلْمُعَلِّم", en: "AI teacher" },
     { v: "quran", emoji: "📖", ar: "اَلْقُرْآن", en: "Quran" },
-    { v: "listening", emoji: "👂", ar: "اِسْتِمَاع", en: "Listen" },
+    { v: "vocab", emoji: "📗", ar: "مُفْرَدَات", en: "Words" },
     { v: "__more", emoji: "☰", ar: "اَلْمَزِيد", en: "More" },
   ];
   return (

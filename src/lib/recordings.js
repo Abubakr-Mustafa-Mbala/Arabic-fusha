@@ -139,3 +139,49 @@ export async function deletePassage(id, storagePath) {
   await supabase.from("passages").delete().eq("id", id);
   if (storagePath) await supabase.storage.from(BUCKET).remove([storagePath]);
 }
+
+// ——— تِلَاوَةُ الْقُرْآنِ — recitation recorded by the team ———
+// One row per ayah. The Mushaf plays the team's voice when it exists,
+// and falls back to the streamed reciter only where nothing is recorded yet.
+
+export async function fetchQuranAudio(surah) {
+  if (!supabase) return {};
+  const { data, error } = await supabase
+    .from("quran_audio")
+    .select("ayah, storage_path")
+    .eq("surah", surah);
+  if (error) return {};
+  const map = {};
+  (data || []).forEach((r) => { map[r.ayah] = r.storage_path; });
+  return map;
+}
+
+export async function fetchQuranProgress() {
+  if (!supabase) return {};
+  const { data, error } = await supabase.from("quran_audio").select("surah");
+  if (error) return {};
+  const counts = {};
+  (data || []).forEach((r) => { counts[r.surah] = (counts[r.surah] || 0) + 1; });
+  return counts;
+}
+
+export async function uploadAyah(userId, surah, ayah, blob) {
+  if (!supabase) throw new Error("no backend");
+  const path = `quran/${surah}-${ayah}-${Date.now().toString(36)}.webm`;
+  const up = await supabase.storage.from(BUCKET).upload(path, blob, {
+    contentType: blob.type || "audio/webm",
+    upsert: false,
+  });
+  if (up.error) throw up.error;
+  const { error } = await supabase
+    .from("quran_audio")
+    .upsert({ surah, ayah, storage_path: path, reciter: userId }, { onConflict: "surah,ayah" });
+  if (error) throw error;
+  return path;
+}
+
+export async function deleteAyah(surah, ayah, storagePath) {
+  if (!supabase) return;
+  await supabase.from("quran_audio").delete().eq("surah", surah).eq("ayah", ayah);
+  if (storagePath) await supabase.storage.from(BUCKET).remove([storagePath]);
+}

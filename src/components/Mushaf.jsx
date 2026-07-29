@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { C } from "../lib/shared";
+import { fetchQuranAudio, audioUrl } from "../lib/recordings";
 
 // اَلْمُصْحَفُ — full Quran reader (text: Tanzil-verified dataset bundled at /quran.json)
 // Bookmark is stored on-device. Audio: real recitation (Mishary Alafasy) streamed per ayah.
@@ -20,6 +21,10 @@ export default function Mushaf({ onExit, onLookup }) {
   const [bookmark, setBookmark] = useState(loadBookmark);
   const audioRef = useRef(null);
   const [playingAyah, setPlayingAyah] = useState(null);
+  const [continuous, setContinuous] = useState(true);   // default: play the whole surah
+  const contRef = useRef(true);
+  const surahRef = useRef(null);
+  const [ourAudio, setOurAudio] = useState({});   // ayah -> storage path, for the current surah
 
   useEffect(() => {
     fetch("https://api.alquran.cloud/v1/quran/quran-uthmani")
@@ -39,24 +44,56 @@ export default function Mushaf({ onExit, onLookup }) {
     return () => { audioRef.current?.pause(); };
   }, []);
 
-  const playAyah = (s, i) => {
+  // Plays one ayah. If continuous mode is on, rolls straight into the next ayah,
+  // and when a surah finishes it opens the next surah and keeps reciting.
+  const loadOurs = (sur) => {
+    fetchQuranAudio(sur.id).then(setOurAudio).catch(() => setOurAudio({}));
+  };
+
+  const playFrom = (sur, i) => {
     try {
-      const globalN = s.off + i + 1;
-      if (playingAyah === globalN) {
-        audioRef.current?.pause();
-        setPlayingAyah(null);
-        return;
-      }
+      surahRef.current = sur;
+      const globalN = sur.off + i + 1;
       audioRef.current?.pause();
-      const a = new Audio(`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${globalN}.mp3`);
+      // our reciter's voice takes priority; the stream is only a fallback
+      const mine = ourAudio[i + 1] ? audioUrl(ourAudio[i + 1]) : null;
+      const a = new Audio(mine || `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${globalN}.mp3`);
       audioRef.current = a;
       setPlayingAyah(globalN);
-      a.onended = () => setPlayingAyah(null);
+      a.onended = () => {
+        if (!contRef.current) { setPlayingAyah(null); return; }
+        if (i + 1 < sur.v.length) {
+          playFrom(sur, i + 1);
+          document.getElementById(`ayah-${i + 2}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          // surah finished — move to the next one automatically
+          const nxt = data.find((x) => x.id === sur.id + 1);
+          if (nxt) {
+            setSurah(nxt);
+            loadOurs(nxt);
+            window.scrollTo(0, 0);
+            setTimeout(() => playFrom(nxt, 0), 400);
+          } else setPlayingAyah(null);
+        }
+      };
       a.onerror = () => setPlayingAyah(null);
       a.play().catch(() => setPlayingAyah(null));
-    } catch {
+    } catch { setPlayingAyah(null); }
+  };
+
+  const playAyah = (sur, i) => {
+    const globalN = sur.off + i + 1;
+    if (playingAyah === globalN) {
+      audioRef.current?.pause();
       setPlayingAyah(null);
+      return;
     }
+    playFrom(sur, i);
+  };
+
+  const stopAll = () => {
+    audioRef.current?.pause();
+    setPlayingAyah(null);
   };
 
   const mark = (s, i) => {
@@ -88,8 +125,33 @@ export default function Mushaf({ onExit, onLookup }) {
     return (
       <div className="fadein">
         <Header title={`سُورَةُ ${surah.name}`} onBack={() => setSurah(null)} />
-        <p style={{ textAlign: "center", fontSize: 10.5, color: C.faded, margin: "6px 0" }}>
-          👆 tap a word for the dictionary · 🔖 bookmark · ▶️ real recitation
+        {/* recitation player — plays the whole surah, then the next */}
+        <div className="card" style={{ padding: "12px 14px", margin: "8px 0", display: "flex", alignItems: "center", gap: 12 }}>
+          <button
+            onClick={() => (playingAyah ? stopAll() : playFrom(surah, 0))}
+            style={{
+              background: C.emerald, color: "#fff", border: "none", borderRadius: "50%",
+              width: 46, height: 46, fontSize: 19, flexShrink: 0,
+            }}
+          >
+            {playingAyah ? "⏸" : "▶"}
+          </button>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 12, color: C.ink, fontWeight: 600 }}>
+              {playingAyah ? "Reciting…" : "Play the whole surah"}
+            </div>
+            <label dir="ltr" style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 3, fontSize: 10.5, color: C.faded }}>
+              <input
+                type="checkbox"
+                checked={continuous}
+                onChange={(e) => { setContinuous(e.target.checked); contRef.current = e.target.checked; }}
+              />
+              continue into the next surah automatically
+            </label>
+          </div>
+        </div>
+        <p style={{ textAlign: "center", fontSize: 10, color: C.faded, marginBottom: 6 }}>
+          tap a word for the dictionary · 🔖 bookmark · ▶ single ayah
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 6 }}>
           {surah.id !== 1 && surah.id !== 9 && (
@@ -152,7 +214,7 @@ export default function Mushaf({ onExit, onLookup }) {
       )}
       <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 10 }}>
         {data.map((s) => (
-          <button key={s.id} dir="rtl" className="card" onClick={() => setSurah(s)}
+          <button key={s.id} dir="rtl" className="card" onClick={() => { setSurah(s); loadOurs(s); }}
             style={{ width: "100%", padding: "10px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <span className="arabic" style={{

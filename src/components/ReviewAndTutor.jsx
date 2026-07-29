@@ -32,7 +32,7 @@ export function ReviewSession({ dueList, allVocab, srs = {}, onAnswer, onExit })
   }
 
   const word = queue[pos];
-  const entry = allVocab.find((v) => v.ar === word) || { ar: word, emoji: "📖" };
+  const entry = allVocab.find((v) => v.ar === word) || { ar: word };
   const distractors = shuffle(allVocab.filter((v) => v.ar !== word)).slice(0, 3);
   const options = picked ? optionsCache.current : shuffle([entry, ...distractors]);
   if (!picked) optionsCache.current = options;
@@ -54,9 +54,35 @@ export function ReviewSession({ dueList, allVocab, srs = {}, onAnswer, onExit })
         <div style={{ width: 34 }} />
       </div>
       <Beads total={queue.length} filled={pos + (picked ? 1 : 0)} />
-      <div className="card" style={{ padding: "34px 20px", textAlign: "center" }}>
-        <div style={{ fontSize: 66 }}>{entry?.emoji}</div>
-        <div className="arabic" dir="rtl" style={{ fontSize: 22, color: C.faded, marginTop: 6 }}>مَا هَذَا؟</div>
+      <div className="card" style={{ padding: "30px 20px", textAlign: "center" }}>
+        {entry?.en ? (
+          <>
+            {/* we know its meaning — ask the learner to produce the Arabic */}
+            <div style={{ fontSize: 22, color: C.ink }}>{entry.en}</div>
+            <div className="arabic" dir="rtl" style={{ fontSize: 20, color: C.faded, marginTop: 8 }}>
+              كَيْفَ تَقُولُ هَذَا بِالْعَرَبِيَّةِ؟
+            </div>
+          </>
+        ) : entry?.img ? (
+          <>
+            <img src={entry.img} alt="" style={{ maxWidth: 180, maxHeight: 140, objectFit: "contain" }} />
+            <div className="arabic" dir="rtl" style={{ fontSize: 20, color: C.faded, marginTop: 6 }}>مَا هَذَا؟</div>
+          </>
+        ) : entry?.emoji ? (
+          <>
+            <div style={{ fontSize: 62 }}>{entry.emoji}</div>
+            <div className="arabic" dir="rtl" style={{ fontSize: 20, color: C.faded, marginTop: 6 }}>مَا هَذَا؟</div>
+          </>
+        ) : (
+          <>
+            {/* no picture and no gloss — recall the word itself, then check */}
+            <div className="arabic" dir="rtl" style={{ fontSize: 34, color: C.ink }}>{display(word)}</div>
+            <div className="arabic" dir="rtl" style={{ fontSize: 18, color: C.faded, marginTop: 8 }}>
+              هَلْ تَذْكُرُ هَذِهِ الْكَلِمَةَ؟
+            </div>
+            <div style={{ fontSize: 10.5, color: C.faded }}>Do you remember this word?</div>
+          </>
+        )}
       </div>
       <div dir="rtl" style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 14 }}>
         {options.map((opt) => {

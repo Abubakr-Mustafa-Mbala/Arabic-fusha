@@ -55,8 +55,16 @@ const STAGE_LABELS = [
   { id: "produce", ar: "إِنْتَاج", en: "Write Your Own" },
 ];
 
-export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgress, onExit }) {
-  const [stage, setStage] = useState("vocab");
+export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgress, onExit, saved }) {
+  // Resume exactly where the learner left off last time.
+  const [stage, setStage] = useState(saved?.stage || "vocab");
+
+  // Report progress on EVERY stage change so nothing is ever lost by leaving.
+  const goStage = (next) => {
+    setStage(next);
+    const pct = Math.round(((STAGE_LABELS.findIndex((x) => x.id === next)) / STAGE_LABELS.length) * 100);
+    onProgress?.({ stage: next, pct });
+  };
 
   // record each stage view so its English label fades once it's familiar
   useEffect(() => { markSeen(`stage:${stage}`); }, [stage]);
@@ -100,18 +108,16 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
         </p>
       )}
 
-      {stage === "vocab" && <VocabStage lesson={lesson} onDone={() => setStage("pattern")} />}
-      {stage === "pattern" && <PatternStage lesson={lesson} onDone={() => setStage("rule")} />}
-      {stage === "rule" && <RuleStage lesson={lesson} onDone={() => setStage("drill")} />}
+      {stage === "vocab" && <VocabStage lesson={lesson} onDone={() => goStage("pattern")} />}
+      {stage === "pattern" && <PatternStage lesson={lesson} onDone={() => goStage("rule")} />}
+      {stage === "rule" && <RuleStage lesson={lesson} onDone={() => goStage("drill")} />}
       {stage === "drill" && (
         <DrillStage
           lesson={lesson}
           onDone={(score) => {
             setDrillScore(score);
-            // Save progress here — the moment the graded work is done.
-            // Previously nothing saved unless the learner reached the final button,
-            // so leaving after the drills lost the whole lesson.
-            onProgress?.(score);
+            // graded work done — save the score AND the position
+            onProgress?.({ stage: "produce", pct: 80, score });
             setStage("produce");
           }}
         />
@@ -133,7 +139,11 @@ function VocabStage({ lesson, onDone }) {
     <div>
       <Beads total={lesson.vocab.length} filled={idx + 1} />
       <div className="card" style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "38px 20px" }}>
-        <div style={{ fontSize: 72 }}>{w.emoji}</div>
+        {w.img ? (
+          <img src={w.img} alt="" style={{ maxWidth: 200, maxHeight: 160, objectFit: "contain" }} />
+        ) : w.emoji ? (
+          <div style={{ fontSize: 72 }}>{w.emoji}</div>
+        ) : null}
         <div className="arabic" dir="rtl" style={{ fontSize: 52 }}>{w.ar}</div>
         {showEn && (
           <div style={{ marginTop: 6, fontSize: 13, color: C.faded, fontStyle: "italic" }}>{w.en}</div>
@@ -474,9 +484,37 @@ function DrillStage({ lesson, onDone }) {
               )}
             </div>
           )}
-          {picked && picked.revealed && (
+          {picked && (picked.revealed || picked.correct) && (item.why || item.a) && (
+            <div className="card fadein" dir="rtl" style={{
+              marginTop: 10, padding: "12px 14px",
+              borderColor: picked.correct ? C.emerald : C.gold, borderWidth: 1.5,
+            }}>
+              {!picked.correct && (
+                <div className="arabic" style={{ fontSize: 19, color: C.faded }}>
+                  اَلْجَوَابُ الصَّحِيحُ: <span style={{ color: C.emerald, fontWeight: 700 }}>{item.a}</span>
+                </div>
+              )}
+              {item.why && (
+                <div style={{ fontSize: 13.5, color: C.ink, lineHeight: 1.7, marginTop: 6, direction: "ltr", textAlign: "left" }}>
+                  {item.why}
+                </div>
+              )}
+              {item.example && (
+                <div className="arabic" dir="rtl" style={{
+                  fontSize: 21, marginTop: 8, padding: "8px 12px", borderRadius: 10,
+                  background: C.emeraldSoft, color: C.emerald, textAlign: "center",
+                }}>
+                  {item.example}
+                </div>
+              )}
+              <div style={{ display: "flex", justifyContent: "center", marginTop: 6 }}>
+                <Speaker text={item.example || item.a} size={16} />
+              </div>
+            </div>
+          )}
+          {false && (
             <div dir="rtl" style={{ textAlign: "center", color: C.faded, fontSize: 18 }} className="arabic fadein">
-              اَلْجَوَابُ الصَّحِيحُ: <span style={{ color: C.emerald, fontWeight: 700 }}>{item.a}</span>
+              <span>{item.a}</span>
               {needsHint("instr:reveal") && (
                 <div style={{ fontSize: 11, color: C.faded, fontStyle: "italic" }}>The correct answer</div>
               )}
@@ -679,6 +717,46 @@ function DrillStage({ lesson, onDone }) {
           حَاوِلْ مَرَّةً أُخْرَى ↺
         </button>
       )}
+      {/* immediate feedback that explains, never a bare "wrong" */}
+      {picked && (picked.correct || picked.revealed) && (
+        <div className="card fadein" dir="rtl" style={{
+          marginTop: 12, padding: "12px 14px",
+          borderColor: picked.correct ? C.emerald : C.gold, borderWidth: 1.5,
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
+            <span style={{ fontSize: 17 }}>{picked.correct ? "✅" : "💡"}</span>
+            <span className="arabic" style={{ fontSize: 19, color: picked.correct ? C.emerald : C.gold, fontWeight: 700 }}>
+              {picked.correct ? "أَحْسَنْتَ" : "اَلْجَوَابُ الصَّحِيحُ"}
+            </span>
+            <span className="arabic" style={{ fontSize: 21, color: C.ink }}>{item.a}</span>
+            <Speaker text={String(item.a)} size={15} />
+          </div>
+
+          {/* why it is right */}
+          {item.why && (
+            <p style={{ fontSize: 13, lineHeight: 1.65, color: C.ink, margin: "4px 0 0" }}>{item.why}</p>
+          )}
+
+          {/* what the wrong choice would have meant */}
+          {!picked.correct && item.wrongWhy && item.wrongWhy[picked.opt] && (
+            <p style={{ fontSize: 12.5, lineHeight: 1.6, color: C.red, margin: "6px 0 0" }}>
+              ❌ {item.wrongWhy[picked.opt]}
+            </p>
+          )}
+
+          {/* an example sentence using it */}
+          {item.example && (
+            <div dir="rtl" style={{
+              marginTop: 8, paddingTop: 8, borderTop: `1px dashed ${C.border}`,
+              display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8,
+            }}>
+              <span className="arabic" style={{ fontSize: 20 }}>{item.example}</span>
+              <Speaker text={item.example} size={14} />
+            </div>
+          )}
+        </div>
+      )}
+
       {picked && (picked.correct || picked.revealed) && (
         <button className="btn-primary arabic" onClick={next}
           style={{ width: "100%", marginTop: 16, fontSize: 21, background: picked.correct ? C.emerald : C.gold }}>

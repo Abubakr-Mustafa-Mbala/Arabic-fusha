@@ -522,40 +522,93 @@ export const CURRICULUM = {
         name: "خَرِيطَةُ التَّذْكِيرِ وَالتَّأْنِيثِ",
         teach: [
           {
-            say: "Last lesson you learned the ة sign. But some feminine words have NO ة at all, and you simply have to know them. Let us gather the whole system in one place so nothing surprises you later.",
-            show: "ثَلَاثُ عَلَامَاتٍ ظَاهِرَةٍ:\nة · ى · اء",
+            say: "You already know the ة. Now we build the complete method — so that you can judge ANY word you meet, including ones nobody has taught you.",
+            show: "مَدْرَسَةٌ · حَقِيبَةٌ · سَيَّارَةٌ\nكِتَابٌ · قَلَمٌ · بَابٌ",
           },
           {
-            say: "First the visible signs. Most feminine words end in ة. A few end in a shortened alif ى, and a few in اء.",
-            show: "مُعَلِّمَةٌ (ة)\nكُبْرَى · حُبْلَى (ى)\nصَحْرَاءُ · حَمْرَاءُ (اء)",
+            say: "Step one: look at the end of the word. There are exactly THREE visible signs of a feminine word — no more.",
+            show: "① ة · ② ى · ③ اء",
           },
           {
-            say: "Now the group you must memorise: feminine words with no sign whatsoever. Body parts that come in PAIRS are all feminine.",
-            show: "يَدٌ · عَيْنٌ · أُذُنٌ · رِجْلٌ",
+            say: "The first is the ة you know. Read these and hear it.",
+            show: "مَدْرَسَةٌ · شَجَرَةٌ · مُعَلِّمَةٌ · سَاعَةٌ",
           },
           {
-            say: "And a short list of well-known nouns is feminine by convention. Learn these seven now and you will avoid most mistakes.",
-            show: "شَمْسٌ · نَارٌ · أَرْضٌ \nنَفْسٌ · رِيحٌ · حَرْبٌ · دَارٌ",
+            say: "The second is a shortened alif ى at the end.",
+            show: "كُبْرَى · صُغْرَى · حُبْلَى · ذِكْرَى",
           },
           {
-            say: "There is also a trap in the other direction: three famous MEN'S names end in ة but are masculine. Never call them feminine.",
-            show: "حَمْزَةُ · أُسَامَةُ · مُعَاوِيَةُ",
-            warn: "حَمْزَةُ طَالِبَةٌ\n حَمْزَةُ طَالِبٌ",
+            say: "The third is اء at the end.",
+            show: "صَحْرَاءُ · حَمْرَاءُ · سَمَاءُ · بَيْضَاءُ",
           },
           {
-            say: "Finally, the rule with the widest reach in the whole language. A plural of NON-HUMAN things is treated as a single feminine word. Books are 'she', not 'they'.",
-            show: "اَلْكُتُبُ جَدِيدَةٌ \nاَلْمَسَاجِدُ كَبِيرَةٌ",
-            warn: "اَلْكُتُبُ جَدِيدُونَ",
+            say: "So the first rule is simple: end the word in ة, ى or اء and it is feminine. If none of those is there, it is masculine — UNLESS it belongs to one of four groups. Learn those four and you are finished.",
+            show: "لَا عَلَامَةَ ← مُذَكَّرٌ\nإِلَّا أَرْبَعَ مَجْمُوعَاتٍ",
           },
           {
-            say: "But plurals of PEOPLE behave normally. Keep these two apart and your Arabic will immediately sound correct.",
-            show: "اَلطُّلَّابُ مُجْتَهِدُونَ \u200d (عَاقِلٌ)\nاَلْكُتُبُ جَدِيدَةٌ (غَيْرُ عَاقِلٍ)",
+            say: "GROUP ONE: parts of the body that come in PAIRS. Every one of them is feminine, none carries a sign.",
+            show: "يَدٌ · عَيْنٌ · أُذُنٌ · رِجْلٌ\nقَدَمٌ · كَفٌّ · سَاقٌ",
+          },
+          {
+            say: "You can test this yourself. Ask: do I have two of these? If yes, it is feminine — so its adjective takes ة.",
+            show: "يَدِي نَظِيفَةٌ ✅\nعَيْنُهُ ضَعِيفَةٌ ✅",
+            warn: "❌ يَدِي نَظِيفٌ",
+          },
+          {
+            say: "GROUP TWO: names of places — countries, cities, tribes. All feminine, whatever they look like.",
+            show: "مَكَّةُ · مِصْرُ · الشَّامُ\nقُرَيْشٌ · بَغْدَادُ",
+          },
+          {
+            say: "GROUP THREE: names of women, even without a ة.",
+            show: "مَرْيَمُ · زَيْنَبُ · سُعَادُ · هِنْدُ",
+          },
+          {
+            say: "GROUP FOUR: a short list heard by the Arabs as feminine. There is no rule behind it — memorise these ten and you will meet almost no others.",
+            show: "شَمْسٌ · نَارٌ · أَرْضٌ · رِيحٌ · نَفْسٌ\nحَرْبٌ · دَارٌ · بِئْرٌ · كَأْسٌ · طَرِيقٌ",
+          },
+          {
+            say: "Now the trap in the other direction. A ة does NOT always mean feminine. These are men's names, and they take masculine agreement.",
+            show: "حَمْزَةُ · أُسَامَةُ · مُعَاوِيَةُ · طَلْحَةُ",
+            warn: "❌ حَمْزَةُ طَالِبَةٌ\n✅ حَمْزَةُ طَالِبٌ",
+          },
+          {
+            say: "And a few words the Arabs used BOTH ways. When you meet one, either agreement is correct — do not think you have made a mistake.",
+            show: "طَرِيقٌ · سُوقٌ · سِكِّينٌ · لِسَانٌ",
+          },
+          {
+            say: "Now the rule with the widest reach of all. A plural of things — not people — is treated as ONE FEMININE word, no matter what the singular was.",
+            show: "كِتَابٌ (مُذَكَّرٌ) ← اَلْكُتُبُ جَدِيدَةٌ\nبَابٌ (مُذَكَّرٌ) ← اَلْأَبْوَابُ مَفْتُوحَةٌ",
+          },
+          {
+            say: "So a masculine singular can become feminine in the plural — because it is no longer a person. This single rule appears on nearly every page of Arabic you will read.",
+            show: "اَلْمَسَاجِدُ كَبِيرَةٌ ✅\nاَلنُّجُومُ جَمِيلَةٌ ✅",
+            warn: "❌ اَلْكُتُبُ جُدُدٌ",
+          },
+          {
+            say: "But plurals of PEOPLE keep normal agreement. Hold this pair side by side.",
+            show: "اَلطُّلَّابُ مُجْتَهِدُونَ (عُقَلَاءُ)\nاَلْكُتُبُ جَدِيدَةٌ (أَشْيَاءُ)",
+          },
+          {
+            say: "Here is the whole method as one question you ask of any word. Work down the list and you will never be stuck again.",
+            show: "① أَفِيهِ ة أَوْ ى أَوْ اء؟ ← مُؤَنَّثٌ\n② أَهُوَ عُضْوٌ مُزْدَوِجٌ؟ ← مُؤَنَّثٌ\n③ أَهُوَ بَلَدٌ أَوِ اسْمُ امْرَأَةٍ؟ ← مُؤَنَّثٌ\n④ أَهُوَ مِنَ الْعَشَرَةِ الْمَحْفُوظَةِ؟ ← مُؤَنَّثٌ\n⑤ أَهُوَ جَمْعُ غَيْرِ عَاقِلٍ؟ ← مُؤَنَّثٌ\nوَإِلَّا ← مُذَكَّرٌ",
+          },
+          {
+            say: "Try it now on a word you have never been taught: مِنْضَدَة. It ends in ة, so it is feminine. And سَحَاب? No sign, not a pair, not a place, not on the list, not a plural of things — so it is masculine.",
+            show: "مِنْضَدَةٌ ← مُؤَنَّثٌ\nسَحَابٌ ← مُذَكَّرٌ",
           },
         ],
         ar: "أَوَّلًا: عَلَامَاتُ التَّأْنِيثِ الظَّاهِرَةُ\n١) اَلتَّاءُ الْمَرْبُوطَةُ ة: مُعَلِّمَةٌ · مَدْرَسَةٌ · سَيَّارَةٌ\n٢) اَلْأَلِفُ الْمَقْصُورَةُ ى: حُبْلَى 🤰 · كُبْرَى\n٣) اَلْأَلِفُ الْمَمْدُودَةُ اء: صَحْرَاءُ 🏜️ · حَمْرَاءُ\n\nثَانِيًا: مُؤَنَّثٌ بِلَا عَلَامَةٍ (يُحْفَظُ)\n• أَعْضَاءُ الْجِسْمِ الْمُزْدَوِجَةُ: يَدٌ ✋ عَيْنٌ 👁️ أُذُنٌ 👂 رِجْلٌ\n• أَسْمَاءٌ مَعْرُوفَةٌ: شَمْسٌ ☀️ نَارٌ 🔥 أَرْضٌ 🌍 نَفْسٌ 🫀 رِيحٌ 💨 حَرْبٌ ⚔️ دَارٌ 🏘️ بِئْرٌ\n• أَسْمَاءُ الْبُلْدَانِ وَالْمُدُنِ: مَكَّةُ 🕋 مِصْرُ 🇪🇬\n• أَسْمَاءُ النِّسَاءِ: مَرْيَمُ · زَيْنَبُ\n\nثَالِثًا: تَاءٌ لَكِنَّهُ مُذَكَّرٌ ⚠️\nحَمْزَةُ · أُسَامَةُ · مُعَاوِيَةُ (أَسْمَاءُ رِجَالٍ)\n\nرَابِعًا: اَلْقَاعِدَةُ الْكُبْرَى\nجَمْعُ غَيْرِ الْعَاقِلِ ← مُؤَنَّثٌ مُفْرَدٌ:\nاَلْكُتُبُ جَدِيدَةٌ 📚 · اَلْمَسَاجِدُ كَبِيرَةٌ 🕌\n\nخَامِسًا: مَا يُذَكَّرُ وَيُؤَنَّثُ\nطَرِيقٌ 🛤️ · سُوقٌ 🏪 · سِكِّينٌ",
         hint: "Three visible signs (ة، ى، اء), then a set you must simply learn: paired body parts, sun/fire/earth/soul/wind/war, place names, women's names. Watch the trap: حمزة and أسامة end in ة but are men.",
       },
       drills: [
+        { t: "mcq", q: "مِنْضَدَةٌ — a word you have never met. Masculine or feminine?", options: ["مُؤَنَّثٌ (فِيهِ ة)", "مُذَكَّرٌ", "الِاثْنَانِ", "لَا يُعْرَفُ"], a: "مُؤَنَّثٌ (فِيهِ ة)", why: "Step one of the method: does it end in ة, ى or اء? It ends in ة, so it is feminine — you did not need to be taught this word.", example: "مِنْضَدَةٌ صَغِيرَةٌ" },
+        { t: "mcq", q: "سَحَابٌ — apply the method. Which is it?", options: ["مُذَكَّرٌ", "مُؤَنَّثٌ", "الِاثْنَانِ", "جَمْعٌ"], a: "مُذَكَّرٌ", why: "No sign, not a paired body part, not a place or woman's name, not on the memorised list, not a non-human plural — therefore masculine.", example: "اَلسَّحَابُ كَثِيفٌ" },
+        { t: "mcq", q: "كَفٌّ (palm of the hand) — which?", options: ["مُؤَنَّثٌ (عُضْوٌ مُزْدَوِجٌ)", "مُذَكَّرٌ", "لَا يُعْرَفُ", "جَمْعٌ"], a: "مُؤَنَّثٌ (عُضْوٌ مُزْدَوِجٌ)", why: "You have two of them, so it falls in group one — feminine despite having no ة.", example: "كَفُّهُ نَظِيفَةٌ" },
+        { t: "mcq", q: "بَغْدَادُ — which?", options: ["مُؤَنَّثٌ (اِسْمُ بَلَدٍ)", "مُذَكَّرٌ", "الِاثْنَانِ", "لَا يُعْرَفُ"], a: "مُؤَنَّثٌ (اِسْمُ بَلَدٍ)", why: "Group two: names of countries and cities are feminine.", example: "بَغْدَادُ قَدِيمَةٌ" },
+        { t: "mcq", q: "طَلْحَةُ — a man's name ending in ة. Which agreement?", options: ["مُذَكَّرٌ", "مُؤَنَّثٌ", "الِاثْنَانِ", "جَمْعٌ"], a: "مُذَكَّرٌ", why: "The ة on a man's name does not make it feminine. Agreement follows the person, not the letter.", example: "طَلْحَةُ كَرِيمٌ" },
+        { t: "mcq", q: "اَلْأَقْلَامُ (pens) — how does its adjective agree?", options: ["مُؤَنَّثٌ مُفْرَدٌ", "جَمْعٌ مُذَكَّرٌ", "مُثَنًّى", "جَمْعٌ مُؤَنَّثٌ"], a: "مُؤَنَّثٌ مُفْرَدٌ", why: "A plural of things is treated as one feminine word — even though قلم is masculine in the singular.", example: "اَلْأَقْلَامُ جَدِيدَةٌ" },
+        { t: "mcq", q: "اَلْمُهَنْدِسُونَ — how does its adjective agree?", options: ["جَمْعٌ مُذَكَّرٌ", "مُؤَنَّثٌ مُفْرَدٌ", "مُثَنًّى", "لَا يُوجَدُ"], a: "جَمْعٌ مُذَكَّرٌ", why: "These are people, so the plural agrees normally — not as a feminine singular.", example: "اَلْمُهَنْدِسُونَ مَاهِرُونَ" },
+        { t: "match", q: "صِلْ كُلَّ كَلِمَةٍ بِسَبَبِ تَأْنِيثِهَا", pairs: [["يَدٌ","عُضْوٌ مُزْدَوِجٌ"],["مَكَّةُ","اِسْمُ بَلَدٍ"],["مَدْرَسَةٌ","فِيهَا ة"],["شَمْسٌ","سَمَاعِيٌّ مَحْفُوظٌ"]] },
         { t: "mcq", q: "(يَدٌ)", options: ["مُؤَنَّثٌ", "مُذَكَّرٌ", "الِاثْنَانِ", "لَا شَيْءَ"], a: "مُؤَنَّثٌ" },
         { t: "mcq", q: "(شَمْسٌ)", options: ["مُؤَنَّثٌ", "مُذَكَّرٌ", "الِاثْنَانِ", "لَا شَيْءَ"], a: "مُؤَنَّثٌ" },
         { t: "mcq", q: "(أَرْضٌ)", options: ["مُؤَنَّثٌ", "مُذَكَّرٌ", "الِاثْنَانِ", "لَا شَيْءَ"], a: "مُؤَنَّثٌ" },
@@ -578,9 +631,155 @@ export const CURRICULUM = {
       productionEn: "Write six sentences: three with feminine nouns that have no ة, three with non-human plurals",
     },
     {
+      id: "l70",
+      title: "اِسْتِثْنَاءَاتُ التَّأْنِيثِ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ",
+      vocab: [
+        { ar: "حَمْزَةُ", en: "Hamzah — a man's name ending in ة" },
+        { ar: "أُسَامَةُ", en: "Usamah — a man's name ending in ة" },
+        { ar: "مُعَاوِيَةُ", en: "Mu'awiyah — a man's name ending in ة" },
+        { ar: "طَلْحَةُ", en: "Talhah — a man's name ending in ة" },
+        { ar: "عُبَادَةُ", en: "Ubadah — a man's name ending in ة" },
+        { ar: "خَلِيفَةٌ", en: "caliph — ة but refers to a man" },
+        { ar: "عَلَّامَةٌ", en: "a great scholar — ة for intensity, not gender" },
+        { ar: "رَاوِيَةٌ", en: "a prolific narrator — ة for intensity" },
+        { ar: "نَسَّابَةٌ", en: "an expert in lineage — ة for intensity" },
+        { ar: "شَمْسٌ", en: "sun — feminine with no sign" },
+        { ar: "نَارٌ", en: "fire — feminine with no sign" },
+        { ar: "أَرْضٌ", en: "earth — feminine with no sign" },
+        { ar: "رِيحٌ", en: "wind — feminine with no sign" },
+        { ar: "نَفْسٌ", en: "soul — feminine with no sign" },
+        { ar: "حَرْبٌ", en: "war — feminine with no sign" },
+        { ar: "دَارٌ", en: "home — feminine with no sign" },
+        { ar: "بِئْرٌ", en: "well — feminine with no sign" },
+        { ar: "كَأْسٌ", en: "cup — feminine with no sign" },
+        { ar: "قِدْرٌ", en: "cooking pot — feminine with no sign" },
+        { ar: "فَأْسٌ", en: "axe — feminine with no sign" },
+        { ar: "عَصًا", en: "staff — feminine" },
+        { ar: "سَمَاءٌ", en: "sky — feminine" },
+        { ar: "سِكِّينٌ", en: "knife — used both ways" },
+        { ar: "طَرِيقٌ", en: "road — used both ways" },
+        { ar: "سُوقٌ", en: "market — used both ways" },
+        { ar: "لِسَانٌ", en: "tongue — used both ways" },
+        { ar: "سُلْطَانٌ", en: "authority — used both ways" },
+        { ar: "ذِرَاعٌ", en: "forearm — used both ways" },
+      ],
+      examples: [
+        { ar: "حَمْزَةُ رَجُلٌ شُجَاعٌ" },
+        { ar: "طَلْحَةُ كَرِيمٌ" },
+        { ar: "هَذَا خَلِيفَةٌ عَادِلٌ" },
+        { ar: "اَلشَّمْسُ طَالِعَةٌ" },
+        { ar: "اَلنَّارُ حَارَّةٌ" },
+        { ar: "اَلْأَرْضُ وَاسِعَةٌ" },
+        { ar: "اَلرِّيحُ شَدِيدَةٌ" },
+        { ar: "اَلْبِئْرُ عَمِيقَةٌ" },
+      ],
+      rule: {
+        name: "اَلْقَاعِدَةُ الذَّهَبِيَّةُ: مَتَى تَخْدَعُكَ الْعَلَامَةُ",
+        teach: [
+          {
+            say: "You now have the method. This lesson is about the places where the SIGN LIES to you — where a ة is there but the word is masculine, or the ة is absent but the word is feminine.",
+            show: "اَلْعَلَامَةُ لَا تَكْفِي وَحْدَهَا",
+          },
+          {
+            say: "FIRST DECEPTION: a ة on a man's name. These are all men, and all of them take masculine agreement. Read every one aloud.",
+            show: "حَمْزَةُ · أُسَامَةُ · مُعَاوِيَةُ\nطَلْحَةُ · عُبَادَةُ · عُرْوَةُ\nقَتَادَةُ · عِكْرِمَةُ · أَبُو هُرَيْرَةَ",
+          },
+          {
+            say: "So the agreement follows the PERSON, never the letter. Read these six and hear how wrong the feminine would sound.",
+            show: "حَمْزَةُ رَجُلٌ شُجَاعٌ\nطَلْحَةُ كَرِيمٌ\nأُسَامَةُ صَغِيرٌ\nمُعَاوِيَةُ حَلِيمٌ\nعُبَادَةُ صَادِقٌ\nقَتَادَةُ عَالِمٌ",
+            warn: "❌ حَمْزَةُ شُجَاعَةٌ\n❌ طَلْحَةُ كَرِيمَةٌ",
+          },
+          {
+            say: "SECOND DECEPTION: a ة on a word that describes a man by his role.",
+            show: "خَلِيفَةٌ = a caliph (a man)\nهَذَا خَلِيفَةٌ عَادِلٌ ✅",
+          },
+          {
+            say: "THIRD DECEPTION, and this one is subtle: sometimes the ة is added not for gender at all, but to INTENSIFY. It means 'very much so'.",
+            show: "عَالِمٌ = a scholar\nعَلَّامَةٌ = a MASTER scholar (still a man)",
+          },
+          {
+            say: "You will meet these in the books of hadith and biography constantly. Every one of them describes a man.",
+            show: "عَلَّامَةٌ · رَاوِيَةٌ · نَسَّابَةٌ\nفَهَّامَةٌ · رَحَّالَةٌ · دَاهِيَةٌ",
+          },
+          {
+            say: "So when you read ابْنُ حَجَرٍ الْعَلَّامَةُ, the ة is praise, not gender. Its adjective stays masculine.",
+            show: "هُوَ عَلَّامَةٌ كَبِيرٌ ✅",
+            warn: "❌ هُوَ عَلَّامَةٌ كَبِيرَةٌ",
+          },
+          {
+            say: "Now the deception in the OTHER direction: no sign at all, yet feminine. First the paired body parts — you already know the test.",
+            show: "يَدٌ · عَيْنٌ · أُذُنٌ · رِجْلٌ\nقَدَمٌ · سَاقٌ · كَفٌّ · فَخِذٌ",
+          },
+          {
+            say: "Read these eight aloud and notice every adjective carries a ة.",
+            show: "يَدِي نَظِيفَةٌ\nعَيْنُهُ ضَعِيفَةٌ\nأُذُنِي كَبِيرَةٌ\nرِجْلُهُ مَكْسُورَةٌ",
+          },
+          {
+            say: "Then the memorised set. There is no reasoning behind these — the Arabs simply spoke them as feminine, and you learn them as you learn any word.",
+            show: "شَمْسٌ · نَارٌ · أَرْضٌ · رِيحٌ · نَفْسٌ\nحَرْبٌ · دَارٌ · بِئْرٌ · كَأْسٌ\nقِدْرٌ · فَأْسٌ · عَصًا · سَمَاءٌ · خَمْرٌ",
+          },
+          {
+            say: "Read all of these aloud. Say each sentence twice — this is how the ear learns what the rule cannot give you.",
+            show: "اَلشَّمْسُ طَالِعَةٌ\nاَلنَّارُ حَارَّةٌ\nاَلْأَرْضُ وَاسِعَةٌ\nاَلرِّيحُ شَدِيدَةٌ\nاَلنَّفْسُ مُطْمَئِنَّةٌ",
+          },
+          {
+            say: "Five more.",
+            show: "اَلْحَرْبُ قَاسِيَةٌ\nاَلدَّارُ كَبِيرَةٌ\nاَلْبِئْرُ عَمِيقَةٌ\nاَلْكَأْسُ مَمْلُوءَةٌ\nاَلسَّمَاءُ صَافِيَةٌ",
+          },
+          {
+            say: "And these three from the Quran, which you have heard many times without noticing the agreement.",
+            show: "وَالشَّمْسِ وَضُحَاهَا\nيَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ\nوَالْأَرْضَ فَرَشْنَاهَا",
+          },
+          {
+            say: "THE LAST GROUP: words the Arabs used BOTH ways. With these, either agreement is correct — you have not made a mistake.",
+            show: "طَرِيقٌ · سُوقٌ · سِكِّينٌ\nلِسَانٌ · سُلْطَانٌ · ذِرَاعٌ",
+          },
+          {
+            say: "So both of these are correct Arabic. Do not correct someone who says the other one.",
+            show: "اَلطَّرِيقُ طَوِيلٌ ✅\nاَلطَّرِيقُ طَوِيلَةٌ ✅",
+          },
+          {
+            say: "Here is the golden rule in one line. The sign is your FIRST check, never your only one.",
+            show: "اَلْعَلَامَةُ ← ثُمَّ الْمَعْنَى ← ثُمَّ السَّمَاعُ",
+          },
+          {
+            say: "In full: if it has a sign, it is feminine — unless it names a man or intensifies him. If it has no sign, it is masculine — unless it is a paired part, a place, a woman, or one of the memorised set.",
+            show: "عَلَامَةٌ + رَجُلٌ ← مُذَكَّرٌ\nلَا عَلَامَةَ + الْمَجْمُوعَاتُ الْأَرْبَعُ ← مُؤَنَّثٌ",
+          },
+          {
+            say: "Read the whole thing once more, then do the drills. They will give you words you have never met and ask you to judge.",
+            show: "حَمْزَةُ كَرِيمٌ · اَلشَّمْسُ جَمِيلَةٌ\nعَلَّامَةٌ كَبِيرٌ · يَدِي نَظِيفَةٌ",
+          },
+        ],
+        ar: "عَلَامَةٌ عَلَى رَجُلٍ ← مُذَكَّرٌ · بِلَا عَلَامَةٍ مَعَ الْمَجْمُوعَاتِ ← مُؤَنَّثٌ",
+        hint: "The ة is only the first check. A man's name or a word of intensity keeps masculine agreement despite it; paired parts, places, women's names and a memorised set are feminine without it.",
+      },
+      drills: [
+        { t: "mcq", q: "حَمْزَةُ ... (choose the correct agreement)", options: ["شُجَاعٌ", "شُجَاعَةٌ", "شُجْعَانٌ", "شَجَاعَةٌ"], a: "شُجَاعٌ", why: "The ة on a man's name does not make it feminine. Agreement follows the person.", example: "حَمْزَةُ رَجُلٌ شُجَاعٌ" },
+        { t: "mcq", q: "طَلْحَةُ ...", options: ["كَرِيمٌ", "كَرِيمَةٌ", "كِرَامٌ", "كَرَامَةٌ"], a: "كَرِيمٌ", why: "Same rule — Talhah is a man.", example: "طَلْحَةُ كَرِيمٌ" },
+        { t: "mcq", q: "هُوَ عَلَّامَةٌ ... (a master scholar)", options: ["كَبِيرٌ", "كَبِيرَةٌ", "كِبَارٌ", "كُبْرَى"], a: "كَبِيرٌ", why: "Here the ة intensifies the meaning — it does not change the gender. He is still a man.", example: "هُوَ عَلَّامَةٌ كَبِيرٌ" },
+        { t: "mcq", q: "اَلشَّمْسُ ...", options: ["طَالِعَةٌ", "طَالِعٌ", "طَوَالِعُ", "مُطْلِعٌ"], a: "طَالِعَةٌ", why: "شمس is feminine although it carries no ة — it belongs to the memorised set.", example: "اَلشَّمْسُ طَالِعَةٌ" },
+        { t: "mcq", q: "اَلْبِئْرُ ...", options: ["عَمِيقَةٌ", "عَمِيقٌ", "أَعْمَاقٌ", "عُمْقٌ"], a: "عَمِيقَةٌ", why: "بئر is feminine by hearing, not by sign.", example: "اَلْبِئْرُ عَمِيقَةٌ" },
+        { t: "mcq", q: "يَدُهُ ...", options: ["نَظِيفَةٌ", "نَظِيفٌ", "نِظَافٌ", "نَظَافَةٌ"], a: "نَظِيفَةٌ", why: "A paired body part is feminine even with no ة — you have two hands.", example: "يَدُهُ نَظِيفَةٌ" },
+        { t: "mcq", q: "خَلِيفَةٌ عَادِلٌ — why is the adjective masculine?", options: ["لِأَنَّ الْخَلِيفَةَ رَجُلٌ", "خَطَأٌ، يَجِبُ عَادِلَةٌ", "لَا سَبَبَ", "لِأَنَّهُ جَمْعٌ"], a: "لِأَنَّ الْخَلِيفَةَ رَجُلٌ", why: "The word describes a man, so agreement follows the meaning rather than the ة.", example: "هَذَا خَلِيفَةٌ عَادِلٌ" },
+        { t: "mcq", q: "اَلطَّرِيقُ طَوِيلٌ / اَلطَّرِيقُ طَوِيلَةٌ — which is correct?", options: ["كِلَاهُمَا صَحِيحٌ", "اَلْأَوَّلُ فَقَطْ", "اَلثَّانِي فَقَطْ", "كِلَاهُمَا خَطَأٌ"], a: "كِلَاهُمَا صَحِيحٌ", why: "طريق is one of the words the Arabs used both ways. Neither is a mistake.", example: "اَلطَّرِيقُ طَوِيلٌ" },
+        { t: "mcq", q: "عُبَادَةُ — man or woman?", options: ["رَجُلٌ", "اِمْرَأَةٌ", "الِاثْنَانِ", "لَا يُعْرَفُ"], a: "رَجُلٌ", why: "A companion's name. The ة deceives; the person decides.", example: "عُبَادَةُ صَادِقٌ" },
+        { t: "mcq", q: "فَأْسٌ (an axe) — which?", options: ["مُؤَنَّثٌ", "مُذَكَّرٌ", "الِاثْنَانِ", "جَمْعٌ"], a: "مُؤَنَّثٌ", why: "One of the memorised set — feminine by hearing, with no sign.", example: "اَلْفَأْسُ حَادَّةٌ" },
+        { t: "match", q: "صِلْ كُلَّ كَلِمَةٍ بِسَبَبِهَا", pairs: [["حَمْزَةُ","ة لَكِنَّهُ رَجُلٌ"],["عَلَّامَةٌ","ة لِلْمُبَالَغَةِ"],["يَدٌ","عُضْوٌ مُزْدَوِجٌ"],["نَارٌ","سَمَاعِيٌّ مَحْفُوظٌ"]] },
+        { t: "match", q: "صِلْ كُلَّ كَلِمَةٍ بِنَوْعِهَا", pairs: [["طَرِيقٌ","يُذَكَّرُ وَيُؤَنَّثُ"],["مَكَّةُ","اِسْمُ بَلَدٍ"],["مَرْيَمُ","اِسْمُ امْرَأَةٍ"],["كِتَابٌ","مُذَكَّرٌ"]] },
+        { t: "complete", q: "اَلرِّيحُ شَدِيدَ___", options: ["ةٌ", "ٌ", "ًا", "ٍ"], a: "ةٌ", why: "ريح is feminine, so the adjective takes ة.", example: "اَلرِّيحُ شَدِيدَةٌ" },
+        { t: "complete", q: "مُعَاوِيَةُ حَلِيم___", options: ["ٌ", "ةٌ", "ًا", "ِ"], a: "ٌ", why: "Mu'awiyah is a man — no ة on the adjective.", example: "مُعَاوِيَةُ حَلِيمٌ" },
+        { t: "assemble", q: "the sun is rising", chips: ["اَلشَّمْسُ", "طَالِعَةٌ"], a: "اَلشَّمْسُ طَالِعَةٌ" },
+        { t: "assemble", q: "Hamzah is a brave man", chips: ["حَمْزَةُ", "رَجُلٌ", "شُجَاعٌ"], a: "حَمْزَةُ رَجُلٌ شُجَاعٌ" },
+      ],
+      production: "اُكْتُبْ عَشْرَ جُمَلٍ: ثَلَاثًا بِأَسْمَاءِ رِجَالٍ فِيهَا تَاءٌ، وَثَلَاثًا بِمُؤَنَّثٍ بِلَا عَلَامَةٍ، وَأَرْبَعًا بِأَعْضَاءٍ مُزْدَوِجَةٍ ✍️",
+      productionEn: "Write ten sentences: three with men's names ending in ة, three with feminine words that have no sign, and four with paired body parts",
+    },
+    {
       id: "l8",
       title: "اَلْإِضَافَةُ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ",
       vocab: [
         { ar: "مِفْتَاحُ الْبَابِ",  },
         { ar: "كِتَابُ الطَّالِبِ" },
@@ -667,7 +866,7 @@ export const CURRICULUM = {
     {
       id: "l46",
       title: "اَلْبَيْتُ وَغُرَفُهُ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ",
+      subtitle: "اَلدَّرْسُ الْعَاشِرُ",
       vocab: [
         { ar: "بَيْتٌ / مَنْزِلٌ", emoji: "🏠", en: "house / home" },
         { ar: "شَقَّةٌ", en: "flat / apartment" },
@@ -760,7 +959,7 @@ export const CURRICULUM = {
     {
       id: "l27",
       title: "اَلْإِعْرَابُ: نِهَايَاتُ الْكَلِمَاتِ",
-      subtitle: "اَلدَّرْسُ الْعَاشِرُ",
+      subtitle: "اَلدَّرْسُ الْحَادِيَ عَشَرَ",
       vocab: [
         { ar: "اَلْبَيْتُ", en: "the house — ending in U" },
         { ar: "اَلْبَيْتَ", en: "the house — ending in A" },
@@ -843,7 +1042,7 @@ export const CURRICULUM = {
     {
       id: "l69",
       title: "اَلْجَذْرُ وَالِاشْتِقَاقُ",
-      subtitle: "اَلدَّرْسُ الْحَادِيَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الثَّانِيَ عَشَرَ",
       vocab: [
         { ar: "جَذْرٌ", en: "root — the three letters carrying the core meaning" },
         { ar: "اِشْتِقَاقٌ", en: "derivation — building words from a root" },
@@ -953,7 +1152,7 @@ export const CURRICULUM = {
     {
       id: "l67",
       title: "اَلْكِتَابَةُ وَالْإِمْلَاءُ",
-      subtitle: "اَلدَّرْسُ الثَّانِيَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثَ عَشَرَ",
       vocab: [
         { ar: "هَمْزَةُ الْوَصْلِ", en: "connecting hamza (ٱ — not pronounced mid-speech)" },
         { ar: "هَمْزَةُ الْقَطْعِ", en: "cutting hamza (أ / إ — always pronounced)" },
@@ -1038,7 +1237,7 @@ export const CURRICULUM = {
     {
       id: "l7",
       title: "اَلْأُسْرَةُ وَالْأَقَارِبُ",
-      subtitle: "اَلدَّرْسُ الثَّالِثَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعَ عَشَرَ",
       vocab: [
         { ar: "أُسْرَةٌ", en: "family" },
         { ar: "أَبٌ / وَالِدٌ", en: "father" },
@@ -1126,7 +1325,7 @@ export const CURRICULUM = {
     {
       id: "l11",
       title: "اَلطَّعَامُ وَالشَّرَابُ",
-      subtitle: "اَلدَّرْسُ الرَّابِعَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسَ عَشَرَ",
       vocab: [
         { ar: "طَعَامٌ", en: "food" , quran: "فَلْيَنظُرِ الْإِنسَانُ إِلَىٰ طَعَامِهِ", quranRef: "عبس ٢٤" },
         { ar: "شَرَابٌ", en: "drink" },
@@ -1229,7 +1428,7 @@ export const CURRICULUM = {
     {
       id: "l12",
       title: "اَلْأَلْوَانُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ السَّادِسَ عَشَرَ",
       vocab: [
         { ar: "لَوْنٌ", en: "colour" },
         { ar: "أَبْيَضُ / بَيْضَاءُ", en: "white" },
@@ -1317,7 +1516,7 @@ export const CURRICULUM = {
     {
       id: "l47",
       title: "اَللِّبَاسُ",
-      subtitle: "اَلدَّرْسُ السَّادِسَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ السَّابِعَ عَشَرَ",
       vocab: [
         { ar: "لِبَاسٌ / مَلَابِسُ", en: "clothing" },
         { ar: "ثَوْبٌ", en: "thawb / garment" },
@@ -1406,7 +1605,7 @@ export const CURRICULUM = {
     {
       id: "l31",
       title: "اَلْجِسْمُ وَالصِّحَّةُ",
-      subtitle: "اَلدَّرْسُ السَّابِعَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنَ عَشَرَ",
       vocab: [
         { ar: "جِسْمٌ", en: "body" },
         { ar: "رَأْسٌ", en: "head (m)" },
@@ -1512,7 +1711,7 @@ export const CURRICULUM = {
     {
       id: "l58",
       title: "اَلْحَيَوَانَاتُ",
-      subtitle: "اَلدَّرْسُ الثَّامِنَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعَ عَشَرَ",
       vocab: [
         { ar: "حَيَوَانٌ", en: "animal" },
         { ar: "قِطٌّ / هِرَّةٌ", en: "cat" },
@@ -1578,7 +1777,7 @@ export const CURRICULUM = {
     {
       id: "l59",
       title: "اَلطَّبِيعَةُ وَالْكَوْنُ",
-      subtitle: "اَلدَّرْسُ التَّاسِعَ عَشَرَ",
+      subtitle: "اَلدَّرْسُ الْعِشْرُونَ",
       vocab: [
         { ar: "اَلسَّمَاءُ", en: "sky / heaven (feminine)" , quran: "وَإِلَى السَّمَاءِ كَيْفَ رُفِعَتْ", quranRef: "الغاشية ١٨" },
         { ar: "اَلْأَرْضُ", en: "earth (feminine)" },
@@ -1640,7 +1839,7 @@ export const CURRICULUM = {
     {
       id: "l29",
       title: "اَلْمُثَنَّى",
-      subtitle: "اَلدَّرْسُ الْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالْعِشْرُونَ",
       vocab: [
         { ar: "كِتَابَانِ", emoji: "📖📖", en: "two books" },
         { ar: "بَيْتَانِ", emoji: "🏠🏠", en: "two houses" },
@@ -1719,7 +1918,7 @@ export const CURRICULUM = {
     {
       id: "l19",
       title: "جَمْعُ التَّكْسِيرِ",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالْعِشْرُونَ",
       vocab: [
         { ar: "كُتُبٌ",  },
         { ar: "أَقْلَامٌ",  },
@@ -1804,7 +2003,7 @@ export const CURRICULUM = {
     {
       id: "l30",
       title: "جَمْعُ الْمُذَكَّرِ وَالْمُؤَنَّثِ السَّالِمُ",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "مُسْلِمُونَ", en: "Muslims (sound masc. plural)" },
         { ar: "مُسْلِمَاتٌ", en: "Muslim women (sound fem. plural)" },
@@ -1877,7 +2076,7 @@ export const CURRICULUM = {
     {
       id: "l9",
       title: "اَلْأَعْدَادُ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "وَاحِدٌ" },
         { ar: "اِثْنَانِ" },
@@ -1971,7 +2170,7 @@ export const CURRICULUM = {
     {
       id: "l25",
       title: "اَلْعَدُّ مِنْ ١ إِلَى ٩٩",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "وَاحِدٌ", en: "one" },
         { ar: "اِثْنَانِ", en: "two" },
@@ -2134,7 +2333,7 @@ export const CURRICULUM = {
     {
       id: "l26",
       title: "اَلْمِئَاتُ وَالْأُلُوفُ وَالْمَلَايِينُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "مِئَةٌ", en: "100" , quran: "فَأَمَاتَهُ اللَّهُ مِائَةَ عَامٍ", quranRef: "البقرة ٢٥٩" },
         { ar: "مِئَتَانِ", en: "200" },
@@ -2250,7 +2449,7 @@ export const CURRICULUM = {
     {
       id: "l13",
       title: "اَلْوَقْتُ وَالسَّاعَةُ وَالتَّارِيخُ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "اَلسَّاعَةُ", en: "the hour / clock / watch" },
         { ar: "دَقِيقَةٌ", en: "minute" },
@@ -2368,7 +2567,7 @@ export const CURRICULUM = {
     {
       id: "l37",
       title: "اَلتَّارِيخُ وَالْعُمْرُ",
-      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "كَمْ عُمْرُكَ؟", en: "how old are you?" },
         { ar: "عُمْرِي", en: "my age is" },
@@ -2440,7 +2639,7 @@ export const CURRICULUM = {
     {
       id: "l10",
       title: "اَلضَّمَائِرُ الْمُنْفَصِلَةُ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْعِشْرُونَ",
       vocab: [
         { ar: "هُوَ", emoji: "🧔", en: "he — 1 male, absent" },
         { ar: "هُمَا", emoji: "🧔🧔", en: "they two — dual (male or female)" },
@@ -2609,7 +2808,7 @@ export const CURRICULUM = {
     {
       id: "l24",
       title: "اَلضَّمَائِرُ الْمُتَّصِلَةُ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْعِشْرُونَ",
+      subtitle: "اَلدَّرْسُ الثَّلَاثُونَ",
       vocab: [
         { ar: "كِتَابِي" },
         { ar: "كِتَابُكَ" },
@@ -2715,7 +2914,7 @@ export const CURRICULUM = {
     {
       id: "l5",
       title: "تَعْبِيرَاتٌ يَوْمِيَّةٌ",
-      subtitle: "اَلدَّرْسُ الثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالثَّلَاثُونَ",
       vocab: [
         { ar: "السَّلَامُ عَلَيْكُمْ" },
         { ar: "وَعَلَيْكُمُ السَّلَامُ" },
@@ -2790,7 +2989,7 @@ export const CURRICULUM = {
     {
       id: "l17",
       title: "اَلْأَسْئِلَةُ",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالثَّلَاثُونَ",
       vocab: [
         { ar: "مَنْ؟" },
         { ar: "مَا؟" },
@@ -2876,7 +3075,7 @@ export const CURRICULUM = {
     {
       id: "l18",
       title: "اَلْحِوَارُ",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "اِسْمِي" },
         { ar: "مَا اسْمُكَ؟" },
@@ -2953,7 +3152,7 @@ export const CURRICULUM = {
     {
       id: "l22",
       title: "اَلْمَدِينَةُ وَالسُّوقُ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "مَدِينَةٌ" },
         { ar: "سُوقٌ" },
@@ -3030,7 +3229,7 @@ export const CURRICULUM = {
     {
       id: "l32",
       title: "اَلسَّفَرُ وَالْبُلْدَانُ",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "سَفَرٌ", en: "travel" , quran: "أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ", quranRef: "البقرة ١٨٥" },
         { ar: "مَطَارٌ", en: "airport" },
@@ -3085,7 +3284,7 @@ export const CURRICULUM = {
     {
       id: "l42",
       title: "اَلطَّقْسُ وَالْفُصُولُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "اَلطَّقْسُ", en: "the weather" },
         { ar: "اَلْجَوُّ", en: "the air / weather" },
@@ -3172,7 +3371,7 @@ export const CURRICULUM = {
     {
       id: "l44",
       title: "اَلْمِهَنُ وَالْعَمَلُ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "مِهْنَةٌ", en: "profession" },
         { ar: "طَبِيبٌ", en: "doctor" },
@@ -3254,7 +3453,7 @@ export const CURRICULUM = {
     {
       id: "l60",
       title: "اَلتِّقْنِيَةُ وَالْأَدَوَاتُ",
-      subtitle: "اَلدَّرْسُ السَّابِعُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "هَاتِفٌ / جَوَّالٌ", en: "phone / mobile" },
         { ar: "حَاسُوبٌ", en: "computer" },
@@ -3315,7 +3514,7 @@ export const CURRICULUM = {
     {
       id: "l14",
       title: "اَلْفِعْلُ الْمَاضِي",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالثَّلَاثُونَ",
       vocab: [
         { ar: "ذَهَبَ" },
         { ar: "جَلَسَ" },
@@ -3425,7 +3624,7 @@ export const CURRICULUM = {
     {
       id: "l38",
       title: "تَصْرِيفُ الْمَاضِي",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالثَّلَاثُونَ",
+      subtitle: "اَلدَّرْسُ الْأَرْبَعُونَ",
       vocab: [
         { ar: "ذَهَبَ", en: "he went" },
         { ar: "ذَهَبَا", en: "they two went (m)" },
@@ -3507,7 +3706,7 @@ export const CURRICULUM = {
     {
       id: "l15",
       title: "اَلْفِعْلُ الْمُضَارِعُ",
-      subtitle: "اَلدَّرْسُ الْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "يَذْهَبُ" },
         { ar: "يَجْلِسُ" },
@@ -3591,7 +3790,7 @@ export const CURRICULUM = {
     {
       id: "l39",
       title: "تَصْرِيفُ الْمُضَارِعِ",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "يَذْهَبُ", en: "he goes" },
         { ar: "يَذْهَبَانِ", en: "they two go (m)" },
@@ -3668,7 +3867,7 @@ export const CURRICULUM = {
     {
       id: "l16",
       title: "اَلنَّفْيُ",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "لَا" },
         { ar: "مَا" },
@@ -3757,7 +3956,7 @@ export const CURRICULUM = {
     {
       id: "l40",
       title: "النَّصْبُ وَالْجَزْمُ: لَنْ وَلَمْ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "لَنْ", en: "will never (future negation)" , quran: "لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ", quranRef: "آل عمران ٩٢" },
         { ar: "لَمْ", en: "did not (past negation)" },
@@ -3834,7 +4033,7 @@ export const CURRICULUM = {
     {
       id: "l33",
       title: "اَلْأَمْرُ وَالنَّهْيُ",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "اِقْرَأْ", en: "read! (command)" },
         { ar: "اُكْتُبْ", en: "write!" },
@@ -3911,7 +4110,7 @@ export const CURRICULUM = {
     {
       id: "l36",
       title: "فِي الْبَيْتِ: كَلَامُ الْأُسْرَةِ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "تَعَالَ", en: "come! (to a man)" },
         { ar: "تَعَالَيْ", en: "come! (to a woman)" },
@@ -3998,7 +4197,7 @@ export const CURRICULUM = {
     {
       id: "l48",
       title: "اَلدُّعَاءُ وَالطَّلَبُ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "اَللَّهُمَّ", en: "O Allah" , quran: "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ", quranRef: "آل عمران ٢٦" },
         { ar: "يَا رَبِّ", en: "O my Lord" },
@@ -4092,7 +4291,7 @@ export const CURRICULUM = {
     {
       id: "l54",
       title: "اَلْأَفْعَالُ الْمُعْتَلَّةُ",
-      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "قَالَ / يَقُولُ", en: "he said / says (hollow: و)" , quran: "قَالَ رَبِّ اشْرَحْ لِي صَدْرِي", quranRef: "طه ٢٥" },
         { ar: "كَانَ / يَكُونُ", en: "he was / is (hollow: و)" },
@@ -4184,7 +4383,7 @@ export const CURRICULUM = {
     {
       id: "l45",
       title: "اَلْمَبْنِيُّ لِلْمَجْهُولِ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْأَرْبَعُونَ",
       vocab: [
         { ar: "كُتِبَ", en: "it was written" },
         { ar: "قُرِئَ", en: "it was read" },
@@ -4262,7 +4461,7 @@ export const CURRICULUM = {
     {
       id: "l51",
       title: "أَوْزَانُ الْفِعْلِ: فَعَّلَ وَفَاعَلَ وَأَفْعَلَ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْأَرْبَعُونَ",
+      subtitle: "اَلدَّرْسُ الْخَمْسُونَ",
       vocab: [
         { ar: "عَلِمَ", en: "he knew (form I)" , quran: "عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ", quranRef: "العلق ٥" },
         { ar: "عَلَّمَ", en: "he TAUGHT (form II — made someone know)" , quran: "عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ", quranRef: "العلق ٥" },
@@ -4357,7 +4556,7 @@ export const CURRICULUM = {
     {
       id: "l52",
       title: "أَوْزَانُ الْفِعْلِ: تَفَعَّلَ وَتَفَاعَلَ وَانْفَعَلَ",
-      subtitle: "اَلدَّرْسُ الْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالْخَمْسُونَ",
       vocab: [
         { ar: "عَلَّمَ", en: "he taught (II)" },
         { ar: "تَعَلَّمَ", en: "he LEARNED (V — for himself)" },
@@ -4445,7 +4644,7 @@ export const CURRICULUM = {
     {
       id: "l53",
       title: "أَوْزَانُ الْفِعْلِ: اِفْتَعَلَ وَاسْتَفْعَلَ",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالْخَمْسُونَ",
       vocab: [
         { ar: "جَمَعَ", en: "he gathered (I)" },
         { ar: "اِجْتَمَعَ", en: "they gathered / met (VIII)" },
@@ -4531,7 +4730,7 @@ export const CURRICULUM = {
     {
       id: "l35",
       title: "اَلْمَصْدَرُ وَاسْمُ الْفَاعِلِ",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "اَلْعِلْمُ", en: "knowledge (verbal noun)", quran: "وَقُل رَّبِّ زِدْنِي عِلْمًا", quranRef: "طه ١١٤" },
         { ar: "اَلْعَمَلُ", en: "action / working" },
@@ -4609,7 +4808,7 @@ export const CURRICULUM = {
     {
       id: "l20",
       title: "كَانَ وَأَخَوَاتُهَا",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "كَانَ" , quran: "وَكَانَ اللَّهُ غَفُورًا رَّحِيمًا", quranRef: "النساء ٩٦" },
         { ar: "كَانَتْ" },
@@ -4690,7 +4889,7 @@ export const CURRICULUM = {
     {
       id: "l21",
       title: "إِنَّ وَأَخَوَاتُهَا",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "إِنَّ" , quran: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ", quranRef: "البقرة ١٥٣" },
         { ar: "أَنَّ" },
@@ -4767,7 +4966,7 @@ export const CURRICULUM = {
     {
       id: "l23",
       title: "اَلِاسْمُ الْمَوْصُولُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "اَلَّذِي" , quran: "الْحَمْدُ لِلَّهِ الَّذِي خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ", quranRef: "الأنعام ١" },
         { ar: "اَلَّتِي" , quran: "فَاتَّقُوا النَّارَ الَّتِي وَقُودُهَا النَّاسُ", quranRef: "البقرة ٢٤" },
@@ -4840,7 +5039,7 @@ export const CURRICULUM = {
     {
       id: "l41",
       title: "أَفْعَلُ التَّفْضِيلِ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "أَكْبَرُ", en: "bigger / biggest" , quran: "وَلَذِكْرُ اللَّهِ أَكْبَرُ", quranRef: "العنكبوت ٤٥" },
         { ar: "أَصْغَرُ", en: "smaller / smallest" },
@@ -4917,7 +5116,7 @@ export const CURRICULUM = {
     {
       id: "l49",
       title: "اَلْحَرَكَةُ وَالْمُشَاهَدَةُ",
-      subtitle: "اَلدَّرْسُ السَّابِعُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "يَمْشِي", en: "he walks" },
         { ar: "يَجْرِي", en: "he runs" },
@@ -4990,7 +5189,7 @@ export const CURRICULUM = {
     {
       id: "l50",
       title: "اَلْحَالُ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْخَمْسُونَ",
       vocab: [
         { ar: "اَلْحَالُ", en: "the circumstantial state" },
         { ar: "رَاكِضًا", en: "running (as a state)" },
@@ -5072,7 +5271,7 @@ export const CURRICULUM = {
     {
       id: "l56",
       title: "اَلتَّمْيِيزُ وَالِاسْتِثْنَاءُ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالْخَمْسُونَ",
+      subtitle: "اَلدَّرْسُ السِّتُّونَ",
       vocab: [
         { ar: "اَلتَّمْيِيزُ", en: "the specifier" },
         { ar: "اَلِاسْتِثْنَاءُ", en: "the exception" },
@@ -5128,7 +5327,7 @@ export const CURRICULUM = {
     {
       id: "l57",
       title: "اَلْعَطْفُ وَالتَّوْكِيدُ وَالْبَدَلُ",
-      subtitle: "اَلدَّرْسُ السِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالسِّتُّونَ",
       vocab: [
         { ar: "وَ", en: "and" },
         { ar: "فَ", en: "and then (immediately)" },
@@ -5182,7 +5381,7 @@ export const CURRICULUM = {
     {
       id: "l55",
       title: "اَلشَّرْطُ: إِنْ وَإِذَا وَمَنْ",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالسِّتُّونَ",
       vocab: [
         { ar: "إِنْ", en: "if (uncertain)" , quran: "إِن تَنصُرُوا اللَّهَ يَنصُرْكُمْ", quranRef: "محمد ٧" },
         { ar: "إِذَا", en: "when / if (expected)" , quran: "إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ", quranRef: "النصر ١" },
@@ -5265,7 +5464,7 @@ export const CURRICULUM = {
     {
       id: "l68",
       title: "اَلْأَسَالِيبُ: اَلتَّعَجُّبُ وَالْمَدْحُ وَالْقَسَمُ",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالسِّتُّونَ",
       vocab: [
         { ar: "مَا أَجْمَلَ!", en: "how beautiful!" },
         { ar: "مَا أَعْظَمَ!", en: "how great!" },
@@ -5320,7 +5519,7 @@ export const CURRICULUM = {
     {
       id: "l34",
       title: "لُغَةُ الْعِلْمِ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالسِّتُّونَ",
       vocab: [
         { ar: "اَلتَّوْحِيدُ", en: "affirming Allah's oneness" },
         { ar: "اَلدَّلِيلُ", en: "the evidence / proof" },
@@ -5403,7 +5602,7 @@ export const CURRICULUM = {
     {
       id: "l61",
       title: "أَلْفَاظُ الْقُرْآنِ الشَّائِعَةُ",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالسِّتُّونَ",
       vocab: [
         { ar: "اَلَّذِينَ", en: "those who", quran: "الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ", quranRef: "البقرة ٢٧٧" },
         { ar: "آمَنَ / يُؤْمِنُ", en: "he believed", quran: "وَمَنْ يُؤْمِنْ بِاللَّهِ يَهْدِ قَلْبَهُ", quranRef: "التغابن ١١" },
@@ -5466,7 +5665,7 @@ export const CURRICULUM = {
     {
       id: "l62",
       title: "تَطْبِيقُ الْإِعْرَابِ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالسِّتُّونَ",
       vocab: [
         { ar: "أَعْرِبْ", en: "parse it (give the case analysis)" },
         { ar: "مُبْتَدَأٌ", en: "subject of a nominal sentence" },
@@ -5521,7 +5720,7 @@ export const CURRICULUM = {
     {
       id: "l65",
       title: "مَهَارَةُ الْقِرَاءَةِ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالسِّتُّونَ",
       vocab: [
         { ar: "نَصٌّ", en: "text" },
         { ar: "فِقْرَةٌ", en: "paragraph" },
@@ -5575,7 +5774,7 @@ export const CURRICULUM = {
     {
       id: "l66",
       title: "مَهَارَةُ الِاسْتِمَاعِ",
-      subtitle: "اَلدَّرْسُ السَّابِعُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالسِّتُّونَ",
       vocab: [
         { ar: "اَلِاسْتِمَاعُ", en: "listening" },
         { ar: "اَلْمُحَاضَرَةُ", en: "the lecture" },
@@ -5629,7 +5828,7 @@ export const CURRICULUM = {
     {
       id: "l63",
       title: "اَلرَّأْيُ وَالتَّعْبِيرُ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالسِّتُّونَ",
       vocab: [
         { ar: "فِي رَأْيِي", en: "in my opinion" },
         { ar: "أَظُنُّ أَنَّ", en: "I think that" },
@@ -5687,7 +5886,7 @@ export const CURRICULUM = {
     {
       id: "l64",
       title: "اَلْمُقَابَلَةُ وَالْحِوَارُ الطَّوِيلُ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ السَّبْعُونَ",
       vocab: [
         { ar: "مُقَابَلَةٌ", en: "interview" },
         { ar: "حَدِّثْنِي عَنْ", en: "tell me about" },
@@ -5742,6 +5941,64 @@ export const CURRICULUM = {
     },
   ],
 };
+
+
+// ═══ اَلْوَحَدَاتُ — the course in parts, so a learner sees a few titles, not seventy ═══
+export const UNITS = [
+  {
+    id: "u1",
+    ar: "اَلْأَسَاسُ",
+    en: "Foundation — the Arabic sentence",
+    goal: "Build and read a correct sentence, and know why every ending is what it is.",
+    lessons: ["l1","l2","l3","l28","l4","l6","l43","l70","l8","l46","l27","l69","l67"],
+  },
+  {
+    id: "u2",
+    ar: "اَلْأَسْمَاءُ وَالْعَدَدُ",
+    en: "Nouns, plurals and numbers",
+    goal: "Name everything around you, count anything, and tell the time and date.",
+    lessons: ["l7","l11","l12","l47","l31","l58","l59","l29","l19","l30","l9","l25","l26","l13","l37"],
+  },
+  {
+    id: "u3",
+    ar: "اَلْمُحَادَثَةُ",
+    en: "Speaking and daily life",
+    goal: "Hold a real conversation: greet, ask, answer, shop, travel, describe your work.",
+    lessons: ["l10","l24","l5","l17","l18","l22","l32","l42","l44","l60"],
+  },
+  {
+    id: "u4",
+    ar: "اَلْفِعْلُ",
+    en: "The verb",
+    goal: "Speak in past, present and future; command, forbid, and make your own du'a.",
+    lessons: ["l14","l38","l15","l39","l16","l40","l33","l36","l48","l54","l45"],
+  },
+  {
+    id: "u5",
+    ar: "اَلْأَوْزَانُ",
+    en: "Word patterns — the key to vocabulary",
+    goal: "Derive whole families from one root and decode words you were never taught.",
+    lessons: ["l51","l52","l53","l35"],
+  },
+  {
+    id: "u6",
+    ar: "اَلتَّرَاكِيبُ",
+    en: "Advanced structures",
+    goal: "Read the constructions of real books: كان, إنّ, الحال, conditionals, exception.",
+    lessons: ["l20","l21","l23","l41","l49","l50","l56","l57","l55","l68"],
+  },
+  {
+    id: "u7",
+    ar: "اَلِاسْتِقْلَالُ",
+    en: "Independence",
+    goal: "Follow a dars, parse any sentence, read a text and sit an interview in Arabic.",
+    lessons: ["l34","l61","l62","l65","l66","l63","l64"],
+  },
+];
+
+export function unitOf(lessonId) {
+  return UNITS.find((u) => u.lessons.includes(lessonId));
+}
 
 export function allLearnedVocab(uptoLessonIndex) {
   const words = [];

@@ -6,6 +6,7 @@
 export const VOCAB_BANK = [
   {
     theme: "اَلْأَفْعَالُ الشَّائِعَةُ",
+    family: "أَفْعَالٌ",
     themeEn: "Common verbs",
     words: [
       { ar: "فَعَلَ", en: "he did" },
@@ -52,6 +53,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "أَفْعَالُ الْعِبَادَةِ",
+    family: "أَفْعَالٌ",
     themeEn: "Verbs of worship",
     words: [
       { ar: "عَبَدَ", en: "he worshipped" },
@@ -83,6 +85,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "أَلْفَاظُ الْعِلْمِ",
+    family: "أَسْمَاءٌ",
     themeEn: "Words of knowledge",
     words: [
       { ar: "اَلْعِلْمُ", en: "knowledge" },
@@ -126,6 +129,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلصِّفَاتُ",
+    family: "صِفَاتٌ",
     themeEn: "Adjectives",
     words: [
       { ar: "طَوِيلٌ", en: "tall / long" },
@@ -173,6 +177,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "أَدَوَاتُ الرَّبْطِ",
+    family: "أَدَوَاتٌ",
     themeEn: "Connectors and particles",
     words: [
       { ar: "وَ", en: "and" },
@@ -209,6 +214,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْمُجْتَمَعُ وَالنَّاسُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Society and people",
     words: [
       { ar: "اَلْمُجْتَمَعُ", en: "society" },
@@ -240,6 +246,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْأَخْلَاقُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Character and manners",
     words: [
       { ar: "اَلْخُلُقُ", en: "character" },
@@ -272,6 +279,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْقُرْآنُ وَالْآخِرَةُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Quran and the hereafter",
     words: [
       { ar: "اَلْآيَةُ", en: "verse / sign" }, { ar: "اَلسُّورَةُ", en: "chapter of the Quran" },
@@ -293,6 +301,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "أَسْمَاءُ اللهِ وَصِفَاتُهُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Names and attributes of Allah",
     words: [
       { ar: "اَلرَّحْمَنُ", en: "the Most Merciful" }, { ar: "اَلرَّحِيمُ", en: "the Bestower of mercy" },
@@ -314,6 +323,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلطِّبُّ وَالْبَدَنُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Medicine and the body",
     words: [
       { ar: "اَلطِّبُّ", en: "medicine" }, { ar: "اَلْمَرَضُ", en: "illness" },
@@ -333,6 +343,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلتِّجَارَةُ وَالْمَالُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Trade and money",
     words: [
       { ar: "اَلتِّجَارَةُ", en: "trade" }, { ar: "اَلْبَيْعُ", en: "selling" },
@@ -352,6 +363,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْمَشَاعِرُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Feelings",
     words: [
       { ar: "اَلْفَرَحُ", en: "joy" }, { ar: "اَلْحُزْنُ", en: "sadness" },
@@ -371,6 +383,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْكَلَامُ وَالْكِتَابَةُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Speech and writing",
     words: [
       { ar: "اَلْكَلِمَةُ", en: "word" }, { ar: "اَلْجُمْلَةُ", en: "sentence" },
@@ -390,6 +403,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْمَكَانُ وَالْجِهَاتُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Place and direction",
     words: [
       { ar: "اَلْمَكَانُ", en: "place" }, { ar: "اَلْجِهَةُ", en: "direction" },
@@ -409,6 +423,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْبَيْتُ وَالْأَثَاثُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Home and furniture",
     words: [
       { ar: "اَلْأَثَاثُ", en: "furniture" }, { ar: "اَلطَّاوِلَةُ", emoji: "🪑", en: "table" },
@@ -428,6 +443,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْمَدِينَةُ وَالْمَبَانِي",
+    family: "أَسْمَاءٌ",
     themeEn: "The city and buildings",
     words: [
       { ar: "اَلْمَدِينَةُ", en: "city" }, { ar: "اَلْقَرْيَةُ", en: "village" },
@@ -447,6 +463,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلسَّفَرُ وَالْمُوَاصَلَاتُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Travel and transport",
     words: [
       { ar: "اَلسَّفَرُ", en: "travel" }, { ar: "اَلرِّحْلَةُ", en: "journey" },
@@ -466,6 +483,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْعَمَلُ وَالْحِرَفُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Work and crafts",
     words: [
       { ar: "اَلْعَمَلُ", en: "work" }, { ar: "اَلْمِهْنَةُ", en: "profession" },
@@ -485,6 +503,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْمَاءُ وَالطَّعَامُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Food and drink (extended)",
     words: [
       { ar: "اَلْإِفْطَارُ", en: "breakfast" }, { ar: "اَلْغَدَاءُ", en: "lunch" },
@@ -504,6 +523,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْحَرْبُ وَالسِّلْمُ",
+    family: "أَسْمَاءٌ",
     themeEn: "War and peace",
     words: [
       { ar: "اَلْحَرْبُ", en: "war" }, { ar: "اَلسِّلْمُ", en: "peace" },
@@ -520,6 +540,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْعِبَادَاتُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Acts of worship",
     words: [
       { ar: "اَلصَّلَاةُ", emoji: "🕌", en: "prayer" }, { ar: "اَلْوُضُوءُ", en: "ablution" },
@@ -539,6 +560,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "أَلْفَاظُ الْأَرْبَعِينَ النَّوَوِيَّةِ",
+    family: "أَسْمَاءٌ",
     themeEn: "Words from the Forty Hadith of an-Nawawi",
     words: [
       { ar: "اَلنِّيَّةُ", en: "intention" }, { ar: "اَلْعَمَلُ", en: "deed / action" },
@@ -565,6 +587,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "آدَابُ طَالِبِ الْعِلْمِ",
+    family: "أَسْمَاءٌ",
     themeEn: "Etiquettes of the student of knowledge",
     words: [
       { ar: "اَلْأَدَبُ", en: "etiquette / discipline" }, { ar: "اَلْإِخْلَاصُ", en: "sincerity of intention" },
@@ -586,6 +609,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلدُّرُوسُ الْمُهِمَّةُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Words from ad-Durus al-Muhimmah",
     words: [
       { ar: "اَلتَّوْحِيدُ", en: "Allah's oneness" }, { ar: "تَوْحِيدُ الرُّبُوبِيَّةِ", en: "oneness of lordship" },
@@ -605,6 +629,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "أَلْفَاظُ الْحَدِيثِ",
+    family: "أَسْمَاءٌ",
     themeEn: "Hadith terminology",
     words: [
       { ar: "حَدَّثَنَا", en: "he narrated to us" }, { ar: "أَخْبَرَنَا", en: "he informed us" },
@@ -624,6 +649,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "عِبَارَاتُ الْمُحَادَثَةِ",
+    family: "عِبَارَاتٌ",
     themeEn: "Conversation phrases you need daily",
     words: [
       { ar: "اَلسَّلَامُ عَلَيْكُمْ", en: "peace be upon you" },
@@ -660,6 +686,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْبَقَاءُ فِي الْحِوَارِ",
+    family: "عِبَارَاتٌ",
     themeEn: "Keeping a conversation alive",
     words: [
       { ar: "لَا أَفْهَمُ", en: "I don't understand" },
@@ -696,6 +723,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "أَسْئِلَةٌ وَأَجْوِبَةٌ",
+    family: "أَدَوَاتٌ",
     themeEn: "Questions and short answers",
     words: [
       { ar: "مَنْ؟", en: "who?" }, { ar: "مَا؟", en: "what? (before a noun)" },
@@ -717,6 +745,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "فِي السُّوقِ وَالْمُعَامَلَاتِ",
+    family: "أَسْمَاءٌ",
     themeEn: "In the market and daily dealings",
     words: [
       { ar: "بِكَمْ هَذَا؟", en: "how much is this?" },
@@ -736,6 +765,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْيَوْمُ وَالرُّوتِينُ",
+    family: "أَفْعَالٌ",
     themeEn: "Daily routine",
     words: [
       { ar: "أَسْتَيْقِظُ", en: "I wake up" }, { ar: "أَتَوَضَّأُ", en: "I make wudu" },
@@ -755,6 +785,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْأَلْوَانُ وَالْأَشْكَالُ",
+    family: "صِفَاتٌ",
     themeEn: "Colours and shapes",
     words: [
       { ar: "اَللَّوْنُ", en: "colour" }, { ar: "اَلشَّكْلُ", en: "shape" },
@@ -774,6 +805,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْأُسْرَةُ وَالْأَقَارِبُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Family and relatives",
     words: [
       { ar: "اَلْأُسْرَةُ", en: "family" }, { ar: "اَلْعَائِلَةُ", en: "household" },
@@ -793,6 +825,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلتَّعْلِيمُ وَالْمَدْرَسَةُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Education and school",
     words: [
       { ar: "اَلدِّرَاسَةُ", en: "study" }, { ar: "اَلدَّرْسُ", en: "lesson" },
@@ -812,6 +845,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْعَقْلُ وَالتَّفْكِيرُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Mind and thinking",
     words: [
       { ar: "اَلْفِكْرَةُ", en: "idea" }, { ar: "اَلرَّأْيُ", en: "opinion" },
@@ -831,6 +865,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْجِسْمُ وَالْحَوَاسُّ",
+    family: "أَسْمَاءٌ",
     themeEn: "Body and the senses",
     words: [
       { ar: "اَلرَّأْسُ", emoji: "🗣️", en: "head" }, { ar: "اَلْوَجْهُ", emoji: "😊", en: "face" },
@@ -850,6 +885,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "أَفْعَالُ الْحَرَكَةِ",
+    family: "أَفْعَالٌ",
     themeEn: "Verbs of movement",
     words: [
       { ar: "يَمْشِي", emoji: "🚶", en: "he walks" }, { ar: "يَجْرِي", emoji: "🏃", en: "he runs" },
@@ -869,6 +905,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْمَلَابِسُ وَالزِّينَةُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Clothing and adornment",
     words: [
       { ar: "اَلثَّوْبُ", emoji: "👳", en: "thawb" }, { ar: "اَلْقَمِيصُ", emoji: "👕", en: "shirt" },
@@ -888,6 +925,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلطَّبِيعَةُ وَالطَّقْسُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Nature and weather",
     words: [
       { ar: "اَلسَّمَاءُ", en: "sky" }, { ar: "اَلْأَرْضُ", emoji: "🌍", en: "earth" },
@@ -907,6 +945,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْأَعْدَادُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Numbers",
     words: [
       { ar: "وَاحِدٌ", emoji: "1️⃣", en: "one" }, { ar: "اِثْنَانِ", emoji: "2️⃣", en: "two" },
@@ -928,6 +967,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْوَقْتُ وَالْأَيَّامُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Time, days and months",
     words: [
       { ar: "اَلسَّاعَةُ", emoji: "🕐", en: "hour / clock" }, { ar: "اَلدَّقِيقَةُ", en: "minute" },
@@ -949,6 +989,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "أَفْعَالُ الْقَوْلِ وَالتَّفْكِيرِ",
+    family: "أَفْعَالٌ",
     themeEn: "Verbs of speech and thought",
     words: [
       { ar: "يَقُولُ", en: "he says" }, { ar: "يَتَكَلَّمُ", en: "he speaks" },
@@ -968,6 +1009,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْحَيَاةُ وَالْمَوْتُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Life and death",
     words: [
       { ar: "اَلْحَيَاةُ", en: "life" }, { ar: "اَلْمَوْتُ", en: "death" },
@@ -987,6 +1029,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْأَطْعِمَةُ وَالْمَشْرُوبَاتُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Food and drink",
     words: [
       { ar: "اَلْخُبْزُ", emoji: "🍞", en: "bread" }, { ar: "اَلْأَرُزُّ", emoji: "🍚", en: "rice" },
@@ -1008,6 +1051,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلصِّفَاتُ الْمُتَضَادَّةُ",
+    family: "صِفَاتٌ",
     themeEn: "Opposite pairs",
     words: [
       { ar: "كَبِيرٌ ↔ صَغِيرٌ", en: "big ↔ small" },
@@ -1039,6 +1083,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "أَحْوَالُ النَّاسِ",
+    family: "صِفَاتٌ",
     themeEn: "States and conditions of people",
     words: [
       { ar: "سَعِيدٌ", en: "happy" }, { ar: "حَزِينٌ", en: "sad" },
@@ -1058,6 +1103,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "فِي الْمَسْجِدِ",
+    family: "أَسْمَاءٌ",
     themeEn: "At the mosque",
     words: [
       { ar: "اَلْمَسْجِدُ", emoji: "🕌", en: "mosque" }, { ar: "اَلْمِحْرَابُ", en: "the prayer niche" },
@@ -1082,6 +1128,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "أَلْفَاظُ الْخُطْبَةِ",
+    family: "عِبَارَاتٌ",
     themeEn: "The Friday sermon",
     words: [
       { ar: "اَلْخُطْبَةُ", en: "the sermon" }, { ar: "اَلْجُمُعَةُ", en: "Friday" },
@@ -1115,6 +1162,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْمَدْرَسَةُ وَالْجَامِعَةُ",
+    family: "أَسْمَاءٌ",
     themeEn: "School and university life",
     words: [
       { ar: "اَلطَّالِبُ", en: "student" }, { ar: "اَلطَّالِبَةُ", en: "female student" },
@@ -1136,6 +1184,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلْمُنَاسَبَاتُ وَالْآدَابُ",
+    family: "عِبَارَاتٌ",
     themeEn: "Occasions and social manners",
     words: [
       { ar: "اَلضِّيَافَةُ", en: "hospitality" }, { ar: "اَلدَّعْوَةُ", en: "invitation" },
@@ -1155,6 +1204,7 @@ export const VOCAB_BANK = [
   },
   {
     theme: "اَلزَّمَانُ وَالْمِقْدَارُ",
+    family: "أَسْمَاءٌ",
     themeEn: "Time and quantity",
     words: [
       { ar: "اَلْآنَ", en: "now" },

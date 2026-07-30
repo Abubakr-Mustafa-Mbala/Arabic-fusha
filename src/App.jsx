@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CURRICULUM, allLearnedVocab, gradeBand } from "./data/curriculum";
+import { CURRICULUM, UNITS, allLearnedVocab, gradeBand } from "./data/curriculum";
 import { load, save, review, initCard, dueWords, seedLessonIntoSrs } from "./lib/store";
 import { C, setHumanVoice, setHumanOnly, getHumanOnly } from "./lib/shared";
 import { supabase, fetchRemoteState, saveRemoteLesson, saveRemoteCards } from "./lib/supabaseClient";
@@ -16,6 +16,7 @@ import Syllabus from "./components/Syllabus";
 import Vocabulary from "./components/Vocabulary";
 import QuranStudio from "./components/QuranStudio";
 import Editor, { fetchOverrides } from "./components/Editor";
+import UnitExam from "./components/UnitExam";
 import { fetchRecordings, isRecorder, audioUrl } from "./lib/recordings";
 
 const PASS_GATE = 60; // مقبول unlocks the next lesson; retake anytime to raise the grade
@@ -28,6 +29,7 @@ export default function App() {
   const [canRecord, setCanRecord] = useState(false);
   const scrollMemory = useRef({});
   const [moreOpen, setMoreOpen] = useState(false);
+  const [openUnit, setOpenUnit] = useState("u1");
   const wide = useWide();
   const [humanOnly, setHumanOnlyState] = useState(getHumanOnly);
   const [overrides, setOverrides] = useState({});
@@ -350,6 +352,25 @@ export default function App() {
     );
   }
 
+  if (view.name === "unitexam") {
+    return (
+      <Shell nav={navBar} sidebar={sideBar}>
+        <UnitExam
+          unitId={view.unit}
+          lessons={lessons}
+          onExit={() => go({ name: "home" })}
+          onPassed={(uid, score) => {
+            setState((st) => {
+              const next = { ...st, units: { ...(st.units || {}), [uid]: score } };
+              save(next);
+              return next;
+            });
+          }}
+        />
+      </Shell>
+    );
+  }
+
   if (view.name === "editor") {
     return (
       <Shell nav={navBar} sidebar={sideBar}>
@@ -464,64 +485,91 @@ export default function App() {
         )}
       </button>
 
+      {/* the course in units — seven titles, not seventy lessons */}
       <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 14 }}>
-        {lessons.map((l, i) => {
-          const rec = state.lessons[l.id];
-          const unlocked = i <= highestUnlocked && (!reviewsBlock || i < highestUnlocked || rec);
-          const band = rec ? gradeBand(rec.score) : null;
-          return (
-            <button
-              key={l.id}
-              dir="rtl"
-              disabled={!unlocked}
-              onClick={() => go({ name: "lesson", index: i })}
-              className="card"
-              style={{
-                width: "100%", padding: "13px 16px", display: "block",
-                opacity: unlocked ? 1 : 0.45,
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <span style={{
-                    width: 30, height: 30, borderRadius: "50%", flexShrink: 0,
-                    display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700,
-                    background: rec?.pct >= 100 ? C.emerald : unlocked ? C.emeraldSoft : C.border,
-                    color: rec?.pct >= 100 ? "#fff" : unlocked ? C.emerald : C.faded,
-                  }}>
-                    {rec?.pct >= 100 ? "✓" : unlocked ? i + 1 : "🔒"}
-                  </span>
-                  <div style={{ textAlign: "right" }}>
-                    <div className="arabic" style={{ fontSize: 24, color: C.ink }}>{l.title}</div>
-                    <div className="arabic" style={{ fontSize: 14, color: C.faded }}>{l.subtitle}</div>
-                  </div>
-                </div>
-                {band && (
-                  <span className="arabic" style={{ fontSize: 17, color: band.color, fontWeight: 700 }}>{band.ar}</span>
-                )}
-              </div>
+        {UNITS.map((u, ui) => {
+          const uIdx = u.lessons.map((id) => lessons.findIndex((x) => x.id === id)).filter((i) => i >= 0);
+          const doneCount = uIdx.filter((i) => (state.lessons[lessons[i].id]?.pct || 0) >= 100).length;
+          const uPct = uIdx.length ? Math.round((doneCount / uIdx.length) * 100) : 0;
+          const prevOk = ui === 0 || (() => {
+            const p = UNITS[ui - 1].lessons.map((id) => lessons.findIndex((x) => x.id === id)).filter((i) => i >= 0);
+            return p.filter((i) => (state.lessons[lessons[i].id]?.pct || 0) >= 100).length >= Math.ceil(p.length * 0.6);
+          })();
+          const open = openUnit === u.id;
 
-              {/* progress bar — fills as the learner moves through the stages */}
-              {unlocked && (
+          return (
+            <div key={u.id} className="card" style={{ padding: 0, overflow: "hidden", opacity: prevOk ? 1 : 0.5 }}>
+              <button onClick={() => prevOk && setOpenUnit(open ? null : u.id)} dir="rtl"
+                style={{ width: "100%", padding: "14px 16px", display: "block", background: "transparent", border: "none" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
+                    <span style={{
+                      width: 34, height: 34, borderRadius: 10, flexShrink: 0,
+                      display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 700,
+                      background: uPct === 100 ? C.emerald : prevOk ? C.emeraldSoft : C.border,
+                      color: uPct === 100 ? "#fff" : prevOk ? C.emerald : C.faded,
+                    }}>{uPct === 100 ? "✓" : prevOk ? ui + 1 : "🔒"}</span>
+                    <div style={{ textAlign: "right" }}>
+                      <div className="arabic" style={{ fontSize: 24, color: C.ink }}>{u.ar}</div>
+                      <div dir="ltr" style={{ fontSize: 10.5, color: C.faded, textAlign: "right" }}>{u.en}</div>
+                    </div>
+                  </div>
+                  <span style={{ color: C.faded, fontSize: 15 }}>{open ? "▾" : "‹"}</span>
+                </div>
                 <div style={{ marginTop: 9 }}>
                   <div style={{ height: 6, background: C.border, borderRadius: 99, overflow: "hidden" }}>
-                    <div style={{
-                      width: `${rec?.pct || 0}%`, height: "100%",
-                      background: (rec?.pct || 0) >= 100 ? C.emerald : C.gold,
-                      transition: "width .3s",
-                    }} />
+                    <div style={{ width: `${uPct}%`, height: "100%", background: uPct === 100 ? C.emerald : C.gold }} />
                   </div>
                   <div dir="ltr" style={{ display: "flex", justifyContent: "space-between", marginTop: 3 }}>
-                    <span style={{ fontSize: 9.5, color: C.faded }}>
-                      {rec?.pct ? `${rec.pct}%` : "not started"}
-                    </span>
-                    {rec?.pct > 0 && rec.pct < 100 && (
-                      <span style={{ fontSize: 9.5, color: C.gold, fontWeight: 700 }}>tap to continue ←</span>
-                    )}
+                    <span style={{ fontSize: 9.5, color: C.faded }}>{doneCount} / {uIdx.length} lessons</span>
+                    <span style={{ fontSize: 9.5, color: C.faded }}>{uPct}%</span>
                   </div>
                 </div>
+              </button>
+
+              {open && (
+                <div className="fadein" style={{ padding: "0 12px 12px", borderTop: `1px solid ${C.border}` }}>
+                  <p dir="ltr" style={{ fontSize: 10.5, color: C.faded, padding: "9px 4px 4px", lineHeight: 1.6 }}>{u.goal}</p>
+                  {uIdx.map((i) => {
+                    const l = lessons[i];
+                    const rec = state.lessons[l.id];
+                    const band = rec?.score ? gradeBand(rec.score) : null;
+                    return (
+                      <button key={l.id} onClick={() => go({ name: "lesson", index: i })} dir="rtl"
+                        style={{ width: "100%", padding: "9px 8px", display: "block", background: "transparent", border: "none", borderBottom: `1px dashed ${C.border}` }}>
+                        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
+                            <span style={{
+                              width: 24, height: 24, borderRadius: "50%", flexShrink: 0, fontSize: 10.5, fontWeight: 700,
+                              display: "flex", alignItems: "center", justifyContent: "center",
+                              background: (rec?.pct || 0) >= 100 ? C.emerald : C.emeraldSoft,
+                              color: (rec?.pct || 0) >= 100 ? "#fff" : C.emerald,
+                            }}>{(rec?.pct || 0) >= 100 ? "✓" : i + 1}</span>
+                            <span className="arabic" style={{ fontSize: 20, color: C.ink }}>{l.title}</span>
+                          </div>
+                          {band ? <span className="arabic" style={{ fontSize: 15, color: band.color }}>{band.ar}</span>
+                                : rec?.pct ? <span dir="ltr" style={{ fontSize: 10, color: C.gold }}>{rec.pct}%</span> : null}
+                        </div>
+                      </button>
+                    );
+                  })}
+                  <button onClick={() => go({ name: "unitexam", unit: u.id })} disabled={uPct < 100} dir="rtl" className="card"
+                    style={{
+                      width: "100%", marginTop: 10, padding: "12px 10px", textAlign: "center",
+                      borderColor: uPct === 100 ? C.gold : C.border,
+                      background: uPct === 100 ? C.goldSoft : C.surface,
+                      opacity: uPct === 100 ? 1 : 0.5,
+                    }}>
+                    <span className="arabic" style={{ fontSize: 20, color: uPct === 100 ? C.gold : C.faded }}>
+                      {uPct === 100 ? "اِمْتِحَانُ الْوَحْدَةِ 🎯" : "اِمْتِحَانُ الْوَحْدَةِ 🔒"}
+                    </span>
+                    <div dir="ltr" style={{ fontSize: 9.5, color: C.faded }}>
+                      {uPct === 100 ? "Final exam for this unit" : "Finish every lesson to unlock"}
+                    </div>
+                  </button>
+                </div>
               )}
-            </button>
+            </div>
           );
         })}
       </div>
@@ -538,7 +586,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v10.0 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v10.4 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

@@ -228,11 +228,16 @@ function VocabStage({ lesson, onDone }) {
           style={{ flex: 1, fontSize: 22 }}
           onClick={() => (idx < lesson.vocab.length - 1 ? setIdx(idx + 1) : onDone())}
         >
-          {idx === lesson.vocab.length - 1 ? "تَمَّ ✓" : "اَلتَّالِي"}
+          {idx === lesson.vocab.length - 1 ? "تَمَّ ✓" : "اَلتَّالِي →"}
         </button>
-        {idx > 0 && (
-          <button className="card" style={{ padding: "0 18px", color: C.faded }} onClick={() => setIdx(idx - 1)}>↪</button>
-        )}
+        <button
+          className="card"
+          disabled={idx === 0}
+          onClick={() => setIdx(Math.max(0, idx - 1))}
+          style={{ padding: "0 16px", opacity: idx === 0 ? 0.3 : 1 }}
+        >
+          <span className="arabic" style={{ fontSize: 17, color: C.faded }}>← السَّابِقُ</span>
+        </button>
       </div>
     </div>
   );
@@ -319,10 +324,11 @@ function RuleStage({ lesson, onDone }) {
       {/* progress through the teaching steps */}
       <div style={{ display: "flex", justifyContent: "center", gap: 5, margin: "10px 0 14px" }}>
         {steps.map((_, k) => (
-          <span key={k} style={{
-            width: k === i ? 18 : 7, height: 7, borderRadius: 99,
-            background: k <= i ? C.gold : C.border, transition: "width .2s",
-          }} />
+          <button key={k} onClick={() => setI(k)} aria-label={`step ${k + 1}`}
+            style={{
+              width: k === i ? 20 : 9, height: 9, borderRadius: 99, border: "none", padding: 0,
+              background: k <= i ? C.gold : C.border, transition: "width .2s",
+            }} />
         ))}
       </div>
 
@@ -364,11 +370,16 @@ function RuleStage({ lesson, onDone }) {
           style={{ flex: 1, fontSize: 21 }}
           onClick={() => { markSeen(`w:${w.ar}`); last ? onDone() : setI(i + 1); }}
         >
-          {last ? "إِلَى التَّدْرِيبَاتِ ←" : "فَهِمْتُ ✓"}
+          {last ? "إِلَى التَّدْرِيبَاتِ ←" : "اَلتَّالِي →"}
         </button>
-        {i > 0 && (
-          <button className="card" style={{ padding: "0 18px", color: C.faded }} onClick={() => setI(i - 1)}>↪</button>
-        )}
+        <button
+          className="card"
+          disabled={i === 0}
+          onClick={() => setI(Math.max(0, i - 1))}
+          style={{ padding: "0 16px", opacity: i === 0 ? 0.3 : 1 }}
+        >
+          <span className="arabic" style={{ fontSize: 17, color: C.faded }}>← السَّابِقُ</span>
+        </button>
       </div>
       {last && lesson.rule.extra && (
         <div className="card fadein" dir="rtl" style={{ marginTop: 12, padding: 14, borderColor: C.gold }}>

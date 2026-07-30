@@ -20,11 +20,11 @@ function buildSets() {
   const seen = new Set();
   const groups = [];   // { theme, themeEn, words: [...] }
 
-  const push = (theme, themeEn, w) => {
+  const push = (theme, themeEn, w, family) => {
     if (seen.has(w.ar) || !w.en) return;
     seen.add(w.ar);
     let g = groups.find((x) => x.theme === theme);
-    if (!g) { g = { theme, themeEn, words: [] }; groups.push(g); }
+    if (!g) { g = { theme, themeEn, family: family || "أَسْمَاءٌ", words: [] }; groups.push(g); }
     g.words.push({ ...w, from: theme, themeEn });
   };
 
@@ -38,13 +38,13 @@ function buildSets() {
         ar: v.ar, en: v.en, emoji: v.emoji, img: v.img,
         quran: v.quran, quranRef: v.quranRef,
         ctx: ctx ? ctx.ar : null,
-      });
+      }, "دُرُوسٌ");
     });
   });
 
   // the thematic bank
   VOCAB_BANK.forEach((g) => {
-    g.words.forEach((w) => push(g.theme, g.themeEn, { ar: w.ar, en: w.en, emoji: w.emoji, quran: w.quran }));
+    g.words.forEach((w) => push(g.theme, g.themeEn, { ar: w.ar, en: w.en, emoji: w.emoji, quran: w.quran }, g.family));
   });
 
   // Split each theme into sets of ten — a set never mixes two themes.
@@ -56,6 +56,7 @@ function buildSets() {
       sets.push({
         theme: g.theme,
         themeEn: g.themeEn,
+        family: g.family,
         part: parts > 1 ? `${Math.floor(i / SET_SIZE) + 1}/${parts}` : null,
         words: chunk,
       });
@@ -124,8 +125,29 @@ export default function Vocabulary({ onExit, onAddWord }) {
           }} />
         </div>
       </div>
-      {/* one heading per category, its sets beneath */}
-      {Array.from(new Set(sets.map((s) => s.theme))).map((theme) => {
+      {/* grouped first by word type, then by topic */}
+      {["عِبَارَاتٌ", "أَسْمَاءٌ", "أَفْعَالٌ", "صِفَاتٌ", "أَدَوَاتٌ", "دُرُوسٌ"].map((fam) => {
+        const famSets = sets.filter((s) => s.family === fam);
+        if (!famSets.length) return null;
+        const FAM_EN = {
+          "عِبَارَاتٌ": "Phrases — say these from day one",
+          "أَسْمَاءٌ": "Nouns — things, people and places",
+          "أَفْعَالٌ": "Verbs — actions",
+          "صِفَاتٌ": "Adjectives — describing words",
+          "أَدَوَاتٌ": "Particles — the small joining words",
+          "دُرُوسٌ": "From the lessons",
+        };
+        return (
+          <div key={fam} style={{ marginBottom: 24 }}>
+            <div dir="rtl" style={{
+              background: C.emerald, color: "#fff", borderRadius: 12,
+              padding: "9px 14px", marginBottom: 10,
+            }}>
+              <div className="arabic" style={{ fontSize: 22, fontWeight: 700 }}>{fam}</div>
+              <div dir="ltr" style={{ fontSize: 10, opacity: 0.85 }}>{FAM_EN[fam]}</div>
+            </div>
+
+      {Array.from(new Set(famSets.map((s) => s.theme))).map((theme) => {
         const idxs = sets.map((s, i) => ({ s, i })).filter((x) => x.s.theme === theme);
         const doneN = idxs.filter((x) => (done[x.i] || 0) >= 80).length;
         return (
@@ -159,6 +181,9 @@ export default function Vocabulary({ onExit, onAddWord }) {
                 </button>
               ))}
             </div>
+          </div>
+        );
+      })}
           </div>
         );
       })}

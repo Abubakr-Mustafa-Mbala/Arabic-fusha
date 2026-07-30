@@ -1454,29 +1454,33 @@ export const CURRICULUM = {
         name: "أَعْضَاءُ الْجِسْمِ: اَلْمُؤَنَّثُ بِلَا تَاءٍ",
         teach: [
           {
-            say: "Body parts are where the 'feminine without ة' rule becomes practical. Here is the pattern, and it is beautifully simple.",
-            show: "مُزْدَوِجٌ مُؤَنَّثٌ\nمُفْرَدٌ مُذَكَّرٌ",
+            say: "Read these aloud, pointing at yourself as you say each one.",
+            show: "هَذَا رَأْسِي · هَذَا وَجْهِي\nهَذِهِ عَيْنِي · هَذِهِ أُذُنِي\nهَذَا أَنْفِي · هَذَا فَمِي\nهَذِهِ يَدِي · هَذِهِ رِجْلِي",
           },
           {
-            say: "Anything you have TWO of is feminine — hand, eye, ear, leg, foot — even though not one of them carries a ة.",
+            say: "١. Notice which ones took هَذِهِ. Every part you have TWO of is feminine — even though none of them ends in ة.",
             show: "يَدٌ · عَيْنٌ · أُذُنٌ · رِجْلٌ · قَدَمٌ",
           },
           {
-            say: "So their adjectives must take ة. This is the mistake learners make for years.",
-            show: "يَدِي نَظِيفَةٌ\n عَيْنُهَا جَمِيلَةٌ",
-            warn: "يَدِي نَظِيفٌ",
+            say: "٢. So their adjectives take ة too. This is the mistake learners repeat for years.",
+            show: "يَدِي نَظِيفَةٌ ✅\nعَيْنُهَا جَمِيلَةٌ ✅",
+            warn: "❌ يَدِي نَظِيفٌ",
           },
           {
-            say: "Anything you have ONE of is masculine — head, nose, mouth, heart, back, chest.",
-            show: "أَنْفُهُ صَغِيرٌ \n قَلْبُهُ سَلِيمٌ",
+            say: "٣. Parts you have only ONE of are masculine.",
+            show: "رَأْسٌ · أَنْفٌ · فَمٌ · قَلْبٌ · ظَهْرٌ\nأَنْفُهُ صَغِيرٌ ✅",
           },
           {
-            say: "And since these come in pairs, you will use the dual constantly. Add ـَانِ and you have two of them.",
-            show: "يَدَانِ · عَيْنَانِ · قَدَمَانِ",
+            say: "٤. Since these come in pairs, you will use the dual constantly — add ـَانِ.",
+            show: "يَدَانِ · عَيْنَانِ · أُذُنَانِ · قَدَمَانِ",
           },
           {
-            say: "Finally, how to say something hurts. The verb comes first and the pronoun attaches to it.",
-            show: "يُؤْلِمُنِي رَأْسِي \n= my head hurts me",
+            say: "٥. And to say something hurts, the verb comes first with the pronoun attached to it.",
+            show: "يُؤْلِمُنِي رَأْسِي\nيُؤْلِمُنِي بَطْنِي",
+          },
+          {
+            say: "٦. What you say to someone who is ill.",
+            show: "شَفَاكَ اللهُ · لَا بَأْسَ طَهُورٌ إِنْ شَاءَ اللهُ",
           },
         ],
         ar: "قَاعِدَةٌ: اَلْأَعْضَاءُ الْمُزْدَوِجَةُ مُؤَنَّثَةٌ وَإِنْ لَمْ تَكُنْ فِيهَا تَاءٌ:\nيَدٌ ✋ · عَيْنٌ 👁️ · أُذُنٌ 👂 · رِجْلٌ 🦵 · قَدَمٌ 🦶\n✅ يَدِي نَظِيفَةٌ · عَيْنُهَا جَمِيلَةٌ\n\nوَالْمُفْرَدَةُ مُذَكَّرَةٌ:\nرَأْسٌ 🗣️ · أَنْفٌ 👃 · فَمٌ 👄 · قَلْبٌ 🫀 · ظَهْرٌ 🔙 · صَدْرٌ · بَطْنٌ\n✅ أَنْفُهُ صَغِيرٌ\n\n⚠️ وَبَعْضُهَا بِالتَّاءِ: رَقَبَةٌ · رُكْبَةٌ\n\nاَلتَّثْنِيَةُ:\nيَدَانِ · عَيْنَانِ · أُذُنَانِ · رِجْلَانِ · قَدَمَانِ · كَتِفَانِ\n\nاَلْجَمْعُ:\nإِصْبَعٌ ← أَصَابِعُ ☝️ · سِنٌّ ← أَسْنَانٌ 🦷\n\nاَلتَّعْبِيرُ عَنِ الْأَلَمِ:\nيُؤْلِمُنِي رَأْسِي 😖 · عِنْدِي أَلَمٌ فِي بَطْنِي\nوَالدُّعَاءُ: شَفَاكَ اللهُ 🤲",
@@ -3112,6 +3116,37 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "اَلْجُمْلَةُ الْفِعْلِيَّةُ الْمُقَدَّمُ فَاعِلُهَا مُؤَنَّثًا",
+        teach: [
+          {
+            say: "Read these aloud.",
+            show: "اَلْجَوُّ حَارٌّ الْيَوْمَ\nاَلْجَوُّ بَارِدٌ فِي الشِّتَاءِ\nاَلسَّمَاءُ صَافِيَةٌ\nاَلسَّمَاءُ غَائِمَةٌ\nيَنْزِلُ الْمَطَرُ",
+          },
+          {
+            say: "١. To ask about the weather.",
+            show: "كَيْفَ الطَّقْسُ الْيَوْمَ؟\n— اَلْجَوُّ جَمِيلٌ",
+          },
+          {
+            say: "٢. Now watch these two carefully. The verb changed, and only because of the subject.",
+            show: "يَنْزِلُ الْمَطَرُ\nتَشْرُقُ الشَّمْسُ",
+          },
+          {
+            say: "٣. اَلشَّمْس is feminine — with no ة to warn you — so its verb takes a تـ and its adjective takes ة.",
+            show: "تَشْرُقُ الشَّمْسُ · تَغْرُبُ الشَّمْسُ\nاَلشَّمْسُ جَمِيلَةٌ",
+            warn: "❌ يَشْرُقُ الشَّمْسُ",
+          },
+          {
+            say: "٤. The same for اَلرِّيح and اَلنَّار — feminine without any sign.",
+            show: "اَلرِّيحُ شَدِيدَةٌ\nاَلنَّارُ حَارَّةٌ",
+          },
+          {
+            say: "٥. But اَلْمَطَر، اَلْبَرْق، اَلرَّعْد، اَلْقَمَر are masculine.",
+            show: "يَنْزِلُ الْمَطَرُ · اَلْقَمَرُ مُنِيرٌ",
+          },
+          {
+            say: "٦. And the four seasons.",
+            show: "اَلرَّبِيعُ · اَلصَّيْفُ · اَلْخَرِيفُ · اَلشِّتَاءُ",
+          },
+        ],
         ar: "١) اَلسُّؤَالُ عَنِ الطَّقْسِ:\nكَيْفَ الطَّقْسُ الْيَوْمَ؟ 🌤️❓\n— اَلْجَوُّ حَارٌّ / بَارِدٌ / غَائِمٌ\n\n٢) اَلْفَاعِلُ الْمُؤَنَّثُ ← تَاءٌ فِي الْفِعْلِ:\nتَشْرُقُ الشَّمْسُ ☀️ (لَا: يَشْرُقُ)\nتَغْرُبُ الشَّمْسُ · تَنْزِلُ الْأَمْطَارُ\n\n٣) اَلْمُذَكَّرُ:\nيَنْزِلُ الْمَطَرُ 🌧️ (مَطَرٌ مُذَكَّرٌ)\n\n⚠️ اَلشَّمْسُ وَالرِّيحُ وَالنَّارُ: مُؤَنَّثَةٌ بِلَا تَاءٍ\nاَلرِّيحُ شَدِيدَةٌ ✅ (لَا: شَدِيدٌ)\n\n٤) اَلْفُصُولُ الْأَرْبَعَةُ:\nاَلرَّبِيعُ 🌷 · اَلصَّيْفُ 🏖️ · اَلْخَرِيفُ 🍂 · اَلشِّتَاءُ ❄️",
         hint: "Ask about weather with كيف الطقس. Remember الشمس and الريح are feminine without any ة — so their verbs and adjectives take the feminine form.",
       },
@@ -3167,6 +3202,32 @@ export const CURRICULUM = {
       ],
       rule: {
         name: "صِيَغُ الْمِهَنِ: فَعَّالٌ وَفَاعِلٌ",
+        teach: [
+          {
+            say: "Read these aloud.",
+            show: "أَبِي طَبِيبٌ\nأَخِي مُهَنْدِسٌ\nعَمِّي تَاجِرٌ\nجَارِي نَجَّارٌ\nصَدِيقِي مُعَلِّمٌ",
+          },
+          {
+            say: "١. To ask what someone does, and to answer.",
+            show: "مَاذَا تَعْمَلُ؟ — أَنَا مُهَنْدِسٌ\nأَيْنَ تَعْمَلُ؟ — أَعْمَلُ فِي شَرِكَةٍ",
+          },
+          {
+            say: "٢. Many trades sit on one shape: فَعَّال — the one who does it habitually.",
+            show: "خَبَزَ ← خَبَّازٌ\nنَجَرَ ← نَجَّارٌ\nحَدَّ ← حَدَّادٌ\nخَاطَ ← خَيَّاطٌ",
+          },
+          {
+            say: "٣. Others are simply the doer-shape you already know: فَاعِل.",
+            show: "بَاعَ ← بَائِعٌ\nسَاقَ ← سَائِقٌ\nعَمِلَ ← عَامِلٌ",
+          },
+          {
+            say: "٤. For a woman, add ة — to either shape.",
+            show: "مُعَلِّمٌ ← مُعَلِّمَةٌ\nطَبِيبٌ ← طَبِيبَةٌ\nمُهَنْدِسٌ ← مُهَنْدِسَةٌ",
+          },
+          {
+            say: "٥. And notice: knowing the shape lets you guess a trade you were never taught.",
+            show: "زَرَعَ ← زَرَّاعٌ\nحَمَلَ ← حَمَّالٌ",
+          },
+        ],
         ar: "لِلْمِهَنِ صِيَغٌ مَعْرُوفَةٌ:\n\n١) وَزْنُ «فَعَّالٍ» — لِمَنْ يَحْتَرِفُ:\nخَبَزَ ← خَبَّازٌ 🍞 · نَجَرَ ← نَجَّارٌ 🪚\nحَدَّادٌ · بَقَّالٌ · فَلَّاحٌ 🌾\n\n٢) وَزْنُ «فَاعِلٍ» — اِسْمُ الْفَاعِلِ:\nبَاعَ ← بَائِعٌ 🏪 · سَاقَ ← سَائِقٌ 🚗\nعَمِلَ ← عَامِلٌ · كَتَبَ ← كَاتِبٌ\n\n٣) اَلْمُؤَنَّثُ بِالتَّاءِ:\nمُعَلِّمٌ ← مُعَلِّمَةٌ · طَبِيبٌ ← طَبِيبَةٌ\nمُهَنْدِسٌ ← مُهَنْدِسَةٌ\n\n٤) اَلسُّؤَالُ:\nمَاذَا تَعْمَلُ؟ 🔨❓ — أَنَا طَبِيبٌ\nأَيْنَ تَعْمَلُ؟ 📍❓ — أَعْمَلُ فِي الْمُسْتَشْفَى",
         hint: "Trades follow the pattern فَعَّال (one who does it habitually — خبّاز، نجّار), while many others are simply the active participle فَاعِل (بائع، سائق). Add ة for a woman.",
       },

@@ -268,11 +268,11 @@ function DocView({ doc, fresh, onBack, onDelete, onQuizDone, onLookup }) {
 
       <div style={{ textAlign: "center", marginTop: 14 }}>
         {!confirmDelete ? (
-          <button onClick={() => setConfirmDelete(true)} style={{ fontSize: 11, color: C.faded, textDecoration: "underline" }}>
+          <button onClick={() => setConfirmDelete(true)} style={{ fontSize: 11, color: C.faded }}>
             Remove from library
           </button>
         ) : (
-          <button onClick={onDelete} style={{ fontSize: 12, color: C.red, textDecoration: "underline" }}>
+          <button onClick={onDelete} style={{ fontSize: 12, color: C.red }}>
             Tap again to confirm removal
           </button>
         )}

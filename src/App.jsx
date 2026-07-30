@@ -40,8 +40,11 @@ export default function App() {
   useEffect(() => {
     const onPop = (e) => {
       const v = e.state?.fusha;
-      if (v) setView(v);
-      else setView({ name: "home" });
+      // Always land somewhere inside the app — never let back close it.
+      setView(v || { name: "home" });
+      if (!v) {
+        try { window.history.pushState({ fusha: { name: "home" } }, ""); } catch {}
+      }
     };
     window.addEventListener("popstate", onPop);
     window.history.replaceState({ fusha: { name: "home" } }, "");
@@ -535,7 +538,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v9.8 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v10.0 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>
@@ -588,7 +591,7 @@ function MoreSheet({ go, canRecord, onClose, session }) {
         </div>
         {supabase && session && (
           <div style={{ textAlign: "center", marginTop: 16 }}>
-            <button onClick={() => supabase.auth.signOut()} style={{ fontSize: 11, color: C.faded, textDecoration: "underline" }}>
+            <button onClick={() => supabase.auth.signOut()} style={{ fontSize: 11, color: C.faded }}>
               Sign out ({session.user.email})
             </button>
           </div>
@@ -706,7 +709,7 @@ function SideBar({ current, go, canRecord, session, dueCount, bareCount }) {
       <div style={{ marginTop: "auto", paddingTop: 20 }}>
         {supabase && session && (
           <button onClick={() => supabase.auth.signOut()}
-            style={{ fontSize: 10.5, color: C.faded, textDecoration: "underline" }}>
+            style={{ fontSize: 10.5, color: C.faded }}>
             Sign out ({session.user.email})
           </button>
         )}

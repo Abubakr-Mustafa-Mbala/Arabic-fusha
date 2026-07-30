@@ -151,7 +151,7 @@ export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
               href={`https://tafsir.app/lisan/${encodeURIComponent((result.root ? result.root.replace(/\s+/g, "") : result.word).replace(/[\u064B-\u0652\u0670]/g, ""))}`}
               target="_blank" rel="noreferrer"
               className="card arabic"
-              style={{ flex: 1, padding: "10px 8px", textAlign: "center", fontSize: 18, color: C.emerald, textDecoration: "none" }}
+              style={{ flex: 1, padding: "10px 8px", textAlign: "center", fontSize: 18, color: C.emerald, }}
             >
               📜 لِسَانُ الْعَرَبِ
             </a>
@@ -159,7 +159,7 @@ export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
               href="https://www.baheth.info/"
               target="_blank" rel="noreferrer"
               className="card arabic"
-              style={{ flex: 1, padding: "10px 8px", textAlign: "center", fontSize: 18, color: C.emerald, textDecoration: "none" }}
+              style={{ flex: 1, padding: "10px 8px", textAlign: "center", fontSize: 18, color: C.emerald, }}
             >
               🌊 اَلْقَامُوسُ وَغَيْرُهُ
             </a>

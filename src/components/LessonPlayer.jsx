@@ -109,6 +109,7 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
         </p>
       )}
 
+      {stage === "intro" && <IntroStage lesson={lesson} onDone={() => goStage("vocab")} />}
       {stage === "vocab" && <VocabStage lesson={lesson} onDone={() => goStage("pattern")} />}
       {stage === "pattern" && <PatternStage lesson={lesson} onDone={() => goStage("rule")} />}
       {stage === "rule" && <RuleStage lesson={lesson} onDone={() => goStage("drill")} />}
@@ -201,22 +202,13 @@ function VocabStage({ lesson, onDone }) {
         ) : null}
         <div className="arabic" dir="rtl" style={{ fontSize: 52 }}>{w.ar}</div>
         {w.en && (
-          showEn ? (
-            <div style={{
-              marginTop: 10, padding: "7px 14px", borderRadius: 10, display: "inline-block",
-              background: C.emeraldSoft, border: `1px solid ${C.emerald}`,
-              fontSize: 15, color: C.emerald, fontWeight: 500,
-            }}>
-              {w.en}
-            </div>
-          ) : (
-            <button
-              onClick={() => setPeek((p) => ({ ...p, [w.ar]: true }))}
-              style={{ marginTop: 8, fontSize: 11.5, color: C.faded, textDecoration: "underline" }}
-            >
-              {peek[w.ar] ? w.en : "meaning?"}
-            </button>
-          )
+          <div style={{
+            marginTop: 10, padding: "7px 14px", borderRadius: 10, display: "inline-block",
+            background: C.emeraldSoft, border: `1px solid ${C.emerald}`,
+            fontSize: 15, color: C.emerald, fontWeight: 500,
+          }}>
+            {w.en}
+          </div>
         )}
         {w.quran && (
           <div className="fadein" style={{
@@ -301,7 +293,7 @@ function RuleStage({ lesson, onDone }) {
           </div>
         </div>
         <div style={{ textAlign: "center", marginTop: 14 }}>
-          <button onClick={() => setHint(!hint)} style={{ color: C.faded, fontSize: 13, textDecoration: "underline" }}>؟</button>
+          <button onClick={() => setHint(!hint)} style={{ color: C.faded, fontSize: 13 }}>؟</button>
           {hint && (
             <div className="card fadein" style={{ padding: 12, marginTop: 8, fontSize: 13, color: C.faded }}>
               {lesson.rule.hint}
@@ -520,7 +512,7 @@ function DrillStage({ lesson, onDone }) {
           className="arabic"
           disabled={extraLoading}
           onClick={moreDrills}
-          style={{ marginTop: 12, color: C.gold, fontSize: 19, textDecoration: "underline" }}
+          style={{ marginTop: 12, color: C.gold, fontSize: 19 }}
         >
           {extraLoading ? "..." : "تَدْرِيبَاتٌ إِضَافِيَّةٌ ➕"}
         </button>

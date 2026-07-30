@@ -232,7 +232,7 @@ function SurahDrill({ surah, onExit, onAddVocab }) {
             {added ? "✅ فِي مُرَاجَعَتِكَ 📿" : "أَضِفْ كَلِمَاتِ السُّورَةِ إِلَى الْمُرَاجَعَةِ 📿"}
           </button>
         )}
-        <button className="arabic" onClick={onExit} style={{ marginTop: 14, color: C.faded, fontSize: 19, textDecoration: "underline" }}>
+        <button className="arabic" onClick={onExit} style={{ marginTop: 14, color: C.faded, fontSize: 19 }}>
           ← اَلسُّورَةُ
         </button>
       </div>

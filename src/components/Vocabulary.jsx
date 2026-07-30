@@ -29,23 +29,19 @@ function buildSets() {
   };
 
   CURRICULUM.lessons.forEach((l) => {
+    const bare = (x) => String(x).replace(/[\u064B-\u0652\u0670\u0640]/g, "");
     (l.vocab || []).forEach((v) => {
-      const key = v.ar;
-      if (seen.has(key)) return;
-      seen.add(key);
-      if (!v.en) return; // a word with no gloss cannot be drilled both ways
-      // find a sentence from this lesson that actually uses the word —
+      if (!v.en) return;
       // a word is remembered far better inside a real sentence than alone
-      const bare = (x) => String(x).replace(/[\u064B-\u0652\u0670\u0640]/g, "");
       const ctx = (l.examples || []).find((e) => bare(e.ar).includes(bare(v.ar).split(" ")[0]));
-      words.push({
+      push(l.title, `From lesson: ${l.title}`, {
         ar: v.ar, en: v.en, emoji: v.emoji, img: v.img,
         quran: v.quran, quranRef: v.quranRef,
-        example: ctx ? ctx.ar : null,
-        from: l.title,
+        ctx: ctx ? ctx.ar : null,
       });
     });
   });
+
   // the thematic bank
   VOCAB_BANK.forEach((g) => {
     g.words.forEach((w) => push(g.theme, g.themeEn, { ar: w.ar, en: w.en, emoji: w.emoji, quran: w.quran }));

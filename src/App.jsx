@@ -155,6 +155,7 @@ export default function App() {
           ...(p.extra ? { extra: p.extra } : {}),
         };
       }
+      if (p.drills?.length) out.drills = p.drills;
       return out;
     });
   }, [overrides]);
@@ -491,7 +492,7 @@ export default function App() {
           const uIdx = u.lessons.map((id) => lessons.findIndex((x) => x.id === id)).filter((i) => i >= 0);
           const doneCount = uIdx.filter((i) => (state.lessons[lessons[i].id]?.pct || 0) >= 100).length;
           const uPct = uIdx.length ? Math.round((doneCount / uIdx.length) * 100) : 0;
-          const prevOk = ui === 0 || (() => {
+          const prevOk = canRecord || ui === 0 || (() => {
             const p = UNITS[ui - 1].lessons.map((id) => lessons.findIndex((x) => x.id === id)).filter((i) => i >= 0);
             return p.filter((i) => (state.lessons[lessons[i].id]?.pct || 0) >= 100).length >= Math.ceil(p.length * 0.6);
           })();
@@ -556,12 +557,12 @@ export default function App() {
                   <button onClick={() => go({ name: "unitexam", unit: u.id })} disabled={uPct < 100} dir="rtl" className="card"
                     style={{
                       width: "100%", marginTop: 10, padding: "12px 10px", textAlign: "center",
-                      borderColor: uPct === 100 ? C.gold : C.border,
-                      background: uPct === 100 ? C.goldSoft : C.surface,
-                      opacity: uPct === 100 ? 1 : 0.5,
+                      borderColor: (canRecord || uPct === 100) ? C.gold : C.border,
+                      background: (canRecord || uPct === 100) ? C.goldSoft : C.surface,
+                      opacity: (canRecord || uPct === 100) ? 1 : 0.5,
                     }}>
                     <span className="arabic" style={{ fontSize: 20, color: uPct === 100 ? C.gold : C.faded }}>
-                      {uPct === 100 ? "اِمْتِحَانُ الْوَحْدَةِ 🎯" : "اِمْتِحَانُ الْوَحْدَةِ 🔒"}
+                      {(canRecord || uPct === 100) ? "اِمْتِحَانُ الْوَحْدَةِ 🎯" : "اِمْتِحَانُ الْوَحْدَةِ 🔒"}
                     </span>
                     <div dir="ltr" style={{ fontSize: 9.5, color: C.faded }}>
                       {uPct === 100 ? "Final exam for this unit" : "Finish every lesson to unlock"}
@@ -586,7 +587,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v10.4 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v10.9 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

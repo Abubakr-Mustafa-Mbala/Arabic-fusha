@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { C, speak, callAI, parseJSONLoose, shuffle, markSeen, needsHint } from "../lib/shared";
 import TashkeelBar from "./TashkeelBar";
 import { gradeBand } from "../data/curriculum";
+import { fullDrills } from "../data/drillGen";
 
 function Speaker({ text, size = 22 }) {
   return (
@@ -58,7 +59,10 @@ const STAGE_LABELS = [
 
 export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgress, onExit, saved }) {
   // Resume exactly where the learner left off last time.
-  const [stage, setStage] = useState(saved?.stage || "intro");
+  const VALID = ["intro", "vocab", "pattern", "rule", "drill", "produce"];
+  const [stage, setStage] = useState(
+    VALID.includes(saved?.stage) ? saved.stage : "intro"
+  );
 
   // Report progress on EVERY stage change so nothing is ever lost by leaving.
   const goStage = (next) => {
@@ -109,10 +113,30 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
         </p>
       )}
 
+      {/* never let a learner be trapped: a way forward from any stage */}
+      {stage !== "produce" && (
+        <div style={{ textAlign: "center", marginTop: 4, marginBottom: 6 }}>
+          <button
+            onClick={() => {
+              const order = ["intro", "vocab", "pattern", "rule", "drill", "produce"];
+              const nx = order[Math.min(order.indexOf(stage) + 1, order.length - 1)];
+              goStage(nx);
+            }}
+            style={{ fontSize: 11, color: C.faded }}
+          >
+            تَخَطَّ هَذِهِ الْمَرْحَلَةَ ← skip this stage
+          </button>
+        </div>
+      )}
+
       {stage === "intro" && <IntroStage lesson={lesson} onDone={() => goStage("vocab")} />}
       {stage === "vocab" && <VocabStage lesson={lesson} onDone={() => goStage("pattern")} />}
       {stage === "pattern" && <PatternStage lesson={lesson} onDone={() => goStage("rule")} />}
-      {stage === "rule" && <RuleStage lesson={lesson} onDone={() => goStage("drill")} />}
+      {stage === "rule" && (
+        lesson.rule
+          ? <RuleStage lesson={lesson} onDone={() => goStage("drill")} />
+          : <SkipStage onDone={() => goStage("drill")} />
+      )}
       {stage === "drill" && (
         <DrillStage
           lesson={lesson}
@@ -275,6 +299,25 @@ function PatternStage({ lesson, onDone }) {
   );
 }
 
+// If a lesson has no rule section, never strand the learner here.
+function SkipStage({ onDone }) {
+  return (
+    <div className="fadein">
+      <div className="card" style={{ padding: 24, textAlign: "center" }}>
+        <div className="arabic" dir="rtl" style={{ fontSize: 22, color: C.faded }}>
+          لَا قَاعِدَةَ فِي هَذَا الدَّرْسِ
+        </div>
+        <div style={{ fontSize: 11, color: C.faded, marginTop: 4 }}>
+          This lesson has no grammar section — go straight to the practice.
+        </div>
+      </div>
+      <button className="btn-primary arabic" style={{ width: "100%", marginTop: 14, fontSize: 21 }} onClick={onDone}>
+        إِلَى التَّدْرِيبَاتِ ←
+      </button>
+    </div>
+  );
+}
+
 function RuleStage({ lesson, onDone }) {
   // A rule is TAUGHT one step at a time, not dumped as a summary.
   // Each step: a plain-English explanation, then the Arabic it produces.
@@ -282,7 +325,7 @@ function RuleStage({ lesson, onDone }) {
   const [i, setI] = useState(0);
   const [hint, setHint] = useState(false);
 
-  if (!steps) {
+  if (!steps || !steps.length) {
     // legacy lessons that have no teaching sequence yet
     return (
       <div className="fadein">
@@ -291,8 +334,13 @@ function RuleStage({ lesson, onDone }) {
             {lesson.rule.name}
           </div>
           <div className="arabic" dir="rtl" style={{ fontSize: 26, marginTop: 16, whiteSpace: "pre-line", textAlign: "center" }}>
-            {lesson.rule.ar}
+            {lesson.rule?.ar || lesson.rule?.name || "—"}
           </div>
+          {lesson.rule?.hint && (
+            <div dir="ltr" style={{ fontSize: 13, color: C.faded, marginTop: 12, lineHeight: 1.7, textAlign: "left" }}>
+              {lesson.rule.hint}
+            </div>
+          )}
           <div style={{ display: "flex", justifyContent: "center", marginTop: 14 }}>
             <Speaker text={lesson.rule.ar} size={20} />
           </div>
@@ -409,7 +457,7 @@ function normalizeDrill(d) {
 }
 
 function DrillStage({ lesson, onDone }) {
-  const [queue, setQueue] = useState(() => shuffle(lesson.drills).map(normalizeDrill));
+  const [queue, setQueue] = useState(() => shuffle(fullDrills(lesson)).map(normalizeDrill));
   const [pos, setPos] = useState(0);
   const [firstTry, setFirstTry] = useState({ right: 0, total: lesson.drills.length });
   const [picked, setPicked] = useState(null);

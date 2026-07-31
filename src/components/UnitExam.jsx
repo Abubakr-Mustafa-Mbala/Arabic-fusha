@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { C, speak, shuffle } from "../lib/shared";
 import { CURRICULUM, UNITS, gradeBand } from "../data/curriculum";
+import { allDrills } from "../data/drillGen";
 
 // اِمْتِحَانُ الْوَحْدَةِ — the exam that closes a unit.
 // Questions are drawn from EVERY lesson in the unit, so nothing can be skipped.
@@ -13,9 +14,10 @@ function buildExam(unit, lessons) {
   unit.lessons.forEach((id) => {
     const l = lessons.find((x) => x.id === id);
     if (!l) return;
-    const drills = (l.drills || []).filter((d) => d.t === "mcq" || d.t === "complete");
+    // only questions the admin has left in the exam pool
+    const drills = allDrills(l).filter((d) => (d.t === "mcq" || d.t === "complete") && d.exam !== false);
     // two from every lesson, so the exam covers the whole unit evenly
-    shuffle(drills).slice(0, 2).forEach((d) => {
+    shuffle(drills).slice(0, 3).forEach((d) => {
       pool.push({ ...d, options: shuffle([...(d.options || [])]), lesson: l.title, lessonId: l.id });
     });
   });

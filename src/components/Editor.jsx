@@ -101,6 +101,8 @@ function LessonEditor({ lesson, patch, session, onBack }) {
   // teaching steps — the admin can rewrite, add or remove explanations
   const [teach, setTeach] = useState(() => patch.teach || lesson.rule?.teach || []);
   const [extra, setExtra] = useState(() => patch.extra || "");
+  // exercises — the admin can correct, add, remove, and choose what reaches the exam
+  const [drills, setDrills] = useState(() => patch.drills || lesson.drills || []);
   const activeRef = useRef(null);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState(null);
@@ -144,9 +146,30 @@ function LessonEditor({ lesson, patch, session, onBack }) {
           ...(t.show && t.show.trim() ? { show: t.show.trim() } : {}),
           ...(t.warn && t.warn.trim() ? { warn: t.warn.trim() } : {}),
         }));
+      const cleanDrills = drills
+        .filter((d) => d.q && String(d.q).trim())
+        .map((d) => {
+          const out = { t: d.t || "mcq", q: String(d.q).trim() };
+          if (d.t === "match") {
+            out.pairs = (d.pairs || []).filter((p) => p[0]?.trim() && p[1]?.trim());
+          } else if (d.t === "assemble") {
+            out.a = String(d.a || "").trim();
+            out.chips = out.a.split(" ").filter(Boolean);
+          } else if (d.t === "arrange") {
+            out.a = String(d.a || "").trim();
+            out.letters = out.a.replace(/\s/g, "").split("");
+          } else {
+            out.options = (d.options || []).map((o) => String(o).trim()).filter(Boolean);
+            out.a = String(d.a || "").trim();
+          }
+          if (d.why?.trim()) out.why = d.why.trim();
+          if (d.example?.trim()) out.example = d.example.trim();
+          if (d.exam === false) out.exam = false;   // excluded from the unit exam
+          return out;
+        });
       await saveOverride(
         lesson.id,
-        { ...patch, vocab: clean, teach: cleanTeach, extra: extra.trim() },
+        { ...patch, vocab: clean, teach: cleanTeach, extra: extra.trim(), drills: cleanDrills },
         session?.user?.id
       );
       setMsg("Saved. Learners will see it on their next load.");
@@ -164,7 +187,7 @@ function LessonEditor({ lesson, patch, session, onBack }) {
 
       {/* which part of the lesson to edit */}
       <div dir="rtl" style={{ display: "flex", gap: 6, marginTop: 12 }}>
-        {[["teach", "اَلشَّرْحُ", "Explanation"], ["vocab", "اَلْمُفْرَدَاتُ", "Words & pictures"]].map(([id, ar, en]) => (
+        {[["teach", "اَلشَّرْحُ", "Explanation"], ["vocab", "اَلْمُفْرَدَاتُ", "Words"], ["drills", "اَلتَّدْرِيبَاتُ", "Exercises & exam"]].map(([id, ar, en]) => (
           <button key={id} onClick={() => setTab(id)} className="card"
             style={{
               flex: 1, padding: "9px 6px", textAlign: "center",
@@ -254,6 +277,139 @@ function LessonEditor({ lesson, patch, session, onBack }) {
           </div>
 
           {/* harakat keyboard for whichever box is focused */}
+          <div style={{ position: "sticky", bottom: 0, background: C.paper, paddingTop: 8 }}>
+            <TashkeelBar targetRef={activeRef} />
+          </div>
+        </div>
+      )}
+
+      {/* ——— exercises ——— */}
+      {tab === "drills" && (
+        <div style={{ marginTop: 12 }}>
+          <p style={{ fontSize: 11, color: C.faded, textAlign: "center", marginBottom: 8, lineHeight: 1.6 }}>
+            These are also the pool the unit exam draws from.
+            Untick <b>in exam</b> to keep a question in the lesson but out of the exam.
+          </p>
+
+          {drills.map((d, i) => (
+            <div key={i} className="card" style={{ padding: 12, marginBottom: 8 }}>
+              <div dir="ltr" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <select
+                  value={d.t || "mcq"}
+                  onChange={(e) => setDrills((a) => a.map((x, k) => (k === i ? { ...x, t: e.target.value } : x)))}
+                  style={{ fontSize: 11, padding: "3px 6px", borderRadius: 8, border: `1px solid ${C.border}`, background: C.surface }}
+                >
+                  <option value="mcq">Multiple choice</option>
+                  <option value="complete">Complete the missing</option>
+                  <option value="match">Matching</option>
+                  <option value="assemble">Build the sentence</option>
+                  <option value="arrange">Arrange the letters</option>
+                </select>
+                <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                  <label style={{ fontSize: 10, color: C.faded, display: "flex", gap: 4, alignItems: "center" }}>
+                    <input
+                      type="checkbox"
+                      checked={d.exam !== false}
+                      onChange={(e) => setDrills((a) => a.map((x, k) => (k === i ? { ...x, exam: e.target.checked } : x)))}
+                    />
+                    in exam
+                  </label>
+                  {i > 0 && <button onClick={() => setDrills((a) => { const b=[...a]; [b[i-1],b[i]]=[b[i],b[i-1]]; return b; })} style={{ fontSize: 13, color: C.faded }}>↑</button>}
+                  <button onClick={() => setDrills((a) => a.filter((_, k) => k !== i))} style={{ fontSize: 13, color: C.red }}>🗑</button>
+                </div>
+              </div>
+
+              <textarea
+                dir="rtl" className="arabic"
+                value={d.q || ""}
+                onFocus={(e) => (activeRef.current = e.target)}
+                onChange={(e) => setDrills((a) => a.map((x, k) => (k === i ? { ...x, q: e.target.value } : x)))}
+                placeholder={d.t === "complete" ? "اَلسُّؤَالُ مَعَ ___ فِي مَوْضِعِ النَّقْصِ" : "اَلسُّؤَالُ..."}
+                style={{ ...inp, minHeight: 52, fontSize: 20, resize: "vertical" }}
+              />
+
+              {(d.t === "assemble" || d.t === "arrange") && (
+                <input
+                  dir="rtl" className="arabic"
+                  value={d.a || ""}
+                  onFocus={(e) => (activeRef.current = e.target)}
+                  onChange={(e) => setDrills((a) => a.map((x, k) => (k === i ? { ...x, a: e.target.value } : x)))}
+                  placeholder={d.t === "arrange" ? "اَلْكَلِمَةُ الصَّحِيحَةُ" : "اَلْجُمْلَةُ الصَّحِيحَةُ كَامِلَةً"}
+                  style={{ ...inp, fontSize: 20, borderColor: C.emerald }}
+                />
+              )}
+
+              {d.t === "match" && (
+                <div style={{ marginTop: 6 }}>
+                  {(d.pairs || [["",""],["",""],["",""]]).map((pr, k) => (
+                    <div key={k} dir="rtl" style={{ display: "flex", gap: 6, marginTop: 4 }}>
+                      <input dir="rtl" className="arabic" value={pr[0] || ""}
+                        onFocus={(e) => (activeRef.current = e.target)}
+                        onChange={(e) => setDrills((a) => a.map((x, m) => m === i
+                          ? { ...x, pairs: (x.pairs || [["",""],["",""],["",""]]).map((p, n) => n === k ? [e.target.value, p[1]] : p) } : x))}
+                        placeholder="اَلْكَلِمَةُ" style={{ ...inp, flex: 1, fontSize: 18, marginTop: 0 }} />
+                      <input value={pr[1] || ""}
+                        onFocus={(e) => (activeRef.current = e.target)}
+                        onChange={(e) => setDrills((a) => a.map((x, m) => m === i
+                          ? { ...x, pairs: (x.pairs || [["",""],["",""],["",""]]).map((p, n) => n === k ? [p[0], e.target.value] : p) } : x))}
+                        placeholder="its meaning" style={{ ...inp, flex: 1, fontSize: 14, marginTop: 0 }} />
+                    </div>
+                  ))}
+                  <button
+                    onClick={() => setDrills((a) => a.map((x, m) => m === i ? { ...x, pairs: [...(x.pairs || []), ["",""]] } : x))}
+                    style={{ fontSize: 11, color: C.emerald, marginTop: 6 }}
+                  >➕ add a pair</button>
+                </div>
+              )}
+
+              {(d.t === "mcq" || d.t === "complete" || !d.t) && (
+                <div style={{ marginTop: 6 }}>
+                  {(d.options || ["", "", "", ""]).map((o, k) => (
+                    <div key={k} dir="rtl" style={{ display: "flex", gap: 6, alignItems: "center", marginTop: 4 }}>
+                      <input dir="rtl" className="arabic" value={o}
+                        onFocus={(e) => (activeRef.current = e.target)}
+                        onChange={(e) => setDrills((a) => a.map((x, m) => m === i
+                          ? { ...x, options: (x.options || ["","","",""]).map((y, n) => n === k ? e.target.value : y) } : x))}
+                        placeholder={`خِيَار ${k + 1}`}
+                        style={{ ...inp, flex: 1, fontSize: 18, marginTop: 0,
+                                 borderColor: o && o === d.a ? C.emerald : C.border }} />
+                      <button
+                        onClick={() => setDrills((a) => a.map((x, m) => m === i ? { ...x, a: o } : x))}
+                        style={{ fontSize: 15, color: o && o === d.a ? C.emerald : C.faded, padding: "0 6px" }}
+                        title="mark as the correct answer"
+                      >{o && o === d.a ? "✓" : "○"}</button>
+                    </div>
+                  ))}
+                  <div style={{ fontSize: 9.5, color: C.faded, marginTop: 3 }}>tap ○ beside the correct answer</div>
+                </div>
+              )}
+
+              <textarea
+                value={d.why || ""}
+                onFocus={(e) => (activeRef.current = e.target)}
+                onChange={(e) => setDrills((a) => a.map((x, k) => (k === i ? { ...x, why: e.target.value } : x)))}
+                placeholder="Why this answer is right — shown after they answer (optional)"
+                style={{ ...inp, minHeight: 46, fontSize: 13, resize: "vertical" }}
+              />
+              <input
+                dir="rtl" className="arabic"
+                value={d.example || ""}
+                onFocus={(e) => (activeRef.current = e.target)}
+                onChange={(e) => setDrills((a) => a.map((x, k) => (k === i ? { ...x, example: e.target.value } : x)))}
+                placeholder="مِثَالٌ يُعْرَضُ مَعَ الشَّرْحِ (اِخْتِيَارِيٌّ)"
+                style={{ ...inp, fontSize: 19 }}
+              />
+            </div>
+          ))}
+
+          <button
+            onClick={() => setDrills((a) => [...a, { t: "mcq", q: "", options: ["", "", "", ""], a: "" }])}
+            className="card"
+            style={{ width: "100%", padding: 11, color: C.emerald, borderColor: C.emerald }}
+          >
+            ➕ add an exercise
+          </button>
+
           <div style={{ position: "sticky", bottom: 0, background: C.paper, paddingTop: 8 }}>
             <TashkeelBar targetRef={activeRef} />
           </div>

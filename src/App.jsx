@@ -269,10 +269,13 @@ export default function App() {
           learnedVocab={learnedUpto(i)}
           onExit={() => go({ name: "home" })}
           saved={state.lessons[lesson.id]}
+          nextTitle={lessons[i + 1]?.title}
           onProgress={(p) => saveLessonResult(lesson, p)}
-          onFinish={(score) => {
+          onFinish={(score, goNext) => {
             saveLessonResult(lesson, score);
-            go({ name: "home" });
+            // Skool-style: roll straight into the next lesson, or back to the list
+            if (goNext && lessons[i + 1]) go({ name: "lesson", index: i + 1 });
+            else go({ name: "home" });
           }}
         />
       </Shell>
@@ -587,7 +590,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v10.9 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v11.4 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

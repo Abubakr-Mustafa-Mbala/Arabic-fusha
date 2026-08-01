@@ -57,7 +57,7 @@ const STAGE_LABELS = [
   { id: "produce", ar: "إِنْتَاج", en: "Write Your Own" },
 ];
 
-export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgress, onExit, saved }) {
+export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgress, onExit, saved, nextTitle }) {
   // Resume exactly where the learner left off last time.
   const VALID = ["intro", "vocab", "pattern", "rule", "drill", "produce"];
   const [stage, setStage] = useState(
@@ -89,21 +89,22 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
 
       <div dir="rtl" style={{ display: "flex", justifyContent: "center", gap: 5, margin: "14px 0", flexWrap: "wrap" }}>
         {STAGE_LABELS.map((s, i) => (
-          <span
+          <button
             key={s.id}
+            onClick={() => goStage(s.id)}
             className="arabic"
             style={{
               fontSize: 14,
-              padding: "4px 10px",
+              padding: "5px 11px",
               borderRadius: 999,
               background: i === stageIdx ? C.emerald : i < stageIdx ? C.emeraldSoft : "transparent",
               color: i === stageIdx ? "#fff" : C.emerald,
               border: `1px solid ${i <= stageIdx ? C.emerald : C.border}`,
-              opacity: i > stageIdx ? 0.5 : 1,
+              opacity: i > stageIdx ? 0.6 : 1,
             }}
           >
             {i < stageIdx ? "✓ " : ""}{s.ar}
-          </span>
+          </button>
         ))}
       </div>
 
@@ -149,7 +150,12 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
         />
       )}
       {stage === "produce" && (
-        <ProduceStage lesson={lesson} learnedVocab={learnedVocab} onDone={() => onFinish(drillScore)} />
+        <ProduceStage
+          lesson={lesson}
+          learnedVocab={learnedVocab}
+          nextTitle={nextTitle}
+          onDone={(goNext) => onFinish(drillScore, goNext)}
+        />
       )}
     </div>
   );
@@ -416,7 +422,7 @@ function RuleStage({ lesson, onDone }) {
         <button
           className="btn-primary arabic"
           style={{ flex: 1, fontSize: 21 }}
-          onClick={() => { markSeen(`w:${w.ar}`); last ? onDone() : setI(i + 1); }}
+          onClick={() => (last ? onDone() : setI(i + 1))}
         >
           {last ? "إِلَى التَّدْرِيبَاتِ ←" : "اَلتَّالِي →"}
         </button>
@@ -905,7 +911,7 @@ function DrillStage({ lesson, onDone }) {
   );
 }
 
-function ProduceStage({ lesson, learnedVocab, onDone }) {
+function ProduceStage({ lesson, learnedVocab, onDone, nextTitle }) {
   const [text, setText] = useState("");
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -978,9 +984,9 @@ function ProduceStage({ lesson, learnedVocab, onDone }) {
         )}
         <button
           className="arabic"
-          onClick={onDone}
+          onClick={() => onDone(false)}
           style={{
-            flex: 1, fontSize: 21, borderRadius: 14, padding: "13px 18px",
+            flex: 1, fontSize: 20, borderRadius: 14, padding: "13px 14px",
             background: result ? C.emerald : C.surface,
             color: result ? "#fff" : C.faded,
             border: result ? "none" : `1px solid ${C.border}`,
@@ -990,6 +996,28 @@ function ProduceStage({ lesson, learnedVocab, onDone }) {
           إِنْهَاءُ الدَّرْسِ ✓
         </button>
       </div>
+
+      {/* straight into the next lesson, without going back to the list */}
+      {nextTitle && (
+        <button
+          onClick={() => onDone(true)}
+          dir="rtl"
+          className="card"
+          style={{
+            width: "100%", marginTop: 10, padding: "13px 16px",
+            borderColor: C.emerald, background: C.emeraldSoft,
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+          }}
+        >
+          <div style={{ textAlign: "right" }}>
+            <div dir="ltr" style={{ fontSize: 9.5, color: C.faded, letterSpacing: "0.12em", textAlign: "right" }}>
+              NEXT LESSON
+            </div>
+            <div className="arabic" style={{ fontSize: 21, color: C.emerald, fontWeight: 700 }}>{nextTitle}</div>
+          </div>
+          <span className="arabic" style={{ fontSize: 22, color: C.emerald }}>←</span>
+        </button>
+      )}
     </div>
   );
 }

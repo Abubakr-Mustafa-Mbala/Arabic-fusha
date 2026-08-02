@@ -17,6 +17,38 @@ function drillable(w) {
   return b.length >= 3 && b.split(" ").length === 1;
 }
 
+// ——— مُرَاجَعَةٌ — questions drawn from EARLIER lessons ———
+// Nothing taught is allowed to fade: every practice session mixes in
+// items from what came before, weighted towards the most recent.
+export function reviewDrills(lesson, allLessons, count = 6) {
+  const idx = allLessons.findIndex((l) => l.id === lesson.id);
+  if (idx <= 0) return [];
+  const earlier = allLessons.slice(0, idx);
+  const pool = [];
+  earlier.forEach((l, i) => {
+    const recency = 1 + Math.floor((i / earlier.length) * 3); // later lessons appear more often
+    (l.vocab || []).filter((v) => v.en).forEach((v) => {
+      for (let k = 0; k < recency; k++) pool.push({ w: v, from: l.title, all: l.vocab });
+    });
+  });
+  if (pool.length < 4) return [];
+
+  const picked = shuffle(pool).slice(0, count);
+  return picked.map(({ w, from, all }) => {
+    const others = shuffle(all.filter((x) => x.ar !== w.ar && x.en)).slice(0, 3).map((x) => x.en);
+    if (others.length < 3) return null;
+    return {
+      t: "mcq",
+      q: w.ar,
+      options: shuffle([w.en, ...others]),
+      a: w.en,
+      why: `From an earlier lesson — ${from}. Keeping it alive is why it appears here.`,
+      _review: true,
+      _gen: true,
+    };
+  }).filter(Boolean);
+}
+
 export function generateDrills(lesson) {
   const out = [];
   const vocab = (lesson.vocab || []).filter((v) => v.en);
@@ -131,13 +163,15 @@ export function generateDrills(lesson) {
 // A practice session: every taught drill, plus a rotating selection of generated
 // ones. Capped so a sitting stays finishable — but the selection changes each
 // time, so repeating a lesson never means repeating the same questions.
-export function fullDrills(lesson, cap = 30) {
+export function fullDrills(lesson, cap = 30, allLessons = null) {
   const own = lesson.drills || [];
   const gen = generateDrills(lesson);
   const asked = new Set(own.map((d) => `${d.t}:${d.q}:${d.a || ""}`));
   const extra = shuffle(gen.filter((d) => !asked.has(`${d.t}:${d.q}:${d.a || ""}`)));
-  const room = Math.max(0, cap - own.length);
-  return [...own, ...extra.slice(0, room)];
+  // roughly a fifth of every session revisits earlier lessons
+  const review = allLessons ? reviewDrills(lesson, allLessons, Math.round(cap * 0.2)) : [];
+  const room = Math.max(0, cap - own.length - review.length);
+  return [...own, ...extra.slice(0, room), ...review];
 }
 
 // Everything available, for the exam pool and for "more practice".

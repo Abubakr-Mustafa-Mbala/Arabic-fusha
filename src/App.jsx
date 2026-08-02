@@ -270,6 +270,7 @@ export default function App() {
           onExit={() => go({ name: "home" })}
           saved={state.lessons[lesson.id]}
           nextTitle={lessons[i + 1]?.title}
+          allLessons={lessons}
           onProgress={(p) => saveLessonResult(lesson, p)}
           onFinish={(score, goNext) => {
             saveLessonResult(lesson, score);
@@ -590,7 +591,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v11.4 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v11.9 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

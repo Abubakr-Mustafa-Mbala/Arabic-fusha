@@ -47,6 +47,10 @@ function buildSets() {
     g.words.forEach((w) => push(g.theme, g.themeEn, { ar: w.ar, en: w.en, emoji: w.emoji, quran: w.quran }, g.family));
   });
 
+  // Lesson vocabulary comes first — a learner meets these words in the lessons,
+  // so learning them here first makes every lesson easier. The thematic bank follows.
+  groups.sort((a, b) => (a.family === "دُرُوسٌ" ? 0 : 1) - (b.family === "دُرُوسٌ" ? 0 : 1));
+
   // Split each theme into sets of ten — a set never mixes two themes.
   const sets = [];
   groups.forEach((g) => {
@@ -81,6 +85,7 @@ export default function Vocabulary({ onExit, onAddWord }) {
   const sets = useMemo(buildSets, []);
   const [view, setView] = useState({ name: "list" });
   const [done, setDone] = useState(loadDone);
+  const [showAll, setShowAll] = useState(false);
 
   if (view.name === "learn") {
     return (
@@ -108,23 +113,65 @@ export default function Vocabulary({ onExit, onAddWord }) {
   return (
     <div className="fadein">
       <Header title="اَلْمُفْرَدَاتُ" onBack={onExit} />
-      <p style={{ textAlign: "center", fontSize: 12, color: C.faded, margin: "4px 0 6px" }}>
-        {sets.reduce((n, s) => n + s.words.length, 0)} words · {sets.length} sets · {new Set(sets.map((s) => s.theme)).size} categories
+      <p style={{ textAlign: "center", fontSize: 11.5, color: C.faded, margin: "4px 0 4px" }}>
+        عَشْرُ كَلِمَاتٍ فِي كُلِّ مَرَّةٍ — ten words at a time
       </p>
-      <div className="card" style={{ padding: 12, marginBottom: 12 }}>
-        <div dir="ltr" style={{ display: "flex", justifyContent: "space-between", fontSize: 11, marginBottom: 5 }}>
-          <span style={{ color: C.faded, letterSpacing: "0.1em" }}>SETS COMPLETED</span>
-          <span style={{ color: C.emerald, fontWeight: 700 }}>
-            {Object.values(done).filter((v) => v >= 80).length} / {sets.length}
-          </span>
-        </div>
-        <div style={{ height: 7, background: C.border, borderRadius: 99, overflow: "hidden" }}>
-          <div style={{
-            width: `${(Object.values(done).filter((v) => v >= 80).length / sets.length) * 100}%`,
-            height: "100%", background: C.emerald,
-          }} />
-        </div>
-      </div>
+      <p style={{ textAlign: "center", fontSize: 10, color: C.faded, marginBottom: 10 }}>
+        The lesson words come first — learn a set, then the lesson that uses them.
+      </p>
+      {/* One next step, never the whole mountain. */}
+      {(() => {
+        const nextI = sets.findIndex((_, i) => (done[i] || 0) < 80);
+        const doneN = Object.values(done).filter((v) => v >= 80).length;
+        if (nextI === -1) {
+          return (
+            <div className="card" style={{ padding: 18, marginBottom: 14, textAlign: "center", borderColor: C.emerald }}>
+              <div className="arabic" dir="rtl" style={{ fontSize: 24, color: C.emerald }}>تَمَّتِ الْمُفْرَدَاتُ كُلُّهَا</div>
+              <div style={{ fontSize: 11, color: C.faded, marginTop: 3 }}>
+                You have learned {doneN * SET_SIZE} words. Revise them in 📿 اَلْمُرَاجَعَة.
+              </div>
+            </div>
+          );
+        }
+        const set = sets[nextI];
+        return (
+          <button
+            onClick={() => setView({ name: "learn", i: nextI })}
+            dir="rtl"
+            className="card"
+            style={{
+              width: "100%", padding: "16px 16px", marginBottom: 14,
+              borderColor: C.emerald, borderWidth: 1.5, background: C.emeraldSoft, display: "block",
+            }}
+          >
+            <div dir="ltr" style={{ fontSize: 9.5, color: C.emerald, letterSpacing: "0.14em", textAlign: "right" }}>
+              CONTINUE WHERE YOU LEFT OFF
+            </div>
+            <div className="arabic" style={{ fontSize: 26, color: C.emerald, fontWeight: 700, marginTop: 3 }}>
+              {set.theme}
+            </div>
+            <div dir="ltr" style={{ fontSize: 10.5, color: C.faded, textAlign: "right" }}>{set.themeEn}</div>
+            <div dir="ltr" style={{ marginTop: 8, fontSize: 11, color: C.emerald, textAlign: "right", fontWeight: 600 }}>
+              10 words →
+            </div>
+            {doneN > 0 && (
+              <div dir="ltr" style={{ fontSize: 10, color: C.faded, textAlign: "right", marginTop: 6 }}>
+                {doneN * SET_SIZE} words learned so far
+              </div>
+            )}
+          </button>
+        );
+      })()}
+      <button
+        onClick={() => setShowAll((v) => !v)}
+        dir="rtl"
+        style={{ width: "100%", fontSize: 12, color: C.faded, padding: "6px 0", marginBottom: 8 }}
+      >
+        {showAll ? "▾ إِخْفَاءُ الْقَائِمَةِ" : "‹ تَصَفُّحُ كُلِّ الْمَوْضُوعَاتِ"}
+      </button>
+
+      {showAll && (
+      <>
       {/* grouped first by word type, then by topic */}
       {["عِبَارَاتٌ", "أَسْمَاءٌ", "أَفْعَالٌ", "صِفَاتٌ", "أَدَوَاتٌ", "دُرُوسٌ"].map((fam) => {
         const famSets = sets.filter((s) => s.family === fam);
@@ -187,6 +234,8 @@ export default function Vocabulary({ onExit, onAddWord }) {
           </div>
         );
       })}
+      </>
+      )}
     </div>
   );
 }

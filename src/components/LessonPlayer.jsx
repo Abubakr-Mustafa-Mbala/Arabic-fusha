@@ -57,7 +57,7 @@ const STAGE_LABELS = [
   { id: "produce", ar: "إِنْتَاج", en: "Write Your Own" },
 ];
 
-export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgress, onExit, saved, nextTitle }) {
+export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgress, onExit, saved, nextTitle, allLessons }) {
   // Resume exactly where the learner left off last time.
   const VALID = ["intro", "vocab", "pattern", "rule", "drill", "produce"];
   const [stage, setStage] = useState(
@@ -306,6 +306,48 @@ function PatternStage({ lesson, onDone }) {
 }
 
 // If a lesson has no rule section, never strand the learner here.
+// جَدْوَلُ التَّصْرِيفِ — a real conjugation table, laid out as the books do
+export function ConjTable({ table }) {
+  if (!table?.rows?.length) return null;
+  return (
+    <div className="card" style={{ padding: "14px 10px", marginTop: 12, overflowX: "auto" }}>
+      {table.title && (
+        <div className="arabic" dir="rtl" style={{ fontSize: 20, color: C.gold, textAlign: "center", marginBottom: 8 }}>
+          {table.title}
+        </div>
+      )}
+      <table dir="rtl" style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+        <thead>
+          <tr>
+            {(table.head || []).map((h, i) => (
+              <th key={i} style={{
+                padding: "6px 4px", borderBottom: `2px solid ${C.emerald}`,
+                color: C.emerald, fontSize: 11, fontWeight: 700,
+              }}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {table.rows.map((r, i) => (
+            <tr key={i}>
+              {r.map((cell, k) => (
+                <td key={k} style={{
+                  padding: "7px 4px", borderBottom: `1px solid ${C.border}`,
+                  textAlign: "center",
+                  color: k === 0 ? C.faded : C.ink,
+                  fontSize: k === 0 ? 12 : 19,
+                }}>
+                  <span className={k === 0 ? "" : "arabic"}>{cell}</span>
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function SkipStage({ onDone }) {
   return (
     <div className="fadein">
@@ -435,6 +477,7 @@ function RuleStage({ lesson, onDone }) {
           <span className="arabic" style={{ fontSize: 17, color: C.faded }}>← السَّابِقُ</span>
         </button>
       </div>
+      {last && lesson.rule.table && <ConjTable table={lesson.rule.table} />}
       {last && lesson.rule.extra && (
         <div className="card fadein" dir="rtl" style={{ marginTop: 12, padding: 14, borderColor: C.gold }}>
           <div style={{ fontSize: 9.5, color: C.gold, letterSpacing: "0.12em", textAlign: "center" }}>
@@ -463,7 +506,7 @@ function normalizeDrill(d) {
 }
 
 function DrillStage({ lesson, onDone }) {
-  const [queue, setQueue] = useState(() => shuffle(fullDrills(lesson)).map(normalizeDrill));
+  const [queue, setQueue] = useState(() => shuffle(fullDrills(lesson, 30, allLessons)).map(normalizeDrill));
   const [pos, setPos] = useState(0);
   const [firstTry, setFirstTry] = useState({ right: 0, total: lesson.drills.length });
   const [picked, setPicked] = useState(null);

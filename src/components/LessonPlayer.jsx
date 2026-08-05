@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { C, speak, callAI, parseJSONLoose, shuffle, markSeen, needsHint } from "../lib/shared";
 import TashkeelBar from "./TashkeelBar";
-import { gradeBand } from "../data/curriculum";
+import { CURRICULUM, gradeBand } from "../data/curriculum";
 import { fullDrills } from "../data/drillGen";
 
 function Speaker({ text, size = 22 }) {
@@ -65,6 +65,10 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
   );
 
   // Report progress on EVERY stage change so nothing is ever lost by leaving.
+  // A beginner needs English alongside everything; it recedes as they progress.
+  const lessonIndex = CURRICULUM.lessons.findIndex((l) => l.id === lesson.id);
+  const earlyLesson = lessonIndex < 20;
+
   const goStage = (next) => {
     setStage(next);
     const pct = Math.round(((STAGE_LABELS.findIndex((x) => x.id === next)) / STAGE_LABELS.length) * 100);
@@ -104,6 +108,9 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
             }}
           >
             {i < stageIdx ? "✓ " : ""}{s.ar}
+            {earlyLesson && (
+              <div dir="ltr" style={{ fontSize: 8.5, opacity: 0.85 }}>{s.en}</div>
+            )}
           </button>
         ))}
       </div>
@@ -139,8 +146,7 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
           : <SkipStage onDone={() => goStage("drill")} />
       )}
       {stage === "drill" && (
-        <DrillStage
-          lesson={lesson}
+        <DrillStage allLessons={allLessons} lesson={lesson}
           onDone={(score) => {
             setDrillScore(score);
             // graded work done — save the score AND the position
@@ -164,25 +170,78 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
 // اَلْمُقَدِّمَةُ — exactly how a Madinah lesson opens:
 // state plainly what will be learned, showing the actual sentences.
 function IntroStage({ lesson, onDone }) {
-  const items = (lesson.examples || []).slice(0, 6);
+  // Early lessons open in ENGLISH, because a beginner cannot yet read a word
+  // of the Arabic. As they progress, the English recedes and the Arabic leads.
+  const idx = CURRICULUM.lessons.findIndex((l) => l.id === lesson.id);
+  const early = idx < 20;      // the first twenty lessons lean on English
+  const mid = idx >= 20 && idx < 45;
+
+  const items = (lesson.examples || []).slice(0, 5);
+  const words = (lesson.vocab || []).filter((v) => v.en).slice(0, 6);
+
   return (
     <div className="fadein">
-      <div className="card" style={{ padding: "22px 18px" }}>
-        <div className="arabic" dir="rtl" style={{ fontSize: 23, color: C.emerald, fontWeight: 700, textAlign: "center" }}>
-          فِي هَذَا الدَّرْسِ نَتَعَلَّمُ:
-        </div>
-        <div style={{ fontSize: 11, color: C.faded, textAlign: "center", marginTop: 2 }}>
-          In this lesson we learn the following
-        </div>
+      {/* what this lesson is, said plainly first */}
+      <div className="card" style={{ padding: "20px 18px", borderColor: C.emerald, borderWidth: 1.5 }}>
+        {early ? (
+          <>
+            <div dir="ltr" style={{ fontSize: 10.5, color: C.emerald, letterSpacing: "0.14em", textAlign: "center" }}>
+              IN THIS LESSON
+            </div>
+            <div dir="ltr" style={{ fontSize: 17, color: C.ink, textAlign: "center", marginTop: 6, lineHeight: 1.6 }}>
+              {lesson.rule?.hint
+                ? String(lesson.rule.hint).split(".")[0] + "."
+                : "New words and how to use them."}
+            </div>
+            <div className="arabic" dir="rtl" style={{ fontSize: 21, color: C.emerald, textAlign: "center", marginTop: 8 }}>
+              {lesson.title}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="arabic" dir="rtl" style={{ fontSize: 23, color: C.emerald, fontWeight: 700, textAlign: "center" }}>
+              فِي هَذَا الدَّرْسِ نَتَعَلَّمُ:
+            </div>
+            {mid && (
+              <div dir="ltr" style={{ fontSize: 11, color: C.faded, textAlign: "center", marginTop: 2 }}>
+                In this lesson we learn the following
+              </div>
+            )}
+          </>
+        )}
 
-        <div dir="rtl" style={{ marginTop: 16 }}>
+        {/* the words first — a beginner needs these before any sentence */}
+        {early && words.length > 0 && (
+          <div style={{ marginTop: 14, paddingTop: 12, borderTop: `1px dashed ${C.border}` }}>
+            <div dir="ltr" style={{ fontSize: 9.5, color: C.faded, letterSpacing: "0.12em", marginBottom: 6 }}>
+              WORDS YOU WILL MEET
+            </div>
+            {words.map((w, k) => (
+              <div key={k} dir="rtl" style={{
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+                padding: "5px 0", borderBottom: k < words.length - 1 ? `1px dashed ${C.border}` : "none",
+              }}>
+                <span className="arabic" style={{ fontSize: 22 }}>{w.ar}</span>
+                <span dir="ltr" style={{ fontSize: 12.5, color: C.faded }}>{w.en}</span>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* then the sentences, glossed in English while they are still new */}
+        <div dir="rtl" style={{ marginTop: 14, paddingTop: early ? 12 : 0, borderTop: early ? `1px dashed ${C.border}` : "none" }}>
+          {early && (
+            <div dir="ltr" style={{ fontSize: 9.5, color: C.faded, letterSpacing: "0.12em", marginBottom: 6 }}>
+              SENTENCES YOU WILL BE ABLE TO SAY
+            </div>
+          )}
           {items.map((e, i) => (
             <div key={i} style={{
               display: "flex", alignItems: "flex-start", gap: 10,
-              padding: "9px 0", borderBottom: i < items.length - 1 ? `1px dashed ${C.border}` : "none",
+              padding: "8px 0", borderBottom: i < items.length - 1 ? `1px dashed ${C.border}` : "none",
             }}>
               <span style={{ color: C.gold, fontSize: 13, flexShrink: 0, marginTop: 5 }}>
-                {["١","٢","٣","٤","٥","٦"][i]}
+                {["١", "٢", "٣", "٤", "٥"][i]}
               </span>
               <div style={{ flex: 1 }}>
                 <div className="arabic" style={{ fontSize: 24, lineHeight: 1.9 }}>{e.ar}</div>
@@ -192,7 +251,7 @@ function IntroStage({ lesson, onDone }) {
           ))}
         </div>
 
-        {lesson.rule?.name && (
+        {lesson.rule?.name && !early && (
           <div dir="rtl" style={{
             marginTop: 14, padding: "9px 12px", borderRadius: 10,
             background: C.goldSoft, textAlign: "center",
@@ -203,12 +262,14 @@ function IntroStage({ lesson, onDone }) {
         )}
       </div>
 
-      <p style={{ textAlign: "center", fontSize: 11, color: C.faded, marginTop: 12 }}>
-        Read them aloud once, then begin. You are not expected to understand yet.
+      <p style={{ textAlign: "center", fontSize: 11, color: C.faded, marginTop: 12, lineHeight: 1.6 }}>
+        {early
+          ? "Do not worry if you cannot read these yet — that is what the lesson is for."
+          : "Read them aloud once, then begin."}
       </p>
 
       <button className="btn-primary arabic" style={{ width: "100%", marginTop: 10, fontSize: 22 }} onClick={onDone}>
-        اِبْدَأْ ←
+        {early ? "اِبْدَأْ · Start ←" : "اِبْدَأْ ←"}
       </button>
     </div>
   );
@@ -216,6 +277,8 @@ function IntroStage({ lesson, onDone }) {
 
 function VocabStage({ lesson, onDone }) {
   const [peek, setPeek] = useState({});
+  const lessonIndex = CURRICULUM.lessons.findIndex((l) => l.id === lesson.id);
+  const earlyLesson = lessonIndex < 20;
   const [idx, setIdx] = useState(0);
   const w = lesson.vocab[idx];
   useEffect(() => { speak(w.ar); markSeen(`word:${w.ar}`); }, [idx]); // eslint-disable-line
@@ -233,9 +296,9 @@ function VocabStage({ lesson, onDone }) {
         <div className="arabic" dir="rtl" style={{ fontSize: 52 }}>{w.ar}</div>
         {w.en && (
           <div style={{
-            marginTop: 10, padding: "7px 14px", borderRadius: 10, display: "inline-block",
+            marginTop: 10, padding: earlyLesson ? "9px 18px" : "7px 14px", borderRadius: 10, display: "inline-block",
             background: C.emeraldSoft, border: `1px solid ${C.emerald}`,
-            fontSize: 15, color: C.emerald, fontWeight: 500,
+            fontSize: earlyLesson ? 18 : 15, color: C.emerald, fontWeight: earlyLesson ? 600 : 500,
           }}>
             {w.en}
           </div>
@@ -430,7 +493,7 @@ function RuleStage({ lesson, onDone }) {
 
       <div className="card fadein" key={i} style={{ padding: "20px 18px", borderColor: C.gold }}>
         {/* the explanation, in plain language */}
-        <p style={{ fontSize: 14.5, lineHeight: 1.75, color: C.ink, margin: 0 }}>{step.say}</p>
+        <p style={{ fontSize: 15, lineHeight: 1.8, color: C.ink, margin: 0 }}>{step.say}</p>
 
         {/* the Arabic it produces */}
         {step.show && (
@@ -505,7 +568,7 @@ function normalizeDrill(d) {
   return d;
 }
 
-function DrillStage({ lesson, onDone }) {
+function DrillStage({ lesson, onDone, allLessons }) {
   const [queue, setQueue] = useState(() => shuffle(fullDrills(lesson, 30, allLessons)).map(normalizeDrill));
   const [pos, setPos] = useState(0);
   const [firstTry, setFirstTry] = useState({ right: 0, total: lesson.drills.length });

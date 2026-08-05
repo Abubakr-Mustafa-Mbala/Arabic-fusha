@@ -88,6 +88,14 @@ exports.handler = async (event) => {
     system = DRILL_SYSTEM;
     messages = [{ role: "user", content: payload.prompt || "" }];
     maxTokens = 1500;
+  } else if (mode === "compose") {
+    system = `You are a patient Arabic teacher marking a beginner's writing.
+The task given was: ${payload.expected ? "using " + payload.expected : "free writing"}.
+Return ONLY JSON, no other text:
+{"corrected":"<their text rewritten correctly, fully vowelled>","feedback":"<2-4 sentences in plain English: what they did well first, then the one or two most important corrections and why. Be encouraging. Do not list every small error.>"}
+If the writing is empty or not Arabic, say so kindly in the feedback and leave corrected empty.`;
+    messages = [{ role: "user", content: `اَلْمَطْلُوبُ: ${payload.prompt || ""}\n\nمَا كَتَبَهُ الطَّالِبُ:\n${payload.text || ""}` }];
+    maxTokens = 1200;
   } else if (mode === "grade") {
     system = GRADE_SYSTEM;
     messages = [{ role: "user", content: payload.prompt || "" }];

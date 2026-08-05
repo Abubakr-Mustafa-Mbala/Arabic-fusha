@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { C, speak, shuffle } from "../lib/shared";
 import { CURRICULUM } from "../data/curriculum";
 import { VOCAB_BANK } from "../data/vocabBank";
@@ -70,6 +70,13 @@ function buildSets() {
 }
 
 const DONE_KEY = "fusha_vocab_done_v1";
+const AT_KEY = "fusha_vocab_at_v1";
+function loadAt() {
+  try { return JSON.parse(localStorage.getItem(AT_KEY) || "{}"); } catch { return {}; }
+}
+function saveAt(i, wordIdx) {
+  try { localStorage.setItem(AT_KEY, JSON.stringify({ set: i, word: wordIdx })); } catch {}
+}
 function loadDone() {
   try { return JSON.parse(localStorage.getItem(DONE_KEY) || "{}"); } catch { return {}; }
 }
@@ -86,6 +93,7 @@ export default function Vocabulary({ onExit, onAddWord }) {
   const [view, setView] = useState({ name: "list" });
   const [done, setDone] = useState(loadDone);
   const [showAll, setShowAll] = useState(false);
+  const [query, setQuery] = useState("");
 
   if (view.name === "learn") {
     return (
@@ -116,12 +124,59 @@ export default function Vocabulary({ onExit, onAddWord }) {
       <p style={{ textAlign: "center", fontSize: 11.5, color: C.faded, margin: "4px 0 4px" }}>
         عَشْرُ كَلِمَاتٍ فِي كُلِّ مَرَّةٍ — ten words at a time
       </p>
-      <p style={{ textAlign: "center", fontSize: 10, color: C.faded, marginBottom: 10 }}>
+      <p style={{ textAlign: "center", fontSize: 10, color: C.faded, marginBottom: 8 }}>
         The lesson words come first — learn a set, then the lesson that uses them.
       </p>
+
+      {/* find any word instantly, in Arabic or English */}
+      <input
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="ابحث عن كلمة… / search a word (egg, بيض)"
+        style={{
+          width: "100%", padding: "10px 12px", borderRadius: 12, fontSize: 14,
+          background: C.surface, border: `1.5px solid ${C.border}`, marginBottom: 10,
+        }}
+      />
+
+      {query.trim() && (() => {
+        const q = query.trim().toLowerCase();
+        const bare = (t) => String(t).replace(/[\u064B-\u0652\u0670\u0640]/g, "");
+        const hits = [];
+        sets.forEach((set, si) => set.words.forEach((w) => {
+          if (bare(w.ar).includes(bare(q)) || (w.en || "").toLowerCase().includes(q)) {
+            hits.push({ w, si, theme: set.theme });
+          }
+        }));
+        return (
+          <div style={{ marginBottom: 14 }}>
+            <div style={{ fontSize: 10.5, color: C.faded, letterSpacing: "0.1em", marginBottom: 6 }}>
+              {hits.length} RESULT{hits.length === 1 ? "" : "S"}
+            </div>
+            {hits.slice(0, 25).map(({ w, si, theme }, k) => (
+              <button key={w.ar + k} onClick={() => setView({ name: "learn", i: si })} dir="rtl" className="card"
+                style={{ width: "100%", padding: "9px 12px", marginBottom: 6, display: "block", textAlign: "right" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <span className="arabic" style={{ fontSize: 22 }}>{w.ar}</span>
+                  <span dir="ltr" style={{ fontSize: 12, color: C.faded }}>{w.en}</span>
+                </div>
+                <div className="arabic" style={{ fontSize: 11, color: C.emerald, marginTop: 2 }}>{theme}</div>
+              </button>
+            ))}
+            {!hits.length && (
+              <div style={{ fontSize: 12, color: C.faded, textAlign: "center", padding: 10 }}>
+                لَا نَتِيجَةَ — no match yet
+              </div>
+            )}
+          </div>
+        );
+      })()}
       {/* One next step, never the whole mountain. */}
       {(() => {
-        const nextI = sets.findIndex((_, i) => (done[i] || 0) < 80);
+        const at = loadAt();
+        const nextI = (at.set !== undefined && (done[at.set] || 0) < 80)
+          ? at.set
+          : sets.findIndex((_, i) => (done[i] || 0) < 80);
         const doneN = Object.values(done).filter((v) => v >= 80).length;
         if (nextI === -1) {
           return (
@@ -242,7 +297,11 @@ export default function Vocabulary({ onExit, onAddWord }) {
 
 // اِحْفَظْ أَوَّلًا — meet every word before being tested on any of it.
 function LearnSet({ set, index, onExit, onReady }) {
-  const [i, setI] = useState(0);
+  const [i, setI] = useState(() => {
+    const at = loadAt();
+    return at.set === index && at.word < set.length ? at.word : 0;
+  });
+  useEffect(() => { saveAt(index, i); }, [index, i]);
   const w = set[i];
   const last = i === set.length - 1;
 
@@ -312,49 +371,66 @@ function Header({ title, onBack }) {
 }
 
 // ——— build a mixed exercise queue from one set of words ———
-// Five exercises for a set of ten words — not forty questions.
-// The order is deliberate: recognise, then produce, then spell, then recall both ways.
+// FIVE PAGES for a set of ten words — not fifty questions.
+// Every exercise puts the whole set on one screen, the way matching already did,
+// so a learner finishes a set in five screens instead of grinding through fifty.
 function buildQueue(set) {
-  const q = [];
+  const drillable = set.filter((w) => {
+    const b = bareWord(w.ar).replace(/\s/g, "");
+    return b.length >= 3 && b.length <= 9;
+  });
 
-  // ① MATCHING — the whole set at once, checked only when you press تَحَقَّقْ
-  q.push({
+  const pages = [];
+
+  // ① MATCH — all ten at once
+  pages.push({
     t: "match",
     pairs: set.map((w) => [w.ar, w.en]),
     right: shuffle(set.map((w) => w.en)),
   });
 
-  // ② MISSING LETTERS — one pass over the set
-  set.forEach((w) => {
-    const bare = bareWord(w.ar).replace(/\s/g, "");
-    if (bare.length < 3) return;
-    const pos = 1 + Math.floor(Math.random() * (bare.length - 2));
-    const missing = bare[pos];
-    const pool = shuffle([missing, ...shuffle("بتثجحخدذرزسشصضطظعغفقكلمنهوي".split(""))
-      .filter((c) => c !== missing).slice(0, 3)]);
-    q.push({ t: "missing", w, q: bare.slice(0, pos) + "__" + bare.slice(pos + 1), options: pool, a: missing });
+  // ② ARABIC → ENGLISH, all ten on one page
+  pages.push({
+    t: "grid",
+    mode: "ar2en",
+    items: set.map((w) => {
+      const others = shuffle(set.filter((x) => x.ar !== w.ar)).slice(0, 3).map((x) => x.en);
+      return { w, q: w.ar, options: shuffle([w.en, ...others]), a: w.en };
+    }),
   });
 
-  // ③ BUILD THE WORD from scattered letters
-  set.forEach((w) => {
-    const bare = bareWord(w.ar);
-    if (bare.replace(/\s/g, "").length > 8) return;
-    q.push({ t: "scramble", w, letters: bare.split("").filter((c) => c !== " "), a: bare, hasSpace: bare.includes(" ") });
+  // ③ ENGLISH → ARABIC, all ten on one page
+  pages.push({
+    t: "grid",
+    mode: "en2ar",
+    items: set.map((w) => {
+      const others = shuffle(set.filter((x) => x.ar !== w.ar)).slice(0, 3).map((x) => x.ar);
+      return { w, q: w.en, options: shuffle([w.ar, ...others]), a: w.ar };
+    }),
   });
 
-  // ④ ENGLISH → ARABIC (produce)
-  set.forEach((w) => {
-    const others = shuffle(set.filter((x) => x.ar !== w.ar));
-    q.push({ t: "en2ar", w, q: w.en, options: shuffle([w.ar, ...others.slice(0, 3).map((x) => x.ar)]), a: w.ar });
-  });
+  // ④ MISSING LETTER, all on one page
+  if (drillable.length) {
+    pages.push({
+      t: "grid",
+      mode: "missing",
+      items: drillable.map((w) => {
+        const b = bareWord(w.ar).replace(/\s/g, "");
+        const pos = 1 + Math.floor(Math.random() * (b.length - 2));
+        const missing = b[pos];
+        const pool = shuffle([missing, ...shuffle("بتثجحخدذرزسشصضطظعغفقكلمنهوي".split(""))
+          .filter((c) => c !== missing).slice(0, 3)]);
+        return { w, q: b.slice(0, pos) + "__" + b.slice(pos + 1), options: pool, a: missing };
+      }),
+    });
+  }
 
-  // ⑤ ARABIC → ENGLISH (recall)
-  set.forEach((w) => {
-    const others = shuffle(set.filter((x) => x.ar !== w.ar));
-    q.push({ t: "ar2en", w, q: w.ar, options: shuffle([w.en, ...others.slice(0, 3).map((x) => x.en)]), a: w.en });
-  });
+  // ⑤ BUILD THE WORD — one page, taken in turn
+  if (drillable.length) {
+    pages.push({ t: "scrambleset", items: drillable.map((w) => ({ w, a: bareWord(w.ar) })) });
+  }
 
-  return q;
+  return pages;
 }
 
 function Trainer({ set, index, onExit, onAddWord, onDone }) {
@@ -363,6 +439,7 @@ function Trainer({ set, index, onExit, onAddWord, onDone }) {
   const [picked, setPicked] = useState(null);
   const [built, setBuilt] = useState([]);
   const [matched, setMatched] = useState({});
+  const [gridPick, setGridPick] = useState({});
   const [selLeft, setSelLeft] = useState(null);
   const [right, setRight] = useState(0);
   const [attempted, setAttempted] = useState(0);
@@ -383,7 +460,7 @@ function Trainer({ set, index, onExit, onAddWord, onDone }) {
     // a wrong answer is put back into the queue — it will come round again
     if (picked && !picked.correct) q = [...queue, { ...item, _again: true }];
     setQueue(q);
-    setPicked(null); setBuilt([]); setMatched({}); setSelLeft(null);
+    setPicked(null); setBuilt([]); setMatched({}); setSelLeft(null); setGridPick({});
     if (pos < q.length - 1) setPos(pos + 1);
     else setDone(true);
   };
@@ -450,6 +527,8 @@ function Trainer({ set, index, onExit, onAddWord, onDone }) {
     missing: "أَكْمِلِ الْحَرْفَ النَّاقِصَ",
     scramble: "رَتِّبِ الْحُرُوفَ",
     match: "صِلْ كُلَّ كَلِمَةٍ بِمَعْنَاهَا",
+    grid: "أَجِبْ عَنْ كُلِّ الْكَلِمَاتِ ثُمَّ تَحَقَّقْ",
+    scrambleset: "رَتِّبِ الْحُرُوفَ",
   };
   const LABEL_EN = {
     ar2en: "What does this word mean?",
@@ -457,6 +536,8 @@ function Trainer({ set, index, onExit, onAddWord, onDone }) {
     missing: "Complete the missing letter",
     scramble: "Arrange the letters",
     match: "Match each word to its meaning",
+    grid: "Answer them all, then check",
+    scrambleset: "Arrange the letters",
   };
 
   return (
@@ -474,6 +555,138 @@ function Trainer({ set, index, onExit, onAddWord, onDone }) {
         {LABEL[item.t]}
       </p>
       <p style={{ textAlign: "center", fontSize: 10.5, color: C.faded, marginBottom: 10 }}>{LABEL_EN[item.t]}</p>
+
+      {/* ——— a whole set on one page ——— */}
+      {item.t === "grid" && (
+        <div style={{ marginTop: 4 }}>
+          {item.items.map((it, k) => {
+            const chosen = gridPick[k];
+            const graded = !!picked;
+            const ok = graded && chosen === it.a;
+            return (
+              <div key={k} className="card" style={{
+                padding: "10px 12px", marginBottom: 8,
+                borderColor: graded ? (ok ? C.emerald : C.red) : C.border,
+              }}>
+                <div dir={item.mode === "en2ar" ? "ltr" : "rtl"} style={{ textAlign: "center", marginBottom: 6 }}>
+                  {item.mode === "en2ar"
+                    ? <span style={{ fontSize: 15, color: C.ink }}>{it.q}</span>
+                    : <span className="arabic" style={{ fontSize: 26 }}>{it.q}</span>}
+                  {item.mode === "missing" && it.w.en && (
+                    <div style={{ fontSize: 11, color: C.faded }}>{it.w.en}</div>
+                  )}
+                </div>
+                <div dir="rtl" style={{ display: "flex", flexWrap: "wrap", gap: 6, justifyContent: "center" }}>
+                  {it.options.map((o) => {
+                    let bg = C.surface, bd = C.border, col = C.ink;
+                    if (graded) {
+                      if (o === it.a) { bg = C.emeraldSoft; bd = C.emerald; col = C.emerald; }
+                      else if (o === chosen) { bg = C.redSoft; bd = C.red; col = C.red; }
+                    } else if (o === chosen) { bg = C.goldSoft; bd = C.gold; col = C.gold; }
+                    return (
+                      <button key={o} disabled={graded}
+                        onClick={() => setGridPick((g) => ({ ...g, [k]: o }))}
+                        style={{ background: bg, border: `1.5px solid ${bd}`, borderRadius: 10, padding: "7px 12px", color: col }}>
+                        <span className={item.mode === "ar2en" ? "" : "arabic"}
+                              style={{ fontSize: item.mode === "ar2en" ? 12.5 : 20 }}>{o}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+
+          {!picked && (
+            <button className="btn-primary arabic"
+              style={{ width: "100%", marginTop: 8, fontSize: 20,
+                       opacity: Object.keys(gridPick).length === item.items.length ? 1 : 0.45 }}
+              disabled={Object.keys(gridPick).length !== item.items.length}
+              onClick={() => {
+                let right = 0;
+                item.items.forEach((it, k) => {
+                  if (gridPick[k] === it.a) right++;
+                  else setWrongWords((ws) => (ws.some((x) => x.ar === it.w.ar) ? ws : [...ws, it.w]));
+                });
+                setPicked({ correct: right === item.items.length });
+                setAttempted((a) => a + item.items.length);
+                setRight((r) => r + right);
+              }}>
+              تَحَقَّقْ ✓ ({Object.keys(gridPick).length}/{item.items.length})
+            </button>
+          )}
+        </div>
+      )}
+
+      {/* ——— build every word, one page ——— */}
+      {item.t === "scrambleset" && (
+        <div style={{ marginTop: 4 }}>
+          <p style={{ textAlign: "center", fontSize: 11, color: C.faded, marginBottom: 8 }}>
+            رَتِّبِ الْحُرُوفَ لِكُلِّ كَلِمَةٍ — arrange the letters for each word
+          </p>
+          {item.items.map((it, k) => {
+            const built = gridPick[k] || "";
+            const graded = !!picked;
+            const ok = graded && built.replace(/\s+/g, " ").trim() === String(it.a).trim();
+            return (
+              <div key={k} className="card" style={{
+                padding: "10px 12px", marginBottom: 8,
+                borderColor: graded ? (ok ? C.emerald : C.red) : C.border,
+              }}>
+                <div style={{ fontSize: 11.5, color: C.faded, textAlign: "center" }}>{it.w.en}</div>
+                <div className="arabic" dir="rtl" style={{ fontSize: 26, textAlign: "center", minHeight: 34 }}>
+                  {built || "..."}
+                </div>
+                {graded && !ok && (
+                  <div className="arabic" dir="rtl" style={{ fontSize: 22, textAlign: "center", color: C.emerald }}>
+                    ✅ {it.a}
+                  </div>
+                )}
+                {!graded && (
+                  <div dir="rtl" style={{ display: "flex", flexWrap: "wrap", gap: 5, justifyContent: "center", marginTop: 5 }}>
+                    {shuffle(String(it.a).replace(/\s/g, "").split("")).map((ch, n) => (
+                      <button key={ch + n}
+                        onClick={() => setGridPick((g) => ({ ...g, [k]: (g[k] || "") + ch }))}
+                        style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 9, padding: "5px 11px" }}>
+                        <span className="arabic" style={{ fontSize: 21 }}>{ch}</span>
+                      </button>
+                    ))}
+                    {String(it.a).includes(" ") && (
+                      <button onClick={() => setGridPick((g) => ({ ...g, [k]: (g[k] || "") + " " }))}
+                        style={{ background: C.goldSoft, border: `1px solid ${C.gold}`, borderRadius: 9, padding: "5px 12px", color: C.gold, fontSize: 11 }}>
+                        مَسَافَة
+                      </button>
+                    )}
+                    {built && (
+                      <button onClick={() => setGridPick((g) => ({ ...g, [k]: built.slice(0, -1) }))}
+                        style={{ background: C.redSoft, border: `1px solid ${C.red}`, borderRadius: 9, padding: "5px 10px", color: C.red }}>⌫</button>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+          {!picked && (
+            <button className="btn-primary arabic"
+              style={{ width: "100%", marginTop: 8, fontSize: 20,
+                       opacity: Object.keys(gridPick).length === item.items.length ? 1 : 0.45 }}
+              disabled={Object.keys(gridPick).length !== item.items.length}
+              onClick={() => {
+                let right = 0;
+                item.items.forEach((it, k) => {
+                  const b = (gridPick[k] || "").replace(/\s+/g, " ").trim();
+                  if (b === String(it.a).trim()) right++;
+                  else setWrongWords((ws) => (ws.some((x) => x.ar === it.w.ar) ? ws : [...ws, it.w]));
+                });
+                setPicked({ correct: right === item.items.length });
+                setAttempted((a) => a + item.items.length);
+                setRight((r) => r + right);
+              }}>
+              تَحَقَّقْ ✓ ({Object.keys(gridPick).length}/{item.items.length})
+            </button>
+          )}
+        </div>
+      )}
 
       {/* ——— Arabic → English ——— */}
       {item.t === "ar2en" && (

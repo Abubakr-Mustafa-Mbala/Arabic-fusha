@@ -1,6 +1,7 @@
 import { supabase } from "./supabaseClient";
 import { CURRICULUM } from "../data/curriculum";
 import { QURAN } from "../data/quran";
+import { VOCAB_BANK } from "../data/vocabBank";
 
 const BUCKET = "recordings";
 
@@ -8,29 +9,31 @@ const BUCKET = "recordings";
 // Returns a flat, de-duplicated list: { text, kind, source }
 export function collectRecordables() {
   const seen = new Map();
-  const add = (text, kind, source) => {
+  // Each item carries the lesson it comes from, so recording can proceed
+  // in curriculum order — the earliest lessons get their audio first.
+  const add = (text, kind, source, order = 999) => {
     const t = (text || "").trim();
     if (!t) return;
-    if (!seen.has(t)) seen.set(t, { text: t, kind, source });
+    if (!seen.has(t)) seen.set(t, { text: t, kind, source, order });
   };
 
-  CURRICULUM.lessons.forEach((l) => {
+  CURRICULUM.lessons.forEach((l, li) => {
     const src = l.title;
-    (l.vocab || []).forEach((v) => add(v.ar, "word", src));
-    (l.examples || []).forEach((e) => add(e.ar, "sentence", src));
+    // within a lesson: words first, then its sentences
+    (l.vocab || []).forEach((v) => add(v.ar, "word", src, li * 10));
+    (l.examples || []).forEach((e) => add(e.ar, "sentence", src, li * 10 + 1));
     if (l.rule?.ar) {
-      // rule text can be multi-line — record each line separately
-      String(l.rule.ar).split("\n").forEach((line) => add(line, "sentence", src));
+      String(l.rule.ar).split("\n").forEach((line) => add(line, "sentence", src, li * 10 + 2));
     }
     (l.drills || []).forEach((d) => {
-      if (d.a) add(d.a, d.t === "assemble" ? "sentence" : "word", src);
+      if (d.a) add(d.a, d.t === "assemble" ? "sentence" : "word", src, li * 10 + 3);
     });
   });
 
   QURAN.forEach((s) => {
     (s.ayat || []).forEach((a) => {
-      add(a.ar, "ayah", s.name);
-      (a.words || []).forEach((w) => add(w.ar, "word", s.name));
+      add(a.ar, "ayah", s.name, 9000);
+      (a.words || []).forEach((w) => add(w.ar, "word", s.name, 9001));
     });
   });
 

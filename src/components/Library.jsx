@@ -5,7 +5,10 @@ import { fetchDocs, insertDoc, updateDocScore, deleteDoc, fileToBase64, fileToTe
 import { Beads } from "./LessonPlayer";
 import Dictionary from "./Dictionary";
 
-const MAX_PDF_MB = 4;
+// A PDF is sent as base64, which grows it by about a third, and the serverless
+// function accepts at most 6 MB per request. Anything over ~3.5 MB fails at the
+// network layer and looks like a connection problem, so we stop it here instead.
+const MAX_PDF_MB = 3.5;
 
 export default function Library({ session, onExit, onNewVocab }) {
   const [dictWord, setDictWord] = useState(null);
@@ -139,8 +142,16 @@ function AddDoc({ onCancel, onIngested }) {
       }
       if (!parsed.title || !parsed.excerpt || !Array.isArray(parsed.vocab)) throw new Error("bad");
       onIngested({ title: parsed.title, content: parsed.excerpt, vocab: parsed.vocab });
-    } catch {
-      setError("Couldn't process that document — check the connection and try again.");
+    } catch (err) {
+      const msg = String(err?.message || "");
+      if (msg.includes("Failed to fetch") || msg.includes("NetworkError") || msg.includes("413")) {
+        setError(
+          "The document did not reach the server — almost always because the file is too big. " +
+          "Try a smaller PDF, or paste the text directly above."
+        );
+      } else {
+        setError("Couldn't process that document. Try pasting its text instead.");
+      }
     } finally {
       setBusy(false);
     }
@@ -153,7 +164,11 @@ function AddDoc({ onCancel, onIngested }) {
     try {
       if (file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf")) {
         if (file.size > MAX_PDF_MB * 1024 * 1024) {
-          setError(`PDF is too large — keep it under ${MAX_PDF_MB} MB (a chapter, not the whole book).`);
+          setError(
+            `That PDF is ${(file.size / 1024 / 1024).toFixed(1)} MB — too large to send. ` +
+            `Keep it under ${MAX_PDF_MB} MB (one chapter, not a whole book). ` +
+            `You can also paste the text directly in the box above, which always works.`
+          );
           return;
         }
         const b64 = await fileToBase64(file);
@@ -162,8 +177,15 @@ function AddDoc({ onCancel, onIngested }) {
         const t = await fileToText(file);
         await ingest({ text: t });
       }
-    } catch {
-      setError("Could not read that file.");
+    } catch (err) {
+      const msg = String(err?.message || "");
+      if (msg.includes("413") || msg.includes("too large") || msg.includes("Payload")) {
+        setError("The file was too large for the server. Try a smaller PDF, or paste the text instead.");
+      } else if (msg.includes("Failed to fetch") || msg.includes("NetworkError")) {
+        setError("The upload did not reach the server. This is usually the file being too big — try a smaller one, or paste the text.");
+      } else {
+        setError("Could not read that file. Try pasting its text into the box above instead.");
+      }
     }
   };
 
@@ -190,6 +212,9 @@ function AddDoc({ onCancel, onIngested }) {
       <label className="card" style={{ display: "block", padding: 16, textAlign: "center", cursor: "pointer", borderStyle: "dashed" }}>
         <span style={{ fontSize: 26 }}>📎</span>
         <div style={{ fontSize: 13, color: C.faded, marginTop: 4 }}>PDF (≤ {MAX_PDF_MB} MB) or .txt</div>
+        <div style={{ fontSize: 10.5, color: C.faded, marginTop: 2 }}>
+          Large book? Paste one chapter's text above instead — no size limit.
+        </div>
         <input type="file" accept=".pdf,.txt,text/plain,application/pdf" onChange={onFile} style={{ display: "none" }} disabled={busy} />
       </label>
 
@@ -235,24 +260,33 @@ function DocView({ doc, fresh, onBack, onDelete, onQuizDone, onLookup }) {
       </div>
 
       <div style={{ textAlign: "center", marginTop: 12, fontSize: 11, color: C.faded }}>
-        👆 Tap any word to open it in the dictionary
+        👆 Tap any word — it opens in the dictionary
       </div>
       <div className="card" dir="rtl" style={{ marginTop: 6, padding: 16, maxHeight: 260, overflowY: "auto" }}>
         <p className="arabic" style={{ fontSize: 23, lineHeight: 2.1 }}>
-          {doc.content.split(/(\s+)/).map((tok, i) =>
-            /\S/.test(tok) ? (
-              <span
+          {doc.content.split(/(\s+)/).map((tok, i) => {
+            const clean = tok.replace(/[^\u0600-\u06FF]/g, "");
+            if (!/\S/.test(tok)) return tok;
+            if (!clean) return tok;   // punctuation stays plain
+            return (
+              <button
                 key={i}
-                onClick={() => onLookup(tok.replace(/[^\u0600-\u06FF]/g, ""))}
-                style={{ cursor: "pointer", borderRadius: 6 }}
-                onTouchStart={() => {}}
+                type="button"
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); onLookup(clean); }}
+                className="arabic"
+                style={{
+                  background: "transparent", border: "none", padding: "1px 2px", margin: 0,
+                  fontSize: "inherit", fontFamily: "inherit", lineHeight: "inherit",
+                  color: C.ink, cursor: "pointer", borderRadius: 5,
+                  borderBottom: `1px dotted ${C.border}`,
+                  WebkitTapHighlightColor: "rgba(14,82,55,0.15)",
+                  touchAction: "manipulation",
+                }}
               >
                 {tok}
-              </span>
-            ) : (
-              tok
-            )
-          )}
+              </button>
+            );
+          })}
         </p>
       </div>
 

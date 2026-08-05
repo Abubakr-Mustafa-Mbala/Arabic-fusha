@@ -134,9 +134,29 @@ export default function Studio({ session, onExit }) {
 
 function Row({ item, path, userId, busy, setBusy, setError, onSaved, onRemoved }) {
   const [recording, setRecording] = useState(false);
-  const [preview, setPreview] = useState(null); // local blob url after recording
+  const [preview, setPreview] = useState(null);   // local blob url, not yet saved
+  const [confirmDel, setConfirmDel] = useState(false);
   const mediaRef = useRef(null);
   const chunksRef = useRef([]);
+  const blobRef = useRef(null);
+
+  const save = async () => {
+    if (!blobRef.current) return;
+    setBusy(item.text);
+    setError(null);
+    try {
+      const p = await uploadRecording(userId, item.text, item.kind, blobRef.current);
+      onSaved(item.text, p);
+      setPreview(null);
+      blobRef.current = null;
+    } catch (e) {
+      setError("Upload failed: " + (e?.message || e?.error || "unknown error"));
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const discard = () => { setPreview(null); blobRef.current = null; };
 
   const start = async () => {
     setError(null);
@@ -146,19 +166,13 @@ function Row({ item, path, userId, busy, setBusy, setError, onSaved, onRemoved }
       mediaRef.current = mr;
       chunksRef.current = [];
       mr.ondataavailable = (e) => e.data.size && chunksRef.current.push(e.data);
-      mr.onstop = async () => {
+      mr.onstop = () => {
         stream.getTracks().forEach((t) => t.stop());
+        // Hold it locally. Nothing is saved until the reciter has heard it back
+        // and pressed save — so a poor take never reaches the app.
         const blob = new Blob(chunksRef.current, { type: "audio/webm" });
+        blobRef.current = blob;
         setPreview(URL.createObjectURL(blob));
-        setBusy(item.text);
-        try {
-          const p = await uploadRecording(userId, item.text, item.kind, blob);
-          onSaved(item.text, p);
-        } catch (e) {
-          setError("Upload failed: " + (e?.message || e?.error || "unknown error"));
-        } finally {
-          setBusy(null);
-        }
       };
       mr.start();
       setRecording(true);
@@ -181,6 +195,7 @@ function Row({ item, path, userId, busy, setBusy, setError, onSaved, onRemoved }
   const remove = async () => {
     await deleteRecording(item.text, path).catch(() => {});
     setPreview(null);
+    setConfirmDel(false);
     onRemoved(item.text);
   };
 
@@ -196,35 +211,86 @@ function Row({ item, path, userId, busy, setBusy, setError, onSaved, onRemoved }
         <span style={{ fontSize: 18 }}>{done ? "✅" : "⚪"}</span>
       </div>
 
-      <div dir="rtl" style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
-        {!recording ? (
-          <button onClick={start} disabled={busy}
-            style={{
-              flex: 1, minWidth: 110, fontSize: 14, padding: "9px 10px", borderRadius: 10,
-              background: C.emeraldSoft, color: C.emerald, border: `1px solid ${C.emerald}`,
-            }}>
-            {busy ? "..." : done ? "🎙️ إِعَادَة" : "🎙️ سَجِّلْ"}
-          </button>
-        ) : (
-          <button onClick={stop}
-            style={{ flex: 1, minWidth: 110, fontSize: 14, padding: "9px 10px", borderRadius: 10, background: C.red, color: "#fff", border: "none" }}>
-            ⏹ إِيقَاف
-          </button>
-        )}
+      {/* record → listen back → save. Nothing is uploaded until you approve it. */}
+      {!preview ? (
+        <div dir="rtl" style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
+          {!recording ? (
+            <button onClick={start} disabled={busy}
+              style={{
+                flex: 1, minWidth: 110, fontSize: 15, padding: "11px 10px", borderRadius: 10,
+                background: C.emeraldSoft, color: C.emerald, border: `1px solid ${C.emerald}`, fontWeight: 600,
+              }}>
+              {busy ? "..." : done ? "🎙️ إِعَادَةُ التَّسْجِيلِ" : "🎙️ سَجِّلْ"}
+            </button>
+          ) : (
+            <button onClick={stop}
+              style={{ flex: 1, minWidth: 110, fontSize: 15, padding: "11px 10px", borderRadius: 10, background: C.red, color: "#fff", border: "none", fontWeight: 600 }}>
+              ⏹ إِيقَاف
+            </button>
+          )}
 
-        {(done || preview) && !recording && (
-          <>
+          {done && !recording && (
+            <>
+              <button onClick={play}
+                style={{ flex: 1, minWidth: 90, fontSize: 14, padding: "11px 10px", borderRadius: 10, background: C.surface, color: C.ink, border: `1px solid ${C.border}` }}>
+                ▶️ اِسْمَعْ
+              </button>
+              <button onClick={() => setConfirmDel(true)}
+                style={{ fontSize: 13, padding: "11px 13px", borderRadius: 10, background: "transparent", color: C.faded, border: `1px solid ${C.border}` }}>
+                🗑
+              </button>
+            </>
+          )}
+        </div>
+      ) : (
+        <div style={{ marginTop: 10 }}>
+          <div style={{
+            padding: "8px 12px", borderRadius: 10, background: C.goldSoft,
+            fontSize: 11.5, color: C.gold, textAlign: "center", marginBottom: 8,
+          }}>
+            اِسْمَعْ أَوَّلًا — listen before you save
+          </div>
+          <div dir="rtl" style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
             <button onClick={play}
-              style={{ flex: 1, minWidth: 90, fontSize: 14, padding: "9px 10px", borderRadius: 10, background: C.surface, color: C.ink, border: `1px solid ${C.border}` }}>
+              style={{ flex: 1, minWidth: 100, fontSize: 15, padding: "11px 10px", borderRadius: 10, background: C.surface, color: C.ink, border: `1.5px solid ${C.gold}`, fontWeight: 600 }}>
               ▶️ اِسْمَعْ
             </button>
-            <button onClick={remove}
-              style={{ fontSize: 12, padding: "9px 12px", borderRadius: 10, background: "transparent", color: C.faded, border: `1px solid ${C.border}` }}>
-              🗑
+            <button onClick={save} disabled={busy}
+              style={{ flex: 1, minWidth: 100, fontSize: 15, padding: "11px 10px", borderRadius: 10, background: C.emerald, color: "#fff", border: "none", fontWeight: 600 }}>
+              {busy ? "..." : "✓ اِحْفَظْ"}
             </button>
-          </>
-        )}
-      </div>
+            <button onClick={() => { discard(); start(); }}
+              style={{ fontSize: 13, padding: "11px 13px", borderRadius: 10, background: "transparent", color: C.faded, border: `1px solid ${C.border}` }}>
+              ↺
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* deleting someone else's work should never happen by a stray tap */}
+      {confirmDel && (
+        <div className="fadein" style={{
+          marginTop: 10, padding: 12, borderRadius: 10,
+          background: C.redSoft, border: `1px solid ${C.red}`,
+        }}>
+          <div dir="rtl" className="arabic" style={{ fontSize: 17, color: C.red, textAlign: "center" }}>
+            هَلْ تَحْذِفُ هَذَا التَّسْجِيلَ؟
+          </div>
+          <div style={{ fontSize: 10.5, color: C.faded, textAlign: "center", marginTop: 2 }}>
+            This may be another brother's recording. It cannot be undone.
+          </div>
+          <div dir="rtl" style={{ display: "flex", gap: 8, marginTop: 8 }}>
+            <button onClick={remove}
+              style={{ flex: 1, fontSize: 13, padding: "8px", borderRadius: 9, background: C.red, color: "#fff", border: "none" }}>
+              نَعَمْ، اِحْذِفْ
+            </button>
+            <button onClick={() => setConfirmDel(false)}
+              style={{ flex: 1, fontSize: 13, padding: "8px", borderRadius: 9, background: C.surface, color: C.ink, border: `1px solid ${C.border}` }}>
+              لَا
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

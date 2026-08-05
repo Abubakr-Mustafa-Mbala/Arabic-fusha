@@ -17,6 +17,8 @@ import Vocabulary from "./components/Vocabulary";
 import QuranStudio from "./components/QuranStudio";
 import Editor, { fetchOverrides } from "./components/Editor";
 import UnitExam from "./components/UnitExam";
+import Reading from "./components/Reading";
+import Writing from "./components/Writing";
 import { fetchRecordings, isRecorder, audioUrl } from "./lib/recordings";
 
 const PASS_GATE = 60; // مقبول unlocks the next lesson; retake anytime to raise the grade
@@ -182,19 +184,34 @@ export default function App() {
     const p = typeof payload === "number" ? { score: payload, pct: 100, stage: "produce" } : payload || {};
     const prev = state.lessons[lesson.id];
     const finalScore = Math.max(prev?.score ?? 0, p.score ?? prev?.score ?? 0);
+    // Furthest reached, for the progress bar and unlocking.
     const finalPct = Math.max(prev?.pct ?? 0, p.pct ?? 0);
-    const stage = p.stage || prev?.stage || "vocab";
+    // Where they ACTUALLY are, for resuming — this must follow them backwards
+    // too, or going back a stage sends them to the wrong place next time.
+    const stage = p.stage || prev?.stage || "intro";
+    // A word only enters revision once the learner has actually studied it —
+    // reaching the drills. Merely opening a lesson must not fill the queue with
+    // words they have never seen.
+    const studied = (p.pct ?? prev?.pct ?? 0) >= 60 || (p.score ?? 0) > 0;
     const newCards = {};
     update((s) => {
-      const seeded = seedLessonIntoSrs(s, lesson);
-      lesson.vocab.forEach((v) => {
-        if (!s.srs[v.ar]) newCards[v.ar] = seeded.srs[v.ar];
-      });
+      const seeded = studied ? seedLessonIntoSrs(s, lesson) : s;
+      if (studied) {
+        lesson.vocab.forEach((v) => {
+          if (!s.srs[v.ar]) newCards[v.ar] = seeded.srs[v.ar];
+        });
+      }
       return {
         ...seeded,
         lessons: {
           ...seeded.lessons,
-          [lesson.id]: { score: finalScore, pct: finalPct, stage, completedAt: Date.now() },
+          [lesson.id]: {
+            score: finalScore,
+            pct: finalPct,          // furthest point reached
+            stage,                  // where to reopen
+            atPct: p.pct ?? prev?.atPct ?? 0,
+            completedAt: Date.now(),
+          },
         },
       };
     });
@@ -353,6 +370,28 @@ export default function App() {
           </div>
           <Studio session={session} onExit={() => go({ name: "home" })} />
         </>
+      </Shell>
+    );
+  }
+
+  if (view.name === "writing") {
+    return (
+      <Shell nav={navBar} sidebar={sideBar}>
+        <Writing
+          unlockedIds={lessons.filter((l) => (state.lessons[l.id]?.pct || 0) > 0).map((l) => l.id)}
+          onExit={() => go({ name: "home" })}
+        />
+      </Shell>
+    );
+  }
+
+  if (view.name === "reading") {
+    return (
+      <Shell nav={navBar} sidebar={sideBar}>
+        <Reading
+          unlockedIds={lessons.filter((l) => (state.lessons[l.id]?.pct || 0) > 0).map((l) => l.id)}
+          onExit={() => go({ name: "home" })}
+        />
       </Shell>
     );
   }
@@ -591,7 +630,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v11.9 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v13.0 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>
@@ -601,6 +640,8 @@ export default function App() {
 function MoreSheet({ go, canRecord, onClose, session }) {
   const items = [
     { v: "vocab", emoji: "📗", ar: "اَلْمُفْرَدَاتُ", en: "Vocabulary trainer — drill words six ways" },
+    { v: "reading", emoji: "📄", ar: "اَلْقِرَاءَةُ", en: "Reading — passages and dialogues" },
+    { v: "writing", emoji: "✍️", ar: "اَلْكِتَابَةُ", en: "Dictation and composition" },
     { v: "passages", emoji: "🎧", ar: "اَلنُّصُوصُ الْمَسْمُوعَةُ", en: "Recorded texts — hear a human read" },
     { v: "library", emoji: "📚", ar: "اَلْمَكْتَبَةُ", en: "My library — upload your own texts" },
     { v: "dict", emoji: "📕", ar: "اَلْمُعْجَمُ", en: "Dictionary — look up any word" },
@@ -626,10 +667,18 @@ function MoreSheet({ go, canRecord, onClose, session }) {
         style={{
           width: "100%", maxWidth: 440, background: C.paper,
           borderTopLeftRadius: 20, borderTopRightRadius: 20,
-          padding: "14px 16px 96px", borderTop: `1px solid ${C.border}`,
+          borderTop: `1px solid ${C.border}`,
+          // Cap the height and scroll inside, or a long list pushes its first
+          // item off the top of the screen.
+          maxHeight: "82vh",
+          display: "flex", flexDirection: "column",
+          paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 12px)",
         }}
       >
-        <div style={{ width: 40, height: 4, background: C.border, borderRadius: 99, margin: "0 auto 14px" }} />
+        <div style={{ padding: "12px 16px 8px", flexShrink: 0 }}>
+          <div style={{ width: 40, height: 4, background: C.border, borderRadius: 99, margin: "0 auto" }} />
+        </div>
+        <div style={{ overflowY: "auto", padding: "0 16px 8px", WebkitOverflowScrolling: "touch" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {items.map((it) => (
             <button key={it.v} onClick={() => go({ name: it.v })} className="card" dir="rtl"
@@ -649,6 +698,7 @@ function MoreSheet({ go, canRecord, onClose, session }) {
             </button>
           </div>
         )}
+        </div>
       </div>
     </div>
   );
@@ -697,6 +747,8 @@ function SideBar({ current, go, canRecord, session, dueCount, bareCount }) {
     { v: "tutor", emoji: "🎓", ar: "اَلْمُعَلِّم", en: "AI teacher" },
     { v: "quran", emoji: "📖", ar: "اَلْقُرْآن", en: "Quran & Salah" },
     { v: "vocab", emoji: "📗", ar: "اَلْمُفْرَدَات", en: "Vocabulary" },
+    { v: "reading", emoji: "📄", ar: "اَلْقِرَاءَة", en: "Reading passages" },
+    { v: "writing", emoji: "✍️", ar: "اَلْكِتَابَة", en: "Dictation & composition" },
     { v: "listening", emoji: "👂", ar: "اَلِاسْتِمَاع", en: "Listening" },
     { v: "passages", emoji: "🎧", ar: "نُصُوصٌ مَسْمُوعَةٌ", en: "Recorded texts" },
     { v: "library", emoji: "📚", ar: "اَلْمَكْتَبَة", en: "My library" },

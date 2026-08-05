@@ -9,7 +9,11 @@ export function bare(word) {
 
 // ——— SRS review session ———
 export function ReviewSession({ dueList, allVocab, srs = {}, onAnswer, onExit }) {
-  const [queue] = useState(() => shuffle(dueList));
+  // A session is capped. If eighty words are due, showing all eighty at once
+  // guarantees the learner abandons it; twenty a day clears the backlog steadily.
+  const SESSION_CAP = 20;
+  const [queue] = useState(() => shuffle(dueList).slice(0, SESSION_CAP));
+  const remaining = Math.max(0, dueList.length - queue.length);
   const [pos, setPos] = useState(0);
   const [picked, setPicked] = useState(null);
   const [right, setRight] = useState(0);
@@ -24,6 +28,11 @@ export function ReviewSession({ dueList, allVocab, srs = {}, onAnswer, onExit })
           اِنْتَهَتِ الْمُرَاجَعَةُ! أَحْسَنْتَ
         </div>
         <div style={{ color: C.faded, fontSize: 13, marginTop: 6 }}>{right}/{queue.length}</div>
+        {remaining > 0 && (
+          <div style={{ color: C.faded, fontSize: 11, marginTop: 4 }}>
+            {remaining} more waiting — come back later today
+          </div>
+        )}
         <button className="btn-primary arabic" style={{ width: "100%", marginTop: 18, fontSize: 21 }} onClick={onExit}>
           ← اَلدُّرُوسُ
         </button>

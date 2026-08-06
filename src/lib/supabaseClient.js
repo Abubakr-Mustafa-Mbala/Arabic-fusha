@@ -59,3 +59,33 @@ export async function saveRemoteCards(userId, cardsObj) {
   }));
   if (rows.length) await supabase.from("srs_cards").upsert(rows);
 }
+
+
+// ——— Reviewer access — the shaykh and the review team ———
+// A reviewer sees everything unlocked and can leave a note on any lesson.
+
+export async function checkReviewer(userId) {
+  if (!supabase || !userId) return false;
+  const { data } = await supabase.from("reviewers").select("user_id").eq("user_id", userId).maybeSingle();
+  return !!data;
+}
+
+export async function fetchNotes(lessonId) {
+  if (!supabase) return [];
+  const q = supabase.from("review_notes").select("*").order("created_at", { ascending: false });
+  const { data } = lessonId ? await q.eq("lesson_id", lessonId) : await q;
+  return data || [];
+}
+
+export async function addNote(lessonId, userId, name, note) {
+  if (!supabase) throw new Error("no backend");
+  const { error } = await supabase.from("review_notes").insert({
+    lesson_id: lessonId, reviewer: userId, reviewer_name: name || null, note,
+  });
+  if (error) throw error;
+}
+
+export async function resolveNote(id) {
+  if (!supabase) return;
+  await supabase.from("review_notes").update({ status: "fixed" }).eq("id", id);
+}

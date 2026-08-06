@@ -411,6 +411,122 @@ export function ConjTable({ table }) {
   );
 }
 
+// جَدْوَلُ التَّطْبِيقِ — the Madinah worksheet table.
+// One row is given as the example; the learner completes the rest and is
+// graded on the whole grid at once, exactly as in the printed books.
+export function FillTable({ table }) {
+  const [vals, setVals] = useState({});
+  const [graded, setGraded] = useState(false);
+  const rows = table.rows || [];
+  const cols = table.head || [];
+
+  const cells = [];
+  rows.forEach((r, ri) => r.forEach((c, ci) => { if (c === null) cells.push(`${ri}-${ci}`); }));
+  const allDone = cells.every((k) => (vals[k] || "").trim());
+  const right = cells.filter((k) => {
+    const [ri, ci] = k.split("-").map(Number);
+    const want = String(table.answers[ri][ci]).replace(/[\u064B-\u0652\u0670]/g, "").trim();
+    const got = String(vals[k] || "").replace(/[\u064B-\u0652\u0670]/g, "").trim();
+    return want === got;
+  }).length;
+
+  return (
+    <div className="card" style={{ padding: "14px 8px", marginTop: 12, overflowX: "auto" }}>
+      <div className="arabic" dir="rtl" style={{ fontSize: 19, color: C.gold, textAlign: "center", marginBottom: 3 }}>
+        {table.title}
+      </div>
+      <div dir="ltr" style={{ fontSize: 10, color: C.faded, textAlign: "center", marginBottom: 8 }}>
+        The first row is done for you — complete the rest
+      </div>
+
+      <table dir="rtl" style={{ width: "100%", borderCollapse: "collapse" }}>
+        <thead>
+          <tr>
+            {cols.map((h, i) => (
+              <th key={i} style={{
+                padding: "5px 3px", borderBottom: `2px solid ${C.emerald}`,
+                color: C.emerald, fontSize: 10.5, fontWeight: 700,
+              }}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, ri) => (
+            <tr key={ri}>
+              {r.map((cell, ci) => {
+                const key = `${ri}-${ci}`;
+                if (cell !== null) {
+                  return (
+                    <td key={ci} style={{
+                      padding: "6px 3px", borderBottom: `1px solid ${C.border}`, textAlign: "center",
+                      color: ci === 0 ? C.faded : C.ink, fontSize: ci === 0 ? 11 : 17,
+                      background: ri === 0 ? C.emeraldSoft : "transparent",
+                    }}>
+                      <span className={ci === 0 ? "" : "arabic"}>{cell}</span>
+                    </td>
+                  );
+                }
+                const want = table.answers[ri][ci];
+                const ok = graded &&
+                  String(vals[key] || "").replace(/[\u064B-\u0652\u0670]/g, "").trim() ===
+                  String(want).replace(/[\u064B-\u0652\u0670]/g, "").trim();
+                return (
+                  <td key={ci} style={{ padding: "4px 2px", borderBottom: `1px solid ${C.border}` }}>
+                    {graded ? (
+                      <div className="arabic" style={{
+                        fontSize: 16, textAlign: "center",
+                        color: ok ? C.emerald : C.red,
+                      }}>
+                        {ok ? vals[key] : want}
+                      </div>
+                    ) : (
+                      <input
+                        dir="rtl"
+                        className="arabic"
+                        value={vals[key] || ""}
+                        onChange={(e) => setVals((v) => ({ ...v, [key]: e.target.value }))}
+                        style={{
+                          width: "100%", minWidth: 62, padding: "5px 2px", fontSize: 16,
+                          textAlign: "center", borderRadius: 6,
+                          background: C.surface, border: `1px solid ${C.border}`,
+                        }}
+                      />
+                    )}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {!graded ? (
+        <button
+          className="btn-primary arabic"
+          style={{ width: "100%", marginTop: 10, fontSize: 18, opacity: allDone ? 1 : 0.45 }}
+          disabled={!allDone}
+          onClick={() => setGraded(true)}
+        >
+          تَحَقَّقْ ✓
+        </button>
+      ) : (
+        <div style={{ marginTop: 10, textAlign: "center" }}>
+          <div style={{ fontSize: 24, fontWeight: 700, color: right === cells.length ? C.emerald : C.gold }}>
+            {right} / {cells.length}
+          </div>
+          <button
+            className="card arabic"
+            style={{ width: "100%", marginTop: 8, padding: 10, fontSize: 17, color: C.gold, borderColor: C.gold }}
+            onClick={() => { setVals({}); setGraded(false); }}
+          >
+            ↺ مَرَّةً أُخْرَى
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function SkipStage({ onDone }) {
   return (
     <div className="fadein">
@@ -435,6 +551,7 @@ function RuleStage({ lesson, onDone }) {
   const steps = lesson.rule.teach || null;
   const [i, setI] = useState(0);
   const [hint, setHint] = useState(false);
+  const [showTable, setShowTable] = useState(false);
 
   if (!steps || !steps.length) {
     // legacy lessons that have no teaching sequence yet
@@ -540,7 +657,35 @@ function RuleStage({ lesson, onDone }) {
           <span className="arabic" style={{ fontSize: 17, color: C.faded }}>← السَّابِقُ</span>
         </button>
       </div>
-      {last && lesson.rule.table && <ConjTable table={lesson.rule.table} />}
+      {/* a conjugation table is reference material — always available, not
+          hidden behind the final step where most learners never reach it */}
+      {lesson.rule.fillTable && <FillTable table={lesson.rule.fillTable} />}
+      {lesson.rule.table && (
+        <div style={{ marginTop: 12 }}>
+          <button
+            onClick={() => setShowTable((v) => !v)}
+            dir="rtl"
+            className="card"
+            style={{
+              width: "100%", padding: "10px 14px", textAlign: "right",
+              borderColor: C.gold, background: showTable ? C.goldSoft : C.surface,
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span className="arabic" style={{ fontSize: 18, color: C.gold, fontWeight: 700 }}>
+                📋 {lesson.rule.table.title}
+              </span>
+              <span style={{ color: C.gold, fontSize: 13 }}>{showTable ? "▾" : "‹"}</span>
+            </div>
+            {!showTable && (
+              <div dir="ltr" style={{ fontSize: 10, color: C.faded, textAlign: "right", marginTop: 2 }}>
+                tap to open the full table
+              </div>
+            )}
+          </button>
+          {showTable && <ConjTable table={lesson.rule.table} />}
+        </div>
+      )}
       {last && lesson.rule.extra && (
         <div className="card fadein" dir="rtl" style={{ marginTop: 12, padding: 14, borderColor: C.gold }}>
           <div style={{ fontSize: 9.5, color: C.gold, letterSpacing: "0.12em", textAlign: "center" }}>

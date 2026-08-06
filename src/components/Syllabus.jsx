@@ -208,6 +208,22 @@ export default function Syllabus({ onExit }) {
           ))}
         </div>
       )}
+      <div style={{
+        marginTop: 22, padding: "12px 14px", borderRadius: 10,
+        background: C.surface, border: `1px solid ${C.border}`,
+      }}>
+        <div className="arabic" dir="rtl" style={{ fontSize: 15, color: C.emerald, textAlign: "center", lineHeight: 1.9 }}>
+          بَعْضُ الْأَمْثِلَةِ وَالتَّمَارِينِ مِنْ «دُرُوسِ اللُّغَةِ الْعَرَبِيَّةِ»
+          <br />
+          لِلشَّيْخِ الدُّكْتُورِ ف. عَبْدِ الرَّحِيمِ رَحِمَهُ اللهُ
+        </div>
+        <div dir="ltr" style={{ fontSize: 10, color: C.faded, textAlign: "center", marginTop: 6, lineHeight: 1.6 }}>
+          Some examples and exercises are taken from <i>Duroos al-Lughah al-Arabiyyah</i> by
+          Shaykh Dr. V. Abdur Rahim, rahimahullah — courtesy of the Institute of the Language
+          of the Qur'an. May Allah reward them and have mercy on him.
+        </div>
+      </div>
+
     </div>
   );
 }

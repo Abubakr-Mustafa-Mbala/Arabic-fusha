@@ -425,9 +425,16 @@ function buildQueue(set) {
     });
   }
 
-  // ⑤ BUILD THE WORD — one page, taken in turn
+  // ⑤ BUILD THE WORD — one page. The letters are shuffled ONCE here; shuffling
+  // during render made them jump on every tap and wrecked correct answers.
   if (drillable.length) {
-    pages.push({ t: "scrambleset", items: drillable.map((w) => ({ w, a: bareWord(w.ar) })) });
+    pages.push({
+      t: "scrambleset",
+      items: drillable.map((w) => {
+        const a = bareWord(w.ar);
+        return { w, a, letters: shuffle(a.replace(/\s/g, "").split("")) };
+      }),
+    });
   }
 
   return pages;
@@ -529,6 +536,7 @@ function Trainer({ set, index, onExit, onAddWord, onDone }) {
     match: "صِلْ كُلَّ كَلِمَةٍ بِمَعْنَاهَا",
     grid: "أَجِبْ عَنْ كُلِّ الْكَلِمَاتِ ثُمَّ تَحَقَّقْ",
     scrambleset: "رَتِّبِ الْحُرُوفَ",
+    gapfill: "أَكْمِلِ الْحُرُوفَ النَّاقِصَةَ",
   };
   const LABEL_EN = {
     ar2en: "What does this word mean?",
@@ -538,6 +546,7 @@ function Trainer({ set, index, onExit, onAddWord, onDone }) {
     match: "Match each word to its meaning",
     grid: "Answer them all, then check",
     scrambleset: "Arrange the letters",
+    gapfill: "Complete the missing letters",
   };
 
   return (
@@ -618,6 +627,86 @@ function Trainer({ set, index, onExit, onAddWord, onDone }) {
         </div>
       )}
 
+      {/* ——— several letters missing, no English given ——— */}
+      {item.t === "gapfill" && (
+        <div style={{ marginTop: 4 }}>
+          <p style={{ textAlign: "center", fontSize: 11, color: C.faded, marginBottom: 8 }}>
+            حُرُوفٌ نَاقِصَةٌ — work out the word, then fill every gap in order
+          </p>
+          {item.items.map((it, k) => {
+            const filled = gridPick[k] || [];
+            const graded = !!picked;
+            const ok = graded && filled.join("") === it.a.join("");
+            return (
+              <div key={k} className="card" style={{
+                padding: "10px 12px", marginBottom: 8,
+                borderColor: graded ? (ok ? C.emerald : C.red) : C.border,
+              }}>
+                <div className="arabic" dir="rtl" style={{ fontSize: 28, textAlign: "center", letterSpacing: 2 }}>
+                  {(() => {
+                    let n = -1;
+                    return it.shown.split("").map((c, m) => {
+                      if (c !== "_") return <span key={m}>{c}</span>;
+                      n++;
+                      const v = filled[n];
+                      return (
+                        <span key={m} style={{
+                          display: "inline-block", minWidth: 26,
+                          borderBottom: `2px dashed ${graded ? (ok ? C.emerald : C.red) : C.gold}`,
+                          color: graded ? (ok ? C.emerald : C.red) : C.gold,
+                        }}>{v || "؟"}</span>
+                      );
+                    });
+                  })()}
+                </div>
+                {graded && !ok && (
+                  <div className="arabic" dir="rtl" style={{ fontSize: 22, textAlign: "center", color: C.emerald, marginTop: 3 }}>
+                    ✅ {it.w.ar} <span style={{ fontSize: 12, color: C.faded }}>{it.w.en}</span>
+                  </div>
+                )}
+                {!graded && (
+                  <div dir="rtl" style={{ display: "flex", flexWrap: "wrap", gap: 5, justifyContent: "center", marginTop: 7 }}>
+                    {it.pool.map((ch, n2) => (
+                      <button key={ch + n2}
+                        disabled={filled.length >= it.a.length}
+                        onClick={() => setGridPick((g) => ({ ...g, [k]: [...(g[k] || []), ch] }))}
+                        style={{
+                          background: C.surface, border: `1px solid ${C.border}`, borderRadius: 9,
+                          padding: "5px 12px", opacity: filled.length >= it.a.length ? 0.35 : 1,
+                        }}>
+                        <span className="arabic" style={{ fontSize: 21 }}>{ch}</span>
+                      </button>
+                    ))}
+                    {filled.length > 0 && (
+                      <button onClick={() => setGridPick((g) => ({ ...g, [k]: (g[k] || []).slice(0, -1) }))}
+                        style={{ background: C.redSoft, border: `1px solid ${C.red}`, borderRadius: 9, padding: "5px 10px", color: C.red }}>⌫</button>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+          {!picked && (
+            <button className="btn-primary arabic"
+              style={{ width: "100%", marginTop: 8, fontSize: 20,
+                       opacity: item.items.every((it, k) => (gridPick[k] || []).length === it.a.length) ? 1 : 0.45 }}
+              disabled={!item.items.every((it, k) => (gridPick[k] || []).length === it.a.length)}
+              onClick={() => {
+                let r = 0;
+                item.items.forEach((it, k) => {
+                  if ((gridPick[k] || []).join("") === it.a.join("")) r++;
+                  else setWrongWords((ws) => (ws.some((x) => x.ar === it.w.ar) ? ws : [...ws, it.w]));
+                });
+                setPicked({ correct: r === item.items.length });
+                setAttempted((a) => a + item.items.length);
+                setRight((x) => x + r);
+              }}>
+              تَحَقَّقْ ✓
+            </button>
+          )}
+        </div>
+      )}
+
       {/* ——— build every word, one page ——— */}
       {item.t === "scrambleset" && (
         <div style={{ marginTop: 4 }}>
@@ -644,7 +733,7 @@ function Trainer({ set, index, onExit, onAddWord, onDone }) {
                 )}
                 {!graded && (
                   <div dir="rtl" style={{ display: "flex", flexWrap: "wrap", gap: 5, justifyContent: "center", marginTop: 5 }}>
-                    {shuffle(String(it.a).replace(/\s/g, "").split("")).map((ch, n) => (
+                    {(it.letters || []).map((ch, n) => (
                       <button key={ch + n}
                         onClick={() => setGridPick((g) => ({ ...g, [k]: (g[k] || "") + ch }))}
                         style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 9, padding: "5px 11px" }}>

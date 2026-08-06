@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { CURRICULUM, UNITS, allLearnedVocab, gradeBand } from "./data/curriculum";
 import { load, save, review, initCard, dueWords, seedLessonIntoSrs } from "./lib/store";
 import { C, setHumanVoice, setHumanOnly, getHumanOnly } from "./lib/shared";
-import { supabase, fetchRemoteState, saveRemoteLesson, saveRemoteCards } from "./lib/supabaseClient";
+import { supabase, fetchRemoteState, saveRemoteLesson, saveRemoteCards, checkReviewer } from "./lib/supabaseClient";
 import LessonPlayer from "./components/LessonPlayer";
 import { ReviewSession, Tutor } from "./components/ReviewAndTutor";
 import AuthScreen from "./components/AuthScreen";
@@ -18,6 +18,7 @@ import QuranStudio from "./components/QuranStudio";
 import Editor, { fetchOverrides } from "./components/Editor";
 import UnitExam from "./components/UnitExam";
 import Reading from "./components/Reading";
+import Review from "./components/Review";
 import Writing from "./components/Writing";
 import { fetchRecordings, isRecorder, audioUrl } from "./lib/recordings";
 
@@ -35,6 +36,10 @@ export default function App() {
   const wide = useWide();
   const [humanOnly, setHumanOnlyState] = useState(getHumanOnly);
   const [overrides, setOverrides] = useState({});
+  const [isReviewer, setIsReviewer] = useState(false);
+  useEffect(() => {
+    if (session?.user?.id) checkReviewer(session.user.id).then(setIsReviewer).catch(() => {});
+  }, [session]);
   useEffect(() => { if (session) fetchOverrides().then(setOverrides).catch(() => {}); }, [session]);
   useEffect(() => { setHumanOnly(humanOnly); }, [humanOnly]);
 
@@ -244,7 +249,7 @@ export default function App() {
     <SideBar
       current={view.name}
       go={go}
-      canRecord={canRecord}
+      canRecord={canRecord} isReviewer={isReviewer}
       session={session}
       dueCount={due.length}
       bareCount={masteredBare}
@@ -259,6 +264,7 @@ export default function App() {
         <MoreSheet
           go={go}
           canRecord={canRecord}
+          isReviewer={isReviewer}
           onClose={() => setMoreOpen(false)}
           session={session}
         />
@@ -370,6 +376,18 @@ export default function App() {
           </div>
           <Studio session={session} onExit={() => go({ name: "home" })} />
         </>
+      </Shell>
+    );
+  }
+
+  if (view.name === "review") {
+    return (
+      <Shell nav={navBar} sidebar={sideBar}>
+        <Review
+          session={session}
+          reviewerName={session?.user?.email}
+          onExit={() => go({ name: "home" })}
+        />
       </Shell>
     );
   }
@@ -535,7 +553,7 @@ export default function App() {
           const uIdx = u.lessons.map((id) => lessons.findIndex((x) => x.id === id)).filter((i) => i >= 0);
           const doneCount = uIdx.filter((i) => (state.lessons[lessons[i].id]?.pct || 0) >= 100).length;
           const uPct = uIdx.length ? Math.round((doneCount / uIdx.length) * 100) : 0;
-          const prevOk = canRecord || ui === 0 || (() => {
+          const prevOk = canRecord || isReviewer || ui === 0 || (() => {
             const p = UNITS[ui - 1].lessons.map((id) => lessons.findIndex((x) => x.id === id)).filter((i) => i >= 0);
             return p.filter((i) => (state.lessons[lessons[i].id]?.pct || 0) >= 100).length >= Math.ceil(p.length * 0.6);
           })();
@@ -600,12 +618,12 @@ export default function App() {
                   <button onClick={() => go({ name: "unitexam", unit: u.id })} disabled={uPct < 100} dir="rtl" className="card"
                     style={{
                       width: "100%", marginTop: 10, padding: "12px 10px", textAlign: "center",
-                      borderColor: (canRecord || uPct === 100) ? C.gold : C.border,
-                      background: (canRecord || uPct === 100) ? C.goldSoft : C.surface,
-                      opacity: (canRecord || uPct === 100) ? 1 : 0.5,
+                      borderColor: (canRecord || isReviewer || uPct === 100) ? C.gold : C.border,
+                      background: (canRecord || isReviewer || uPct === 100) ? C.goldSoft : C.surface,
+                      opacity: (canRecord || isReviewer || uPct === 100) ? 1 : 0.5,
                     }}>
                     <span className="arabic" style={{ fontSize: 20, color: uPct === 100 ? C.gold : C.faded }}>
-                      {(canRecord || uPct === 100) ? "اِمْتِحَانُ الْوَحْدَةِ 🎯" : "اِمْتِحَانُ الْوَحْدَةِ 🔒"}
+                      {(canRecord || isReviewer || uPct === 100) ? "اِمْتِحَانُ الْوَحْدَةِ 🎯" : "اِمْتِحَانُ الْوَحْدَةِ 🔒"}
                     </span>
                     <div dir="ltr" style={{ fontSize: 9.5, color: C.faded }}>
                       {uPct === 100 ? "Final exam for this unit" : "Finish every lesson to unlock"}
@@ -630,14 +648,14 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v13.0 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v15.4 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>
   );
 }
 
-function MoreSheet({ go, canRecord, onClose, session }) {
+function MoreSheet({ go, canRecord, onClose, session, isReviewer }) {
   const items = [
     { v: "vocab", emoji: "📗", ar: "اَلْمُفْرَدَاتُ", en: "Vocabulary trainer — drill words six ways" },
     { v: "reading", emoji: "📄", ar: "اَلْقِرَاءَةُ", en: "Reading — passages and dialogues" },
@@ -646,10 +664,11 @@ function MoreSheet({ go, canRecord, onClose, session }) {
     { v: "library", emoji: "📚", ar: "اَلْمَكْتَبَةُ", en: "My library — upload your own texts" },
     { v: "dict", emoji: "📕", ar: "اَلْمُعْجَمُ", en: "Dictionary — look up any word" },
   ];
-  if (canRecord) {
+  if (canRecord || isReviewer) {
     items.push({ v: "studio", emoji: "🎙️", ar: "اَلتَّسْجِيلُ", en: "Recording studio — words & sentences" });
     items.push({ v: "qstudio", emoji: "📖", ar: "تَسْجِيلُ التِّلَاوَةِ", en: "Quran recitation — record ayah by ayah" });
     items.push({ v: "editor", emoji: "✎", ar: "تَحْرِيرُ الدُّرُوسِ", en: "Edit lessons — fix meanings, add pictures" });
+    items.push({ v: "review", emoji: "🔍", ar: "مُرَاجَعَةُ الْمَنْهَجِ", en: "Review — read every lesson, leave notes" });
     items.push({ v: "syllabus", emoji: "📋", ar: "اَلْمَنْهَجُ", en: "Full curriculum — review every lesson" });
   }
 
@@ -691,6 +710,25 @@ function MoreSheet({ go, canRecord, onClose, session }) {
             </button>
           ))}
         </div>
+        {/* the debt this curriculum owes */}
+        <div style={{
+          marginTop: 18, padding: "12px 14px", borderRadius: 10,
+          background: C.surface, border: `1px solid ${C.border}`,
+        }}>
+          <div className="arabic" dir="rtl" style={{ fontSize: 15, color: C.emerald, textAlign: "center", lineHeight: 1.9 }}>
+            بَعْضُ الْأَمْثِلَةِ وَالتَّمَارِينِ مِنْ «دُرُوسِ اللُّغَةِ الْعَرَبِيَّةِ»
+            <br />
+            لِلشَّيْخِ الدُّكْتُورِ ف. عَبْدِ الرَّحِيمِ رَحِمَهُ اللهُ
+          </div>
+          <div dir="ltr" style={{ fontSize: 10, color: C.faded, textAlign: "center", marginTop: 6, lineHeight: 1.6 }}>
+            Some examples and exercises are taken from <i>Duroos al-Lughah al-Arabiyyah</i>
+            <br />
+            by Shaykh Dr. V. Abdur Rahim, rahimahullah — courtesy of the
+            <br />
+            Institute of the Language of the Qur'an. May Allah reward them.
+          </div>
+        </div>
+
         {supabase && session && (
           <div style={{ textAlign: "center", marginTop: 16 }}>
             <button onClick={() => supabase.auth.signOut()} style={{ fontSize: 11, color: C.faded }}>
@@ -741,7 +779,7 @@ function Shell({ children, nav, sidebar }) {
 }
 
 // ——— desktop sidebar: every destination visible at once ———
-function SideBar({ current, go, canRecord, session, dueCount, bareCount }) {
+function SideBar({ current, go, canRecord, session, dueCount, bareCount, isReviewer }) {
   const items = [
     { v: "home", emoji: "🏠", ar: "اَلدُّرُوس", en: "Lessons" },
     { v: "tutor", emoji: "🎓", ar: "اَلْمُعَلِّم", en: "AI teacher" },
@@ -754,10 +792,11 @@ function SideBar({ current, go, canRecord, session, dueCount, bareCount }) {
     { v: "library", emoji: "📚", ar: "اَلْمَكْتَبَة", en: "My library" },
     { v: "dict", emoji: "📕", ar: "اَلْمُعْجَم", en: "Dictionary" },
   ];
-  if (canRecord) {
+  if (canRecord || isReviewer) {
     items.push({ v: "studio", emoji: "🎙️", ar: "اَلتَّسْجِيل", en: "Recording studio (words)" });
     items.push({ v: "qstudio", emoji: "📖", ar: "تَسْجِيلُ التِّلَاوَةِ", en: "Recite the Quran" });
     items.push({ v: "editor", emoji: "✎", ar: "تَحْرِيرُ الدُّرُوسِ", en: "Edit lessons & pictures" });
+    items.push({ v: "review", emoji: "🔍", ar: "مُرَاجَعَةُ الْمَنْهَجِ", en: "Review the whole curriculum" });
     items.push({ v: "syllabus", emoji: "📋", ar: "اَلْمَنْهَج", en: "Full curriculum (review)" });
   }
 

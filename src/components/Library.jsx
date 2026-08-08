@@ -441,13 +441,16 @@ function DocQuiz({ doc, onExit, onDone }) {
 
 function DocExplain({ doc, onExit }) {
   const [text, setText] = useState(null);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     let alive = true;
-    callAI({ mode: "explain", content: doc.content })
+    setError(null);
+    // Send only a workable amount — a whole book cannot be explained in one call.
+    const excerpt = String(doc.content || "").slice(0, 1200);
+    callAI({ mode: "explain", content: excerpt })
       .then((t) => alive && setText(t))
-      .catch(() => alive && setError(true));
+      .catch((e) => alive && setError(String(e?.message || "Could not generate the explanation.")));
     return () => { alive = false; };
   }, [doc]);
 
@@ -460,8 +463,8 @@ function DocExplain({ doc, onExit }) {
         </p>
       )}
       {error && (
-        <div style={{ marginTop: 16, padding: 12, borderRadius: 10, background: C.redSoft, color: C.red, fontSize: 13, textAlign: "center" }}>
-          Couldn't generate the explanation — check the connection and try again.
+        <div style={{ marginTop: 16, padding: 14, borderRadius: 10, background: C.redSoft, color: C.red, fontSize: 13, textAlign: "center", lineHeight: 1.7 }}>
+          {error}
         </div>
       )}
       {text && (

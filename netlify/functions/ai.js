@@ -88,6 +88,52 @@ exports.handler = async (event) => {
     system = DRILL_SYSTEM;
     messages = [{ role: "user", content: payload.prompt || "" }];
     maxTokens = 1500;
+  } else if (mode === "converse") {
+    const lessonBlock = payload.lessonWords
+      ? `\n\nCRITICAL CONSTRAINT — the learner is practising ONE specific lesson: "${payload.lessonTitle}".
+Use ONLY these words, plus the commonest particles (في، من، إلى، على، هل، ما، و، هذا، هذه):
+${payload.lessonWords}
+Do not introduce vocabulary outside this list. Build your questions so the learner must use these words to answer.`
+      : "";
+    system = `You are a patient Arabic conversation partner for a learner at the ${payload.level || "beginner"} level.${lessonBlock}
+
+RULES, in order of importance:
+1. Reply ONLY in fully vowelled Modern Standard Arabic (فصحى). Never write English except inside the "note" field.
+2. Keep every reply to ONE or TWO short sentences. This is conversation, not a lecture.
+3. Use only vocabulary and structures a learner at this level would know. At beginner level use the present tense, simple nouns, and the commonest verbs.
+4. ALWAYS end your reply with a question, so the learner has something to answer.
+5. Stay on the given topic.
+
+Return ONLY JSON, no fences:
+{"reply":"<your Arabic reply, fully vowelled, ending in a question>","note":"<if the learner made a mistake worth correcting, one short English sentence naming it and giving the correct form. Correct only ONE thing — the most important. If their Arabic was fine, leave this empty.>","corrected":"<if they made a mistake, their sentence rewritten correctly and fully vowelled. Otherwise empty.>"}
+
+Be encouraging. A learner who is corrected on everything stops speaking.`;
+    messages = [
+      ...(payload.history || []),
+      { role: "user", content: payload.text || "" },
+    ];
+    maxTokens = 700;
+  } else if (mode === "vocabcheck") {
+    system = `A learner was asked to say the Arabic for an English word, and spoke aloud. You are given the target word and a rough transcript of what they said. Speech transcription of Arabic is unreliable, so judge GENEROUSLY: if the transcript plausibly corresponds to the target word, count it correct.
+
+Target Arabic word: ${payload.target || ""}
+Its meaning: ${payload.meaning || ""}
+
+Return ONLY JSON, no fences:
+{"correct":true|false,"heard":"<what they most likely said, in Arabic>","note":"<one short English sentence. If correct, encourage. If wrong, give the correct word and one tip.>"}`;
+    messages = [{ role: "user", content: `The transcript was: ${payload.text || "(nothing heard)"}` }];
+    maxTokens = 400;
+  } else if (mode === "teachback") {
+    system = `You are a teacher listening to a student EXPLAIN a grammar point back to you. Explaining is how knowledge is consolidated, so judge whether they genuinely understood it — not whether their wording was elegant.
+
+The concept they were asked to explain: ${payload.concept || "(not given)"}
+
+Return ONLY JSON, no fences:
+{"score":<0-100>,"verdict":"<one short English sentence: did they understand it?>","missed":"<the single most important thing they left out or got wrong, in one sentence. Empty if nothing.>","model":"<a two-to-three sentence model explanation of the concept, in plain English, showing how it could have been said>"}
+
+Be generous with a student who has the idea right but expressed it clumsily. Be strict only about actual errors of fact.`;
+    messages = [{ role: "user", content: payload.text || "" }];
+    maxTokens = 900;
   } else if (mode === "compose") {
     system = `You are a patient Arabic teacher marking a beginner's writing.
 The task given was: ${payload.expected ? "using " + payload.expected : "free writing"}.

@@ -18,6 +18,10 @@ import QuranStudio from "./components/QuranStudio";
 import Editor, { fetchOverrides } from "./components/Editor";
 import UnitExam from "./components/UnitExam";
 import Reading from "./components/Reading";
+import Unvowelled from "./components/Unvowelled";
+import Converse from "./components/Converse";
+import TeachBack from "./components/TeachBack";
+import Speaking from "./components/Speaking";
 import Review from "./components/Review";
 import Writing from "./components/Writing";
 import { fetchRecordings, isRecorder, audioUrl } from "./lib/recordings";
@@ -404,6 +408,38 @@ export default function App() {
     );
   }
 
+  if (view.name === "speaking") {
+    return (
+      <Shell nav={navBar} sidebar={sideBar}>
+        <Speaking onExit={() => go({ name: "home" })} />
+      </Shell>
+    );
+  }
+
+  if (view.name === "teachback") {
+    return (
+      <Shell nav={navBar} sidebar={sideBar}>
+        <TeachBack onExit={() => go({ name: "home" })} />
+      </Shell>
+    );
+  }
+
+  if (view.name === "converse") {
+    return (
+      <Shell nav={navBar} sidebar={sideBar}>
+        <Converse onExit={() => go({ name: "home" })} />
+      </Shell>
+    );
+  }
+
+  if (view.name === "unvowelled") {
+    return (
+      <Shell nav={navBar} sidebar={sideBar}>
+        <Unvowelled onExit={() => go({ name: "home" })} />
+      </Shell>
+    );
+  }
+
   if (view.name === "reading") {
     return (
       <Shell nav={navBar} sidebar={sideBar}>
@@ -649,7 +685,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v16.5 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v17.6 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>
@@ -660,6 +696,10 @@ function MoreSheet({ go, canRecord, onClose, session, isReviewer }) {
   const items = [
     { v: "vocab", emoji: "📗", ar: "اَلْمُفْرَدَاتُ", en: "Vocabulary trainer — drill words six ways" },
     { v: "reading", emoji: "📄", ar: "اَلْقِرَاءَةُ", en: "Reading — passages and dialogues" },
+    { v: "unvowelled", emoji: "📜", ar: "اَلْقِرَاءَةُ بِلَا شَكْلٍ", en: "Read unvowelled text — as real books are printed" },
+    { v: "converse", emoji: "💬", ar: "اَلْمُحَادَثَةُ", en: "Conversation practice — reply in Arabic, get corrected" },
+    { v: "teachback", emoji: "🎓", ar: "عَلِّمْنِي", en: "Teach it back — explain a concept and be marked" },
+    { v: "speaking", emoji: "🎤", ar: "اَلنُّطْقُ", en: "Say it aloud — speak the Arabic from memory" },
     { v: "writing", emoji: "✍️", ar: "اَلْكِتَابَةُ", en: "Dictation and composition" },
     { v: "passages", emoji: "🎧", ar: "اَلنُّصُوصُ الْمَسْمُوعَةُ", en: "Recorded texts — hear a human read" },
     { v: "library", emoji: "📚", ar: "اَلْمَكْتَبَةُ", en: "My library — upload your own texts" },
@@ -787,6 +827,10 @@ function SideBar({ current, go, canRecord, session, dueCount, bareCount, isRevie
     { v: "quran", emoji: "📖", ar: "اَلْقُرْآن", en: "Quran & Salah" },
     { v: "vocab", emoji: "📗", ar: "اَلْمُفْرَدَات", en: "Vocabulary" },
     { v: "reading", emoji: "📄", ar: "اَلْقِرَاءَة", en: "Reading passages" },
+    { v: "unvowelled", emoji: "📜", ar: "بِلَا شَكْلٍ", en: "Unvowelled reading" },
+    { v: "converse", emoji: "💬", ar: "اَلْمُحَادَثَة", en: "Conversation practice" },
+    { v: "teachback", emoji: "🎓", ar: "عَلِّمْنِي", en: "Teach it back" },
+    { v: "speaking", emoji: "🎤", ar: "اَلنُّطْق", en: "Say it aloud" },
     { v: "writing", emoji: "✍️", ar: "اَلْكِتَابَة", en: "Dictation & composition" },
     { v: "listening", emoji: "👂", ar: "اَلِاسْتِمَاع", en: "Listening" },
     { v: "passages", emoji: "🎧", ar: "نُصُوصٌ مَسْمُوعَةٌ", en: "Recorded texts" },

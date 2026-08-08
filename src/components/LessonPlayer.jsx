@@ -726,6 +726,8 @@ function DrillStage({ lesson, onDone, allLessons }) {
   const [matched, setMatched] = useState({});       // match drill: left -> right
   const [selLeft, setSelLeft] = useState(null);     // match drill: selected left item
   const [built, setBuilt] = useState([]);
+  const [typed, setTyped] = useState("");
+  const transRef = useRef(null);
   const [extraLoading, setExtraLoading] = useState(false);
   const [finished, setFinished] = useState(false);
 

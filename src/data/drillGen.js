@@ -8,6 +8,7 @@
 
 import { shuffle } from "../lib/shared";
 import { CURRICULUM } from "./curriculum";
+import { transformDrills } from "./transform";
 
 const bare = (t) => String(t).replace(/[\u064B-\u0652\u0670\u0640]/g, "");
 const LETTERS = "بتثجحخدذرزسشصضطظعغفقكلمنهوي".split("");
@@ -171,13 +172,16 @@ export function generateDrills(lesson) {
 // time, so repeating a lesson never means repeating the same questions.
 export function fullDrills(lesson, cap = 30, allLessons = null) {
   const own = lesson.drills || [];
+  // Transformation is the step between recognising Arabic and producing it —
+  // take one sentence and turn it past, future, negated, plural, feminine.
+  const trans = transformDrills(lesson, 4);
   const gen = generateDrills(lesson);
   const asked = new Set(own.map((d) => `${d.t}:${d.q}:${d.a || ""}`));
   const extra = shuffle(gen.filter((d) => !asked.has(`${d.t}:${d.q}:${d.a || ""}`)));
   // roughly a fifth of every session revisits earlier lessons
   const review = allLessons ? reviewDrills(lesson, allLessons, Math.round(cap * 0.2)) : [];
-  const room = Math.max(0, cap - own.length - review.length);
-  return [...own, ...extra.slice(0, room), ...review];
+  const room = Math.max(0, cap - own.length - review.length - trans.length);
+  return [...own, ...trans, ...extra.slice(0, room), ...review];
 }
 
 // Everything available, for the exam pool and for "more practice".

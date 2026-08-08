@@ -74,13 +74,34 @@ export function speak(text) {
 }
 
 export async function callAI(payload) {
-  const res = await fetch("/api/ai", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-  const data = await res.json();
-  if (!res.ok || data.error) throw new Error(data.error || "AI request failed");
+  let res;
+  try {
+    res = await fetch("/api/ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+  } catch {
+    // Only a genuine network failure lands here.
+    throw new Error("Could not reach the server. Check your connection.");
+  }
+
+  // The server answered. Report what it actually said, so a missing API key or a
+  // timeout is never mistaken for a connection problem.
+  let data = null;
+  try {
+    data = await res.json();
+  } catch {
+    throw new Error(`Server returned ${res.status} with no readable response.`);
+  }
+
+  if (!res.ok || data?.error) {
+    const msg = data?.error || `Server error ${res.status}`;
+    if (/API_KEY|api key/i.test(msg)) {
+      throw new Error("The AI key is not configured on the server. Set ANTHROPIC_API_KEY in Netlify.");
+    }
+    throw new Error(msg);
+  }
   return data.text;
 }
 

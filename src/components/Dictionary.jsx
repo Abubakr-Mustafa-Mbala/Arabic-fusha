@@ -27,8 +27,8 @@ export default function Dictionary({ initialWord = "", onExit, onAddWord }) {
       setShowEn(needsHint(`word:${parsed.word}`));
       markSeen(`word:${parsed.word}`);
       speak(parsed.word);
-    } catch {
-      setError("Lookup failed — check the connection and try again.");
+    } catch (e) {
+      setError(String(e?.message || "Lookup failed."));
     } finally {
       setLoading(false);
     }

@@ -10,119 +10,240 @@ export const CURRICULUM = {
   lessons: [
     {
       id: "l1",
-      title: "أَدَوَاتُ الْفَصْلِ",
+      title: "هَذَا",
       subtitle: "اَلدَّرْسُ الْأَوَّلُ",
       vocab: [
-        { ar: "مَا مَعْنَى...؟", en: "What does ... mean?" },
-        { ar: "بِاللُّغَةِ الْإِنْجِلِيزِيَّةِ", en: "in English" },
+        { ar: "هَذَا", emoji: "👉", en: "this (pointing at something near you)" },
+        { ar: "بَيْتٌ", emoji: "🏠", en: "a house" },
+        { ar: "مَسْجِدٌ", emoji: "🕌", en: "a mosque" },
+        { ar: "بَابٌ", emoji: "🚪", en: "a door" },
+        { ar: "كِتَابٌ", emoji: "📕", en: "a book" },
+        { ar: "قَلَمٌ", emoji: "✏️", en: "a pen" },
+        { ar: "مِفْتَاحٌ", emoji: "🔑", en: "a key" },
+        { ar: "مَكْتَبٌ", emoji: "🗄️", en: "a desk" },
+        { ar: "سَرِيرٌ", emoji: "🛏️", en: "a bed" },
+        { ar: "كُرْسِيٌّ", emoji: "🪑", en: "a chair" },
+        { ar: "قَمِيصٌ", emoji: "👕", en: "a shirt" },
+        { ar: "نَجْمٌ", emoji: "⭐", en: "a star" },
+        { ar: "وَلَدٌ", emoji: "👦", en: "a boy" },
+        { ar: "رَجُلٌ", emoji: "🧔", en: "a man" },
+        { ar: "طَالِبٌ", en: "a student" },
+        { ar: "مُدَرِّسٌ", emoji: "👨‍🏫", en: "a teacher" },
+        { ar: "طَبِيبٌ", emoji: "🧑‍⚕️", en: "a doctor" },
+        { ar: "تَاجِرٌ", en: "a merchant" },
+        { ar: "حِمَارٌ", emoji: "🫏", en: "a donkey" },
+        { ar: "حِصَانٌ", emoji: "🐎", en: "a horse" },
+        { ar: "كَلْبٌ", emoji: "🐕", en: "a dog" },
+        { ar: "قِطٌّ", emoji: "🐈", en: "a cat" },
+        { ar: "دِيكٌ", emoji: "🐓", en: "a rooster" },
+        { ar: "مَا هَذَا؟", en: "what is this?" },
+        { ar: "مَنْ هَذَا؟", en: "who is this?" },
+        { ar: "مَا مَعْنَى...؟", en: "what does ... mean?" },
+        { ar: "كَيْفَ تَقُولُ...؟", en: "how do you say ...?" },
         { ar: "بِاللُّغَةِ الْعَرَبِيَّةِ", en: "in Arabic" },
-        { ar: "كَيْفَ تَقُولُ...؟", en: "How do you say ...?" },
         { ar: "أَفْهَمُ", en: "I understand" },
         { ar: "لَا أَفْهَمُ", en: "I don't understand" },
-        { ar: "مَرَّةً أُخْرَى", en: "once again / repeat" },
+        { ar: "مَرَّةً أُخْرَى", en: "once again" },
         { ar: "بِبُطْءٍ", en: "slowly" },
-        { ar: "عِنْدِي سُؤَالٌ", en: "I have a question" },
         { ar: "مِنْ فَضْلِكَ", en: "please" },
+        { ar: "عِنْدِي سُؤَالٌ", en: "I have a question" },
         { ar: "نَعَمْ", en: "yes" },
         { ar: "لَا", en: "no" },
-        { ar: "مَا هَذَا؟", en: "What is this? (thing)" },
-        { ar: "مَنْ هَذَا؟", en: "Who is this? (person)" },
-        { ar: "هَذَا", en: "this (masculine)" },
-        { ar: "بَيْتٌ", emoji: "🏠" , quran: "وَاللَّهُ جَعَلَ لَكُم مِّن بُيُوتِكُمْ سَكَنًا", quranRef: "النحل ٨٠", en: "a house" },
-        { ar: "بَابٌ", emoji: "🚪" , quran: "وَادْخُلُوا الْبَابَ سُجَّدًا", quranRef: "البقرة ٥٨", en: "a door" },
-        { ar: "كِتَابٌ", emoji: "📖", quran: "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ", quranRef: "البقرة ٢", en: "a book" },
-        { ar: "قَلَمٌ", emoji: "✏️" , quran: "الَّذِي عَلَّمَ بِالْقَلَمِ", quranRef: "العلق ٤", en: "a pen" },
-        { ar: "مِفْتَاحٌ", emoji: "🔑" , quran: "وَعِندَهُ مَفَاتِحُ الْغَيْبِ", quranRef: "الأنعام ٥٩", en: "a key" },
-        { ar: "مَسْجِدٌ", emoji: "🕌" , quran: "مِنَ الْمَسْجِدِ الْحَرَامِ", quranRef: "الإسراء ١", en: "a mosque" },
-        { ar: "وَلَدٌ", en: "a boy" },
-        { ar: "رَجُلٌ", emoji: "🧔" , quran: "وَجَاءَ مِنْ أَقْصَى الْمَدِينَةِ رَجُلٌ يَسْعَىٰ", quranRef: "يس ٢٠", en: "a man" },
-        { ar: "مُعَلِّمٌ", en: "a teacher" },
-        { ar: "طَالِبٌ", en: "a student" },
+        { ar: "اَلسَّلَامُ عَلَيْكُمْ", en: "peace be upon you" },
+        { ar: "وَعَلَيْكُمُ السَّلَامُ", en: "and upon you peace" },
       ],
       examples: [
-        { ar: "مَا هَذَا؟ — هَذَا بَيْتٌ" },
-        { ar: "مَا هَذَا؟ — هَذَا كِتَابٌ" },
-        { ar: "مَنْ هَذَا؟ — هَذَا مُعَلِّمٌ" },
-        { ar: "مَنْ هَذَا؟ — هَذَا طَالِبٌ" },
-        { ar: "مَا مَعْنَى «بَابٌ» بِاللُّغَةِ الْإِنْجِلِيزِيَّةِ؟" },
-        { ar: "كَيْفَ تَقُولُ «key» بِاللُّغَةِ الْعَرَبِيَّةِ؟ — مِفْتَاحٌ" },
-        { ar: "لَا أَفْهَمُ، مَرَّةً أُخْرَى مِنْ فَضْلِكَ" },
-        { ar: "عِنْدِي سُؤَالٌ يَا مُعَلِّمُ" },
+        { ar: "هَذَا بَيْتٌ" },
+        { ar: "هَذَا مَسْجِدٌ" },
+        { ar: "هَذَا بَابٌ" },
+        { ar: "هَذَا كِتَابٌ" },
+        { ar: "هَذَا قَلَمٌ" },
+        { ar: "مَا هَذَا؟ هَذَا مِفْتَاحٌ" },
+        { ar: "مَنْ هَذَا؟ هَذَا وَلَدٌ" },
+        { ar: "مَنْ هَذَا؟ هَذَا طَبِيبٌ" },
       ],
       rule: {
-        name: "أَدَوَاتُ الْفَصْلِ وَجُمْلَةُ «هَذَا»",
+        table: {
+          title: "هَذَا وَالتَّنْوِينُ",
+          head: ["اَلْكَلِمَةُ", "بِالتَّنْوِينِ", "اَلْجُمْلَةُ", "اَلْمَعْنَى"],
+          rows: [
+            ["بَيْت", "بَيْتٌ", "هَذَا بَيْتٌ", "this is a house"],
+            ["مَسْجِد", "مَسْجِدٌ", "هَذَا مَسْجِدٌ", "this is a mosque"],
+            ["كِتَاب", "كِتَابٌ", "هَذَا كِتَابٌ", "this is a book"],
+            ["قَلَم", "قَلَمٌ", "هَذَا قَلَمٌ", "this is a pen"],
+            ["وَلَد", "وَلَدٌ", "هَذَا وَلَدٌ", "this is a boy"],
+            ["رَجُل", "رَجُلٌ", "هَذَا رَجُلٌ", "this is a man"],
+          ],
+        },
+        name: "هَذَا لِلْقَرِيبِ · وَالتَّنْوِينُ عَلَامَةُ النَّكِرَةِ",
         teach: [
           {
-            say: "Arabic has no word for 'is'. To say 'this is a book' you only need two words: هذا (this) and كتاب (book). Put them together and the sentence is complete.",
-            show: "هَذَا كِتَابٌ\n= this (is) a book",
+            say: "Welcome. You are not expected to read Arabic yet — everything here comes with its meaning and its sound. Tap 🔊 on every line and repeat it aloud.",
+            show: "هَذَا",
           },
           {
-            say: "Look at the end of كِتَابٌ. Those two little marks ٌ are called TANWIN. Tanwin does the job of the English word 'a'. So كِتَابٌ means 'a book', not 'the book'.",
-            show: "بَيْتٌ = a house\nبَابٌ = a door\nقَلَمٌ = a pen",
+            say: "This one word means 'this' — said while pointing at something beside you. It is the first word in the Madinah book and the first you will learn.",
+            show: "هَذَا = this",
           },
           {
-            say: "To ask about a THING, say مَا هَذَا؟ — what is this? To ask about a PERSON, say مَنْ هَذَا؟ — who is this? Arabic keeps these two separate; English uses 'what' and 'who' the same way.",
-            show: "مَا هَذَا؟ — هَذَا كِتَابٌ \nمَنْ هَذَا؟ — هَذَا مُعَلِّمٌ \u200d",
+            say: "Put it in front of anything and you have made a complete sentence. There is no word for 'is' in Arabic — you simply say 'this house'.",
+            show: "هَذَا بَيْتٌ = this is a house\nهَذَا مَسْجِدٌ = this is a mosque\nهَذَا بَابٌ = this is a door",
           },
           {
-            say: "There is a second way to ask a yes-or-no question, and the Madinah books teach it from the very first lesson. Put a single أ in front of any statement.",
-            show: "هَذَا بَيْتٌ = this is a house\nأَهَذَا بَيْتٌ؟ = is this a house?",
+            say: "Read these five aloud, looking at each picture as you say it.",
+            show: "هَذَا كِتَابٌ = this is a book\nهَذَا قَلَمٌ = this is a pen\nهَذَا مِفْتَاحٌ = this is a key\nهَذَا سَرِيرٌ = this is a bed\nهَذَا كُرْسِيٌّ = this is a chair",
           },
           {
-            say: "Nothing else changes — no word order, no ending. Just the أ, and your voice rises.",
-            show: "أَهَذَا كِتَابٌ؟ — نَعَمْ\nأَهَذَا مَسْجِدٌ؟ — لَا، هَذَا بَيْتٌ",
+            say: "Five more.",
+            show: "هَذَا مَكْتَبٌ = this is a desk\nهَذَا قَمِيصٌ = this is a shirt\nهَذَا نَجْمٌ = this is a star\nهَذَا حِمَارٌ = this is a donkey\nهَذَا حِصَانٌ = this is a horse",
           },
           {
-            say: "It works exactly like هَلْ, which you will meet later. Both mean the same; أ is shorter and older.",
-            show: "أَأَنْتَ طَالِبٌ؟\nهَلْ أَنْتَ طَالِبٌ؟",
+            say: "Now look at the END of every one of those words. They all finish with the same small sound — 'un'.",
+            show: "بَيْتٌ · بَابٌ · كِتَابٌ\nقَلَمٌ · نَجْمٌ · وَلَدٌ",
           },
           {
-            say: "Now the most useful thing in this whole lesson: how to ask your teacher for help, in Arabic, from today. Learn these four by heart.",
-            show: "مَا مَعْنَى ...؟ = what does ... mean?\nكَيْفَ تَقُولُ ...؟ = how do you say ...?\nلَا أَفْهَمُ = I don't understand\nمَرَّةً أُخْرَى = again, please",
+            say: "That double mark is called TANWIN, and it is written as two dammas: ٌ. It means the word is INDEFINITE — a house, not the house.",
+            show: "بَيْتٌ = a house\n(بَيْتُ = the house — you will meet this next lesson)",
           },
           {
-            say: "Use them the moment you are stuck. This is exactly how a student in a real Arabic class survives from the first day — you never need English again to ask a question.",
-            show: "عِنْدِي سُؤَالٌ = I have a question\nبِبُطْءٍ مِنْ فَضْلِكَ = slowly, please",
+            say: "So every noun you have met so far is indefinite, and every one ends in that sound. Say these six and listen for it.",
+            show: "بَيْتٌ · مَسْجِدٌ · كِتَابٌ\nقَلَمٌ · رَجُلٌ · طَالِبٌ",
+          },
+          {
+            say: "Now the two questions that go with it. To ask about a THING, say مَا هَذَا؟",
+            show: "مَا هَذَا؟ = what is this?\nهَذَا كِتَابٌ = this is a book\nمَا هَذَا؟ — هَذَا مِفْتَاحٌ",
+          },
+          {
+            say: "And to ask about a PERSON, say مَنْ هَذَا؟ Never مَا for a person.",
+            show: "مَنْ هَذَا؟ = who is this?\nهَذَا وَلَدٌ = this is a boy\nمَنْ هَذَا؟ — هَذَا طَبِيبٌ",
+            warn: "❌ مَا هَذَا؟ عَنْ إِنْسَانٍ",
+          },
+          {
+            say: "Read these six exchanges aloud, both sides, before going on.",
+            show: "مَا هَذَا؟ — هَذَا بَيْتٌ\nمَا هَذَا؟ — هَذَا قَلَمٌ\nمَا هَذَا؟ — هَذَا سَرِيرٌ\nمَنْ هَذَا؟ — هَذَا رَجُلٌ\nمَنْ هَذَا؟ — هَذَا مُدَرِّسٌ\nمَنْ هَذَا؟ — هَذَا تَاجِرٌ",
+          },
+          {
+            say: "One last thing about the writing. هَذَا is said with a LONG aa — haadhaa — even though no alif is written after the ه. Say it long.",
+            show: "هَذَا = هَاذَا",
+          },
+          {
+            say: "Now more of them. Read all twelve aloud, pointing at each picture — this is how the word settles.",
+            show: "هَذَا طَالِبٌ · هَذَا مُدَرِّسٌ\nهَذَا طَبِيبٌ · هَذَا تَاجِرٌ\nهَذَا كَلْبٌ · هَذَا قِطٌّ\nهَذَا دِيكٌ · هَذَا حِمَارٌ\nهَذَا نَجْمٌ · هَذَا قَمِيصٌ\nهَذَا مَكْتَبٌ · هَذَا كُرْسِيٌّ",
+          },
+          {
+            say: "Now cover the meanings and go through them again, saying only the Arabic. Do not move on until all twelve come easily.",
+            show: "قُلْهَا بِلَا نَظَرٍ إِلَى الْمَعْنَى",
+          },
+          {
+            say: "Now answer these six aloud before looking. Point at the thing and say the whole sentence, not just the noun.",
+            show: "مَا هَذَا؟ ← 📕\nمَا هَذَا؟ ← ✏️\nمَا هَذَا؟ ← 🔑\nمَنْ هَذَا؟ ← 👦\nمَنْ هَذَا؟ ← 🧔\nمَنْ هَذَا؟ ← 👨‍🏫",
+          },
+          {
+            say: "Now the words you will need in every single lesson from today — the language of the classroom itself. Learn these and you can ask about anything you meet.",
+            show: "مَا مَعْنَى...؟ = what does ... mean?\nكَيْفَ تَقُولُ...؟ = how do you say ...?\nبِاللُّغَةِ الْعَرَبِيَّةِ = in Arabic",
+          },
+          {
+            say: "Use them together, exactly as a student in the Madinah class would.",
+            show: "مَا مَعْنَى «كِتَابٌ»؟ — a book\nكَيْفَ تَقُولُ «pen» بِاللُّغَةِ الْعَرَبِيَّةِ؟ — قَلَمٌ\nكَيْفَ تَقُولُ «house»؟ — بَيْتٌ",
+          },
+          {
+            say: "And these six, for when you are lost. Say them rather than falling silent — this is the single most useful habit a learner can build.",
+            show: "لَا أَفْهَمُ = I don't understand\nأَفْهَمُ = I understand\nمَرَّةً أُخْرَى = once again\nبِبُطْءٍ = slowly\nمِنْ فَضْلِكَ = please\nعِنْدِي سُؤَالٌ = I have a question",
+          },
+          {
+            say: "Put them together into a real exchange. Read both sides aloud.",
+            show: "— اَلسَّلَامُ عَلَيْكُمْ\n— وَعَلَيْكُمُ السَّلَامُ\n— مَا هَذَا؟\n— هَذَا مِفْتَاحٌ.\n— مَرَّةً أُخْرَى مِنْ فَضْلِكَ، بِبُطْءٍ.\n— هَذَا مِفْتَاحٌ.\n— اَلْآنَ أَفْهَمُ. شُكْرًا.",
+          },
+          {
+            say: "Now go back over the whole lesson once more. Read every sentence aloud, then close your eyes and say five of them from memory.",
+            show: "① هَذَا + اسْمٌ\n② اَلتَّنْوِينُ ـٌ\n③ مَا هَذَا؟ لِلشَّيْءِ\n④ مَنْ هَذَا؟ لِلْإِنْسَانِ\n⑤ كَلِمَاتُ الْفَصْلِ",
+          },
+          {
+            say: "Finally: point at ten things around you right now and name each one aloud. Then ask a friend مَا هَذَا؟ about five of them. That is the lesson done.",
+            show: "هَذَا ... · مَا هَذَا؟ · مَنْ هَذَا؟\nمَا مَعْنَى...؟ · كَيْفَ تَقُولُ...؟",
+          },
+          {
+            say: "Before you finish, see this word in the Quran itself. Read these four aloud.",
+            show: "﴿هَذَا بَلَاغٌ لِلنَّاسِ﴾ (إبراهيم ٥٢)\n﴿هَذَا خَلْقُ اللهِ﴾ (لقمان ١١)\n﴿هَذَا ذِكْرٌ مُبَارَكٌ﴾ (الأنبياء ٥٠)\n﴿إِنَّ هَذَا لَهُوَ الْقَصَصُ الْحَقُّ﴾ (آل عمران ٦٢)",
+          },
+          {
+            say: "Every one of them is هَذَا followed by an indefinite noun — exactly the sentence you have just learned to build.",
+            show: "هَذَا + اسْمٌ مُنَوَّنٌ",
           },
         ],
-        ar: "١) أَدَوَاتُ الْفَصْلِ — تَسْتَعْمِلُهَا مِنَ الْيَوْمِ:\nمَا مَعْنَى...؟ ❓💡 · كَيْفَ تَقُولُ...؟ 🗣️\nلَا أَفْهَمُ 💡❌ · مَرَّةً أُخْرَى 🔁 · بِبُطْءٍ 🐢\nعِنْدِي سُؤَالٌ 🙋 · مِنْ فَضْلِكَ 🙏\n\n٢) اَلسُّؤَالُ وَالْجَوَابُ:\nلِغَيْرِ الْعَاقِلِ: مَا هَذَا؟ ← هَذَا كِتَابٌ 📖\nلِلْعَاقِلِ: مَنْ هَذَا؟ ← هَذَا مُعَلِّمٌ 👨\u200d🏫\n\n٣) اَلتَّنْوِينُ ـٌ:\nبَيْتٌ · بَابٌ · كِتَابٌ\nعَلَامَةُ النَّكِرَةِ (a / an)",
-        hint: "These classroom tools let you operate in Arabic from today: ask what a word means, ask how to say something, say you don't understand, request a repeat. Use them in every lesson from now on.",
+        ar: "هَذَا + اسْمٌ مُنَوَّنٌ = جُمْلَةٌ تَامَّةٌ · مَا لِلشَّيْءِ وَمَنْ لِلْإِنْسَانِ",
+        hint: "هَذَا means 'this'. Put it before any noun and you have a complete sentence — Arabic has no word for 'is'. Every indefinite noun ends in tanwin. Ask مَا هَذَا؟ about a thing and مَنْ هَذَا؟ about a person.",
       },
       drills: [
-        { t: "mcq", q: "What does ... mean?", options: ["مَا مَعْنَى...؟", "كَيْفَ تَقُولُ...؟", "مَا هَذَا؟", "مَنْ هَذَا؟"], a: "مَا مَعْنَى...؟" },
-        { t: "mcq", q: "How do you say ...?", options: ["كَيْفَ تَقُولُ...؟", "مَا مَعْنَى...؟", "عِنْدِي سُؤَالٌ", "مَرَّةً أُخْرَى"], a: "كَيْفَ تَقُولُ...؟" },
-        { t: "mcq", q: "I don't understand", options: ["لَا أَفْهَمُ", "أَفْهَمُ", "نَعَمْ", "مِنْ فَضْلِكَ"], a: "لَا أَفْهَمُ" },
-        { t: "mcq", q: "once again / repeat", options: ["مَرَّةً أُخْرَى", "بِبُطْءٍ", "مِنْ فَضْلِكَ", "عِنْدِي سُؤَالٌ"], a: "مَرَّةً أُخْرَى" },
-        { t: "mcq", q: "slowly", options: ["بِبُطْءٍ", "مَرَّةً أُخْرَى", "نَعَمْ", "أَفْهَمُ"], a: "بِبُطْءٍ" },
-        { t: "mcq", q: "I have a question", options: ["عِنْدِي سُؤَالٌ", "لَا أَفْهَمُ", "مِنْ فَضْلِكَ", "مَا هَذَا؟"], a: "عِنْدِي سُؤَالٌ" },
-        { t: "mcq", q: "please", options: ["مِنْ فَضْلِكَ", "نَعَمْ", "مَرَّةً أُخْرَى", "بِبُطْءٍ"], a: "مِنْ فَضْلِكَ" },
-        { t: "mcq", q: "اِخْتَرِ الْإِجَابَةَ الصَّحِيحَةَ", options: ["بَيْتٌ", "بَابٌ", "مَسْجِدٌ", "كِتَابٌ"], a: "بَيْتٌ" },
-        { t: "mcq", q: "key", options: ["مِفْتَاحٌ", "قَلَمٌ", "بَابٌ", "كِتَابٌ"], a: "مِفْتَاحٌ" },
-        { t: "mcq", q: "اِخْتَرِ الْإِجَابَةَ الصَّحِيحَةَ", options: ["قَلَمٌ", "كِتَابٌ", "مِفْتَاحٌ", "بَابٌ"], a: "قَلَمٌ" },
-        { t: "mcq", q: "اِخْتَرِ الْإِجَابَةَ الصَّحِيحَةَ", options: ["مَسْجِدٌ", "بَيْتٌ", "بَابٌ", "مُعَلِّمٌ"], a: "مَسْجِدٌ" },
-        { t: "mcq", q: "\u200d", options: ["مُعَلِّمٌ", "طَالِبٌ", "رَجُلٌ", "وَلَدٌ"], a: "مُعَلِّمٌ" },
-        { t: "mcq", q: "\u200d", options: ["طَالِبٌ", "مُعَلِّمٌ", "وَلَدٌ", "رَجُلٌ"], a: "طَالِبٌ" },
-        { t: "mcq", q: "What is this? (thing)", options: ["مَا هَذَا؟", "مَنْ هَذَا؟", "أَيْنَ هَذَا؟", "كَيْفَ هَذَا؟"], a: "مَا هَذَا؟" },
-        { t: "mcq", q: "\u200d", options: ["مَنْ هَذَا؟", "مَا هَذَا؟", "مَا مَعْنَى...؟", "هَلْ هَذَا؟"], a: "مَنْ هَذَا؟" },
-        { t: "mcq", q: "مَا هَذَا؟", options: ["هَذَا بَابٌ", "هَذَا بَيْتٌ", "هَذَا مُعَلِّمٌ", "مَنْ هَذَا؟"], a: "هَذَا بَابٌ" },
-        { t: "mcq", q: "مَنْ هَذَا؟", options: ["هَذَا وَلَدٌ", "هَذَا بَيْتٌ", "هَذَا قَلَمٌ", "مَا هَذَا؟"], a: "هَذَا وَلَدٌ" },
-        { t: "mcq", q: "أَيُّ سُؤَالٍ لِلْعَاقِلِ؟", options: ["مَنْ هَذَا؟", "مَا هَذَا؟", "مَا مَعْنَى؟", "كَيْفَ تَقُولُ؟"], a: "مَنْ هَذَا؟" },
-        { t: "mcq", q: "تُرِيدُ مَعْنَى كَلِمَةٍ — مَاذَا تَقُولُ؟", options: ["مَا مَعْنَى هَذِهِ الْكَلِمَةِ؟", "مَنْ هَذَا؟", "بِبُطْءٍ", "نَعَمْ"], a: "مَا مَعْنَى هَذِهِ الْكَلِمَةِ؟" },
-        { t: "mcq", q: "اَلْمُعَلِّمُ يَتَكَلَّمُ بِسُرْعَةٍ — مَاذَا تَقُولُ؟", options: ["بِبُطْءٍ مِنْ فَضْلِكَ", "نَعَمْ أَفْهَمُ", "مَنْ هَذَا؟", "هَذَا كِتَابٌ"], a: "بِبُطْءٍ مِنْ فَضْلِكَ" },
-        { t: "assemble", q: "What is this? (thing)", chips: ["مَا", "هَذَا؟"], a: "مَا هَذَا؟" },
-        { t: "assemble", q: "رَتِّبِ الْكَلِمَاتِ لِتُكَوِّنَ جُمْلَةً", chips: ["هَذَا", "بَيْتٌ"], a: "هَذَا بَيْتٌ" },
-        { t: "assemble", q: "رَتِّبِ الْكَلِمَاتِ لِتُكَوِّنَ جُمْلَةً", chips: ["لَا", "أَفْهَمُ،", "مَرَّةً", "أُخْرَى", "مِنْ", "فَضْلِكَ"], a: "لَا أَفْهَمُ، مَرَّةً أُخْرَى مِنْ فَضْلِكَ" },
-        { t: "assemble", q: "\u200d", chips: ["عِنْدِي", "سُؤَالٌ", "يَا", "مُعَلِّمُ"], a: "عِنْدِي سُؤَالٌ يَا مُعَلِّمُ" },
-        { t: "assemble", q: "رَتِّبِ الْكَلِمَاتِ لِتُكَوِّنَ جُمْلَةً", chips: ["مَا", "مَعْنَى", "«بَابٌ»", "بِاللُّغَةِ", "الْإِنْجِلِيزِيَّةِ؟"], a: "مَا مَعْنَى «بَابٌ» بِاللُّغَةِ الْإِنْجِلِيزِيَّةِ؟" },
+        { t: "mcq", q: "مَا مَعْنَى...؟", options: ["what does ... mean?", "how do you say ...?", "what is this?", "who is this?"], a: "what does ... mean?", why: "This is how you ask for the meaning of a word you have just met.", example: "مَا مَعْنَى «كِتَابٌ»؟" },
+        { t: "mcq", q: "كَيْفَ تَقُولُ...؟", options: ["how do you say ...?", "what does ... mean?", "where is ...?", "I don't understand"], a: "how do you say ...?", why: "The reverse question — you know the English and want the Arabic.", example: "كَيْفَ تَقُولُ «pen» بِاللُّغَةِ الْعَرَبِيَّةِ؟" },
+        { t: "mcq", q: "لَا أَفْهَمُ", options: ["I don't understand", "I understand", "please", "once again"], a: "I don't understand", why: "Say this rather than falling silent.", example: "لَا أَفْهَمُ، مَرَّةً أُخْرَى مِنْ فَضْلِكَ" },
+        { t: "mcq", q: "مَرَّةً أُخْرَى", options: ["once again", "slowly", "please", "yes"], a: "once again", why: "Ask for a repetition.", example: "مَرَّةً أُخْرَى مِنْ فَضْلِكَ" },
+        { t: "mcq", q: "بِبُطْءٍ", options: ["slowly", "quickly", "again", "please"], a: "slowly", why: "Ask them to slow down.", example: "بِبُطْءٍ مِنْ فَضْلِكَ" },
+        { t: "mcq", q: "عِنْدِي سُؤَالٌ", options: ["I have a question", "I understand", "I don't know", "please repeat"], a: "I have a question", why: "How to interrupt politely in a class.", example: "عِنْدِي سُؤَالٌ يَا أُسْتَاذُ" },
+        { t: "mcq", q: "بِاللُّغَةِ الْعَرَبِيَّةِ", options: ["in Arabic", "in English", "slowly", "again"], a: "in Arabic", why: "Used with كيف تقول to ask for the Arabic of a word.", example: "كَيْفَ تَقُولُ «book» بِاللُّغَةِ الْعَرَبِيَّةِ؟" },
+        { t: "mcq", q: "You did not hear the teacher clearly. What do you say?", options: ["مَرَّةً أُخْرَى مِنْ فَضْلِكَ", "أَفْهَمُ", "نَعَمْ", "هَذَا كِتَابٌ"], a: "مَرَّةً أُخْرَى مِنْ فَضْلِكَ", why: "Ask for it again, politely.", example: "مَرَّةً أُخْرَى مِنْ فَضْلِكَ" },
+        { t: "mcq", q: "You want to know the Arabic for 'door'. What do you ask?", options: ["كَيْفَ تَقُولُ «door» بِاللُّغَةِ الْعَرَبِيَّةِ؟", "مَا مَعْنَى «بَابٌ»؟", "مَا هَذَا؟", "لَا أَفْهَمُ"], a: "كَيْفَ تَقُولُ «door» بِاللُّغَةِ الْعَرَبِيَّةِ؟", why: "You have the English and want the Arabic — so كيف تقول.", example: "كَيْفَ تَقُولُ «door»؟ — بَابٌ" },
+        { t: "mcq", q: "You met the word «مِفْتَاحٌ» and don't know it. What do you ask?", options: ["مَا مَعْنَى «مِفْتَاحٌ»؟", "كَيْفَ تَقُولُ «مِفْتَاحٌ»؟", "مَنْ هَذَا؟", "بِبُطْءٍ"], a: "مَا مَعْنَى «مِفْتَاحٌ»؟", why: "You have the Arabic and want the meaning — so ما معنى.", example: "مَا مَعْنَى «مِفْتَاحٌ»؟ — a key" },
+        { t: "mcq", q: "طَالِبٌ", options: ["a student", "a teacher", "a doctor", "a merchant"], a: "a student", why: "طَالِبٌ — a student.", example: "هَذَا طَالِبٌ" },
+        { t: "mcq", q: "طَبِيبٌ", options: ["a doctor", "a teacher", "a student", "a man"], a: "a doctor", why: "طَبِيبٌ — a doctor.", example: "هَذَا طَبِيبٌ" },
+        { t: "mcq", q: "حِصَانٌ", options: ["a horse", "a donkey", "a dog", "a rooster"], a: "a horse", why: "حِصَانٌ — a horse.", example: "هَذَا حِصَانٌ" },
+        { t: "mcq", q: "حِمَارٌ", options: ["a donkey", "a horse", "a cat", "a dog"], a: "a donkey", why: "حِمَارٌ — a donkey.", example: "هَذَا حِمَارٌ" },
+        { t: "mcq", q: "سَرِيرٌ", options: ["a bed", "a chair", "a desk", "a door"], a: "a bed", why: "سَرِيرٌ — a bed.", example: "هَذَا سَرِيرٌ" },
+        { t: "mcq", q: "كُرْسِيٌّ", options: ["a chair", "a bed", "a desk", "a key"], a: "a chair", why: "كُرْسِيٌّ — a chair.", example: "هَذَا كُرْسِيٌّ" },
+        { t: "mcq", q: "نَجْمٌ", options: ["a star", "a moon", "a sun", "a sky"], a: "a star", why: "نَجْمٌ — a star.", example: "هَذَا نَجْمٌ" },
+        { t: "assemble", q: "peace be upon you", chips: ["اَلسَّلَامُ", "عَلَيْكُمْ"], a: "اَلسَّلَامُ عَلَيْكُمْ" },
+        { t: "assemble", q: "once again please", chips: ["مَرَّةً", "أُخْرَى", "مِنْ", "فَضْلِكَ"], a: "مَرَّةً أُخْرَى مِنْ فَضْلِكَ" },
+        { t: "assemble", q: "this is a teacher", chips: ["هَذَا", "مُدَرِّسٌ"], a: "هَذَا مُدَرِّسٌ" },
+        { t: "match", q: "صِلْ كُلَّ عِبَارَةٍ بِمَعْنَاهَا", pairs: [["لَا أَفْهَمُ","I don't understand"],["مَرَّةً أُخْرَى","once again"],["بِبُطْءٍ","slowly"],["مِنْ فَضْلِكَ","please"]] },
+        { t: "match", q: "صِلْ كُلَّ كَلِمَةٍ بِمَعْنَاهَا", pairs: [["طَبِيبٌ","a doctor"],["مُدَرِّسٌ","a teacher"],["حِصَانٌ","a horse"],["سَرِيرٌ","a bed"]] },
+        { t: "mcq", q: "هَذَا", options: ["this", "that", "who", "what"], a: "this", why: "هَذَا is used while pointing at something near you.", example: "هَذَا بَيْتٌ" },
+        { t: "mcq", q: "بَيْتٌ", options: ["a house", "a door", "a book", "a pen"], a: "a house", why: "بَيْتٌ — a house.", example: "هَذَا بَيْتٌ" },
+        { t: "mcq", q: "مَسْجِدٌ", options: ["a mosque", "a school", "a shop", "a market"], a: "a mosque", why: "مَسْجِدٌ — a mosque.", example: "هَذَا مَسْجِدٌ" },
+        { t: "mcq", q: "كِتَابٌ", options: ["a book", "a pen", "a key", "a chair"], a: "a book", why: "كِتَابٌ — a book.", example: "هَذَا كِتَابٌ" },
+        { t: "mcq", q: "قَلَمٌ", options: ["a pen", "a book", "a bed", "a door"], a: "a pen", why: "قَلَمٌ — a pen.", example: "هَذَا قَلَمٌ" },
+        { t: "mcq", q: "مِفْتَاحٌ", options: ["a key", "a desk", "a shirt", "a star"], a: "a key", why: "مِفْتَاحٌ — a key.", example: "هَذَا مِفْتَاحٌ" },
+        { t: "mcq", q: "وَلَدٌ", options: ["a boy", "a man", "a teacher", "a doctor"], a: "a boy", why: "وَلَدٌ — a boy.", example: "هَذَا وَلَدٌ" },
+        { t: "mcq", q: "رَجُلٌ", options: ["a man", "a boy", "a student", "a merchant"], a: "a man", why: "رَجُلٌ — a man.", example: "هَذَا رَجُلٌ" },
+        { t: "mcq", q: "مُدَرِّسٌ", options: ["a teacher", "a student", "a doctor", "a merchant"], a: "a teacher", why: "مُدَرِّسٌ — a teacher.", example: "هَذَا مُدَرِّسٌ" },
+        { t: "mcq", q: "مَا هَذَا؟", options: ["what is this?", "who is this?", "where is this?", "this is"], a: "what is this?", why: "مَا asks about a thing.", example: "مَا هَذَا؟ — هَذَا كِتَابٌ" },
+        { t: "mcq", q: "مَنْ هَذَا؟", options: ["who is this?", "what is this?", "where?", "how?"], a: "who is this?", why: "مَنْ asks about a person — never مَا.", example: "مَنْ هَذَا؟ — هَذَا وَلَدٌ" },
+        { t: "mcq", q: "You are pointing at a DOCTOR. Which question do you ask?", options: ["مَنْ هَذَا؟", "مَا هَذَا؟", "أَيْنَ هَذَا؟", "كَيْفَ هَذَا؟"], a: "مَنْ هَذَا؟", why: "A doctor is a person, so مَنْ.", example: "مَنْ هَذَا؟ — هَذَا طَبِيبٌ" },
+        { t: "mcq", q: "You are pointing at a KEY. Which question do you ask?", options: ["مَا هَذَا؟", "مَنْ هَذَا؟", "أَيْنَ هَذَا؟", "لِمَاذَا؟"], a: "مَا هَذَا؟", why: "A key is a thing, so مَا.", example: "مَا هَذَا؟ — هَذَا مِفْتَاحٌ" },
+        { t: "mcq", q: "What does the ending ـٌ (tanwin) tell you?", options: ["the noun is indefinite — 'a', not 'the'", "the noun is plural", "the noun is a verb", "the noun is feminine"], a: "the noun is indefinite — 'a', not 'the'", why: "Tanwin marks an indefinite noun: بَيْتٌ is 'a house'.", example: "بَيْتٌ = a house" },
+        { t: "mcq", q: "How is هَذَا pronounced?", options: ["haadhaa, with a long aa", "hadha, short", "hazaa", "haathaa"], a: "haadhaa, with a long aa", why: "The long aa is pronounced although no alif is written.", example: "هَذَا" },
+        { t: "assemble", q: "this is a house", chips: ["هَذَا", "بَيْتٌ"], a: "هَذَا بَيْتٌ" },
+        { t: "assemble", q: "this is a mosque", chips: ["هَذَا", "مَسْجِدٌ"], a: "هَذَا مَسْجِدٌ" },
+        { t: "assemble", q: "what is this? this is a key", chips: ["مَا", "هَذَا؟", "هَذَا", "مِفْتَاحٌ"], a: "مَا هَذَا؟ هَذَا مِفْتَاحٌ" },
+        { t: "assemble", q: "who is this? this is a boy", chips: ["مَنْ", "هَذَا؟", "هَذَا", "وَلَدٌ"], a: "مَنْ هَذَا؟ هَذَا وَلَدٌ" },
+        { t: "match", q: "صِلْ كُلَّ كَلِمَةٍ بِمَعْنَاهَا", pairs: [["بَيْتٌ","a house"],["كِتَابٌ","a book"],["قَلَمٌ","a pen"],["وَلَدٌ","a boy"]] },
+        { t: "match", q: "صِلْ كُلَّ كَلِمَةٍ بِمَعْنَاهَا", pairs: [["مَسْجِدٌ","a mosque"],["مِفْتَاحٌ","a key"],["رَجُلٌ","a man"],["حِصَانٌ","a horse"]] },
       ],
-      production: "اُكْتُبْ خَمْسَ جُمَلٍ: سُؤَالَيْنِ بِـ «مَا هَذَا؟» وَ «مَنْ هَذَا؟» مَعَ جَوَابَيْهِمَا، وَسُؤَالًا لِلْمُعَلِّمِ بِأَدَوَاتِ الْفَصْلِ ✍️",
-      productionEn: "Write five sentences: two questions with مَا هَذَا؟ / مَنْ هَذَا؟ with their answers, and one question to your teacher using the classroom tools",
+      production: "أَشِرْ إِلَى عَشَرَةِ أَشْيَاءَ حَوْلَكَ وَقُلْ: هَذَا ... ✍️",
+      productionEn: "Point at ten things around you and say: هَذَا ... for each one",
     },
     {
       id: "l2",
       title: "ذَلِكَ",
       subtitle: "اَلدَّرْسُ الثَّانِي",
       vocab: [
+        { ar: "ذَلِكَ", emoji: "👈", en: "that (pointing at something far)" },
+        { ar: "تِلْكَ", en: "that (feminine)" },
+        { ar: "نَجْمٌ", emoji: "⭐", en: "a star" },
+        { ar: "قَمَرٌ", emoji: "🌙", en: "the moon" },
+        { ar: "شَمْسٌ", emoji: "☀️", en: "the sun" },
+        { ar: "سُوقٌ", emoji: "🏪", en: "a market" },
+        { ar: "دُكَّانٌ", en: "a shop" },
+        { ar: "شَارِعٌ", en: "a street" },
+        { ar: "جَبَلٌ", emoji: "⛰️", en: "a mountain" },
+        { ar: "شَجَرَةٌ", emoji: "🌳", en: "a tree" },
+        { ar: "بَقَرَةٌ", emoji: "🐄", en: "a cow" },
+        { ar: "دَجَاجَةٌ", emoji: "🐔", en: "a hen" },
+        { ar: "بَيْضَةٌ", emoji: "🥚", en: "an egg" },
+        { ar: "سَاعَةٌ", emoji: "⌚", en: "a watch" },
+        { ar: "سَيَّارَةٌ", emoji: "🚗", en: "a car" },
+        { ar: "دَرَّاجَةٌ", emoji: "🚲", en: "a bicycle" },
+        { ar: "وَ", en: "and" },
         { ar: "رَجُلٌ", en: "a man" },
         { ar: "وَلَدٌ", en: "a boy" },
         { ar: "طَبِيبٌ", en: "a doctor" },
@@ -145,6 +266,16 @@ export const CURRICULUM = {
         { ar: "ذَلِكَ طَبِيبٌ" },
       ],
       rule: {
+        table: {
+          title: "أَسْمَاءُ الْإِشَارَةِ",
+          head: ["", "لِلْقَرِيبِ", "لِلْبَعِيدِ"],
+          rows: [
+            ["مُذَكَّرٌ", "هَذَا", "ذَلِكَ"],
+            ["مُؤَنَّثٌ", "هَذِهِ", "تِلْكَ"],
+            ["مِثَالٌ", "هَذَا كِتَابٌ", "ذَلِكَ نَجْمٌ"],
+            ["مِثَالٌ", "هَذِهِ سَاعَةٌ", "تِلْكَ مَدْرَسَةٌ"],
+          ],
+        },
         name: "«هَذَا» وَ «ذَلِكَ» — «مَا» وَ «مَنْ»",
         teach: [
           {
@@ -195,6 +326,10 @@ export const CURRICULUM = {
             say: "Three more from the same exercise.",
             show: "٥ هَذِهِ مُدَرِّسَةٌ وَتِلْكَ طَالِبَةٌ.\n٦ هَذَا كَلْبٌ وَذَلِكَ قِطٌّ.\n٧ هَذَا بَيْتُ الْمُؤَذِّنِ وَتِلْكَ حَدِيقَةُ التَّاجِرِ.",
           },
+          {
+            say: "Now ذَلِكَ in the Quran. You have said the first of these in every rak'ah of your life.",
+            show: "﴿ذَلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ﴾ (البقرة ٢)\n﴿ذَلِكَ فَضْلُ اللهِ﴾ (الجمعة ٤)\n﴿ذَلِكَ هُوَ الْفَوْزُ الْعَظِيمُ﴾ (التوبة ٧٢)\n﴿وَتِلْكَ الْأَيَّامُ نُدَاوِلُهَا بَيْنَ النَّاسِ﴾ (آل عمران ١٤٠)",
+          },
         ],
         ar: "هَذَا 👉 قَرِيبٌ … ذَلِكَ 👈 بَعِيدٌ\nمَنْ؟ ← 🧑 لِلْعَاقِلِ\nمَا؟ ← 📦 لِغَيْرِ الْعَاقِلِ",
         hint: "هَذَا = this (near), ذَلِكَ = that (far). Ask مَنْ for people, مَا for things and animals.",
@@ -225,6 +360,31 @@ export const CURRICULUM = {
       title: "اَلْمُبْتَدَأُ وَالْخَبَرُ",
       subtitle: "اَلدَّرْسُ الثَّالِثُ",
       vocab: [
+        { ar: "مَكْسُورٌ", en: "broken" },
+        { ar: "مَفْتُوحٌ", en: "open" },
+        { ar: "مُغْلَقٌ", en: "closed" },
+        { ar: "نَظِيفٌ", en: "clean" },
+        { ar: "وَسِخٌ", en: "dirty" },
+        { ar: "جَدِيدٌ", en: "new" },
+        { ar: "قَدِيمٌ", en: "old" },
+        { ar: "كَبِيرٌ", en: "big" },
+        { ar: "صَغِيرٌ", en: "small" },
+        { ar: "طَوِيلٌ", en: "tall, long" },
+        { ar: "قَصِيرٌ", en: "short" },
+        { ar: "حَارٌّ", en: "hot" },
+        { ar: "بَارِدٌ", en: "cold" },
+        { ar: "ثَقِيلٌ", en: "heavy" },
+        { ar: "خَفِيفٌ", en: "light" },
+        { ar: "قَرِيبٌ", en: "near" },
+        { ar: "بَعِيدٌ", en: "far" },
+        { ar: "جَمِيلٌ", en: "beautiful" },
+        { ar: "جَالِسٌ", en: "sitting" },
+        { ar: "وَاقِفٌ", en: "standing" },
+        { ar: "غَنِيٌّ", en: "rich" },
+        { ar: "فَقِيرٌ", en: "poor" },
+        { ar: "مَرِيضٌ", en: "ill" },
+        { ar: "حُلْوٌ", en: "sweet" },
+        { ar: "لَذِيذٌ", en: "delicious" },
         { ar: "كَبِيرٌ", en: "big" , quran: "وَهُوَ الْعَلِيُّ الْكَبِيرُ", quranRef: "سبأ ٢٣" },
         { ar: "صَغِيرٌ", en: "small" },
         { ar: "جَمِيلٌ", en: "beautiful" , quran: "فَصَبْرٌ جَمِيلٌ", quranRef: "يوسف ١٨" },
@@ -246,6 +406,17 @@ export const CURRICULUM = {
         { ar: "اَلْكِتَابُ جَدِيدٌ وَالْقَلَمُ قَدِيمٌ" },
       ],
       rule: {
+        table: {
+          title: "اَلْمُبْتَدَأُ وَالْخَبَرُ",
+          head: ["اَلْمُبْتَدَأُ", "اَلْخَبَرُ", "اَلْجُمْلَةُ"],
+          rows: [
+            ["مَعْرِفَةٌ بِالـ", "نَكِرَةٌ بِالتَّنْوِينِ", "اَلْبَيْتُ كَبِيرٌ"],
+            ["اَلْقَلَمُ", "مَكْسُورٌ", "اَلْقَلَمُ مَكْسُورٌ"],
+            ["اَلْبَابُ", "مَفْتُوحٌ", "اَلْبَابُ مَفْتُوحٌ"],
+            ["اَلْمَاءُ", "بَارِدٌ", "اَلْمَاءُ بَارِدٌ"],
+            ["اَلطَّالِبُ", "مَرِيضٌ", "اَلطَّالِبُ مَرِيضٌ"],
+          ],
+        },
         fillTable: {
           title: "اِمْلَإِ الْفَرَاغَ بِكَلِمَةٍ مُنَاسِبَةٍ (مِنْ كِتَابِ الْمَدِينَةِ ١، ص ١٦)",
           head: ["", "اَلْمُبْتَدَأُ", "اَلْخَبَرُ"],
@@ -358,11 +529,49 @@ export const CURRICULUM = {
             say: "Say those last four aloud carefully. In اَلنَّجْمُ, اَلرَّجُلُ and اَلطَّالِبُ the L disappears — those are sun letters. In اَلدِّيكُ it also disappears. Only اَلْقَمَرُ keeps it.",
             show: "أَنْ-نَجْمُ · أَرْ-رَجُلُ\nأَطْ-طَالِبُ · أَدْ-دِيكُ\nلَكِنْ: أَلْ-قَمَرُ",
           },
+          {
+            say: "The Quran is full of this sentence. Read these six aloud — subject definite, predicate indefinite, every time.",
+            show: "﴿اَللهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ﴾ (النور ٣٥)\n﴿وَاللهُ غَفُورٌ رَحِيمٌ﴾ (البقرة ٢١٨)\n﴿إِنَّ اللهَ عَلِيمٌ حَكِيمٌ﴾ (النساء ١١)\n﴿وَاللهُ سَمِيعٌ عَلِيمٌ﴾ (البقرة ٢٢٤)",
+          },
+          {
+            say: "Two more, and notice that the pattern never varies.",
+            show: "﴿اَلْحَقُّ مِنْ رَبِّكَ﴾ (البقرة ١٤٧)\n﴿وَاللهُ خَيْرُ الرَّازِقِينَ﴾ (الجمعة ١١)",
+          },
+          {
+            say: "Now a construction from his Lesson 10 — the adjective. Read these five aloud.",
+            show: "اَلرَّجُلُ الْفَقِيرُ ذَهَبَ إِلَى الْوَزِيرِ\nاَلسِّكِّينُ الْكَبِيرُ حَادٌّ جِدًّا\nجَلَسَ الطَّالِبُ الْجَدِيدُ خَلْفَ حَامِدٍ\nأَنَا فِي الْمَدْرَسَةِ الثَّانَوِيَّةِ\nمَنْ هَذَا الْوَلَدُ الْقَصِيرُ؟",
+          },
+          {
+            say: "The adjective comes AFTER its noun — the opposite of English — and copies it in four things at once.",
+            show: "اَلرَّجُلُ الْفَقِيرُ\n① الـ ② مُذَكَّرٌ\n③ مُفْرَدٌ ④ مَرْفُوعٌ",
+          },
+          {
+            say: "When the noun is indefinite, so is the adjective — no الـ on either.",
+            show: "رَجُلٌ فَقِيرٌ · طَالِبٌ جَدِيدٌ\nسِكِّينٌ كَبِيرٌ · وَلَدٌ قَصِيرٌ",
+          },
+          {
+            say: "And this is what separates a description from a statement. Read the pair and hear the difference.",
+            show: "اَلْبَيْتُ الْكَبِيرُ (وَصْفٌ)\nاَلْبَيْتُ كَبِيرٌ (جُمْلَةٌ تَامَّةٌ)",
+            warn: "❌ بَيْتٌ الْكَبِيرُ",
+          },
+          {
+            say: "Read these eight from his exercise, putting الـ where the noun has it.",
+            show: "أَيْنَ الْمُدَرِّسُ الْجَدِيدُ؟\nاَلتَّاجِرُ الْكَبِيرُ فِي السُّوقِ\nأَنَا طَالِبٌ قَدِيمٌ\nعَمَّارٌ وَلَدٌ قَصِيرٌ\nفَيْصَلٌ طَبِيبٌ شَهِيرٌ\nهَذَا قَلَمٌ مَكْسُورٌ\nأَيْنَ السِّكِّينُ الْحَادُّ؟",
+          },
+          {
+            say: "And in the Quran, where you have read it many times.",
+            show: "﴿اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ﴾\n﴿اَلنَّفْسُ الْمُطْمَئِنَّةُ﴾\n﴿فِي جَنَّاتٍ وَنَهَرٍ﴾\n﴿مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ﴾",
+          },
         ],
         ar: "اَلْبَيْتُ كَبِيرٌ\n⬆ مُبْتَدَأٌ (اَلْـ + ـُ) … ⬆ خَبَرٌ (ـٌ)\nاَلْمُبْتَدَأُ: مَعْرِفَةٌ بِـ «اَلْـ» وَمَرْفُوعٌ\nاَلْخَبَرُ: نَكِرَةٌ بِالتَّنْوِينِ وَمَرْفُوعٌ",
         hint: "The nominal sentence: مُبْتَدَأ (subject, with الـ and damma) + خَبَر (predicate, with tanwin). البيتُ كبيرٌ = The house is big.",
       },
       drills: [
+        { t: "mcq", q: "أَيْنَ الْمُدَرِّسُ ___؟ (جَدِيد)", options: ["اَلْجَدِيدُ", "جَدِيدٌ", "جَدِيدًا", "اَلْجَدِيدَ"], a: "اَلْجَدِيدُ", why: "The noun carries الـ, so the adjective must carry it too.", example: "أَيْنَ الْمُدَرِّسُ الْجَدِيدُ؟" },
+        { t: "mcq", q: "أَنَا طَالِبٌ ___. (قَدِيم)", options: ["قَدِيمٌ", "اَلْقَدِيمُ", "قَدِيمًا", "قَدِيمٍ"], a: "قَدِيمٌ", why: "طالبٌ is indefinite, so its adjective takes no الـ.", example: "أَنَا طَالِبٌ قَدِيمٌ" },
+        { t: "mcq", q: "«اَلْبَيْتُ الْكَبِيرُ» — أَجُمْلَةٌ تَامَّةٌ؟", options: ["لَا، وَصْفٌ فَقَطْ", "نَعَمْ", "سُؤَالٌ", "أَمْرٌ"], a: "لَا، وَصْفٌ فَقَطْ", why: "Both words carry الـ, so it only describes. Remove الـ from the second and it becomes a sentence.", example: "اَلْبَيْتُ كَبِيرٌ" },
+        { t: "assemble", q: "the poor man went to the minister", chips: ["اَلرَّجُلُ", "الْفَقِيرُ", "ذَهَبَ", "إِلَى", "الْوَزِيرِ"], a: "اَلرَّجُلُ الْفَقِيرُ ذَهَبَ إِلَى الْوَزِيرِ" },
+        { t: "assemble", q: "the big knife is very sharp", chips: ["اَلسِّكِّينُ", "الْكَبِيرُ", "حَادٌّ", "جِدًّا"], a: "اَلسِّكِّينُ الْكَبِيرُ حَادٌّ جِدًّا" },
         { t: "mcq", q: "بَيْتٌ + الـ = ؟ (مِنْ كِتَابِ الْمَدِينَةِ ١، ص ١٤)", options: ["اَلْبَيْتُ", "اَلْبَيْتٌ", "الْبَيْتِ", "بَيْتُ"], a: "اَلْبَيْتُ", why: "When الـ is added the tanwin goes — a word never carries both.", example: "بَيْتٌ : اَلْبَيْتُ" },
         { t: "mcq", q: "اَلْحِمَارُ صَغِيرٌ وَالْحِصَانُ ___", options: ["كَبِيرٌ", "الْكَبِيرُ", "كَبِيرًا", "كَبِيرٍ"], a: "كَبِيرٌ", why: "His own sentence — the predicate stays indefinite.", example: "اَلْحِمَارُ صَغِيرٌ وَالْحِصَانُ كَبِيرٌ" },
         { t: "mcq", q: "اَلْحَجَرُ ثَقِيلٌ وَالْوَرَقُ ___", options: ["خَفِيفٌ", "الْخَفِيفُ", "خَفِيفًا", "ثَقِيلٌ"], a: "خَفِيفٌ", why: "The opposite of ثقيل — he pairs them deliberately.", example: "اَلْحَجَرُ ثَقِيلٌ وَالْوَرَقُ خَفِيفٌ" },
@@ -414,6 +623,16 @@ export const CURRICULUM = {
         { ar: "اَلنَّجْمُ فِي السَّمَاءِ" },
       ],
       rule: {
+        table: {
+          title: "اَلْحُرُوفُ الشَّمْسِيَّةُ وَالْقَمَرِيَّةُ",
+          head: ["اَلنَّوْعُ", "اَلْحُرُوفُ", "مِثَالٌ", "اَلنُّطْقُ"],
+          rows: [
+            ["شَمْسِيَّةٌ", "ت ث د ذ ر ز س", "اَلشَّمْسُ", "أَشْ-شَمْسُ"],
+            ["شَمْسِيَّةٌ", "ش ص ض ط ظ ل ن", "اَلرَّجُلُ", "أَرْ-رَجُلُ"],
+            ["قَمَرِيَّةٌ", "ا ب ج ح خ ع غ", "اَلْقَمَرُ", "أَلْ-قَمَرُ"],
+            ["قَمَرِيَّةٌ", "ف ق ك م ه و ي", "اَلْبَيْتُ", "أَلْ-بَيْتُ"],
+          ],
+        },
         name: "لَامُ التَّعْرِيفِ: تُنْطَقُ أَوْ تُدْغَمُ",
         teach: [
           {
@@ -448,6 +667,62 @@ export const CURRICULUM = {
             say: "The spelling never changes — only your tongue. Read these six aloud and get each one right.",
             show: "اَلطَّالِبُ · اَلْمُعَلِّمُ\nاَلدَّرْسُ · اَلْكِتَابُ\nاَلسُّوقُ · اَلْبَابُ",
           },
+          {
+            say: "Now the full lists. These fourteen are the SUN letters — with them the L merges and vanishes.",
+            show: "ت ث د ذ ر ز س\nش ص ض ط ظ ل ن",
+          },
+          {
+            say: "Read one word for each of them aloud, listening for the doubled letter.",
+            show: "اَلتَّاجِرُ · اَلثَّوْبُ · اَلدَّرْسُ\nاَلذَّهَبُ · اَلرَّجُلُ · اَلزَّيْتُ · اَلسُّوقُ",
+          },
+          {
+            say: "The other seven.",
+            show: "اَلشَّمْسُ · اَلصَّلَاةُ · اَلضَّيْفُ\nاَلطَّالِبُ · اَلظُّهْرُ · اَللَّيْلُ · اَلنَّجْمُ",
+          },
+          {
+            say: "And these fourteen are the MOON letters — with them the L is pronounced clearly.",
+            show: "ا ب ج ح خ ع غ\nف ق ك م ه و ي",
+          },
+          {
+            say: "Again, one word each. Say them and hear the L.",
+            show: "اَلْأَبُ · اَلْبَيْتُ · اَلْجَمَلُ\nاَلْحِصَانُ · اَلْخُبْزُ · اَلْعِلْمُ · اَلْغَدُ",
+          },
+          {
+            say: "The other seven.",
+            show: "اَلْفَجْرُ · اَلْقَلَمُ · اَلْكِتَابُ\nاَلْمَسْجِدُ · اَلْهَوَاءُ · اَلْوَلَدُ · اَلْيَدُ",
+          },
+          {
+            say: "There is a way to remember which is which. Say the phrase اِبْغِ حَجَّكَ وَخَفْ عَقِيمَهُ — every letter in it is a moon letter, and everything else is a sun letter.",
+            show: "اِبْغِ حَجَّكَ وَخَفْ عَقِيمَهُ\nا ب غ ح ج ك و خ ف ع ق ي م ه",
+          },
+          {
+            say: "Notice the WRITING never changes. Only your tongue does. The clue is the shadda on the letter after الـ.",
+            show: "اَلشَّمْسُ (شَدَّةٌ ← شَمْسِيَّةٌ)\nاَلْقَمَرُ (بِلَا شَدَّةٍ ← قَمَرِيَّةٌ)",
+          },
+          {
+            say: "Now read these twelve pairs aloud. In each pair, one is sun and one is moon.",
+            show: "اَلشَّمْسُ ↔ اَلْقَمَرُ\nاَلرَّجُلُ ↔ اَلْوَلَدُ\nاَلطَّالِبُ ↔ اَلْكِتَابُ\nاَلدَّرْسُ ↔ اَلْبَيْتُ\nاَلنَّجْمُ ↔ اَلْمَسْجِدُ\nاَلسُّوقُ ↔ اَلْقَلَمُ",
+          },
+          {
+            say: "And this matters most in the Quran. Read the opening of al-Fatihah and hear both kinds working.",
+            show: "اَلْحَمْدُ لِلَّهِ (قَمَرِيَّةٌ)\nاَلرَّحْمَنِ الرَّحِيمِ (شَمْسِيَّةٌ)\nمَالِكِ يَوْمِ الدِّينِ (شَمْسِيَّةٌ)\nاَلصِّرَاطَ الْمُسْتَقِيمَ (شَمْسِيَّةٌ ثُمَّ قَمَرِيَّةٌ)",
+          },
+          {
+            say: "One more detail: the alif of الـ is itself silent when a word comes before it. Say these three as one breath.",
+            show: "بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ\nفِي الْبَيْتِ · مِنَ الْمَسْجِدِ",
+          },
+          {
+            say: "Read every one of the twenty-eight words above once more before moving on. This is a lesson of the ear, not the eye.",
+            show: "دَرْسُ الْأُذُنِ لَا الْعَيْنِ",
+          },
+          {
+            say: "Now hear both kinds working through a whole surah. Read al-Fatihah slowly and mark each one.",
+            show: "﴿اَلْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ﴾ ← قَمَرِيَّةٌ\n﴿اَلرَّحْمَنِ الرَّحِيمِ﴾ ← شَمْسِيَّةٌ\n﴿مَالِكِ يَوْمِ الدِّينِ﴾ ← شَمْسِيَّةٌ\n﴿اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ﴾ ← شَمْسِيَّةٌ ثُمَّ قَمَرِيَّةٌ",
+          },
+          {
+            say: "And these four from short surahs you know by heart.",
+            show: "﴿قُلْ هُوَ اللهُ أَحَدٌ﴾\n﴿وَالشَّمْسِ وَضُحَاهَا﴾ ← شَمْسِيَّةٌ\n﴿وَالْقَمَرِ إِذَا تَلَاهَا﴾ ← قَمَرِيَّةٌ\n﴿وَالنَّجْمِ إِذَا هَوَى﴾ ← شَمْسِيَّةٌ",
+          },
         ],
         ar: "حُرُوفُ الْعَرَبِيَّةِ ٢٨: نِصْفُهَا شَمْسِيَّةٌ ☀️ وَنِصْفُهَا قَمَرِيَّةٌ 🌙\n\n١) اَلْقَمَرِيَّةُ: تُنْطَقُ اللَّامُ\nاَلْقَمَرُ = أَلْ-قَمَرُ 🌙 · اَلْبَيْتُ = أَلْ-بَيْتُ\nحُرُوفُهَا: ا ب ج ح خ ع غ ف ق ك م ه و ي\n\n٢) اَلشَّمْسِيَّةُ: تُدْغَمُ اللَّامُ وَتُشَدَّدُ ◌ّ\nاَلشَّمْسُ = أَشْ-شَمْسُ ☀️ · اَلرَّجُلُ = أَرْ-رَجُلُ\nحُرُوفُهَا: ت ث د ذ ر ز س ش ص ض ط ظ ل ن\n\n⚠️ اَلْكِتَابَةُ لَا تَتَغَيَّرُ — اَلنُّطْقُ فَقَطْ\nوَعَلَامَتُهَا الشَّدَّةُ عَلَى الْحَرْفِ الْأَوَّلِ",
         hint: "The 28 letters split in half. After الـ, a LUNAR letter keeps the lam pronounced (al-qamar). A SOLAR letter absorbs it and doubles instead (ash-shams). Spelling never changes — only sound. The shaddah is the sign.",
@@ -476,6 +751,26 @@ export const CURRICULUM = {
       title: "حُرُوفُ الْجَرِّ",
       subtitle: "اَلدَّرْسُ الْخَامِسُ",
       vocab: [
+        { ar: "فِي", en: "in" },
+        { ar: "عَلَى", en: "on" },
+        { ar: "مِنْ", en: "from" },
+        { ar: "إِلَى", en: "to" },
+        { ar: "بِـ", en: "with, by means of" },
+        { ar: "لِـ", en: "for, belonging to" },
+        { ar: "عَنْ", en: "about, away from" },
+        { ar: "كَـ", en: "like" },
+        { ar: "مَعَ", en: "with (in company)" },
+        { ar: "عِنْدَ", en: "at, in the possession of" },
+        { ar: "فَوْقَ", en: "above" },
+        { ar: "تَحْتَ", en: "below" },
+        { ar: "أَمَامَ", en: "in front of" },
+        { ar: "خَلْفَ", en: "behind" },
+        { ar: "بَيْنَ", en: "between" },
+        { ar: "بِجَانِبِ", en: "beside" },
+        { ar: "اَلْمَكْتَبَةُ", en: "the library" },
+        { ar: "اَلْجَامِعَةُ", en: "the university" },
+        { ar: "اَلْمُسْتَشْفَى", en: "the hospital" },
+        { ar: "اَلثَّلَّاجَةُ", en: "the refrigerator" },
         { ar: "مَكْتَبٌ", en: "a desk" },
         { ar: "مَطْبَخٌ", en: "a kitchen" },
         { ar: "شَارِعٌ", en: "a street" },
@@ -497,6 +792,20 @@ export const CURRICULUM = {
         { ar: "اَلْحِصَانُ فِي الْحَقْلِ" },
       ],
       rule: {
+        table: {
+          title: "حُرُوفُ الْجَرِّ",
+          head: ["اَلْحَرْفُ", "اَلْمَعْنَى", "مِثَالٌ"],
+          rows: [
+            ["فِي", "in", "فِي الْبَيْتِ"],
+            ["عَلَى", "on", "عَلَى الْمَكْتَبِ"],
+            ["مِنْ", "from", "مِنَ السُّوقِ"],
+            ["إِلَى", "to", "إِلَى الْمَسْجِدِ"],
+            ["بِـ", "with, by", "بِالْقَلَمِ"],
+            ["لِـ", "for", "لِلطَّالِبِ"],
+            ["عَنْ", "about", "عَنِ الْحَقِّ"],
+            ["كَـ", "like", "كَالْأَسَدِ"],
+          ],
+        },
         fillTable: {
           title: "أَجِبْ عَنْ أَسْئِلَةِ «أَيْنَ» (مِنْ كِتَابِ الْمَدِينَةِ ١، ص ٢٢)",
           head: ["", "اَلسُّؤَالُ", "اَلْجَوَابُ"],
@@ -584,6 +893,14 @@ export const CURRICULUM = {
             say: "Notice how he answers with هُوَ or هِيَ to match the thing asked about — not simply repeating the noun.",
             show: "أَيْنَ التَّاجِرُ؟ — هُوَ فِي الدُّكَّانِ\nأَيْنَ زَيْنَبُ؟ — هِيَ فِي الْغُرْفَةِ\nأَيْنَ الْوَرَقُ؟ — هُوَ عَلَى الْمَكْتَبِ",
           },
+          {
+            say: "Read these eight from the Quran and hear the kasra after every preposition.",
+            show: "﴿بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ﴾\n﴿إِنَّ اللهَ مَعَ الصَّابِرِينَ﴾ (البقرة ١٥٣)\n﴿فِي بُيُوتٍ أَذِنَ اللهُ﴾ (النور ٣٦)\n﴿مِنْ شَرِّ مَا خَلَقَ﴾ (الفلق ٢)",
+          },
+          {
+            say: "Four more.",
+            show: "﴿إِلَى اللهِ مَرْجِعُكُمْ﴾ (المائدة ٤٨)\n﴿عَلَى الْعَرْشِ اسْتَوَى﴾ (طه ٥)\n﴿لِلَّهِ مَا فِي السَّمَاوَاتِ﴾ (البقرة ٢٨٤)\n﴿عَنِ الْيَمِينِ وَعَنِ الشِّمَالِ﴾ (ق ١٧)",
+          },
         ],
         ar: "فِي / عَلَى + اِسْمٌ ← مَجْرُورٌ (ـِ)\nاَلْكِتَابُ عَلَى الْمَكْتَبِ\n⬆ ـُ مَرْفُوعٌ … ⬆ ـِ مَجْرُورٌ\nاَلسُّؤَالُ: أَيْنَ...؟ 📍",
         hint: "Prepositions (في in, على on) pull kasra onto the noun after them — that noun is مَجْرُور. Ask location with أَيْنَ.",
@@ -618,6 +935,27 @@ export const CURRICULUM = {
       title: "اَلْمَدْرَسَةُ",
       subtitle: "اَلدَّرْسُ السَّادِسُ",
       vocab: [
+        { ar: "هَذِهِ", en: "this (feminine)" },
+        { ar: "مَدْرَسَةٌ", en: "a school" },
+        { ar: "حَقِيبَةٌ", en: "a bag" },
+        { ar: "سَبُّورَةٌ", en: "a blackboard" },
+        { ar: "نَافِذَةٌ", en: "a window" },
+        { ar: "كُرَّاسَةٌ", en: "a notebook" },
+        { ar: "مِسْطَرَةٌ", en: "a ruler" },
+        { ar: "بِنْتٌ", en: "a girl" },
+        { ar: "اِمْرَأَةٌ", en: "a woman" },
+        { ar: "أُمٌّ", en: "a mother" },
+        { ar: "أُخْتٌ", en: "a sister" },
+        { ar: "مُدَرِّسَةٌ", en: "a female teacher" },
+        { ar: "طَالِبَةٌ", en: "a female student" },
+        { ar: "طَبِيبَةٌ", en: "a female doctor" },
+        { ar: "غُرْفَةٌ", en: "a room" },
+        { ar: "مِلْعَقَةٌ", en: "a spoon" },
+        { ar: "قِدْرٌ", en: "a cooking pot" },
+        { ar: "عَيْنٌ", en: "an eye" },
+        { ar: "أُذُنٌ", en: "an ear" },
+        { ar: "يَدٌ", en: "a hand" },
+        { ar: "رِجْلٌ", en: "a leg" },
         { ar: "مَدْرَسَةٌ", en: "a school" },
         { ar: "مُعَلِّمٌ", en: "a teacher" },
         { ar: "طَالِبٌ", en: "a student" },
@@ -642,6 +980,18 @@ export const CURRICULUM = {
         { ar: "هَذَا سُؤَالٌ وَهَذَا جَوَابٌ" },
       ],
       rule: {
+        table: {
+          title: "اَلْمُذَكَّرُ وَالْمُؤَنَّثُ",
+          head: ["مُذَكَّرٌ", "مُؤَنَّثٌ", "اَلْعَلَامَةُ"],
+          rows: [
+            ["كِتَابٌ", "مَدْرَسَةٌ", "ة"],
+            ["طَالِبٌ", "طَالِبَةٌ", "ة"],
+            ["مُدَرِّسٌ", "مُدَرِّسَةٌ", "ة"],
+            ["وَلَدٌ", "بِنْتٌ", "بِلَا ة"],
+            ["رَجُلٌ", "اِمْرَأَةٌ", "ة"],
+            ["هَذَا", "هَذِهِ", "اِسْمُ إِشَارَةٍ"],
+          ],
+        },
         name: "هَذَا وَهَذِهِ",
         teach: [
           {
@@ -768,6 +1118,20 @@ export const CURRICULUM = {
         { ar: "حَمْزَةُ طَالِبٌ (تَاءٌ لَكِنَّهُ مُذَكَّرٌ)" },
       ],
       rule: {
+        table: {
+          title: "كَيْفَ تَعْرِفُ الْمُؤَنَّثَ",
+          head: ["اَلْقَاعِدَةُ", "مِثَالٌ", "اَلْحُكْمُ"],
+          rows: [
+            ["يَنْتَهِي بِـ ة", "مَدْرَسَةٌ", "مُؤَنَّثٌ"],
+            ["يَنْتَهِي بِـ ى", "كُبْرَى", "مُؤَنَّثٌ"],
+            ["يَنْتَهِي بِـ اء", "صَحْرَاءُ", "مُؤَنَّثٌ"],
+            ["عُضْوٌ مُزْدَوِجٌ", "يَدٌ · عَيْنٌ", "مُؤَنَّثٌ"],
+            ["اِسْمُ بَلَدٍ", "مَكَّةُ · مِصْرُ", "مُؤَنَّثٌ"],
+            ["اِسْمُ امْرَأَةٍ", "مَرْيَمُ", "مُؤَنَّثٌ"],
+            ["سَمَاعِيٌّ", "شَمْسٌ · نَارٌ", "مُؤَنَّثٌ"],
+            ["وَإِلَّا", "كِتَابٌ · بَابٌ", "مُذَكَّرٌ"],
+          ],
+        },
         name: "خَرِيطَةُ التَّذْكِيرِ وَالتَّأْنِيثِ",
         teach: [
           {
@@ -844,6 +1208,14 @@ export const CURRICULUM = {
           {
             say: "Try it now on a word you have never been taught: مِنْضَدَة. It ends in ة, so it is feminine. And سَحَاب? No sign, not a pair, not a place, not on the list, not a plural of things — so it is masculine.",
             show: "مِنْضَدَةٌ ← مُؤَنَّثٌ\nسَحَابٌ ← مُذَكَّرٌ",
+          },
+          {
+            say: "The Quran shows the feminine without a sign in words you recite daily. Read these five.",
+            show: "﴿وَالشَّمْسِ وَضُحَاهَا﴾ ← شَمْسٌ مُؤَنَّثَةٌ\n﴿يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ﴾ (الفجر ٢٧)\n﴿وَالْأَرْضَ فَرَشْنَاهَا﴾ (الذاريات ٤٨)\n﴿فَاتَّقُوا النَّارَ الَّتِي وَقُودُهَا النَّاسُ﴾ (البقرة ٢٤)",
+          },
+          {
+            say: "And the non-human plural taking a feminine singular, which you now recognise.",
+            show: "﴿وَالْمُؤْمِنَاتُ الْقَانِتَاتُ﴾\n﴿إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ﴾ (هود ١١٤)",
           },
         ],
         ar: "أَوَّلًا: عَلَامَاتُ التَّأْنِيثِ الظَّاهِرَةُ\n١) اَلتَّاءُ الْمَرْبُوطَةُ ة: مُعَلِّمَةٌ · مَدْرَسَةٌ · سَيَّارَةٌ\n٢) اَلْأَلِفُ الْمَقْصُورَةُ ى: حُبْلَى 🤰 · كُبْرَى\n٣) اَلْأَلِفُ الْمَمْدُودَةُ اء: صَحْرَاءُ 🏜️ · حَمْرَاءُ\n\nثَانِيًا: مُؤَنَّثٌ بِلَا عَلَامَةٍ (يُحْفَظُ)\n• أَعْضَاءُ الْجِسْمِ الْمُزْدَوِجَةُ: يَدٌ ✋ عَيْنٌ 👁️ أُذُنٌ 👂 رِجْلٌ\n• أَسْمَاءٌ مَعْرُوفَةٌ: شَمْسٌ ☀️ نَارٌ 🔥 أَرْضٌ 🌍 نَفْسٌ 🫀 رِيحٌ 💨 حَرْبٌ ⚔️ دَارٌ 🏘️ بِئْرٌ\n• أَسْمَاءُ الْبُلْدَانِ وَالْمُدُنِ: مَكَّةُ 🕋 مِصْرُ 🇪🇬\n• أَسْمَاءُ النِّسَاءِ: مَرْيَمُ · زَيْنَبُ\n\nثَالِثًا: تَاءٌ لَكِنَّهُ مُذَكَّرٌ ⚠️\nحَمْزَةُ · أُسَامَةُ · مُعَاوِيَةُ (أَسْمَاءُ رِجَالٍ)\n\nرَابِعًا: اَلْقَاعِدَةُ الْكُبْرَى\nجَمْعُ غَيْرِ الْعَاقِلِ ← مُؤَنَّثٌ مُفْرَدٌ:\nاَلْكُتُبُ جَدِيدَةٌ 📚 · اَلْمَسَاجِدُ كَبِيرَةٌ 🕌\n\nخَامِسًا: مَا يُذَكَّرُ وَيُؤَنَّثُ\nطَرِيقٌ 🛤️ · سُوقٌ 🏪 · سِكِّينٌ",
@@ -1030,6 +1402,24 @@ export const CURRICULUM = {
       title: "اَلْإِضَافَةُ",
       subtitle: "اَلدَّرْسُ التَّاسِعُ",
       vocab: [
+        { ar: "بَابُ الْبَيْتِ", en: "the door of the house" },
+        { ar: "مِفْتَاحُ الْبَابِ", en: "the key of the door" },
+        { ar: "كِتَابُ الطَّالِبِ", en: "the student's book" },
+        { ar: "قَلَمُ الْمُعَلِّمِ", en: "the teacher's pen" },
+        { ar: "بَيْتُ الْإِمَامِ", en: "the imam's house" },
+        { ar: "اِبْنُ الْمُدِيرِ", en: "the headmaster's son" },
+        { ar: "بِنْتُ الْمُدَرِّسِ", en: "the teacher's daughter" },
+        { ar: "سَيَّارَةُ التَّاجِرِ", en: "the merchant's car" },
+        { ar: "حَدِيقَةُ الْبَيْتِ", en: "the garden of the house" },
+        { ar: "كِتَابُ اللهِ", en: "the Book of Allah" },
+        { ar: "رَسُولُ اللهِ", en: "the Messenger of Allah" },
+        { ar: "بَيْتُ اللهِ", en: "the House of Allah" },
+        { ar: "اَلْمُضَافُ", en: "the thing owned" },
+        { ar: "اَلْمُضَافُ إِلَيْهِ", en: "the owner" },
+        { ar: "اَلْمُؤَذِّنُ", en: "the muadhdhin" },
+        { ar: "اَلْمُدِيرُ", en: "the headmaster" },
+        { ar: "اَلْوَزِيرُ", en: "the minister" },
+        { ar: "اَلْفَلَّاحُ", en: "the farmer" },
         { ar: "مِفْتَاحُ الْبَابِ", en: "the key of the door" },
         { ar: "كِتَابُ الطَّالِبِ", en: "the student's book" },
         { ar: "بَيْتُ الْمُعَلِّمِ", en: "the teacher's house" },
@@ -1051,6 +1441,17 @@ export const CURRICULUM = {
         { ar: "نَافِذَةُ الْغُرْفَةِ صَغِيرَةٌ" },
       ],
       rule: {
+        table: {
+          title: "اَلْإِضَافَةُ",
+          head: ["اَلْمُضَافُ", "اَلْمُضَافُ إِلَيْهِ", "اَلْمَعْنَى"],
+          rows: [
+            ["بَابُ ⬆️ بِلَا تَنْوِينٍ", "الْبَيْتِ ⬇️", "the door of the house"],
+            ["مِفْتَاحُ", "الْبَابِ", "the key of the door"],
+            ["كِتَابُ", "الطَّالِبِ", "the student's book"],
+            ["بَيْتُ", "اللهِ", "the House of Allah"],
+            ["رَسُولُ", "اللهِ", "the Messenger of Allah"],
+          ],
+        },
         fillTable: {
           title: "أَضِفِ الْكَلِمَةَ الْأُولَى إِلَى الثَّانِيَةِ (مِنْ كِتَابِ الْمَدِينَةِ ١، ص ٢٨)",
           head: ["اَلْكَلِمَتَانِ", "اَلْإِضَافَةُ"],
@@ -1150,6 +1551,14 @@ export const CURRICULUM = {
             say: "And his two closing sentences.",
             show: "أَيْنَ بَيْتُ الْمُدَرِّسِ؟ هُوَ بَعِيدٌ.\nاَلْقُرْآنُ كِتَابُ اللهِ.",
           },
+          {
+            say: "The إضافة is everywhere in the Quran. Read these eight aloud — the first word bare, the second with a kasra.",
+            show: "﴿بِسْمِ اللهِ﴾\n﴿رَبِّ الْعَالَمِينَ﴾ (الفاتحة ٢)\n﴿مَالِكِ يَوْمِ الدِّينِ﴾ (الفاتحة ٤)\n﴿صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ﴾ (الفاتحة ٧)",
+          },
+          {
+            say: "Four more, and one of them is three deep — an إضافة inside an إضافة.",
+            show: "﴿كِتَابُ اللهِ﴾\n﴿رَسُولُ اللهِ﴾\n﴿يَوْمِ الدِّينِ﴾\n﴿مَلِكِ النَّاسِ · إِلَهِ النَّاسِ﴾ (الناس)",
+          },
         ],
         ar: "مِفْتَاحُ الْبَابِ 🔑🚪\nمُضَافٌ (بِلَا الـ وَبِلَا تَنْوِينٍ) + مُضَافٌ إِلَيْهِ (مَجْرُورٌ ـِ)\n\n❌ اَلْمِفْتَاحُ الْبَابِ\n❌ مِفْتَاحٌ الْبَابِ\n✅ مِفْتَاحُ الْبَابِ\n\nاَلْأَوَّلُ يَتْرُكُ الـ وَالتَّنْوِينَ · اَلثَّانِي مَجْرُورٌ دَائِمًا",
         hint: "In إضافة the first word never takes الـ or tanwin; the second word is always in the genitive (مجرور).",
@@ -1223,6 +1632,17 @@ export const CURRICULUM = {
         { ar: "بَيْنَ الْبَابِ وَالنَّافِذَةِ مِرْآةٌ" },
       ],
       rule: {
+        table: {
+          title: "غُرَفُ الْبَيْتِ وَمَا فِيهَا",
+          head: ["اَلْغُرْفَةُ", "مَا فِيهَا"],
+          rows: [
+            ["غُرْفَةُ النَّوْمِ", "سَرِيرٌ · خِزَانَةٌ"],
+            ["غُرْفَةُ الْجُلُوسِ", "كُرْسِيٌّ · طَاوِلَةٌ"],
+            ["اَلْمَطْبَخُ", "ثَلَّاجَةٌ · قِدْرٌ"],
+            ["اَلْحَمَّامُ", "مَاءٌ · صَابُونٌ"],
+            ["اَلْحَدِيقَةُ", "شَجَرَةٌ · زَهْرَةٌ"],
+          ],
+        },
         name: "ظُرُوفُ الْمَكَانِ وَالْإِضَافَةُ",
         teach: [
           {
@@ -1261,6 +1681,34 @@ export const CURRICULUM = {
             say: "And describe your own house aloud before moving on.",
             show: "بَيْتِي ... · فِي بَيْتِي ...\nغُرْفَتِي ... · اَلْمَطْبَخُ ...",
           },
+          {
+            say: "Read these twelve aloud, walking through a house.",
+            show: "هَذَا بَيْتٌ · هَذَا بَابٌ\nهَذِهِ نَافِذَةٌ · هَذِهِ غُرْفَةٌ\nهَذَا مَطْبَخٌ · هَذَا حَمَّامٌ\nهَذِهِ حَدِيقَةٌ · هَذَا سَطْحٌ",
+          },
+          {
+            say: "Now the rooms as إضافة, exactly as Arabic names them.",
+            show: "غُرْفَةُ النَّوْمِ = the bedroom\nغُرْفَةُ الْجُلُوسِ = the sitting room\nغُرْفَةُ الطَّعَامِ = the dining room\nغُرْفَةُ الضُّيُوفِ = the guest room",
+          },
+          {
+            say: "And what is in each. Read all eight.",
+            show: "فِي غُرْفَةِ النَّوْمِ سَرِيرٌ\nفِي الْمَطْبَخِ ثَلَّاجَةٌ\nفِي غُرْفَةِ الْجُلُوسِ كُرْسِيٌّ\nفِي الْحَمَّامِ مَاءٌ",
+          },
+          {
+            say: "Now placing things, using the prepositions you know.",
+            show: "اَلْكِتَابُ عَلَى الْمَكْتَبِ\nاَلْحَقِيبَةُ تَحْتَ السَّرِيرِ\nاَلْمِصْبَاحُ فَوْقَ الْبَابِ\nاَلسَّيَّارَةُ أَمَامَ الْبَيْتِ\nاَلْحَدِيقَةُ خَلْفَ الْبَيْتِ",
+          },
+          {
+            say: "And بَيْنَ, which needs two things joined by وَ.",
+            show: "اَلْمَكْتَبُ بَيْنَ الْبَابِ وَالنَّافِذَةِ\nاَلْمَسْجِدُ بَيْنَ الْبَيْتِ وَالسُّوقِ",
+          },
+          {
+            say: "Now answer these six aloud about your own house before reading on.",
+            show: "كَمْ غُرْفَةً فِي بَيْتِكَ؟\nأَيْنَ الْمَطْبَخُ؟\nمَاذَا فِي غُرْفَتِكَ؟\nهَلْ لِبَيْتِكَ حَدِيقَةٌ؟",
+          },
+          {
+            say: "And a full description to read aloud, then say your own.",
+            show: "بَيْتِي صَغِيرٌ وَجَمِيلٌ.\nفِيهِ ثَلَاثُ غُرَفٍ وَمَطْبَخٌ وَحَمَّامٌ.\nغُرْفَتِي فِيهَا سَرِيرٌ وَمَكْتَبٌ وَكُرْسِيٌّ.\nوَالْمَسْجِدُ قَرِيبٌ مِنْ بَيْتِنَا.",
+          },
         ],
         ar: "١) ظُرُوفُ الْمَكَانِ — وَمَا بَعْدَهَا مَجْرُورٌ:\nفِي 📍 · عَلَى ⬆️ · تَحْتَ ⬇️ · فَوْقَ ⬆️\nأَمَامَ 👉 · خَلْفَ 👈 · بِجَانِبِ · بَيْنَ ↔️\nاَلْكِتَابُ تَحْتَ الْمَائِدَةِ ✅ (مَجْرُورٌ)\n\n⚠️ «بَيْنَ» تَحْتَاجُ شَيْئَيْنِ:\nبَيْنَ الْبَابِ وَالنَّافِذَةِ (كِلَاهُمَا مَجْرُورٌ)\n\n٢) أَسْمَاءُ الْغُرَفِ إِضَافَةٌ:\nغُرْفَةُ النَّوْمِ 🛏️ (مُضَافٌ + مُضَافٌ إِلَيْهِ)\nغُرْفَةُ الْجُلُوسِ · سَاعَةُ حَائِطٍ\n⚠️ اَلْأَوَّلُ بِلَا الـ وَبِلَا تَنْوِينٍ\n\n٣) اَلْعَدُّ:\nأَرْبَعُ غُرَفٍ (غُرْفَةٌ مُؤَنَّثٌ ← أَرْبَعُ بِلَا تَاءٍ)",
         hint: "Place adverbs (تحت، فوق، أمام، خلف، بجانب، بين) all put the following noun in the genitive. Room names are إضافة constructions — the first word drops الـ and tanwin.",
@@ -1291,6 +1739,18 @@ export const CURRICULUM = {
       title: "اَلْإِعْرَابُ: نِهَايَاتُ الْكَلِمَاتِ",
       subtitle: "اَلدَّرْسُ الْحَادِيَ عَشَرَ",
       vocab: [
+        { ar: "اَلْإِعْرَابُ", en: "case inflection — the changing endings" },
+        { ar: "مَرْفُوعٌ", en: "nominative — takes a damma" },
+        { ar: "مَنْصُوبٌ", en: "accusative — takes a fatha" },
+        { ar: "مَجْرُورٌ", en: "genitive — takes a kasra" },
+        { ar: "اَلضَّمَّةُ", en: "the u-mark" },
+        { ar: "اَلْفَتْحَةُ", en: "the a-mark" },
+        { ar: "اَلْكَسْرَةُ", en: "the i-mark" },
+        { ar: "اَلْفَاعِلُ", en: "the doer" },
+        { ar: "اَلْمَفْعُولُ بِهِ", en: "the object" },
+        { ar: "اَلْمُبْتَدَأُ", en: "the subject" },
+        { ar: "اَلْخَبَرُ", en: "the predicate" },
+        { ar: "حَرْفُ جَرٍّ", en: "a preposition" },
         { ar: "اَلْبَيْتُ", en: "the house — ending in U" },
         { ar: "اَلْبَيْتَ", en: "the house — ending in A" },
         { ar: "اَلْبَيْتِ", en: "the house — ending in I" },
@@ -1377,6 +1837,58 @@ export const CURRICULUM = {
             say: "That is all of إعراب in one picture. Three endings, three names, three simple triggers. Everything else in Arabic grammar is just adding more triggers to these same three endings.",
             show: "ـُ فَاعِلٌ · مُبْتَدَأٌ · خَبَرٌ\n ـَ مَفْعُولٌ بِهِ\n ـِ بَعْدَ حَرْفِ الْجَرِّ",
           },
+          {
+            say: "Now see it working on one word through three sentences. Watch only the last letter.",
+            show: "جَاءَ الطَّالِبُ ⬆️\nرَأَيْتُ الطَّالِبَ ➡️\nسَلَّمْتُ عَلَى الطَّالِبِ ⬇️",
+          },
+          {
+            say: "Three more words, each through all three positions. Read every line aloud.",
+            show: "اَلْكِتَابُ · اَلْكِتَابَ · اَلْكِتَابِ\nاَلْبَيْتُ · اَلْبَيْتَ · اَلْبَيْتِ\nاَلْمَسْجِدُ · اَلْمَسْجِدَ · اَلْمَسْجِدِ",
+          },
+          {
+            say: "And the same with indefinite nouns, where the mark is doubled.",
+            show: "كِتَابٌ · كِتَابًا · كِتَابٍ\nبَيْتٌ · بَيْتًا · بَيْتٍ\nرَجُلٌ · رَجُلًا · رَجُلٍ",
+          },
+          {
+            say: "Now the three causes. A damma means the word is the DOER or the subject.",
+            show: "جَاءَ الطَّالِبُ (فَاعِلٌ)\nاَلطَّالِبُ مُجْتَهِدٌ (مُبْتَدَأٌ)\nاَلطَّالِبُ مُجْتَهِدٌ (خَبَرٌ أَيْضًا)",
+          },
+          {
+            say: "A fatha means the action fell upon it, or it answers how, when, why.",
+            show: "رَأَيْتُ الطَّالِبَ (مَفْعُولٌ بِهِ)\nجَاءَ رَاكِضًا (حَالٌ)\nسَافَرْتُ صَبَاحًا (ظَرْفٌ)",
+          },
+          {
+            say: "And a kasra has only two causes in the whole language — a preposition, or being owned in an إضافة.",
+            show: "فِي الْبَيْتِ (بَعْدَ حَرْفِ جَرٍّ)\nبَابُ الْبَيْتِ (مُضَافٌ إِلَيْهِ)",
+          },
+          {
+            say: "Read these eight and name the cause of each ending before checking.",
+            show: "كَتَبَ الطَّالِبُ الدَّرْسَ\nقَرَأَ الْإِمَامُ الْقُرْآنَ\nذَهَبَ الْوَلَدُ إِلَى الْمَدْرَسَةِ\nمِفْتَاحُ الْبَيْتِ مَعَ أَبِي",
+          },
+          {
+            say: "Four more.",
+            show: "اَلْكِتَابُ عَلَى الْمَكْتَبِ\nفَتَحَ الرَّجُلُ الْبَابَ\nخَرَجْتُ مِنَ الْبَيْتِ\nسَلَّمْتُ عَلَى الْمُدَرِّسِ",
+          },
+          {
+            say: "The three marks have names. Learn them — every book you open will use them.",
+            show: "ضَمَّةٌ ← مَرْفُوعٌ\nفَتْحَةٌ ← مَنْصُوبٌ\nكَسْرَةٌ ← مَجْرُورٌ",
+          },
+          {
+            say: "This is the single most important lesson in Arabic. Everything after it is a detail hanging from these three marks.",
+            show: "ـُ · ـَ · ـِ",
+          },
+          {
+            say: "See the three marks working in the Quran. First the damma — the doer and the subject.",
+            show: "﴿قَالَ اللهُ﴾ ⬆️\n﴿اَللهُ نُورُ السَّمَاوَاتِ﴾ ⬆️\n﴿جَاءَ الْحَقُّ﴾ ⬆️",
+          },
+          {
+            say: "Then the fatha — what the action fell upon.",
+            show: "﴿إِنَّا أَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ﴾ ➡️\n﴿خَلَقَ الْإِنْسَانَ﴾ ➡️\n﴿اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ﴾ ➡️",
+          },
+          {
+            say: "And the kasra — after a preposition, or as the owner.",
+            show: "﴿بِسْمِ اللهِ﴾ ⬇️\n﴿فِي لَيْلَةِ الْقَدْرِ﴾ ⬇️\n﴿رَبِّ الْعَالَمِينَ﴾ ⬇️",
+          },
         ],
         ar: "⬆️ مَرْفُوعٌ ـُ · ➡️ مَنْصُوبٌ ـَ · ⬇️ مَجْرُورٌ ـِ",
         hint: "Three endings, three names, three triggers: the doer takes ـُ, the receiver takes ـَ, and anything after a preposition takes ـِ.",
@@ -1435,6 +1947,40 @@ export const CURRICULUM = {
         { ar: "طَلَبُ الْعِلْمِ فَرِيضَةٌ" },
       ],
       rule: {
+        fillTable: {
+          title: "اِبْنِ الْعَائِلَةَ مِنَ الْجَذْرِ",
+          head: ["اَلْجَذْرُ", "فَاعِلٌ", "مَفْعُولٌ", "مَكَانٌ"],
+          rows: [
+            ["ك ت ب", "كَاتِبٌ", "مَكْتُوبٌ", "مَكْتَبٌ"],
+            ["د ر س", null, null, null],
+            ["ط ب خ", null, null, null],
+            ["ع م ل", null, null, null],
+            ["ل ع ب", null, null, null],
+            ["ف ت ح", null, null, null],
+          ],
+          answers: [
+            ["ك ت ب", "كَاتِبٌ", "مَكْتُوبٌ", "مَكْتَبٌ"],
+            ["د ر س", "دَارِسٌ", "مَدْرُوسٌ", "مَدْرَسَةٌ"],
+            ["ط ب خ", "طَابِخٌ", "مَطْبُوخٌ", "مَطْبَخٌ"],
+            ["ع م ل", "عَامِلٌ", "مَعْمُولٌ", "مَعْمَلٌ"],
+            ["ل ع ب", "لَاعِبٌ", "مَلْعُوبٌ", "مَلْعَبٌ"],
+            ["ف ت ح", "فَاتِحٌ", "مَفْتُوحٌ", "مَفْتَحٌ"],
+          ],
+        },
+        table: {
+          title: "جَذْرٌ وَاحِدٌ · عَائِلَةٌ كَامِلَةٌ",
+          head: ["اَلْجَذْرُ", "فِعْلٌ", "فَاعِلٌ", "مَفْعُولٌ", "مَكَانٌ", "مَصْدَرٌ"],
+          rows: [
+            ["ك ت ب", "كَتَبَ", "كَاتِبٌ", "مَكْتُوبٌ", "مَكْتَبٌ", "كِتَابَةٌ"],
+            ["د ر س", "دَرَسَ", "دَارِسٌ", "مَدْرُوسٌ", "مَدْرَسَةٌ", "دِرَاسَةٌ"],
+            ["ع ل م", "عَلِمَ", "عَالِمٌ", "مَعْلُومٌ", "مَعْلَمٌ", "عِلْمٌ"],
+            ["ط ب خ", "طَبَخَ", "طَابِخٌ", "مَطْبُوخٌ", "مَطْبَخٌ", "طَبْخٌ"],
+            ["س ج د", "سَجَدَ", "سَاجِدٌ", "مَسْجُودٌ", "مَسْجِدٌ", "سُجُودٌ"],
+            ["ع م ل", "عَمِلَ", "عَامِلٌ", "مَعْمُولٌ", "مَعْمَلٌ", "عَمَلٌ"],
+            ["ط ل ب", "طَلَبَ", "طَالِبٌ", "مَطْلُوبٌ", "مَطْلَبٌ", "طَلَبٌ"],
+            ["ف ت ح", "فَتَحَ", "فَاتِحٌ", "مَفْتُوحٌ", "مَفْتَحٌ", "فَتْحٌ"],
+          ],
+        },
         name: "كَيْفَ تُبْنَى الْكَلِمَاتُ مِنَ الْجَذْرِ",
         teach: [
           {
@@ -1519,11 +2065,130 @@ export const CURRICULUM = {
             say: "From now on, whenever you meet a new word, ask two questions before anything else: what are its three letters, and what shape is it in? That habit is worth more than a thousand memorised words.",
             show: "مَا الْجَذْرُ؟ · مَا الْوَزْنُ؟",
           },
+          {
+            say: "One root gives a whole family, and the Quran uses them all. Read these from ك ت ب.",
+            show: "﴿كُتِبَ عَلَيْكُمُ الصِّيَامُ﴾ (البقرة ١٨٣)\n﴿ذَلِكَ الْكِتَابُ﴾ (البقرة ٢)\n﴿كِرَامًا كَاتِبِينَ﴾ (الانفطار ١١)\n﴿كِتَابٌ مَرْقُومٌ﴾ (المطففين ٩)",
+          },
+          {
+            say: "And from ع ل م.",
+            show: "﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ﴾ (البقرة ٣١)\n﴿وَقُلْ رَبِّ زِدْنِي عِلْمًا﴾ (طه ١١٤)\n﴿إِنَّمَا يَخْشَى اللهَ مِنْ عِبَادِهِ الْعُلَمَاءُ﴾ (فاطر ٢٨)\n﴿وَاللهُ عَلِيمٌ حَكِيمٌ﴾",
+          },
+          {
+            say: "Here is why Arabic is easier than English, though almost nobody teaches it this way. In English you must memorise 'book', then separately 'author', then separately 'desk', then 'library', then 'write'. Five unrelated words.",
+            show: "book · author · desk\nlibrary · write\n٥ كَلِمَاتٍ لَا رَابِطَ بَيْنَهَا",
+          },
+          {
+            say: "In Arabic you memorise ONE root — three letters — and every one of those words falls out of it as a pattern.",
+            show: "ك ت ب",
+          },
+          {
+            say: "Read this family aloud. Every word shares the same three letters in the same order.",
+            show: "كَتَبَ = he wrote\nيَكْتُبُ = he writes\nكِتَابٌ = a book\nكَاتِبٌ = a writer, an author\nمَكْتَبٌ = a desk\nمَكْتَبَةٌ = a library, a bookshop\nمَكْتُوبٌ = written\nكِتَابَةٌ = writing",
+          },
+          {
+            say: "Eight words from three letters. Now say them again and hear the ك، ت، ب inside each one — they never move and never change order.",
+            show: "كَ-تَ-بَ · كِ-تَا-ب · كَا-تِ-ب\nمَ-كْ-تَ-ب · مَ-كْ-تُو-ب",
+          },
+          {
+            say: "So the ROOT carries the meaning, and the PATTERN carries the job. Learn one pattern and it works on every root you will ever meet.",
+            show: "اَلْجَذْرُ ← اَلْمَعْنَى\nاَلْوَزْنُ ← اَلْوَظِيفَةُ",
+          },
+          {
+            say: "Take the pattern فَاعِل — it always means 'the one who does it'. Apply it to five roots.",
+            show: "ك ت ب ← كَاتِبٌ = a writer\nع ل م ← عَالِمٌ = a scholar\nس م ع ← سَامِعٌ = a listener\nق ر أ ← قَارِئٌ = a reciter\nظ ل م ← ظَالِمٌ = a wrongdoer",
+          },
+          {
+            say: "Now مَفْعُول — always 'the thing it was done to'.",
+            show: "ك ت ب ← مَكْتُوبٌ = written\nع ل م ← مَعْلُومٌ = known\nف ت ح ← مَفْتُوحٌ = opened\nك س ر ← مَكْسُورٌ = broken\nح ف ظ ← مَحْفُوظٌ = preserved",
+          },
+          {
+            say: "And مَفْعَل — always 'the place where it happens'. This one is a gift.",
+            show: "ك ت ب ← مَكْتَبٌ = a desk (place of writing)\nد ر س ← مَدْرَسَةٌ = a school\nس ج د ← مَسْجِدٌ = a mosque (place of prostration)\nط ب خ ← مَطْبَخٌ = a kitchen (place of cooking)\nل ع ب ← مَلْعَبٌ = a playground",
+          },
+          {
+            say: "Look at مَسْجِد again. You have said that word your whole life. It simply means THE PLACE OF PROSTRATION — from س ج د, to prostrate.",
+            show: "س ج د = to prostrate\nسَاجِدٌ = one prostrating\nسُجُودٌ = prostration\nمَسْجِدٌ = the place of prostration",
+          },
+          {
+            say: "And مِفْعَال or مِفْعَل — the TOOL. Note the kasra on the meem, against the fatha of the place.",
+            show: "ف ت ح ← مِفْتَاحٌ = a key (tool of opening)\nن ش ر ← مِنْشَارٌ = a saw\nك ن س ← مِكْنَسَةٌ = a broom\nل ع ق ← مِلْعَقَةٌ = a spoon\nق ص ص ← مِقَصٌّ = scissors",
+          },
+          {
+            say: "So the meem tells you which: a fatha means a PLACE, a kasra means a TOOL. Say these pairs and hear it.",
+            show: "مَطْبَخٌ (مَكَان) ↔ مِلْعَقَةٌ (آلَة)\nمَكْتَبٌ (مَكَان) ↔ مِفْتَاحٌ (آلَة)\nمَسْجِدٌ (مَكَان) ↔ مِنْشَارٌ (آلَة)",
+          },
+          {
+            say: "Now the real test. Here is a root you may not know: ع م ل — to work. Build its family before reading on.",
+            show: "ع م ل ← ؟\nاَلْفَاعِلُ · اَلْمَفْعُولُ · اَلْمَكَانُ · اَلْمَصْدَرُ",
+          },
+          {
+            say: "And here they are. You could have produced every one without being taught them.",
+            show: "عَمِلَ = he worked\nعَامِلٌ = a worker\nمَعْمُولٌ = done, made\nمَعْمَلٌ = a factory (place of work)\nعَمَلٌ = work, a deed",
+          },
+          {
+            say: "Try another: ط ل ب — to seek.",
+            show: "طَلَبَ = he sought\nطَالِبٌ = a student (one who seeks)\nمَطْلُوبٌ = sought, required\nمَطْلَبٌ = a demand\nطَلَبٌ = a request",
+          },
+          {
+            say: "So طَالِب does not merely mean 'student' — it means ONE WHO SEEKS. That is why طَالِبُ الْعِلْمِ is a seeker of knowledge.",
+            show: "طَالِبُ الْعِلْمِ = the seeker of knowledge",
+          },
+          {
+            say: "One more, and this one opens the Quran to you: ع ل م — to know.",
+            show: "عَلِمَ = he knew\nيَعْلَمُ = he knows\nعِلْمٌ = knowledge\nعَالِمٌ = a scholar\nعُلَمَاءُ = scholars\nمَعْلُومٌ = known\nعَلَّمَ = he taught\nمُعَلِّمٌ = a teacher\nتَعْلِيمٌ = teaching\nعَلِيمٌ = All-Knowing",
+          },
+          {
+            say: "Ten words from one root — and you meet every one of them in the Quran. Read these four ayat and find the root in each.",
+            show: "﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾ (البقرة ٣١)\n﴿وَقُلْ رَبِّ زِدْنِي عِلْمًا﴾ (طه ١١٤)\n﴿إِنَّمَا يَخْشَى اللهَ مِنْ عِبَادِهِ الْعُلَمَاءُ﴾ (فاطر ٢٨)\n﴿وَاللهُ عَلِيمٌ حَكِيمٌ﴾ (النساء ٢٦)",
+          },
+          {
+            say: "And the ك ت ب family in the Quran.",
+            show: "﴿كُتِبَ عَلَيْكُمُ الصِّيَامُ﴾ (البقرة ١٨٣)\n﴿ذَلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ﴾ (البقرة ٢)\n﴿كِرَامًا كَاتِبِينَ﴾ (الانفطار ١١)\n﴿كِتَابٌ مَرْقُومٌ﴾ (المطففين ٩)",
+          },
+          {
+            say: "Now here is what this means for you. When you meet an unknown word, do not reach for a dictionary. Strip away the extra letters and find the three that remain.",
+            show: "مَكْتَبَةٌ ← اِحْذِفْ مَ · ةٌ ← ك ت ب\nمُسْتَشْفًى ← اِحْذِفْ مُسْتَ · ى ← ش ف ي\nاِسْتِغْفَارٌ ← اِحْذِفْ اِسْتِ · ا ← غ ف ر",
+          },
+          {
+            say: "The letters that get ADDED are always from one small set. Learn them and you can always see through to the root.",
+            show: "س أ ل ت م و ن ي ه ا\n«سَأَلْتُمُونِيهَا»",
+          },
+          {
+            say: "Practise it now. Find the root of each of these six before reading on.",
+            show: "مَدْرَسَةٌ · مُسْلِمٌ · اِجْتِمَاعٌ\nمَفْتُوحٌ · تَعْلِيمٌ · اِسْتِخْرَاجٌ",
+          },
+          {
+            say: "And the answers.",
+            show: "مَدْرَسَةٌ ← د ر س\nمُسْلِمٌ ← س ل م\nاِجْتِمَاعٌ ← ج م ع\nمَفْتُوحٌ ← ف ت ح\nتَعْلِيمٌ ← ع ل م\nاِسْتِخْرَاجٌ ← خ ر ج",
+          },
+          {
+            say: "This is why an Arabic dictionary is arranged by ROOT, not by first letter. To look up مَكْتَبَة you turn to ك ت ب — and find the whole family on one page.",
+            show: "اَلْمُعْجَمُ مُرَتَّبٌ بِالْجُذُورِ",
+          },
+          {
+            say: "So every root you learn is not one word. It is eight, or ten, or twenty. That is the whole reason Arabic can be learned in a fraction of the time English takes.",
+            show: "جَذْرٌ وَاحِدٌ = عَشْرُ كَلِمَاتٍ\nمِئَةُ جَذْرٍ = أَلْفُ كَلِمَةٍ",
+          },
+          {
+            say: "Take three roots you already know — ق ر أ، ذ ه ب، ف ت ح — and build every word you can from each. Then check them in the dictionary.",
+            show: "اِبْنِ الْآنَ بِنَفْسِكَ",
+          },
         ],
         ar: "جَذْرٌ + وَزْنٌ = كَلِمَةٌ · فَاعِل (اَلْفَاعِلُ) · مَفْعُول (اَلْمَفْعُولُ) · مَفْعَل (اَلْمَكَانُ) · مِفْعَال (اَلْآلَةُ)",
         hint: "Three root letters carry a core idea; a pattern gives it a job. Learn the four common patterns and you can decode words you have never seen.",
       },
       drills: [
+        { t: "mcq", q: "مَا جَذْرُ «مَكْتَبَةٌ»؟", options: ["ك ت ب", "م ك ت", "ك ب ت", "م ت ب"], a: "ك ت ب", why: "Strip the added م and ة and three letters remain — the same three as in كتاب and كاتب.", example: "مَكْتَبَةٌ ← ك ت ب" },
+        { t: "mcq", q: "مَا مَعْنَى «مَسْجِدٌ» حَرْفِيًّا؟", options: ["مَكَانُ السُّجُودِ", "مَكَانُ الصَّلَاةِ", "بَيْتُ اللهِ", "مَكَانُ الِاجْتِمَاعِ"], a: "مَكَانُ السُّجُودِ", why: "From س ج د on the مَفْعَل pattern — literally the place of prostration.", example: "مَسْجِدٌ ← س ج د" },
+        { t: "mcq", q: "ط ب خ عَلَى وَزْنِ «مَفْعَل» = ؟", options: ["مَطْبَخٌ", "طَابِخٌ", "مَطْبُوخٌ", "طَبْخٌ"], a: "مَطْبَخٌ", why: "مَفْعَل is always the place — so the place of cooking.", example: "مَطْبَخٌ = مَكَانُ الطَّبْخِ" },
+        { t: "mcq", q: "ع م ل عَلَى وَزْنِ «فَاعِل» = ؟", options: ["عَامِلٌ", "مَعْمُولٌ", "مَعْمَلٌ", "عَمَلٌ"], a: "عَامِلٌ", why: "فَاعِل is always the doer — a worker.", example: "عَامِلٌ = مَنْ يَعْمَلُ" },
+        { t: "mcq", q: "«مِفْتَاحٌ» بِكَسْرِ الْمِيمِ — لِمَاذَا؟", options: ["لِأَنَّهُ آلَةٌ لَا مَكَانٌ", "خَطَأٌ", "لَا سَبَبَ", "لِأَنَّهُ جَمْعٌ"], a: "لِأَنَّهُ آلَةٌ لَا مَكَانٌ", why: "A kasra on the meem marks a tool; a fatha marks a place.", example: "مِفْتَاحٌ (آلَة) ↔ مَكْتَبٌ (مَكَان)" },
+        { t: "mcq", q: "«طَالِبٌ» — مَا مَعْنَاهُ حَرْفِيًّا؟", options: ["مَنْ يَطْلُبُ", "مَنْ يَدْرُسُ", "مَنْ يَقْرَأُ", "مَنْ يَكْتُبُ"], a: "مَنْ يَطْلُبُ", why: "From ط ل ب, to seek — which is why طالب العلم is a seeker of knowledge.", example: "طَالِبُ الْعِلْمِ" },
+        { t: "mcq", q: "مَا جَذْرُ «اِسْتِغْفَارٌ»؟", options: ["غ ف ر", "س ت غ", "ا س ت", "غ ف ا"], a: "غ ف ر", why: "Remove the added اِسْتِ and ا and غ ف ر remains.", example: "اِسْتِغْفَارٌ ← غ ف ر" },
+        { t: "mcq", q: "مَا جَذْرُ «مُسْلِمٌ»؟", options: ["س ل م", "م س ل", "س م ل", "ل س م"], a: "س ل م", why: "The م at the front is added — the root is س ل م, the same as in إسلام and سلام.", example: "مُسْلِمٌ ← س ل م" },
+        { t: "mcq", q: "كَمْ كَلِمَةً يُمْكِنُ أَنْ تَبْنِيَ مِنْ جَذْرٍ وَاحِدٍ؟", options: ["ثَمَانِيَةً أَوْ أَكْثَرَ", "وَاحِدَةً", "اِثْنَتَيْنِ", "ثَلَاثًا"], a: "ثَمَانِيَةً أَوْ أَكْثَرَ", why: "This is why Arabic is faster to learn than English — one root is a whole family.", example: "ك ت ب ← ٨ كَلِمَاتٍ" },
+        { t: "match", q: "صِلْ كُلَّ وَزْنٍ بِمَعْنَاهُ", pairs: [["فَاعِلٌ","مَنْ يَفْعَلُ"],["مَفْعُولٌ","مَا وَقَعَ عَلَيْهِ"],["مَفْعَلٌ","اَلْمَكَانُ"],["مِفْعَالٌ","اَلْآلَةُ"]] },
+        { t: "match", q: "صِلْ كُلَّ كَلِمَةٍ بِجَذْرِهَا", pairs: [["مَدْرَسَةٌ","د ر س"],["مَسْجِدٌ","س ج د"],["مِفْتَاحٌ","ف ت ح"],["عَالِمٌ","ع ل م"]] },
         { t: "match", q: "صِلْ كُلَّ وَزْنٍ بِمَعْنَاهُ", pairs: [["فَاعِل","اَلَّذِي يَفْعَلُ"],["مَفْعُول","اَلَّذِي وَقَعَ عَلَيْهِ"],["مَفْعَل","اَلْمَكَانُ"],["مِفْعَال","اَلْآلَةُ"]] },
         { t: "match", q: "صِلْ كُلَّ كَلِمَةٍ بِجَذْرِهَا", pairs: [["مَكْتَبَةٌ","ك ت ب"],["مَطْبَخٌ","ط ب خ"],["مِفْتَاحٌ","ف ت ح"],["عَالِمٌ","ع ل م"]] },
         { t: "mcq", q: "ك ت ب + فَاعِل = ؟", options: ["كَاتِبٌ", "مَكْتُوبٌ", "مَكْتَبٌ", "كِتَابَةٌ"], a: "كَاتِبٌ", why: "The pattern فَاعِل always gives the one who DOES the action. Root ك ت ب means writing, so كاتب is a writer.", example: "اَلْكَاتِبُ يَكْتُبُ" },
@@ -1575,6 +2240,16 @@ export const CURRICULUM = {
         { ar: "دَعَا — عَصَا (بِالْأَلِفِ الْمَمْدُودَةِ)" },
       ],
       rule: {
+        table: {
+          title: "هَمْزَةُ الْوَصْلِ وَالْقَطْعِ",
+          head: ["اَلنَّوْعُ", "اَلشَّكْلُ", "مِثَالٌ", "مَتَى"],
+          rows: [
+            ["وَصْلٌ", "ا بِلَا هَمْزَةٍ", "اِسْمٌ · اِبْنٌ", "تَسْقُطُ فِي الْوَصْلِ"],
+            ["قَطْعٌ", "أ أَوْ إ", "أَحْمَدُ · إِبْرَاهِيمُ", "تُنْطَقُ دَائِمًا"],
+            ["وَصْلٌ", "أَمْرُ الثُّلَاثِيِّ", "اِفْتَحْ · اِكْتُبْ", "تَسْقُطُ"],
+            ["قَطْعٌ", "أَفْعَلَ", "أَخْرَجَ · أَكْرَمَ", "تُنْطَقُ"],
+          ],
+        },
         name: "قَوَاعِدُ الْكِتَابَةِ الصَّحِيحَةِ",
         teach: [
           {
@@ -1685,6 +2360,18 @@ export const CURRICULUM = {
         { ar: "شَرِبْتُ مَاءً بَارِدًا" },
       ],
       rule: {
+        table: {
+          title: "حُرُوفٌ تُكْتَبُ وَلَا تُنْطَقُ · وَحُرُوفٌ تُنْطَقُ وَلَا تُكْتَبُ",
+          head: ["اَلْحَالُ", "اَلْمِثَالُ", "اَلنُّطْقُ"],
+          rows: [
+            ["تُكْتَبُ وَلَا تُنْطَقُ", "لَنْ يَكْتُبُوا", "lan yaktubuu"],
+            ["تُكْتَبُ وَلَا تُنْطَقُ", "كِتَابًا", "kitaaban"],
+            ["تُكْتَبُ وَلَا تُنْطَقُ", "عَمْرٌو", "'Amrun"],
+            ["تُكْتَبُ وَلَا تُنْطَقُ", "اَلشَّمْسُ", "ash-shams"],
+            ["تُنْطَقُ وَلَا تُكْتَبُ", "هَذَا", "haadhaa"],
+            ["تُنْطَقُ وَلَا تُكْتَبُ", "اَلرَّحْمَنُ", "ar-Rahmaan"],
+          ],
+        },
         name: "حُرُوفٌ زَائِدَةٌ وَحُرُوفٌ نَاقِصَةٌ",
         teach: [
           {
@@ -1805,6 +2492,19 @@ export const CURRICULUM = {
         { ar: "اَلْجَدُّ فِي الْبَيْتِ مَعَ حَفِيدِهِ" },
       ],
       rule: {
+        table: {
+          title: "اَلْأُسْرَةُ",
+          head: ["مُذَكَّرٌ", "مُؤَنَّثٌ", "اَلصِّلَةُ"],
+          rows: [
+            ["أَبٌ", "أُمٌّ", "parent"],
+            ["اِبْنٌ", "بِنْتٌ", "child"],
+            ["أَخٌ", "أُخْتٌ", "sibling"],
+            ["جَدٌّ", "جَدَّةٌ", "grandparent"],
+            ["عَمٌّ", "عَمَّةٌ", "father's side"],
+            ["خَالٌ", "خَالَةٌ", "mother's side"],
+            ["زَوْجٌ", "زَوْجَةٌ", "spouse"],
+          ],
+        },
         name: "اَلْأَقَارِبُ وَمُطَابَقَةُ الْخَبَرِ",
         teach: [
           {
@@ -1843,6 +2543,14 @@ export const CURRICULUM = {
           {
             say: "Now say your own family aloud — who they are and what they do.",
             show: "اِسْمُ أَبِي ... · اِسْمُ أُمِّي ...\nلِي ... إِخْوَةٍ وَ... أَخَوَاتٍ",
+          },
+          {
+            say: "Now the family in the Quran. Read these six aloud — every one of them uses words you have just learned.",
+            show: "﴿وَبِالْوَالِدَيْنِ إِحْسَانًا﴾ (الإسراء ٢٣)\n﴿وَقَضَى رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ﴾ (الإسراء ٢٣)\n﴿رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا﴾ (الإسراء ٢٤)\n﴿يَا بُنَيَّ لَا تُشْرِكْ بِاللهِ﴾ (لقمان ١٣)",
+          },
+          {
+            say: "Two more, on the bond between spouses and between brothers.",
+            show: "﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا﴾ (الروم ٢١)\n﴿إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ﴾ (الحجرات ١٠)",
           },
         ],
         ar: "١) اَلْفَرْقُ الْمُهِمُّ فِي الْعَرَبِيَّةِ:\nمِنْ جِهَةِ الْأَبِ: عَمٌّ 🧔👨 · عَمَّةٌ 👩👨\nمِنْ جِهَةِ الْأُمِّ: خَالٌ 🧔👩 · خَالَةٌ 👩👩\n(اَلْإِنْجِلِيزِيَّةُ لَا تُفَرِّقُ — اَلْعَرَبِيَّةُ تُفَرِّقُ)\n\nعَمِّي = أَخُو أَبِي · خَالِي = أَخُو أُمِّي\nعَمَّتِي = أُخْتُ أَبِي · خَالَتِي = أُخْتُ أُمِّي\n\n٢) اَلْمُطَابَقَةُ فِي الْخَبَرِ:\nمُبْتَدَأٌ مُذَكَّرٌ ← خَبَرٌ مُذَكَّرٌ: اَلْأَبُ كَبِيرٌ\nمُبْتَدَأٌ مُؤَنَّثٌ ← خَبَرٌ مُؤَنَّثٌ: اَلْأُمُّ كَبِيرَةٌ\n\n٣) أَبٌ وَأَخٌ فِي الْإِضَافَةِ تَأْخُذَانِ وَاوًا:\nأَبُو مُحَمَّدٍ · أَخُو عَلِيٍّ\nلَكِنْ مَعَ الْيَاءِ: أَبِي · أَخِي",
@@ -2002,6 +2710,14 @@ export const CURRICULUM = {
             show: "اَلْبَيْتُ الْكَبِيرُ (وَصْفٌ فَقَطْ)\nاَلْبَيْتُ كَبِيرٌ (جُمْلَةٌ تَامَّةٌ)",
             warn: "❌ اَلْبَيْتُ كَبِيرُ · ❌ بَيْتٌ الْكَبِيرُ",
           },
+          {
+            say: "Food and drink in the Quran. Read these six.",
+            show: "﴿كُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا﴾ (الأعراف ٣١)\n﴿كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ﴾ (البقرة ١٧٢)\n﴿وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ﴾ (الأنبياء ٣٠)\n﴿فِيهَا أَنْهَارٌ مِنْ لَبَنٍ لَمْ يَتَغَيَّرْ طَعْمُهُ﴾ (محمد ١٥)",
+          },
+          {
+            say: "And two more, on honey and on dates.",
+            show: "﴿يَخْرُجُ مِنْ بُطُونِهَا شَرَابٌ مُخْتَلِفٌ أَلْوَانُهُ فِيهِ شِفَاءٌ لِلنَّاسِ﴾ (النحل ٦٩)\n﴿وَهُزِّي إِلَيْكِ بِجِذْعِ النَّخْلَةِ تُسَاقِطْ عَلَيْكِ رُطَبًا جَنِيًّا﴾ (مريم ٢٥)",
+          },
         ],
         ar: "١) اَلنَّعْتُ يَتْبَعُ الْمَنْعُوتَ:\nمَاءٌ بَارِدٌ 💧❄️ — نَكِرَةٌ + نَكِرَةٌ\nاَلْمَاءُ الْبَارِدُ — مَعْرِفَةٌ + مَعْرِفَةٌ\n\n⚠️ اَلْفَرْقُ الْمُهِمُّ:\nاَلْمَاءُ بَارِدٌ = جُمْلَةٌ ✅ (the water IS cold)\nاَلْمَاءُ الْبَارِدُ = وَصْفٌ فَقَطْ (the cold water)\n\n٢) اِسْمُ الْجِنْسِ وَوَاحِدَتُهُ:\nكَثِيرٌ مِنَ الثِّمَارِ اِسْمُ جِنْسٍ جَمْعِيٌّ،\nوَالْوَاحِدَةُ بِزِيَادَةِ التَّاءِ:\nتُفَّاحٌ 🍎 ← تُفَّاحَةٌ (وَاحِدَةٌ)\nتَمْرٌ 🌴 ← تَمْرَةٌ · بَيْضٌ 🥚 ← بَيْضَةٌ\nسَمَكٌ 🐟 ← سَمَكَةٌ · شَجَرٌ ← شَجَرَةٌ\n\n٣) اَلْمَفْعُولُ بِهِ بَعْدَ الْأَكْلِ وَالشُّرْبِ مَنْصُوبٌ:\nآكُلُ الْخُبْزَ · أَشْرَبُ الْقَهْوَةَ",
         hint: "Note: الماءُ باردٌ is a SENTENCE; الماءُ الباردُ is only a phrase. Also learn اسم الجنس — تفّاح means apples in general, تفّاحة is one apple.",
@@ -2146,6 +2862,14 @@ export const CURRICULUM = {
             show: "أَحْمَرُ · حَمْرَاءُ\nأَسْوَدُ · سَوْدَاءُ",
             warn: "❌ قَلَمٌ أَحْمَرٌ · ❌ حَقِيبَةٌ حَمْرَاءٌ",
           },
+          {
+            say: "Colours in the Quran — read these six and hear the أفعل and فعلاء shapes.",
+            show: "﴿صَفْرَاءُ فَاقِعٌ لَوْنُهَا تَسُرُّ النَّاظِرِينَ﴾ (البقرة ٦٩)\n﴿مُدْهَامَّتَانِ﴾ (الرحمن ٦٤)\n﴿وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ﴾ (فاطر ٢٧)\n﴿حَتَّى يَتَبَيَّنَ لَكُمُ الْخَيْطُ الْأَبْيَضُ مِنَ الْخَيْطِ الْأَسْوَدِ﴾ (البقرة ١٨٧)",
+          },
+          {
+            say: "And the variety of colours named as a sign.",
+            show: "﴿وَاخْتِلَافُ أَلْسِنَتِكُمْ وَأَلْوَانِكُمْ﴾ (الروم ٢٢)\n﴿مُخْتَلِفٌ أَلْوَانُهُ﴾ (النحل ٦٩)",
+          },
         ],
         ar: "١) اَلْأَلْوَانُ الْأَصْلِيَّةُ عَلَى وَزْنِ أَفْعَلَ:\nمُذَكَّرٌ: أَحْمَرُ 🔴 أَخْضَرُ 🟢 أَزْرَقُ 🔵 أَصْفَرُ 🟡 أَبْيَضُ ⚪ أَسْوَدُ ⚫ أَسْمَرُ 🟤\nمُؤَنَّثٌ عَلَى فَعْلَاءَ: حَمْرَاءُ · خَضْرَاءُ · زَرْقَاءُ · صَفْرَاءُ · بَيْضَاءُ · سَوْدَاءُ\n⚠️ مَمْنُوعَةٌ مِنَ الصَّرْفِ: كِتَابٌ أَحْمَرُ (لَا أَحْمَرٌ)\n\n٢) أَلْوَانٌ بِيَاءِ النِّسْبَةِ ـِيٌّ — وَهَذِهِ تُنَوَّنُ:\nبُنِّيٌّ 🟫 · رَمَادِيٌّ 🩶 · بُرْتُقَالِيٌّ 🟠\nبَنَفْسَجِيٌّ 🟣 · وَرْدِيٌّ 🌸 · ذَهَبِيٌّ 🥇 · فِضِّيٌّ 🥈\nمُؤَنَّثُهَا بِالتَّاءِ: بُنِّيَّةٌ · رَمَادِيَّةٌ\n\n٣) اَلدَّرَجَاتُ:\nفَاتِحٌ 🔆 (light) · غَامِقٌ 🌑 (dark)\nأَزْرَقُ فَاتِحٌ · بُنِّيٌّ غَامِقٌ\n\n٤) اَلسُّؤَالُ: مَا لَوْنُهُ؟ 🎨❓",
         hint: "Two families: the core colours on أَفْعَل / فَعْلَاء (never tanwin), and the rest formed with نسبة ـيّ (which DO take tanwin, and take ة for feminine). Shades add فاتح / غامق.",
@@ -2219,6 +2943,17 @@ export const CURRICULUM = {
         { ar: "أَلْبَسُ الثَّوْبَ الْأَبْيَضَ يَوْمَ الْجُمُعَةِ" },
       ],
       rule: {
+        table: {
+          title: "اَللِّبَاسُ وَمَادَّتُهُ",
+          head: ["اَللِّبَاسُ", "اَلْمَادَّةُ", "اَلْجُمْلَةُ"],
+          rows: [
+            ["قَمِيصٌ", "قُطْنٌ", "قَمِيصٌ مِنْ قُطْنٍ"],
+            ["مِعْطَفٌ", "صُوفٌ", "مِعْطَفٌ مِنْ صُوفٍ"],
+            ["حِذَاءٌ", "جِلْدٌ", "حِذَاءٌ مِنْ جِلْدٍ"],
+            ["ثَوْبٌ", "حَرِيرٌ", "ثَوْبٌ مِنْ حَرِيرٍ"],
+            ["خَاتَمٌ", "فِضَّةٌ", "خَاتَمٌ مِنْ فِضَّةٍ"],
+          ],
+        },
         name: "يَلْبَسُ + مَفْعُولٌ بِهِ، وَالْوَصْفُ بِالْمَادَّةِ",
         teach: [
           {
@@ -2257,6 +2992,10 @@ export const CURRICULUM = {
           {
             say: "And what a Muslim wears for prayer and for Friday.",
             show: "يَلْبَسُ الثَّوْبَ الْأَبْيَضَ يَوْمَ الْجُمُعَةِ\nتَلْبَسُ الْخِمَارَ فِي الصَّلَاةِ\nيَتَعَمَّمُ الشَّيْخُ بِعِمَامَةٍ\nيَخْلَعُ نَعْلَيْهِ قَبْلَ دُخُولِ الْمَسْجِدِ",
+          },
+          {
+            say: "Clothing in the Quran. Read these five aloud.",
+            show: "﴿يَا بَنِي آدَمَ خُذُوا زِينَتَكُمْ عِنْدَ كُلِّ مَسْجِدٍ﴾ (الأعراف ٣١)\n﴿قَدْ أَنْزَلْنَا عَلَيْكُمْ لِبَاسًا يُوَارِي سَوْآتِكُمْ﴾ (الأعراف ٢٦)\n﴿وَلِبَاسُ التَّقْوَى ذَلِكَ خَيْرٌ﴾ (الأعراف ٢٦)\n﴿وَثِيَابَكَ فَطَهِّرْ﴾ (المدثر ٤)",
           },
         ],
         ar: "١) اَلْمَفْعُولُ بِهِ بَعْدَ «يَلْبَسُ» مَنْصُوبٌ:\nيَلْبَسُ ثَوْبًا ✅ · تَلْبَسُ عَبَاءَةً ✅\n\n٢) اَلصِّفَةُ تَتْبَعُ الْمَوْصُوفَ فِي الْإِعْرَابِ:\nثَوْبًا أَبْيَضَ ➡️➡️ (كِلَاهُمَا مَنْصُوبٌ)\n⚠️ «أَبْيَضَ» مَمْنُوعٌ مِنَ الصَّرْفِ — بِالْفَتْحَةِ بِلَا تَنْوِينٍ\nعَبَاءَةً سَوْدَاءَ · حِذَاءً أَحْمَرَ\n\n٣) اَلْوَصْفُ بِالْمَادَّةِ بِـ «مِنْ»:\nقَمِيصٌ مِنْ قُطْنٍ 🌾 · مِعْطَفٌ مِنْ صُوفٍ 🐑\n(وَمَا بَعْدَ «مِنْ» مَجْرُورٌ)\n\n٤) مَا يُلْبَسُ زَوْجًا يُثَنَّى:\nجَوْرَبٌ ← جَوْرَبَانِ 🧦 · حِذَاءٌ ← حِذَاءَانِ",
@@ -2330,6 +3069,19 @@ export const CURRICULUM = {
         { ar: "شَفَاكَ اللهُ وَعَافَاكَ" },
       ],
       rule: {
+        table: {
+          title: "أَعْضَاءُ الْجِسْمِ وَجِنْسُهَا",
+          head: ["اَلْعُضْوُ", "اَلْجِنْسُ", "اَلْمُثَنَّى"],
+          rows: [
+            ["عَيْنٌ", "مُؤَنَّثٌ", "عَيْنَانِ"],
+            ["أُذُنٌ", "مُؤَنَّثٌ", "أُذُنَانِ"],
+            ["يَدٌ", "مُؤَنَّثٌ", "يَدَانِ"],
+            ["رِجْلٌ", "مُؤَنَّثٌ", "رِجْلَانِ"],
+            ["رَأْسٌ", "مُذَكَّرٌ", "—"],
+            ["أَنْفٌ", "مُذَكَّرٌ", "—"],
+            ["قَلْبٌ", "مُذَكَّرٌ", "—"],
+          ],
+        },
         name: "أَعْضَاءُ الْجِسْمِ: اَلْمُؤَنَّثُ بِلَا تَاءٍ",
         teach: [
           {
@@ -2372,6 +3124,14 @@ export const CURRICULUM = {
           {
             say: "And saying that something hurts, plus what you say to the ill.",
             show: "يُؤْلِمُنِي رَأْسِي\nيُؤْلِمُنِي بَطْنِي\nيُؤْلِمُهُ ظَهْرُهُ\nشَفَاكَ اللهُ\nلَا بَأْسَ طَهُورٌ إِنْ شَاءَ اللهُ",
+          },
+          {
+            say: "The body in the Quran. Read these six — and notice the paired parts are all feminine.",
+            show: "﴿أَلَمْ نَجْعَلْ لَهُ عَيْنَيْنِ · وَلِسَانًا وَشَفَتَيْنِ﴾ (البلد ٨-٩)\n﴿إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَئِكَ كَانَ عَنْهُ مَسْئُولًا﴾ (الإسراء ٣٦)\n﴿أَلَا بِذِكْرِ اللهِ تَطْمَئِنُّ الْقُلُوبُ﴾ (الرعد ٢٨)\n﴿وَلَا تَجْعَلْ يَدَكَ مَغْلُولَةً إِلَى عُنُقِكَ﴾ (الإسراء ٢٩)",
+          },
+          {
+            say: "And on healing.",
+            show: "﴿وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ﴾ (الشعراء ٨٠)\n﴿فِيهِ شِفَاءٌ لِلنَّاسِ﴾ (النحل ٦٩)",
           },
         ],
         ar: "قَاعِدَةٌ: اَلْأَعْضَاءُ الْمُزْدَوِجَةُ مُؤَنَّثَةٌ وَإِنْ لَمْ تَكُنْ فِيهَا تَاءٌ:\nيَدٌ ✋ · عَيْنٌ 👁️ · أُذُنٌ 👂 · رِجْلٌ 🦵 · قَدَمٌ 🦶\n✅ يَدِي نَظِيفَةٌ · عَيْنُهَا جَمِيلَةٌ\n\nوَالْمُفْرَدَةُ مُذَكَّرَةٌ:\nرَأْسٌ 🗣️ · أَنْفٌ 👃 · فَمٌ 👄 · قَلْبٌ 🫀 · ظَهْرٌ 🔙 · صَدْرٌ · بَطْنٌ\n✅ أَنْفُهُ صَغِيرٌ\n\n⚠️ وَبَعْضُهَا بِالتَّاءِ: رَقَبَةٌ · رُكْبَةٌ\n\nاَلتَّثْنِيَةُ:\nيَدَانِ · عَيْنَانِ · أُذُنَانِ · رِجْلَانِ · قَدَمَانِ · كَتِفَانِ\n\nاَلْجَمْعُ:\nإِصْبَعٌ ← أَصَابِعُ ☝️ · سِنٌّ ← أَسْنَانٌ 🦷\n\nاَلتَّعْبِيرُ عَنِ الْأَلَمِ:\nيُؤْلِمُنِي رَأْسِي 😖 · عِنْدِي أَلَمٌ فِي بَطْنِي\nوَالدُّعَاءُ: شَفَاكَ اللهُ 🤲",
@@ -2443,6 +3203,18 @@ export const CURRICULUM = {
         { ar: "أَضْعَفُ الْبُيُوتِ بَيْتُ الْعَنْكَبُوتِ" },
       ],
       rule: {
+        table: {
+          title: "اَلْحَيَوَانُ: اَلذَّكَرُ وَالْأُنْثَى",
+          head: ["اَلذَّكَرُ", "اَلْأُنْثَى", "اَلْجَمْعُ"],
+          rows: [
+            ["جَمَلٌ", "نَاقَةٌ", "جِمَالٌ"],
+            ["دِيكٌ", "دَجَاجَةٌ", "دَجَاجٌ"],
+            ["ثَوْرٌ", "بَقَرَةٌ", "بَقَرٌ"],
+            ["حِصَانٌ", "فَرَسٌ", "خُيُولٌ"],
+            ["أَسَدٌ", "لَبُؤَةٌ", "أُسُودٌ"],
+            ["كَلْبٌ", "كَلْبَةٌ", "كِلَابٌ"],
+          ],
+        },
         name: "اِسْمُ الْجِنْسِ وَالْمُذَكَّرُ وَالْمُؤَنَّثُ فِي الْحَيَوَانِ",
         teach: [
           { say: "Read these aloud.", show: "هَذَا أَسَدٌ · هَذِهِ نَاقَةٌ\nهَذَا جَمَلٌ · هَذِهِ بَقَرَةٌ" },
@@ -2461,6 +3233,14 @@ export const CURRICULUM = {
           {
             say: "And the male and female pairs, said aloud together.",
             show: "جَمَلٌ ↔ نَاقَةٌ\nدِيكٌ ↔ دَجَاجَةٌ\nثَوْرٌ ↔ بَقَرَةٌ\nحِصَانٌ ↔ فَرَسٌ\nأَسَدٌ ↔ لَبُؤَةٌ",
+          },
+          {
+            say: "Animals in the Quran — whole surahs are named after them. Read these six.",
+            show: "﴿أَفَلَا يَنْظُرُونَ إِلَى الْإِبِلِ كَيْفَ خُلِقَتْ﴾ (الغاشية ١٧)\n﴿وَالْخَيْلَ وَالْبِغَالَ وَالْحَمِيرَ لِتَرْكَبُوهَا وَزِينَةً﴾ (النحل ٨)\n﴿وَأَوْحَى رَبُّكَ إِلَى النَّحْلِ﴾ (النحل ٦٨)\n﴿حَتَّى إِذَا أَتَوْا عَلَى وَادِ النَّمْلِ﴾ (النمل ١٨)",
+          },
+          {
+            say: "And two more.",
+            show: "﴿وَكَلْبُهُمْ بَاسِطٌ ذِرَاعَيْهِ بِالْوَصِيدِ﴾ (الكهف ١٨)\n﴿فَبَعَثَ اللهُ غُرَابًا يَبْحَثُ فِي الْأَرْضِ﴾ (المائدة ٣١)",
           },
         ],
         ar: "١) بَعْضُ الْحَيَوَانَاتِ لَهَا اسْمَانِ:\nلِلذَّكَرِ وَالْأُنْثَى اسْمٌ مُخْتَلِفٌ:\nجَمَلٌ 🐫 ← نَاقَةٌ · دِيكٌ 🐓 ← دَجَاجَةٌ 🐔\nحِصَانٌ 🐎 ← فَرَسٌ · ثَوْرٌ ← بَقَرَةٌ 🐄\n\n٢) وَبَعْضُهَا اسْمُ جِنْسٍ، وَالْوَاحِدَةُ بِالتَّاءِ:\nنَمْلٌ ← نَمْلَةٌ 🐜 · نَحْلٌ ← نَحْلَةٌ 🐝\nسَمَكٌ ← سَمَكَةٌ 🐟 · غَنَمٌ ← شَاةٌ 🐑\n\n٣) جُمُوعُ التَّكْسِيرِ:\nأَسَدٌ ← أُسُودٌ · كَلْبٌ ← كِلَابٌ\nحِمَارٌ ← حَمِيرٌ · قِطٌّ ← قِطَطٌ\nطَائِرٌ ← طُيُورٌ · حَيَوَانٌ ← حَيَوَانَاتٌ\n\n⚠️ وَتَذَكَّرْ: جَمْعُ غَيْرِ الْعَاقِلِ يُعَامَلُ مُعَامَلَةَ الْمُفْرَدِ الْمُؤَنَّثِ:\nاَلْكِلَابُ خَرَجَتْ ✅ (لَا خَرَجُوا)\n\n⚠️ حَيَوَانَاتٌ فِي الْقُرْآنِ لَهَا سُوَرٌ:\nاَلْبَقَرَةُ 🐄 · اَلنَّمْلُ 🐜 · اَلنَّحْلُ 🐝 · اَلْعَنْكَبُوتُ 🕷️ · اَلْفِيلُ 🐘",
@@ -2525,6 +3305,19 @@ export const CURRICULUM = {
         { ar: "اَللهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ" },
       ],
       rule: {
+        table: {
+          title: "اَلْكَوْنُ",
+          head: ["اَلْكَلِمَةُ", "اَلْجِنْسُ", "اَلْجَمْعُ"],
+          rows: [
+            ["اَلسَّمَاءُ", "مُؤَنَّثٌ", "سَمَاوَاتٌ"],
+            ["اَلْأَرْضُ", "مُؤَنَّثٌ", "أَرَضُونَ"],
+            ["اَلشَّمْسُ", "مُؤَنَّثٌ", "—"],
+            ["اَلْقَمَرُ", "مُذَكَّرٌ", "أَقْمَارٌ"],
+            ["اَلنَّجْمُ", "مُذَكَّرٌ", "نُجُومٌ"],
+            ["اَلْبَحْرُ", "مُذَكَّرٌ", "بِحَارٌ"],
+            ["اَلْجَبَلُ", "مُذَكَّرٌ", "جِبَالٌ"],
+          ],
+        },
         name: "جَمْعُ غَيْرِ الْعَاقِلِ وَاسْمُ الْجِنْسِ فِي الطَّبِيعَةِ",
         teach: [
           { say: "Read these aloud.", show: "اَلسَّمَاءُ صَافِيَةٌ\nاَلْقَمَرُ مُنِيرٌ\nاَلنُّجُومُ كَثِيرَةٌ\nاَلْأَرْضُ وَاسِعَةٌ" },
@@ -2544,6 +3337,14 @@ export const CURRICULUM = {
           {
             say: "Now in sentences, so you hear each shape working.",
             show: "طَلَبُ الْعِلْمِ فَرِيضَةٌ\nاَلْكَاتِبُ يَكْتُبُ الدَّرْسَ\nاَلدَّرْسُ مَكْتُوبٌ فِي الْكُرَّاسَةِ\nاَلْعَالِمُ يُعَلِّمُ النَّاسَ\nهَذَا أَمْرٌ مَعْلُومٌ",
+          },
+          {
+            say: "The heavens and the earth. Read these eight aloud — the Quran returns to them constantly.",
+            show: "﴿وَإِلَى السَّمَاءِ كَيْفَ رُفِعَتْ﴾ (الغاشية ١٨)\n﴿وَإِلَى الْجِبَالِ كَيْفَ نُصِبَتْ﴾ (الغاشية ١٩)\n﴿وَإِلَى الْأَرْضِ كَيْفَ سُطِحَتْ﴾ (الغاشية ٢٠)\n﴿وَالشَّمْسِ وَضُحَاهَا · وَالْقَمَرِ إِذَا تَلَاهَا﴾ (الشمس ١-٢)",
+          },
+          {
+            say: "Four more.",
+            show: "﴿وَالنَّجْمِ إِذَا هَوَى﴾ (النجم ١)\n﴿وَهُوَ الَّذِي سَخَّرَ الْبَحْرَ﴾ (النحل ١٤)\n﴿وَأَنْزَلْنَا مِنَ السَّمَاءِ مَاءً﴾ (الفرقان ٤٨)\n﴿كَشَجَرَةٍ طَيِّبَةٍ أَصْلُهَا ثَابِتٌ وَفَرْعُهَا فِي السَّمَاءِ﴾ (إبراهيم ٢٤)",
           },
         ],
         ar: "١) اِسْمُ الْجِنْسِ وَوَاحِدَتُهُ بِالتَّاءِ:\nشَجَرٌ ← شَجَرَةٌ 🌳 · وَرَقٌ ← وَرَقَةٌ 🍃\nزَهْرٌ ← زَهْرَةٌ 🌸 · ثَمَرٌ ← ثَمَرَةٌ 🍎\nسَحَابٌ ← سَحَابَةٌ ☁️ · حَجَرٌ ← حَجَرَةٌ\n\n٢) جُمُوعُ التَّكْسِيرِ:\nنَجْمٌ ← نُجُومٌ ⭐ · شَجَرَةٌ ← أَشْجَارٌ 🌳\nسَمَاءٌ ← سَمَاوَاتٌ 🌌 · نَهْرٌ ← أَنْهَارٌ\n\n٣) مُؤَنَّثَاتٌ بِلَا تَاءٍ (رَاجِعْ دَرْسَ التَّأْنِيثِ):\nاَلسَّمَاءُ 🌌 · اَلْأَرْضُ 🌍 · اَلشَّمْسُ ☀️ · اَلنَّارُ 🔥 · اَلرِّيحُ 💨\n✅ اَلسَّمَاءُ صَافِيَةٌ · اَلْأَرْضُ وَاسِعَةٌ\n\n٤) وَالْقَمَرُ وَالنَّجْمُ وَالْبَرْقُ مُذَكَّرَةٌ:\n✅ اَلْقَمَرُ مُنِيرٌ 🌙\n\n⚠️ وَهَذِهِ كُلُّهَا آيَاتٌ لِلْخَالِقِ سُبْحَانَهُ:\nإِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ لَآيَاتٍ",
@@ -2690,6 +3491,14 @@ export const CURRICULUM = {
             say: "And the answer takes the dual, with everything agreeing — سَيَّارَتَانِ كَبِيرَتَانِ, both dual, both feminine.",
             show: "أُخْتَانِ · عَجَلَتَانِ · عِيدَانِ\nسَيَّارَتَانِ كَبِيرَتَانِ\nهَذَانِ الدَّفْتَرَانِ",
           },
+          {
+            say: "The dual in the Quran. Read these six and hear the ـَانِ and ـَيْنِ endings.",
+            show: "﴿وَلِمَنْ خَافَ مَقَامَ رَبِّهِ جَنَّتَانِ﴾ (الرحمن ٤٦)\n﴿فِيهِمَا عَيْنَانِ تَجْرِيَانِ﴾ (الرحمن ٥٠)\n﴿أَلَمْ نَجْعَلْ لَهُ عَيْنَيْنِ﴾ (البلد ٨)\n﴿وَلِسَانًا وَشَفَتَيْنِ﴾ (البلد ٩)",
+          },
+          {
+            say: "And two more.",
+            show: "﴿رَبُّ الْمَشْرِقَيْنِ وَرَبُّ الْمَغْرِبَيْنِ﴾ (الرحمن ١٧)\n﴿ثَانِيَ اثْنَيْنِ إِذْ هُمَا فِي الْغَارِ﴾ (التوبة ٤٠)",
+          },
         ],
         ar: "اَلْعَرَبِيَّةُ ثَلَاثَةُ أَعْدَادٍ:\nمُفْرَدٌ 1️⃣ · مُثَنًّى 2️⃣ · جَمْعٌ 3️⃣+\n\nاَلْمُثَنَّى: اِسْمٌ + ـَانِ\nكِتَابٌ ← كِتَابَانِ 📖📖\nبَيْتٌ ← بَيْتَانِ 🏠🏠\n\nاَلْمُؤَنَّثُ: تَعُودُ التَّاءُ مَفْتُوحَةً\nبِنْتٌ ← بِنْتَانِ · طَالِبَةٌ ← طَالِبَتَانِ\n\n⚠️ كُلُّ شَيْءٍ يُثَنَّى مَعَهُ:\nاِسْمُ الْإِشَارَةِ: هَذَانِ 👦👦 · هَاتَانِ 👧👧\nاَلصِّفَةُ: كِتَابَانِ جَدِيدَانِ ✨✨\nاَلضَّمِيرُ: هُمَا · أَنْتُمَا\n\n⚠️ شَاذٌّ: أَخٌ ← أَخَوَانِ (لَا أَخَانِ)",
         hint: "Arabic has THREE numbers, not two: singular, dual, plural. The dual adds ـَانِ — and everything agrees with it: the demonstrative, the adjective, and the pronoun all take dual form too.",
@@ -2748,6 +3557,22 @@ export const CURRICULUM = {
         { ar: "قَرَأَ الطُّلَّابُ الْكُتُبَ" },
       ],
       rule: {
+        table: {
+          title: "أَوْزَانُ جَمْعِ التَّكْسِيرِ",
+          head: ["اَلْوَزْنُ", "اَلْمُفْرَدُ", "اَلْجَمْعُ"],
+          rows: [
+            ["فُعُولٌ", "بَيْتٌ", "بُيُوتٌ"],
+            ["فُعُولٌ", "نَجْمٌ", "نُجُومٌ"],
+            ["أَفْعَالٌ", "قَلَمٌ", "أَقْلَامٌ"],
+            ["أَفْعَالٌ", "بَابٌ", "أَبْوَابٌ"],
+            ["فِعَالٌ", "رَجُلٌ", "رِجَالٌ"],
+            ["فُعَلَاءُ", "فَقِيرٌ", "فُقَرَاءُ"],
+            ["أَفْعِلَاءُ", "صَدِيقٌ", "أَصْدِقَاءُ"],
+            ["مَفَاعِلُ", "مَسْجِدٌ", "مَسَاجِدُ"],
+            ["مَفَاعِيلُ", "مِفْتَاحٌ", "مَفَاتِيحُ"],
+            ["فُعُلٌ", "كِتَابٌ", "كُتُبٌ"],
+          ],
+        },
         fillTable: {
           title: "حَوِّلْ إِلَى الْجَمْعِ (مِنْ كِتَابِ الْمَدِينَةِ)",
           head: ["", "اَلْمُفْرَدُ", "اَلْجَمْعُ"],
@@ -2840,6 +3665,14 @@ export const CURRICULUM = {
           {
             say: "And his conversion exercise: change the singular to a plural and watch everything else follow.",
             show: "مَنْ هَذَا الرَّجُلُ؟ هُوَ حَاجٌّ.\n← مَنْ هَؤُلَاءِ الرِّجَالُ؟ هُمْ حُجَّاجٌ.\nمِنْ أَيْنَ هَذَا الطَّالِبُ؟ هُوَ مِنَ الْهِنْدِ.\n← مِنْ أَيْنَ هَؤُلَاءِ الطُّلَّابُ؟ هُمْ مِنَ الْهِنْدِ.",
+          },
+          {
+            say: "Broken plurals fill the Quran. Read these eight aloud and name the singular of each.",
+            show: "﴿وَالسَّمَاوَاتُ مَطْوِيَّاتٌ بِيَمِينِهِ﴾ (الزمر ٦٧)\n﴿فِي بُيُوتٍ أَذِنَ اللهُ أَنْ تُرْفَعَ﴾ (النور ٣٦)\n﴿وَأَنَّ الْمَسَاجِدَ لِلَّهِ﴾ (الجن ١٨)\n﴿لَهُ مَقَالِيدُ السَّمَاوَاتِ وَالْأَرْضِ﴾ (الزمر ٦٣)",
+          },
+          {
+            say: "Four more.",
+            show: "﴿إِنَّمَا يَخْشَى اللهَ مِنْ عِبَادِهِ الْعُلَمَاءُ﴾ (فاطر ٢٨)\n﴿وَالْمَلَائِكَةُ يُسَبِّحُونَ بِحَمْدِ رَبِّهِمْ﴾ (الشورى ٥)\n﴿يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمْ﴾ (النساء ١)\n﴿وَجَعَلْنَا اللَّيْلَ وَالنَّهَارَ آيَتَيْنِ﴾ (الإسراء ١٢)",
           },
         ],
         ar: "اَلْجَمْعُ يُكَسِّرُ بِنَاءَ الْكَلِمَةِ:\nكِتَابٌ ← كُتُبٌ 📚 · قَلَمٌ ← أَقْلَامٌ · بَيْتٌ ← بُيُوتٌ\n\n⚠️ حُكْمٌ مُهِمٌّ:\nجَمْعُ غَيْرِ الْعَاقِلِ يُعَامَلُ مُعَامَلَةَ الْمُفْرَدِ الْمُؤَنَّثِ:\n✅ اَلْكُتُبُ جَدِيدَةٌ (لَا: جَدِيدُونَ)\n✅ اَلْمَسَاجِدُ كَبِيرَةٌ\n\nأَمَّا الْعَاقِلُ:\n✅ اَلطُّلَّابُ كَثِيرُونَ · اَلرِّجَالُ مُسْلِمُونَ",
@@ -2996,6 +3829,14 @@ export const CURRICULUM = {
             say: "Here is his conversion exercise — turn each singular into a plural and let the verb follow.",
             show: "زَيْنَبُ خَرَجَتْ مِنَ الْفَصْلِ\n← زَيْنَبُ وَآمِنَةُ وَمَرْيَمُ خَرَجْنَ مِنَ الْفَصْلِ\nاَلْمُدَرِّسَةُ ذَهَبَتْ إِلَى الْفَصْلِ\n← اَلْمُدَرِّسَاتُ ذَهَبْنَ إِلَى الْفَصْلِ",
           },
+          {
+            say: "The sound plurals in the Quran — read these eight and hear ـُونَ against ـِينَ.",
+            show: "﴿قَدْ أَفْلَحَ الْمُؤْمِنُونَ﴾ (المؤمنون ١)\n﴿إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ﴾ (الحجرات ١٠)\n﴿وَاللهُ يُحِبُّ الصَّابِرِينَ﴾ (آل عمران ١٤٦)\n﴿إِنَّ اللهَ مَعَ الصَّابِرِينَ﴾ (البقرة ١٥٣)",
+          },
+          {
+            say: "And the feminine plural.",
+            show: "﴿وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ﴾ (الأحزاب ٧٣)\n﴿إِنَّ الْمُسْلِمِينَ وَالْمُسْلِمَاتِ﴾ (الأحزاب ٣٥)\n﴿وَالْحَافِظِينَ فُرُوجَهُمْ وَالْحَافِظَاتِ﴾ (الأحزاب ٣٥)\n﴿اَلصَّالِحَاتُ قَانِتَاتٌ﴾ (النساء ٣٤)",
+          },
         ],
         ar: "جَمْعَانِ فِي الْعَرَبِيَّةِ:\n١) تَكْسِيرٌ — يَتَغَيَّرُ الْبِنَاءُ: كِتَابٌ ← كُتُبٌ 📚\n٢) سَالِمٌ — يَسْلَمُ الْبِنَاءُ وَتُزَادُ نِهَايَةٌ\n\nمُذَكَّرٌ سَالِمٌ: + ـُونَ\nمُسْلِمٌ ← مُسْلِمُونَ ☝️☝️☝️\nمُعَلِّمٌ ← مُعَلِّمُونَ\n\nمُؤَنَّثٌ سَالِمٌ: ة ← ـَاتٌ\nمُسْلِمَةٌ ← مُسْلِمَاتٌ 🧕🧕🧕\nاَلتَّاءُ الْمَرْبُوطَةُ تَصِيرُ مَفْتُوحَةً وَالْأَلِفُ تَطُولُ\n\n⚠️ اِسْمُ الْإِشَارَةِ لِلْجَمْعِ الْعَاقِلِ:\nقَرِيبٌ: هَؤُلَاءِ 👉 · بَعِيدٌ: أُولَئِكَ 👉🔭\nوَهُمَا لِلْمُذَكَّرِ وَالْمُؤَنَّثِ مَعًا",
         hint: "The SOUND plural keeps the word intact and just adds an ending: ـُونَ for men, ـَاتٌ for women. Compare with the BROKEN plural, which reshapes the word entirely. هؤلاء and أولئك serve both genders.",
@@ -3051,6 +3892,18 @@ export const CURRICULUM = {
         { ar: "مَكَّةُ أَقْدَسُ مَدِينَةٍ" },
       ],
       rule: {
+        table: {
+          title: "أَفْعَلُ التَّفْضِيلِ",
+          head: ["اَلصِّفَةُ", "اَلتَّفْضِيلُ", "اَلْمُؤَنَّثُ"],
+          rows: [
+            ["كَبِيرٌ", "أَكْبَرُ", "كُبْرَى"],
+            ["صَغِيرٌ", "أَصْغَرُ", "صُغْرَى"],
+            ["قَرِيبٌ", "أَقْرَبُ", "قُرْبَى"],
+            ["كَثِيرٌ", "أَكْثَرُ", "كُبْرَى"],
+            ["حَسَنٌ", "أَحْسَنُ", "حُسْنَى"],
+            ["فَاضِلٌ", "أَفْضَلُ", "فُضْلَى"],
+          ],
+        },
         name: "وَزْنُ أَفْعَلَ لِلْمُفَاضَلَةِ",
         teach: [
           {
@@ -3089,6 +3942,14 @@ export const CURRICULUM = {
           {
             say: "And the superlative, formed with an إضافة instead of مِنْ.",
             show: "أَحْسَنُ كِتَابٍ\nأَفْضَلُ الطُّلَّابِ\nخَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ\nأَكْبَرُ الْمُدُنِ",
+          },
+          {
+            say: "The comparative and superlative in the Quran. Read these six.",
+            show: "﴿اَللهُ أَكْبَرُ﴾\n﴿وَاللهُ خَيْرُ الرَّازِقِينَ﴾ (الجمعة ١١)\n﴿إِنَّ أَكْرَمَكُمْ عِنْدَ اللهِ أَتْقَاكُمْ﴾ (الحجرات ١٣)\n﴿وَلَذِكْرُ اللهِ أَكْبَرُ﴾ (العنكبوت ٤٥)",
+          },
+          {
+            say: "Two more.",
+            show: "﴿وَهُوَ أَهْوَنُ عَلَيْهِ﴾ (الروم ٢٧)\n﴿اُدْعُ إِلَى سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ وَجَادِلْهُمْ بِالَّتِي هِيَ أَحْسَنُ﴾ (النحل ١٢٥)",
           },
         ],
         ar: "مِنَ الصِّفَةِ نَصُوغُ «أَفْعَلَ»:\nكَبِيرٌ ← أَكْبَرُ ⬆️ · صَغِيرٌ ← أَصْغَرُ\nجَمِيلٌ ← أَجْمَلُ · قَرِيبٌ ← أَقْرَبُ\n\n١) اَلْمُفَاضَلَةُ بِـ «مِنْ»:\nاَلْبَيْتُ أَكْبَرُ مِنَ الْغُرْفَةِ 🏠⬆️🛋️\n(وَمَا بَعْدَ «مِنْ» مَجْرُورٌ)\n\n٢) اَلتَّفْضِيلُ الْمُطْلَقُ بِالْإِضَافَةِ:\nأَحْسَنُ كِتَابٍ 📖 · أَفْضَلُ الطُّلَّابِ\n\n⚠️ أَفْعَلُ مَمْنُوعٌ مِنَ الصَّرْفِ — بِلَا تَنْوِينٍ:\n✅ أَكْبَرُ (لَا: أَكْبَرٌ)\n\n⚠️ اَلْمُؤَنَّثُ عَلَى «فُعْلَى»:\nأَكْبَرُ ← الْكُبْرَى · أَصْغَرُ ← الصُّغْرَى",
@@ -3235,6 +4096,14 @@ export const CURRICULUM = {
           {
             say: "Note also دَفَاتِرَ in his sentence — a plural pattern, and a diptote too. Not only names behave this way.",
             show: "سَبْعَةُ دَفَاتِرَ\nمَسَاجِدُ · مَفَاتِيحُ · مَدَارِسُ",
+          },
+          {
+            say: "Diptotes in the Quran. Read these six and hear the fatha where a kasra was expected.",
+            show: "﴿وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ﴾ (الأنعام ٧٤)\n﴿وَقَالَ نِسْوَةٌ فِي الْمَدِينَةِ امْرَأَتُ الْعَزِيزِ تُرَاوِدُ فَتَاهَا﴾ (يوسف ٣٠)\n﴿فِي مَسَاجِدَ﴾\n﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾ (البقرة ٣١)",
+          },
+          {
+            say: "And two more, with place names.",
+            show: "﴿وَهُوَ الَّذِي كَفَّ أَيْدِيَهُمْ عَنْكُمْ بِبَطْنِ مَكَّةَ﴾ (الفتح ٢٤)\n﴿اِدْخُلُوا مِصْرَ إِنْ شَاءَ اللهُ آمِنِينَ﴾ (يوسف ٩٩)",
           },
         ],
         ar: "لَا تَنْوِينَ · وَالْجَرُّ بِالْفَتْحَةِ · إِلَّا مَعَ الـ أَوِ الْإِضَافَةِ",
@@ -3393,6 +4262,42 @@ export const CURRICULUM = {
             say: "Read those pairs again and hear the gender reversal working. Masculine counted things take the ة on the number; feminine ones do not.",
             show: "أَرْبَعَةُ إِخْوَةٍ ↔ ثَلَاثُ أَخَوَاتٍ\nخَمْسَةُ أَبْنَاءٍ ↔ ثَمَانِي بَنَاتٍ\nعَشَرَةُ كُتُبٍ ↔ سَبْعُ مَجَلَّاتٍ\nعَشَرَةُ رِجَالٍ ↔ عَشْرُ نِسَاءٍ",
           },
+          {
+            say: "His own counting exercise from Book 1. Read all eight aloud.",
+            show: "٣ ثَلَاثَةُ طُلَّابٍ · ٤ أَرْبَعَةُ طُلَّابٍ\n٥ خَمْسَةُ طُلَّابٍ · ٦ سِتَّةُ طُلَّابٍ\n٧ سَبْعَةُ طُلَّابٍ · ٨ ثَمَانِيَةُ طُلَّابٍ\n٩ تِسْعَةُ طُلَّابٍ · ١٠ عَشَرَةُ طُلَّابٍ",
+          },
+          {
+            say: "And his nine sentences using numbers in real speech.",
+            show: "عِنْدِي خَمْسَةُ كُتُبٍ وَثَلَاثَةُ أَقْلَامٍ.\nخَالِدٌ لَهُ سِتَّةُ أَبْنَاءٍ.\nكَمْ أَخًا لَكِ يَا آمِنَةُ؟ لِي أَرْبَعَةُ إِخْوَةٍ.\nفِي الْأُسْبُوعِ سَبْعَةُ أَيَّامٍ.",
+          },
+          {
+            say: "Five more of his.",
+            show: "كَمْ رِيَالًا عِنْدَكَ؟ عِنْدِي ثَمَانِيَةُ رِيَالَاتٍ.\nفِي هَذَا الْحَيِّ تِسْعَةُ بُيُوتٍ جَدِيدَةٍ.\nلِهَذِهِ السَّيَّارَةِ أَرْبَعَةُ أَبْوَابٍ.\nكَمْ ثَمَنُ هَذَا الْكِتَابِ؟ سَبْعَةُ رِيَالَاتٍ وَنِصْفٌ.\nفِي الْفَصْلِ عَشَرَةُ طُلَّابٍ قُدَامَى وَأَرْبَعَةُ طُلَّابٍ جُدُدٍ.",
+          },
+          {
+            say: "In every one: three to ten, then a PLURAL with a kasra. Without exception.",
+            show: "خَمْسَةُ كُتُبٍ · سِتَّةُ أَبْنَاءٍ\nسَبْعَةُ أَيَّامٍ · تِسْعَةُ بُيُوتٍ",
+          },
+          {
+            say: "And note كَمْ in his questions — singular with a fatha.",
+            show: "كَمْ أَخًا لَكِ؟\nكَمْ رِيَالًا عِنْدَكَ؟\nكَمْ كِتَابًا؟ · كَمْ طَالِبًا؟",
+          },
+          {
+            say: "Now the ordinals, which you need for dates and lessons.",
+            show: "اَلْأَوَّلُ · اَلثَّانِي · اَلثَّالِثُ\nاَلرَّابِعُ · اَلْخَامِسُ · اَلسَّادِسُ\nاَلسَّابِعُ · اَلثَّامِنُ · اَلتَّاسِعُ · اَلْعَاشِرُ",
+          },
+          {
+            say: "They behave as ordinary adjectives — following the noun and matching it.",
+            show: "اَلدَّرْسُ الْأَوَّلُ · اَلدَّرْسُ الثَّانِي\nاَلسَّنَةُ الْأُولَى · اَلسَّنَةُ الثَّانِيَةُ\nاَلصَّفُّ الثَّالِثُ",
+          },
+          {
+            say: "And the fractions.",
+            show: "اَلنِّصْفُ ½ · اَلثُّلُثُ ⅓\nاَلرُّبْعُ ¼ · اَلْخُمْسُ ⅕\nاَلسُّدُسُ ⅙ · اَلْعُشْرُ ⅒",
+          },
+          {
+            say: "From the Quran — counting as He states it.",
+            show: "﴿إِنَّ عِدَّةَ الشُّهُورِ عِنْدَ اللهِ اثْنَا عَشَرَ شَهْرًا﴾ (التوبة ٣٦)\n﴿سَبْعَ لَيَالٍ وَثَمَانِيَةَ أَيَّامٍ﴾ (الحاقة ٧)\n﴿فَصِيَامُ ثَلَاثَةِ أَيَّامٍ﴾ (البقرة ١٩٦)",
+          },
         ],
         teach: [
           {
@@ -3492,13 +4397,18 @@ export const CURRICULUM = {
       ],
       rule: {
         table: {
-          title: "اَلْعَدَدُ وَالْمَعْدُودُ",
-          head: ["اَلْعَدَدُ", "اَلْمَعْدُودُ", "مِثَالٌ"],
+          title: "اَلْعَدَدُ وَمَعْدُودُهُ — اَلْجَدْوَلُ الْكَامِلُ",
+          head: ["اَلْعَدَدُ", "اَلْمُذَكَّرُ", "اَلْمُؤَنَّثُ", "حَالُ الْمَعْدُودِ"],
           rows: [
-            ["١ · ٢", "لَا عَدَدَ", "كِتَابٌ · كِتَابَانِ"],
-            ["٣ – ١٠", "جَمْعٌ مَجْرُورٌ", "ثَلَاثَةُ كُتُبٍ"],
-            ["١١ – ٩٩", "مُفْرَدٌ مَنْصُوبٌ", "عِشْرُونَ كِتَابًا"],
-            ["١٠٠ · ١٠٠٠", "مُفْرَدٌ مَجْرُورٌ", "مِئَةُ كِتَابٍ"],
+            ["١", "كِتَابٌ", "بِنْتٌ", "لَا عَدَدَ"],
+            ["٢", "كِتَابَانِ", "بِنْتَانِ", "مُثَنًّى"],
+            ["٣-١٠", "ثَلَاثَةُ كُتُبٍ", "ثَلَاثُ بَنَاتٍ", "جَمْعٌ مَجْرُورٌ"],
+            ["١١", "أَحَدَ عَشَرَ كِتَابًا", "إِحْدَى عَشْرَةَ بِنْتًا", "مُفْرَدٌ مَنْصُوبٌ"],
+            ["١٢", "اثْنَا عَشَرَ كِتَابًا", "اثْنَتَا عَشْرَةَ بِنْتًا", "مُفْرَدٌ مَنْصُوبٌ"],
+            ["١٣-١٩", "ثَلَاثَةَ عَشَرَ كِتَابًا", "ثَلَاثَ عَشْرَةَ بِنْتًا", "مُفْرَدٌ مَنْصُوبٌ"],
+            ["٢٠-٩٩", "عِشْرُونَ كِتَابًا", "عِشْرُونَ بِنْتًا", "مُفْرَدٌ مَنْصُوبٌ"],
+            ["١٠٠", "مِئَةُ كِتَابٍ", "مِئَةُ بِنْتٍ", "مُفْرَدٌ مَجْرُورٌ"],
+            ["١٠٠٠", "أَلْفُ كِتَابٍ", "أَلْفُ بِنْتٍ", "مُفْرَدٌ مَجْرُورٌ"],
           ],
         },
         name: "اَلْعَدُّ الْمُتَّصِلُ ١-٩٩",
@@ -3604,6 +4514,124 @@ export const CURRICULUM = {
             say: "Count out loud from one to a hundred without looking. Then count the books in your room, the people in your house, and the days in this month.",
             show: "عُدَّ الْآنَ بِصَوْتٍ مُرْتَفِعٍ",
           },
+          {
+            say: "One to ten, and nothing is assumed. Say each aloud twice before moving on.",
+            show: "١ وَاحِدٌ · ٢ اِثْنَانِ · ٣ ثَلَاثَةٌ\n٤ أَرْبَعَةٌ · ٥ خَمْسَةٌ · ٦ سِتَّةٌ\n٧ سَبْعَةٌ · ٨ ثَمَانِيَةٌ · ٩ تِسْعَةٌ · ١٠ عَشَرَةٌ",
+          },
+          {
+            say: "Eleven to nineteen — each is a unit you know with عَشَرَ after it. Read all nine.",
+            show: "١١ أَحَدَ عَشَرَ · ١٢ اِثْنَا عَشَرَ\n١٣ ثَلَاثَةَ عَشَرَ · ١٤ أَرْبَعَةَ عَشَرَ\n١٥ خَمْسَةَ عَشَرَ · ١٦ سِتَّةَ عَشَرَ\n١٧ سَبْعَةَ عَشَرَ · ١٨ ثَمَانِيَةَ عَشَرَ · ١٩ تِسْعَةَ عَشَرَ",
+          },
+          {
+            say: "The eight tens.",
+            show: "٢٠ عِشْرُونَ · ٣٠ ثَلَاثُونَ\n٤٠ أَرْبَعُونَ · ٥٠ خَمْسُونَ\n٦٠ سِتُّونَ · ٧٠ سَبْعُونَ\n٨٠ ثَمَانُونَ · ٩٠ تِسْعُونَ",
+          },
+          {
+            say: "Now twenty-one to twenty-nine in full. The small number comes FIRST — the opposite of English.",
+            show: "٢١ وَاحِدٌ وَعِشْرُونَ\n٢٢ اِثْنَانِ وَعِشْرُونَ\n٢٣ ثَلَاثَةٌ وَعِشْرُونَ\n٢٤ أَرْبَعَةٌ وَعِشْرُونَ\n٢٥ خَمْسَةٌ وَعِشْرُونَ",
+            warn: "❌ عِشْرُونَ وَوَاحِدٌ",
+          },
+          {
+            say: "And the rest of that decade.",
+            show: "٢٦ سِتَّةٌ وَعِشْرُونَ\n٢٧ سَبْعَةٌ وَعِشْرُونَ\n٢٨ ثَمَانِيَةٌ وَعِشْرُونَ\n٢٩ تِسْعَةٌ وَعِشْرُونَ",
+          },
+          {
+            say: "Every other decade works identically. Read these and hear that nothing new happens.",
+            show: "٣١ وَاحِدٌ وَثَلَاثُونَ · ٣٥ خَمْسَةٌ وَثَلَاثُونَ\n٤٧ سَبْعَةٌ وَأَرْبَعُونَ · ٥٤ أَرْبَعَةٌ وَخَمْسُونَ\n٦٩ تِسْعَةٌ وَسِتُّونَ · ٧٢ اِثْنَانِ وَسَبْعُونَ\n٨٦ سِتَّةٌ وَثَمَانُونَ · ٩٩ تِسْعَةٌ وَتِسْعُونَ",
+          },
+          {
+            say: "Now counting things. One and two need no number at all — the noun itself says it.",
+            show: "كِتَابٌ = a book\nكِتَابَانِ = two books\nقَلَمٌ · قَلَمَانِ · طَالِبٌ · طَالِبَانِ",
+          },
+          {
+            say: "Three to ten: the number, then the thing as a PLURAL with a kasra. Read all eight.",
+            show: "ثَلَاثَةُ كُتُبٍ · أَرْبَعَةُ كُتُبٍ\nخَمْسَةُ أَقْلَامٍ · سِتَّةُ أَقْلَامٍ\nسَبْعَةُ رِجَالٍ · ثَمَانِيَةُ رِجَالٍ\nتِسْعَةُ طُلَّابٍ · عَشَرَةُ طُلَّابٍ",
+          },
+          {
+            say: "Eleven and above: the thing goes back to SINGULAR with a fatha. This surprises everyone.",
+            show: "أَحَدَ عَشَرَ كِتَابًا\nعِشْرُونَ كِتَابًا\nخَمْسَةٌ وَثَلَاثُونَ طَالِبًا\nتِسْعَةٌ وَتِسْعُونَ اسْمًا",
+          },
+          {
+            say: "Now the gender reversal. From three to ten the number takes the OPPOSITE gender to the thing counted.",
+            show: "ثَلَاثَةُ كُتُبٍ (كِتَابٌ مُذَكَّرٌ ← بِالتَّاءِ)\nثَلَاثُ بَنَاتٍ (بِنْتٌ مُؤَنَّثَةٌ ← بِلَا تَاءٍ)\nخَمْسَةُ رِجَالٍ · خَمْسُ نِسَاءٍ",
+          },
+          {
+            say: "Read these six pairs and hear the reversal each time.",
+            show: "أَرْبَعَةُ إِخْوَةٍ ↔ ثَلَاثُ أَخَوَاتٍ\nخَمْسَةُ أَبْنَاءٍ ↔ ثَمَانِي بَنَاتٍ\nعَشَرَةُ رِجَالٍ ↔ عَشْرُ نِسَاءٍ",
+          },
+          {
+            say: "Now practise on real things. Say each aloud before checking.",
+            show: "٣ كُتُبٍ · ٧ أَقْلَامٍ · ١٢ طَالِبًا\n٢٠ سَنَةً · ٤٠ رَجُلًا · ٥ صَلَوَاتٍ\n٣٠ يَوْمًا · ١٢ شَهْرًا · ٩٩ اسْمًا",
+          },
+          {
+            say: "And the questions you will actually be asked.",
+            show: "كَمْ عُمْرُكَ؟ — عُمْرِي ثَلَاثُونَ سَنَةً\nكَمْ كِتَابًا عِنْدَكَ؟ — خَمْسَةُ كُتُبٍ\nكَمْ طَالِبًا فِي الْفَصْلِ؟ — عِشْرُونَ طَالِبًا\nكَمْ أَخًا لَكَ؟ — أَرْبَعَةُ إِخْوَةٍ",
+          },
+          {
+            say: "And in the Quran, where these very forms appear.",
+            show: "﴿سَبْعَ سَمَاوَاتٍ﴾ (الطلاق ١٢)\n﴿فِي سِتَّةِ أَيَّامٍ﴾ (الحديد ٤)\n﴿إِنَّ عِدَّةَ الشُّهُورِ عِنْدَ اللهِ اثْنَا عَشَرَ شَهْرًا﴾ (التوبة ٣٦)\n﴿تِسْعَةَ عَشَرَ﴾ (المدثر ٣٠)",
+          },
+          {
+            say: "Now count out loud from one to a hundred without looking, then count the books in your room and the people in your house.",
+            show: "عُدَّ الْآنَ بِصَوْتٍ مُرْتَفِعٍ",
+          },
+          {
+            say: "Now four things that separate someone who can count from someone who KNOWS the numbers. First: the compound numbers 11 to 19 never change their ending, whatever their position in a sentence.",
+            show: "جَاءَ أَحَدَ عَشَرَ طَالِبًا ⬆️\nرَأَيْتُ أَحَدَ عَشَرَ طَالِبًا ➡️\nمَرَرْتُ بِأَحَدَ عَشَرَ طَالِبًا ⬇️",
+          },
+          {
+            say: "Both halves sit fixed on a fatha — مَبْنِيَّانِ عَلَى الْفَتْحِ. They are the only numbers that behave this way.",
+            show: "أَحَدَ عَشَرَ · خَمْسَةَ عَشَرَ\nمَبْنِيَّانِ عَلَى الْفَتْحِ\nلَا يَتَغَيَّرَانِ أَبَدًا",
+            warn: "❌ رَأَيْتُ أَحَدَ عَشَرَ ← ✅ هُوَ نَفْسُهُ فِي كُلِّ حَالٍ",
+          },
+          {
+            say: "Except ONE of them. اِثْنَا عَشَرَ changes its first half like a dual — اِثْنَا when nominative, اِثْنَيْ otherwise.",
+            show: "جَاءَ اثْنَا عَشَرَ طَالِبًا ⬆️\nرَأَيْتُ اثْنَيْ عَشَرَ طَالِبًا ➡️\nمَرَرْتُ بِاثْنَيْ عَشَرَ طَالِبًا ⬇️",
+          },
+          {
+            say: "And its feminine.",
+            show: "اِثْنَتَا عَشْرَةَ طَالِبَةً ⬆️\nاِثْنَتَيْ عَشْرَةَ طَالِبَةً ➡️⬇️",
+          },
+          {
+            say: "Second: اِثْنَانِ and اِثْنَتَانِ agree with the counted thing like an adjective — unlike three to ten, which reverse.",
+            show: "كِتَابَانِ اثْنَانِ (مُذَكَّرٌ ← اثْنَانِ)\nبِنْتَانِ اثْنَتَانِ (مُؤَنَّثٌ ← اثْنَتَانِ)\nلَكِنْ: ثَلَاثَةُ كُتُبٍ · ثَلَاثُ بَنَاتٍ",
+          },
+          {
+            say: "Third: the word for the counted thing has a NAME. It is called تَمْيِيزُ الْعَدَدِ — the specifier of the number.",
+            show: "عِشْرُونَ كِتَابًا\nكِتَابًا = تَمْيِيزُ الْعَدَدِ مَنْصُوبٌ\nثَلَاثَةُ كُتُبٍ\nكُتُبٍ = مُضَافٌ إِلَيْهِ مَجْرُورٌ",
+          },
+          {
+            say: "So the two cases have different grammatical explanations, not merely different endings. Three to ten form an إضافة; eleven and above take a تمييز.",
+            show: "٣-١٠ ← إِضَافَةٌ ← مَجْرُورٌ\n١١-٩٩ ← تَمْيِيزٌ ← مَنْصُوبٌ\n١٠٠ · ١٠٠٠ ← إِضَافَةٌ ← مَجْرُورٌ",
+          },
+          {
+            say: "Fourth: the compound ordinals, for the eleventh through the nineteenth. Both halves are fixed on a fatha again.",
+            show: "اَلْحَادِيَ عَشَرَ · اَلثَّانِيَ عَشَرَ\nاَلثَّالِثَ عَشَرَ · اَلْخَامِسَ عَشَرَ\nاَلتَّاسِعَ عَشَرَ",
+          },
+          {
+            say: "And their feminine.",
+            show: "اَلْحَادِيَةَ عَشْرَةَ · اَلثَّانِيَةَ عَشْرَةَ\nاَلثَّالِثَةَ عَشْرَةَ · اَلْخَامِسَةَ عَشْرَةَ",
+          },
+          {
+            say: "Now use them. Read these six aloud.",
+            show: "اَلدَّرْسُ الْحَادِيَ عَشَرَ\nاَلطَّالِبُ الثَّالِثَ عَشَرَ\nاَلسَّنَةُ الْحَادِيَةَ عَشْرَةَ\nفِي الْقَرْنِ الْخَامِسَ عَشَرَ\nاَلصَّفُّ الثَّانِيَ عَشَرَ",
+          },
+          {
+            say: "One last precision. When a number is the FIRST half of an إضافة with a hundred or a thousand, it loses its own tanwin.",
+            show: "ثَلَاثُمِئَةٍ (لَا ثَلَاثَةٌ مِئَةٍ)\nخَمْسُمِئَةِ رَجُلٍ\nثَلَاثَةُ آلَافِ طَالِبٍ",
+          },
+          {
+            say: "Test yourself now, without looking. Say each of these aloud with the correct ending on the counted thing.",
+            show: "١١ كِتَاب · ١٢ بِنْت · ٣ رَجُل\n٧ صَلَاة · ٢٠ يَوْم · ١٠٠ سَنَة\n١٠٠٠ رَجُل · ١٥ طَالِبَة · ٩٩ اسْم",
+          },
+          {
+            say: "And the answers. If any of them surprised you, go back to the table and read this lesson again.",
+            show: "أَحَدَ عَشَرَ كِتَابًا · اثْنَتَا عَشْرَةَ بِنْتًا\nثَلَاثَةُ رِجَالٍ · سَبْعُ صَلَوَاتٍ\nعِشْرُونَ يَوْمًا · مِئَةُ سَنَةٍ\nأَلْفُ رَجُلٍ · خَمْسَ عَشْرَةَ طَالِبَةً\nتِسْعَةٌ وَتِسْعُونَ اسْمًا",
+          },
+          {
+            say: "That last one is from the hadith — and now you know exactly why every ending in it is what it is.",
+            show: "«إِنَّ لِلَّهِ تِسْعَةً وَتِسْعِينَ اسْمًا»\nتِسْعِينَ ← مَجْرُورٌ بَعْدَ لِـ\nاسْمًا ← تَمْيِيزٌ مَنْصُوبٌ",
+          },
         ],
         teach: [
           {
@@ -3636,6 +4664,14 @@ export const CURRICULUM = {
         hint: "Count in four blocks: units 1-10, teens (unit + عشر), tens (add ـُونَ), and everything between (unit + و + ten — units come FIRST in Arabic: 'one and twenty').",
       },
       drills: [
+        { t: "mcq", q: "رَأَيْتُ ___ طَالِبًا (١١)", options: ["أَحَدَ عَشَرَ", "أَحَدُ عَشَرَ", "أَحَدِ عَشَرَ", "أَحَدَ عَشَرًا"], a: "أَحَدَ عَشَرَ", why: "Numbers 11–19 never change — both halves are fixed on a fatha in every position.", example: "رَأَيْتُ أَحَدَ عَشَرَ طَالِبًا" },
+        { t: "mcq", q: "رَأَيْتُ ___ طَالِبًا (١٢)", options: ["اثْنَيْ عَشَرَ", "اثْنَا عَشَرَ", "اثْنَيْنِ عَشَرَ", "اثْنَتَيْ عَشَرَ"], a: "اثْنَيْ عَشَرَ", why: "Twelve is the one exception — its first half changes like a dual.", example: "رَأَيْتُ اثْنَيْ عَشَرَ طَالِبًا" },
+        { t: "mcq", q: "مَا اسْمُ «كِتَابًا» فِي «عِشْرُونَ كِتَابًا»؟", options: ["تَمْيِيزُ الْعَدَدِ", "مُضَافٌ إِلَيْهِ", "مَفْعُولٌ بِهِ", "نَعْتٌ"], a: "تَمْيِيزُ الْعَدَدِ", why: "From eleven upward the counted noun is a تمييز — accusative. Three to ten form an إضافة instead.", example: "عِشْرُونَ كِتَابًا" },
+        { t: "mcq", q: "مَا اسْمُ «كُتُبٍ» فِي «ثَلَاثَةُ كُتُبٍ»؟", options: ["مُضَافٌ إِلَيْهِ", "تَمْيِيزٌ", "نَعْتٌ", "حَالٌ"], a: "مُضَافٌ إِلَيْهِ", why: "Three to ten form an إضافة — which is why the noun is genitive, not accusative.", example: "ثَلَاثَةُ كُتُبٍ" },
+        { t: "mcq", q: "بِنْتَانِ ___ (٢)", options: ["اثْنَتَانِ", "اثْنَانِ", "ثِنْتَيْنِ", "ثَانِيَتَانِ"], a: "اثْنَتَانِ", why: "Two AGREES with the counted thing — unlike three to ten, which reverse.", example: "بِنْتَانِ اثْنَتَانِ" },
+        { t: "mcq", q: "اَلدَّرْسُ ___ (١١)", options: ["اَلْحَادِيَ عَشَرَ", "اَلْأَوَّلَ عَشَرَ", "اَلْحَادِي عَشَرَ", "اَلْأَحَدَ عَشَرَ"], a: "اَلْحَادِيَ عَشَرَ", why: "The compound ordinal — both halves fixed on a fatha.", example: "اَلدَّرْسُ الْحَادِيَ عَشَرَ" },
+        { t: "mcq", q: "«تِسْعَةً وَتِسْعِينَ اسْمًا» — مَا «اسْمًا»؟", options: ["تَمْيِيزٌ مَنْصُوبٌ", "مَفْعُولٌ بِهِ", "مُضَافٌ إِلَيْهِ", "حَالٌ"], a: "تَمْيِيزٌ مَنْصُوبٌ", why: "From the hadith — and now you know why every ending in it is what it is.", example: "إِنَّ لِلَّهِ تِسْعَةً وَتِسْعِينَ اسْمًا" },
+        { t: "mcq", q: "٥٠٠ رَجُل — كَيْفَ؟", options: ["خَمْسُمِئَةِ رَجُلٍ", "خَمْسَةُ مِئَةِ رَجُلٍ", "خَمْسُمِئَةٍ رَجُلًا", "خَمْسُمِئَةُ رَجُلٍ"], a: "خَمْسُمِئَةِ رَجُلٍ", why: "The number joins مئة as one word and loses its tanwin, and the counted noun is singular genitive.", example: "خَمْسُمِئَةِ رَجُلٍ" },
         { t: "mcq", q: "١٠١", options: ["مِئَةٌ وَوَاحِدٌ", "وَاحِدٌ وَمِئَةٌ", "مِئَةٌ وَاحِدٌ", "أَحَدَ عَشَرَ"], a: "مِئَةٌ وَوَاحِدٌ", why: "Say the hundred, then وَ, then the rest.", example: "مِئَةٌ وَوَاحِدٌ" },
         { t: "mcq", q: "٢٥٠", options: ["مِئَتَانِ وَخَمْسُونَ", "مِئَتَانِ خَمْسُونَ", "خَمْسُونَ وَمِئَتَانِ", "مِئَةٌ وَخَمْسُونَ"], a: "مِئَتَانِ وَخَمْسُونَ", why: "Two hundred takes the dual مئتان, then وَ and the tens.", example: "مِئَتَانِ وَخَمْسُونَ" },
         { t: "mcq", q: "٣٤٥", options: ["ثَلَاثُمِئَةٍ وَخَمْسَةٌ وَأَرْبَعُونَ", "ثَلَاثُمِئَةٍ وَأَرْبَعُونَ وَخَمْسَةٌ", "ثَلَاثَةُ مِئَةٍ وَخَمْسَةٌ", "ثَلَاثُمِئَةٍ خَمْسَةٌ"], a: "ثَلَاثُمِئَةٍ وَخَمْسَةٌ وَأَرْبَعُونَ", why: "Biggest part first, then وَ — and within the tens, the unit before the ten.", example: "ثَلَاثُمِئَةٍ وَخَمْسَةٌ وَأَرْبَعُونَ" },
@@ -3812,6 +4848,50 @@ export const CURRICULUM = {
             say: "And from twenty onward the ten never changes at all — عِشْرُونَ and ثَلَاثُونَ are the same for men and women.",
             show: "عِشْرُونَ طَالِبًا\nعِشْرُونَ طَالِبَةً",
           },
+          {
+            say: "A hundred, and counting past it. Say the hundred, then وَ, then the rest exactly as you learned it.",
+            show: "١٠٠ مِئَةٌ\n١٠١ مِئَةٌ وَوَاحِدٌ\n١٠٢ مِئَةٌ وَاثْنَانِ\n١١٠ مِئَةٌ وَعَشَرَةٌ\n١٢٥ مِئَةٌ وَخَمْسَةٌ وَعِشْرُونَ\n١٩٩ مِئَةٌ وَتِسْعَةٌ وَتِسْعُونَ",
+          },
+          {
+            say: "Two hundred takes the dual.",
+            show: "٢٠٠ مِئَتَانِ\n٢٠١ مِئَتَانِ وَوَاحِدٌ\n٢٥٠ مِئَتَانِ وَخَمْسُونَ\n٢٩٩ مِئَتَانِ وَتِسْعَةٌ وَتِسْعُونَ",
+          },
+          {
+            say: "From three hundred upward the unit joins onto مئة as one word. All seven.",
+            show: "٣٠٠ ثَلَاثُمِئَةٍ · ٤٠٠ أَرْبَعُمِئَةٍ\n٥٠٠ خَمْسُمِئَةٍ · ٦٠٠ سِتُّمِئَةٍ\n٧٠٠ سَبْعُمِئَةٍ · ٨٠٠ ثَمَانِمِئَةٍ · ٩٠٠ تِسْعُمِئَةٍ",
+          },
+          {
+            say: "And anything between them — hundreds, then وَ, then what you already know.",
+            show: "٣٤٥ ثَلَاثُمِئَةٍ وَخَمْسَةٌ وَأَرْبَعُونَ\n٦٧٨ سِتُّمِئَةٍ وَثَمَانِيَةٌ وَسَبْعُونَ\n٩٩٩ تِسْعُمِئَةٍ وَتِسْعَةٌ وَتِسْعُونَ",
+          },
+          {
+            say: "Now thousands. One, then the dual, then three-to-ten with the plural آلاف.",
+            show: "١٠٠٠ أَلْفٌ · ٢٠٠٠ أَلْفَانِ\n٣٠٠٠ ثَلَاثَةُ آلَافٍ\n٤٠٠٠ أَرْبَعَةُ آلَافٍ\n٥٠٠٠ خَمْسَةُ آلَافٍ\n١٠٠٠٠ عَشَرَةُ آلَافٍ",
+          },
+          {
+            say: "Above ten thousand, ألف is counted like an ordinary noun — singular with a fatha.",
+            show: "٢٠٠٠٠ عِشْرُونَ أَلْفًا\n٥٠٠٠٠ خَمْسُونَ أَلْفًا\n١٠٠٠٠٠ مِئَةُ أَلْفٍ\n٥٠٠٠٠٠ خَمْسُمِئَةِ أَلْفٍ",
+          },
+          {
+            say: "Millions and billions behave the same way.",
+            show: "١٠٠٠٠٠٠ مِلْيُونٌ\n٢٠٠٠٠٠٠ مِلْيُونَانِ\n٣٠٠٠٠٠٠ ثَلَاثَةُ مَلَايِينَ\n١٠٠٠٠٠٠٠٠٠ مِلْيَارٌ",
+          },
+          {
+            say: "To say any large number, start with the biggest part and work down, joining with وَ. Read these five.",
+            show: "١٥٠٠ أَلْفٌ وَخَمْسُمِئَةٍ\n٢٠٢٦ أَلْفَانِ وَسِتَّةٌ وَعِشْرُونَ\n١٢٣٤٥ اثْنَا عَشَرَ أَلْفًا وَثَلَاثُمِئَةٍ وَخَمْسَةٌ وَأَرْبَعُونَ\n١٠٠٠٠٠٠ مِلْيُونٌ",
+          },
+          {
+            say: "And what the counted thing does with a hundred or a thousand — singular, with a kasra.",
+            show: "مِئَةُ كِتَابٍ · مِئَةُ رَجُلٍ\nأَلْفُ طَالِبٍ · مِلْيُونُ نَسَمَةٍ",
+          },
+          {
+            say: "From the Quran — the numbers as He states them.",
+            show: "﴿وَلَبِثُوا فِي كَهْفِهِمْ ثَلَاثَ مِئَةٍ سِنِينَ وَازْدَادُوا تِسْعًا﴾ (الكهف ٢٥)\n﴿أَلْفِ شَهْرٍ﴾ (القدر ٣)\n﴿فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ﴾ (المعارج ٤)",
+          },
+          {
+            say: "Now say your age, today's date, the year, and the population of your city — all aloud, in Arabic.",
+            show: "قُلْهَا الْآنَ بِالْعَرَبِيَّةِ",
+          },
         ],
         teach: [
           {
@@ -3901,6 +4981,17 @@ export const CURRICULUM = {
         { ar: "أَعْطَيْتُهُ ثُلُثَ الْمَالِ" },
       ],
       rule: {
+        table: {
+          title: "أَسَالِيبُ الْمِقْدَارِ",
+          head: ["اَلْأُسْلُوبُ", "مَا بَعْدَهُ", "مِثَالٌ"],
+          rows: [
+            ["كَمْ الِاسْتِفْهَامِيَّةُ", "مُفْرَدٌ مَنْصُوبٌ", "كَمْ كِتَابًا؟"],
+            ["كَمْ الْخَبَرِيَّةُ", "مِنْ + مَجْرُورٌ", "كَمْ مِنْ نِعْمَةٍ!"],
+            ["بِضْعٌ", "٣-٩", "بِضْعُ سِنِينَ"],
+            ["كِلَا / كِلْتَا", "مُثَنًّى", "كِلَا الطَّالِبَيْنِ"],
+            ["اَلْكُسُورُ", "—", "اَلنِّصْفُ · اَلثُّلُثُ"],
+          ],
+        },
         name: "طُرُقُ الْكَلَامِ عَنِ الْمِقْدَارِ",
         teach: [
           {
@@ -4045,6 +5136,19 @@ export const CURRICULUM = {
         { ar: "صُمْتُ رَمَضَانَ" },
       ],
       rule: {
+        table: {
+          title: "أَيَّامُ الْأُسْبُوعِ وَالشُّهُورُ",
+          head: ["اَلْيَوْمُ", "اَلشَّهْرُ الْهِجْرِيُّ"],
+          rows: [
+            ["يَوْمُ السَّبْتِ", "مُحَرَّمٌ"],
+            ["يَوْمُ الْأَحَدِ", "صَفَرٌ"],
+            ["يَوْمُ الِاثْنَيْنِ", "رَبِيعٌ الْأَوَّلُ"],
+            ["يَوْمُ الثُّلَاثَاءِ", "رَجَبٌ"],
+            ["يَوْمُ الْأَرْبِعَاءِ", "شَعْبَانُ"],
+            ["يَوْمُ الْخَمِيسِ", "رَمَضَانُ"],
+            ["يَوْمُ الْجُمُعَةِ", "ذُو الْحِجَّةِ"],
+          ],
+        },
         name: "اَلْعُمْرُ وَالتَّرْتِيبُ وَالتَّكْرَارُ",
         teach: [
           { say: "Read these aloud.", show: "كَمْ عُمْرُكَ؟ — عُمْرِي عِشْرُونَ سَنَةً\nكَمْ عُمْرُ ابْنِكَ؟ — عُمْرُهُ خَمْسُ سَنَوَاتٍ" },
@@ -4064,6 +5168,14 @@ export const CURRICULUM = {
           {
             say: "And the ordinals, which behave as ordinary adjectives.",
             show: "اَلدَّرْسُ الْأَوَّلُ · اَلثَّانِي · اَلثَّالِثُ\nاَلسَّنَةُ الْأُولَى · اَلثَّانِيَةُ\nمَرَّةً · مَرَّتَيْنِ · ثَلَاثَ مَرَّاتٍ",
+          },
+          {
+            say: "Time in the Quran. Read these six aloud.",
+            show: "﴿إِنَّ عِدَّةَ الشُّهُورِ عِنْدَ اللهِ اثْنَا عَشَرَ شَهْرًا﴾ (التوبة ٣٦)\n﴿شَهْرُ رَمَضَانَ الَّذِي أُنْزِلَ فِيهِ الْقُرْآنُ﴾ (البقرة ١٨٥)\n﴿لَيْلَةُ الْقَدْرِ خَيْرٌ مِنْ أَلْفِ شَهْرٍ﴾ (القدر ٣)\n﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا نُودِيَ لِلصَّلَاةِ مِنْ يَوْمِ الْجُمُعَةِ﴾ (الجمعة ٩)",
+          },
+          {
+            say: "And two on the passing of time.",
+            show: "﴿وَالْعَصْرِ · إِنَّ الْإِنْسَانَ لَفِي خُسْرٍ﴾ (العصر ١-٢)\n﴿وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ﴾ (البقرة ١٦٤)",
           },
         ],
         ar: "١) اَلْعُمْرُ — عَلَى قَاعِدَةِ الْعَدَدِ:\n٣-١٠ ← جَمْعٌ مَجْرُورٌ: خَمْسُ سَنَوَاتٍ\n١١-٩٩ ← مُفْرَدٌ مَنْصُوبٌ: عِشْرُونَ سَنَةً\n\n٢) اَلتَّرْتِيبُ كَامِلًا (١-١٢):\nمُذَكَّرٌ: اَلْأَوَّلُ · الثَّانِي · الثَّالِثُ · الرَّابِعُ · الْخَامِسُ · السَّادِسُ\nالسَّابِعُ · الثَّامِنُ · التَّاسِعُ · الْعَاشِرُ · الْحَادِيَ عَشَرَ · الثَّانِيَ عَشَرَ\nمُؤَنَّثٌ: اَلْأُولَى · الثَّانِيَةُ · الثَّالِثَةُ · الرَّابِعَةُ · الْخَامِسَةُ\nالسَّادِسَةُ · السَّابِعَةُ · الثَّامِنَةُ · التَّاسِعَةُ · الْعَاشِرَةُ\nوَهُوَ صِفَةٌ تَتْبَعُ الْمَوْصُوفَ: اَلدَّرْسُ الثَّالِثُ 🥉\n\n٣) اَلتَّكْرَارُ:\nمَرَّةً 1️⃣ · مَرَّتَيْنِ 2️⃣ · ثَلَاثَ مَرَّاتٍ 3️⃣\n\n٤) أَيَّامُ الْأُسْبُوعِ إِضَافَةٌ:\nيَوْمُ الْجُمُعَةِ (مُضَافٌ + مُضَافٌ إِلَيْهِ مَجْرُورٌ)",
@@ -4130,6 +5242,17 @@ export const CURRICULUM = {
         { ar: "نَحْنُ فِي عَامِ أَلْفٍ وَأَرْبَعِمِئَةٍ وَسَبْعٍ وَأَرْبَعِينَ لِلْهِجْرَةِ" },
       ],
       rule: {
+        table: {
+          title: "اَلسَّاعَةُ وَأَوْقَاتُ الصَّلَاةِ",
+          head: ["اَلْوَقْتُ", "اَلصَّلَاةُ", "مِثَالٌ"],
+          rows: [
+            ["اَلْفَجْرُ", "رَكْعَتَانِ", "اَلسَّاعَةُ الْخَامِسَةُ"],
+            ["اَلظُّهْرُ", "أَرْبَعُ رَكَعَاتٍ", "اَلسَّاعَةُ الثَّانِيَةَ عَشْرَةَ"],
+            ["اَلْعَصْرُ", "أَرْبَعُ رَكَعَاتٍ", "اَلسَّاعَةُ الرَّابِعَةُ"],
+            ["اَلْمَغْرِبُ", "ثَلَاثُ رَكَعَاتٍ", "اَلسَّاعَةُ السَّادِسَةُ"],
+            ["اَلْعِشَاءُ", "أَرْبَعُ رَكَعَاتٍ", "اَلسَّاعَةُ الثَّامِنَةُ"],
+          ],
+        },
         name: "قِرَاءَةُ السَّاعَةِ وَالتَّارِيخِ",
         teach: [
           {
@@ -4156,6 +5279,14 @@ export const CURRICULUM = {
           {
             say: "Finally, say which part of the day, and add تَمَامًا when it is exactly on the hour.",
             show: "صَبَاحًا · ظُهْرًا \nمَسَاءً · لَيْلًا \nاَلتَّاسِعَةُ تَمَامًا صَبَاحًا",
+          },
+          {
+            say: "The times of prayer, in the Quran itself. Read these six.",
+            show: "﴿إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا﴾ (النساء ١٠٣)\n﴿أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَى غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ﴾ (الإسراء ٧٨)\n﴿حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَى﴾ (البقرة ٢٣٨)\n﴿فَسُبْحَانَ اللهِ حِينَ تُمْسُونَ وَحِينَ تُصْبِحُونَ﴾ (الروم ١٧)",
+          },
+          {
+            say: "Two more.",
+            show: "﴿وَلَهُ الْحَمْدُ فِي السَّمَاوَاتِ وَالْأَرْضِ وَعَشِيًّا وَحِينَ تُظْهِرُونَ﴾ (الروم ١٨)\n﴿وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَكَ﴾ (الإسراء ٧٩)",
           },
         ],
         teach: [
@@ -7401,9 +8532,182 @@ export const CURRICULUM = {
       productionEn: "Form the relative adjective from five nouns, then make three words diminutive",
     },
     {
+      id: "l87",
+      title: "اَلْجُذُورُ الْمُعْتَلَّةُ: كَيْفَ تَتَغَيَّرُ الْأَوْزَانُ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالسِّتُّونَ",
+      vocab: [
+        { ar: "اَلْجَذْرُ الْمُعْتَلُّ", en: "a root containing و، ي or أ" },
+        { ar: "اَلْمِثَالُ", en: "weak in its FIRST letter" },
+        { ar: "اَلْأَجْوَفُ", en: "weak in its MIDDLE letter" },
+        { ar: "اَلنَّاقِصُ", en: "weak in its LAST letter" },
+        { ar: "اَلْمُضَعَّفُ", en: "last two letters the same" },
+        { ar: "اَلْمَهْمُوزُ", en: "containing a hamza" },
+        { ar: "اَلْإِعْلَالُ", en: "the change a weak letter undergoes" },
+        { ar: "مِيعَادٌ", en: "an appointment (from و ع د)" },
+        { ar: "مَقَامٌ", en: "a station (from ق و م)" },
+        { ar: "مَقْضِيٌّ", en: "decreed (from ق ض ي)" },
+        { ar: "قَائِلٌ", en: "a speaker (from ق و ل)" },
+        { ar: "دَاعٍ", en: "a caller (from د ع و)" },
+      ],
+      examples: [
+        { ar: "و ع د ← وَاعِدٌ · مَوْعُودٌ · مَوْعِدٌ · مِيعَادٌ" },
+        { ar: "ق و ل ← قَائِلٌ · مَقُولٌ · مَقَالٌ" },
+        { ar: "د ع و ← دَاعٍ · مَدْعُوٌّ · دُعَاءٌ" },
+        { ar: "م د د ← مَادٌّ · مَمْدُودٌ · مِدَادٌ" },
+        { ar: "أ ك ل ← آكِلٌ · مَأْكُولٌ · مَأْكَلٌ" },
+      ],
+      rule: {
+        table: {
+          title: "اَلْجُذُورُ الْمُعْتَلَّةُ فِي الْأَوْزَانِ",
+          head: ["اَلنَّوْعُ", "اَلْجَذْرُ", "فَاعِلٌ", "مَفْعُولٌ", "مَكَانٌ", "آلَةٌ"],
+          rows: [
+            ["سَالِمٌ", "ك ت ب", "كَاتِبٌ", "مَكْتُوبٌ", "مَكْتَبٌ", "—"],
+            ["مِثَالٌ", "و ع د", "وَاعِدٌ", "مَوْعُودٌ", "مَوْعِدٌ", "مِيعَادٌ"],
+            ["مِثَالٌ", "و ز ن", "وَازِنٌ", "مَوْزُونٌ", "—", "مِيزَانٌ"],
+            ["أَجْوَفُ", "ق و ل", "قَائِلٌ", "مَقُولٌ", "مَقَالٌ", "—"],
+            ["أَجْوَفُ", "ق و م", "قَائِمٌ", "—", "مَقَامٌ", "—"],
+            ["أَجْوَفُ", "ب ي ع", "بَائِعٌ", "مَبِيعٌ", "مَبَاعٌ", "—"],
+            ["نَاقِصٌ", "د ع و", "دَاعٍ", "مَدْعُوٌّ", "—", "—"],
+            ["نَاقِصٌ", "ق ض ي", "قَاضٍ", "مَقْضِيٌّ", "—", "—"],
+            ["مُضَعَّفٌ", "م د د", "مَادٌّ", "مَمْدُودٌ", "—", "مِدَادٌ"],
+            ["مَهْمُوزٌ", "أ ك ل", "آكِلٌ", "مَأْكُولٌ", "مَأْكَلٌ", "—"],
+          ],
+        },
+        name: "اَلْحَرْفُ الْمُعْتَلُّ يَتَغَيَّرُ وَالْوَزْنُ ثَابِتٌ",
+        teach: [
+          {
+            say: "You learned that one root gives a whole family. That works perfectly — as long as the root's three letters are strong. This lesson is about what happens when one of them is weak.",
+            show: "اَلْحُرُوفُ الْمُعْتَلَّةُ: و · ي · أ\nوَالْمُضَعَّفُ",
+          },
+          {
+            say: "This is where learners come unstuck. They apply the pattern correctly and produce a word that does not exist — because the weak letter shifted.",
+            show: "و ع د + مِفْعَال\nمِوْعَاد ❌ ← مِيعَاد ✅",
+          },
+          {
+            say: "The pattern itself never changes. Only the weak letter moves, to make the word sayable. Learn the five kinds and you will never be caught.",
+            show: "① مِثَالٌ ② أَجْوَفُ ③ نَاقِصٌ\n④ مُضَعَّفٌ ⑤ مَهْمُوزٌ",
+          },
+          {
+            say: "FIRST: اَلْمِثَال — the weak letter is at the front. In most patterns it behaves normally.",
+            show: "و ع د ← وَاعِدٌ · مَوْعُودٌ · مَوْعِدٌ\nو ز ن ← وَازِنٌ · مَوْزُونٌ",
+          },
+          {
+            say: "But in مِفْعَال the kasra turns the waw into a yaa. Say مِوْعَاد aloud and you will hear why.",
+            show: "مِوْعَاد ← مِيعَاد\nمِوْزَان ← مِيزَان\nمِوْقَات ← مِيقَات",
+          },
+          {
+            say: "So three words you know well are all this same change. Read them.",
+            show: "مِيعَادٌ (و ع د) = appointment\nمِيزَانٌ (و ز ن) = scales\nمِيقَاتٌ (و ق ت) = appointed time",
+          },
+          {
+            say: "And in the present tense the waw simply drops.",
+            show: "وَعَدَ ← يَعِدُ (لَا يَوْعِدُ)\nوَجَدَ ← يَجِدُ\nوَصَلَ ← يَصِلُ\nوَقَفَ ← يَقِفُ",
+          },
+          {
+            say: "SECOND: اَلْأَجْوَف — the weak letter is in the middle. Here فَاعِل turns the weak letter into a HAMZA.",
+            show: "ق و ل ← قَاوِل ❌ ← قَائِل ✅\nب ي ع ← بَايِع ❌ ← بَائِع ✅\nز و ر ← زَائِرٌ · س ي ر ← سَائِرٌ",
+          },
+          {
+            say: "Read these six aloud. Every one is a hollow root taking فَاعِل.",
+            show: "قَائِلٌ · بَائِعٌ · زَائِرٌ\nسَائِرٌ · نَائِمٌ · خَائِفٌ",
+          },
+          {
+            say: "And in مَفْعُول the hollow root shortens — one letter falls away entirely.",
+            show: "مَقْوُول ❌ ← مَقُول ✅\nمَبْيُوع ❌ ← مَبِيع ✅\nمَصْوُوم ← مَصُوم",
+          },
+          {
+            say: "In the place pattern the weak letter becomes an alif.",
+            show: "ق و م ← مَقَام (لَا مَقْوَم)\nق و ل ← مَقَال\nب ي ع ← مَبَاع",
+          },
+          {
+            say: "You know مَقَام from the Quran — the station of Ibrahim, and the station of standing before Allah.",
+            show: "﴿وَاتَّخِذُوا مِنْ مَقَامِ إِبْرَاهِيمَ مُصَلًّى﴾ (البقرة ١٢٥)\n﴿وَلِمَنْ خَافَ مَقَامَ رَبِّهِ جَنَّتَانِ﴾ (الرحمن ٤٦)",
+          },
+          {
+            say: "THIRD: اَلنَّاقِص — the weak letter is at the end. In فَاعِل it disappears and leaves a tanwin behind.",
+            show: "د ع و ← دَاعِوٌ ❌ ← دَاعٍ ✅\nق ض ي ← قَاضِيٌ ❌ ← قَاضٍ ✅\nر م ي ← رَامٍ · م ش ي ← مَاشٍ",
+          },
+          {
+            say: "But the letter returns the moment the word becomes definite or accusative.",
+            show: "دَاعٍ ← اَلدَّاعِي ← رَأَيْتُ دَاعِيًا\nقَاضٍ ← اَلْقَاضِي ← رَأَيْتُ قَاضِيًا",
+          },
+          {
+            say: "You meet this constantly in the Quran.",
+            show: "﴿وَدَاعِيًا إِلَى اللهِ بِإِذْنِهِ﴾ (الأحزاب ٤٦)\n﴿يَوْمَ يَدْعُ الدَّاعِ﴾ (القمر ٦)\n﴿فَاقْضِ مَا أَنْتَ قَاضٍ﴾ (طه ٧٢)",
+          },
+          {
+            say: "And in مَفْعُول the last letter doubles into a shadda.",
+            show: "د ع و ← مَدْعُوٌّ\nق ض ي ← مَقْضِيٌّ\nر م ي ← مَرْمِيٌّ\nب ن ي ← مَبْنِيٌّ",
+          },
+          {
+            say: "You already use the last of those — مَبْنِيٌّ, the grammatical term for a word that never changes.",
+            show: "مَبْنِيٌّ = built, fixed\nمَبْنِيٌّ عَلَى الْفَتْحِ",
+          },
+          {
+            say: "FOURTH: اَلْمُضَعَّف — the last two letters are the same. They merge into a shadda in فاعل.",
+            show: "م د د ← مَادِدٌ ❌ ← مَادٌّ ✅\nش د د ← شَادٌّ · ح ج ج ← حَاجٌّ\nظ ن ن ← ظَانٌّ",
+          },
+          {
+            say: "So حَاجّ — a pilgrim — is simply فَاعِل from ح ج ج. And the plural is حُجَّاج.",
+            show: "ح ج ج ← حَاجٌّ ← حُجَّاجٌ\nحَجٌّ = the pilgrimage itself",
+          },
+          {
+            say: "But in مَفْعُول they separate again, because a vowel comes between them.",
+            show: "مَمْدُودٌ · مَشْدُودٌ\nمَحْجُوجٌ · مَظْنُونٌ",
+          },
+          {
+            say: "FIFTH: اَلْمَهْمُوز — the root contains a hamza. When two hamzas would meet at the front, they become a long alif.",
+            show: "أ ك ل ← أَاكِل ❌ ← آكِل ✅\nأ خ ذ ← آخِذٌ\nأ م ن ← آمِنٌ · آمَنَ",
+          },
+          {
+            say: "That is why آمَنَ and الْإِيمَان and مُؤْمِن all come from أ م ن — the root meaning safety and trust.",
+            show: "أ م ن ← أَمْنٌ = safety\nآمَنَ = he believed\nإِيمَانٌ = faith\nمُؤْمِنٌ = a believer\nأَمَانَةٌ = a trust",
+          },
+          {
+            say: "Now put it together. Here is the method for any weak root you meet.",
+            show: "① أَيْنَ الْحَرْفُ الْمُعْتَلُّ؟ أَوَّلٌ · وَسَطٌ · آخِرٌ\n② طَبِّقِ الْوَزْنَ كَالْمُعْتَادِ\n③ ثُمَّ انْظُرْ: هَلْ يَصْعُبُ النُّطْقُ؟\n④ إِنْ صَعُبَ، تَغَيَّرَ الْحَرْفُ لَا الْوَزْنُ",
+          },
+          {
+            say: "Practise. Build فَاعِل from each of these six before reading on.",
+            show: "ق و م · ب ي ع · د ع و\nم د د · أ ك ل · و ع د",
+          },
+          {
+            say: "And the answers.",
+            show: "قَائِمٌ · بَائِعٌ · دَاعٍ\nمَادٌّ · آكِلٌ · وَاعِدٌ",
+          },
+          {
+            say: "Now build مَفْعُول from the same six.",
+            show: "مَقُومٌ · مَبِيعٌ · مَدْعُوٌّ\nمَمْدُودٌ · مَأْكُولٌ · مَوْعُودٌ",
+          },
+          {
+            say: "You can now take ANY root in Arabic — strong or weak — and produce its family. That is the whole of derivation.",
+            show: "كُلُّ جَذْرٍ · كُلُّ وَزْنٍ",
+          },
+        ],
+        ar: "اَلْمِثَالُ تَسْقُطُ وَاوُهُ · وَالْأَجْوَفُ يَصِيرُ هَمْزَةً فِي فَاعِلٍ · وَالنَّاقِصُ يُنَوَّنُ · وَالْمُضَعَّفُ يُدْغَمُ · وَالْمَهْمُوزُ يَصِيرُ آ",
+        hint: "When a root contains و، ي، أ or a doubled letter, the pattern stays but the weak letter shifts: مِوْعَاد becomes مِيعَاد, قَاوِل becomes قَائِل, دَاعِوٌ becomes دَاعٍ, مَادِدٌ becomes مَادٌّ, أَاكِل becomes آكِل.",
+      },
+      drills: [
+        { t: "mcq", q: "و ع د عَلَى وَزْنِ «مِفْعَال» = ؟", options: ["مِيعَادٌ", "مِوْعَادٌ", "مَوْعَادٌ", "مُوعَادٌ"], a: "مِيعَادٌ", why: "The kasra turns the waw into a yaa — the same change gives ميزان and ميقات.", example: "مِيعَادٌ · مِيزَانٌ · مِيقَاتٌ" },
+        { t: "mcq", q: "ق و ل عَلَى وَزْنِ «فَاعِل» = ؟", options: ["قَائِلٌ", "قَاوِلٌ", "قَالٌ", "قَوِلٌ"], a: "قَائِلٌ", why: "In a hollow root the middle weak letter becomes a hamza in فاعل.", example: "قَائِلٌ · بَائِعٌ · زَائِرٌ" },
+        { t: "mcq", q: "د ع و عَلَى وَزْنِ «فَاعِل» = ؟", options: ["دَاعٍ", "دَاعِوٌ", "دَاعُوٌ", "دَعَاءٌ"], a: "دَاعٍ", why: "In a defective root the final letter drops and leaves a tanwin — as in ﴿يَوْمَ يَدْعُ الدَّاعِ﴾.", example: "دَاعٍ · قَاضٍ · رَامٍ" },
+        { t: "mcq", q: "م د د عَلَى وَزْنِ «فَاعِل» = ؟", options: ["مَادٌّ", "مَادِدٌ", "مَمْدُودٌ", "مِدَادٌ"], a: "مَادٌّ", why: "The two identical letters merge into a shadda.", example: "مَادٌّ · حَاجٌّ · شَادٌّ" },
+        { t: "mcq", q: "أ ك ل عَلَى وَزْنِ «فَاعِل» = ؟", options: ["آكِلٌ", "أَاكِلٌ", "أَكِلٌ", "أَاكُلٌ"], a: "آكِلٌ", why: "Two hamzas meeting at the front become a long alif.", example: "آكِلٌ · آخِذٌ · آمِنٌ" },
+        { t: "mcq", q: "ق و م عَلَى وَزْنِ «مَفْعَل» (مَكَان) = ؟", options: ["مَقَامٌ", "مَقْوَمٌ", "مَقِيمٌ", "مُقَامٌ"], a: "مَقَامٌ", why: "The weak letter becomes an alif — as in ﴿مَقَامِ إِبْرَاهِيمَ﴾.", example: "﴿وَاتَّخِذُوا مِنْ مَقَامِ إِبْرَاهِيمَ مُصَلًّى﴾" },
+        { t: "mcq", q: "ق ض ي عَلَى وَزْنِ «مَفْعُول» = ؟", options: ["مَقْضِيٌّ", "مَقْضُوٌّ", "مَقْضُويٌ", "مَقَاضٍ"], a: "مَقْضِيٌّ", why: "The final weak letter doubles into a shadda — the same shape as مَبْنِيّ.", example: "مَقْضِيٌّ · مَرْمِيٌّ · مَبْنِيٌّ" },
+        { t: "mcq", q: "وَعَدَ ← اَلْمُضَارِعُ؟", options: ["يَعِدُ", "يَوْعِدُ", "يُوعِدُ", "يَعُودُ"], a: "يَعِدُ", why: "In a مثال root the waw simply drops in the present.", example: "وَعَدَ ← يَعِدُ · وَجَدَ ← يَجِدُ" },
+        { t: "mcq", q: "مَا جَذْرُ «مُؤْمِنٌ»؟", options: ["أ م ن", "م أ ن", "ء م ن", "و م ن"], a: "أ م ن", why: "The root of safety and trust — giving أَمْن، آمَنَ، إِيمَان، أَمَانَة.", example: "أ م ن ← إِيمَانٌ · مُؤْمِنٌ · أَمَانَةٌ" },
+        { t: "mcq", q: "مَا جَذْرُ «حَاجٌّ»؟", options: ["ح ج ج", "ح و ج", "ح ا ج", "ج ح ج"], a: "ح ج ج", why: "A doubled root on فاعل — and its plural is حُجَّاج.", example: "ح ج ج ← حَاجٌّ ← حُجَّاجٌ" },
+        { t: "match", q: "صِلْ كُلَّ نَوْعٍ بِمِثَالِهِ", pairs: [["مِثَالٌ","و ع د"],["أَجْوَفُ","ق و ل"],["نَاقِصٌ","د ع و"],["مُضَعَّفٌ","م د د"]] },
+        { t: "match", q: "صِلْ كُلَّ جَذْرٍ بِاسْمِ الْفَاعِلِ", pairs: [["ق و م","قَائِمٌ"],["د ع و","دَاعٍ"],["م د د","مَادٌّ"],["أ ك ل","آكِلٌ"]] },
+      ],
+      production: "خُذْ خَمْسَةَ جُذُورٍ مُعْتَلَّةٍ وَابْنِ مِنْ كُلٍّ: اِسْمَ الْفَاعِلِ وَاسْمَ الْمَفْعُولِ وَاسْمَ الْمَكَانِ ✍️",
+      productionEn: "Take five weak roots and build from each: the doer, the receiver, and the place",
+    },
+    {
       id: "l20",
       title: "كَانَ وَأَخَوَاتُهَا",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالسِّتُّونَ",
       vocab: [
         { ar: "كَانَ" , quran: "وَكَانَ اللَّهُ غَفُورًا رَّحِيمًا", quranRef: "النساء ٩٦", en: "he was" },
         { ar: "كَانَتْ", en: "she was" },
@@ -7484,7 +8788,7 @@ export const CURRICULUM = {
     {
       id: "l80",
       title: "اَلْأَسْمَاءُ الْخَمْسَةُ وَأَحْوَالُ الْخَبَرِ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالسِّتُّونَ",
       vocab: [
         { ar: "اَلْأَسْمَاءُ الْخَمْسَةُ", en: "the five nouns with special endings" },
         { ar: "أَبٌ", en: "father" },
@@ -7645,7 +8949,7 @@ export const CURRICULUM = {
     {
       id: "l21",
       title: "إِنَّ وَأَخَوَاتُهَا",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالسِّتُّونَ",
       vocab: [
         { ar: "إِنَّ" , quran: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ", quranRef: "البقرة ١٥٣", en: "indeed" },
         { ar: "أَنَّ", en: "that" },
@@ -7751,7 +9055,7 @@ export const CURRICULUM = {
     {
       id: "l81",
       title: "اَلْمَصْدَرُ الْمُؤَوَّلُ وَلَامُ الِابْتِدَاءِ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالسِّتُّونَ",
       vocab: [
         { ar: "اَلْمَصْدَرُ الْمُؤَوَّلُ", en: "أنْ + a verb, standing as a verbal noun" },
         { ar: "لَامُ الِابْتِدَاءِ", en: "the emphatic lam on the subject" },
@@ -7851,7 +9155,7 @@ export const CURRICULUM = {
     {
       id: "l23",
       title: "اَلِاسْمُ الْمَوْصُولُ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالسِّتُّونَ",
       vocab: [
         { ar: "اَلَّذِي" , quran: "الْحَمْدُ لِلَّهِ الَّذِي خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ", quranRef: "الأنعام ١", en: "who, which (m)" },
         { ar: "اَلَّتِي" , quran: "فَاتَّقُوا النَّارَ الَّتِي وَقُودُهَا النَّاسُ", quranRef: "البقرة ٢٤", en: "who, which (f)" },
@@ -7940,7 +9244,7 @@ export const CURRICULUM = {
     {
       id: "l49",
       title: "اَلْحَرَكَةُ وَالْمُشَاهَدَةُ",
-      subtitle: "اَلدَّرْسُ السَّابِعُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالسِّتُّونَ",
       vocab: [
         { ar: "يَمْشِي", en: "he walks" },
         { ar: "يَجْرِي", en: "he runs" },
@@ -8029,7 +9333,7 @@ export const CURRICULUM = {
     {
       id: "l50",
       title: "اَلْحَالُ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالسِّتُّونَ",
       vocab: [
         { ar: "اَلْحَالُ", en: "the circumstantial state" },
         { ar: "رَاكِضًا", en: "running (as a state)" },
@@ -8119,7 +9423,7 @@ export const CURRICULUM = {
     {
       id: "l73",
       title: "اَلْمَفَاعِيلُ الْأَرْبَعَةُ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالسِّتُّونَ",
+      subtitle: "اَلدَّرْسُ السَّبْعُونَ",
       vocab: [
         { ar: "اَلْمَفْعُولُ بِهِ", en: "the object — what the action fell on" },
         { ar: "اَلْمَفْعُولُ الْمُطْلَقُ", en: "the absolute object — emphasising the action itself" },
@@ -8227,7 +9531,7 @@ export const CURRICULUM = {
     {
       id: "l56",
       title: "اَلتَّمْيِيزُ وَالِاسْتِثْنَاءُ",
-      subtitle: "اَلدَّرْسُ السَّبْعُونَ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالسَّبْعُونَ",
       vocab: [
         { ar: "اَلتَّمْيِيزُ", en: "the specifier" },
         { ar: "اَلِاسْتِثْنَاءُ", en: "the exception" },
@@ -8307,7 +9611,7 @@ export const CURRICULUM = {
     {
       id: "l57",
       title: "اَلْعَطْفُ وَالتَّوْكِيدُ وَالْبَدَلُ",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالسَّبْعُونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالسَّبْعُونَ",
       vocab: [
         { ar: "وَ", en: "and" },
         { ar: "فَ", en: "and then (immediately)" },
@@ -8377,7 +9681,7 @@ export const CURRICULUM = {
     {
       id: "l55",
       title: "اَلشَّرْطُ: إِنْ وَإِذَا وَمَنْ",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالسَّبْعُونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالسَّبْعُونَ",
       vocab: [
         { ar: "إِنْ", en: "if (uncertain)" , quran: "إِن تَنصُرُوا اللَّهَ يَنصُرْكُمْ", quranRef: "محمد ٧" },
         { ar: "إِذَا", en: "when / if (expected)" , quran: "إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ", quranRef: "النصر ١" },
@@ -8492,7 +9796,7 @@ export const CURRICULUM = {
     {
       id: "l68",
       title: "اَلْأَسَالِيبُ: اَلتَّعَجُّبُ وَالْمَدْحُ وَالْقَسَمُ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالسَّبْعُونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالسَّبْعُونَ",
       vocab: [
         { ar: "مَا أَجْمَلَ!", en: "how beautiful!" },
         { ar: "مَا أَعْظَمَ!", en: "how great!" },
@@ -8563,7 +9867,7 @@ export const CURRICULUM = {
     {
       id: "l79",
       title: "أَسْمَاءُ الْأَفْعَالِ وَالْإِغْرَاءُ وَالتَّحْذِيرُ",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالسَّبْعُونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالسَّبْعُونَ",
       vocab: [
         { ar: "اِسْمُ الْفِعْلِ", en: "a noun that carries a verb's meaning" },
         { ar: "صَهْ", en: "be quiet!" },
@@ -8646,7 +9950,7 @@ export const CURRICULUM = {
     {
       id: "l83",
       title: "عِلْمُ النَّحْوِ: اَلْمَرْفُوعَاتُ وَالْمَنْصُوبَاتُ وَالْمَجْرُورَاتُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالسَّبْعُونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالسَّبْعُونَ",
       vocab: [
         { ar: "عِلْمُ النَّحْوِ", en: "the science of syntax" },
         { ar: "اَلْمَرْفُوعَاتُ", en: "the words that take a damma" },
@@ -8755,7 +10059,7 @@ export const CURRICULUM = {
     {
       id: "l84",
       title: "اَلْمَرْفُوعَاتُ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالسَّبْعُونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالسَّبْعُونَ",
       vocab: [
         { ar: "اَلْمَرْفُوعَاتُ", en: "the nominative group" },
         { ar: "اَلْفَاعِلُ", en: "the doer of the verb" },
@@ -8854,7 +10158,7 @@ export const CURRICULUM = {
     {
       id: "l85",
       title: "اَلْمَنْصُوبَاتُ",
-      subtitle: "اَلدَّرْسُ السَّابِعُ وَالسَّبْعُونَ",
+      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالسَّبْعُونَ",
       vocab: [
         { ar: "اَلْمَنْصُوبَاتُ", en: "the accusative group" },
         { ar: "اَلْمَفْعُولُ بِهِ", en: "the object" },
@@ -8971,7 +10275,7 @@ export const CURRICULUM = {
     {
       id: "l86",
       title: "اَلْمَجْرُورَاتُ وَالتَّوَابِعُ",
-      subtitle: "اَلدَّرْسُ الثَّامِنُ وَالسَّبْعُونَ",
+      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالسَّبْعُونَ",
       vocab: [
         { ar: "اَلْمَجْرُورَاتُ", en: "the genitive group" },
         { ar: "اَلتَّوَابِعُ", en: "the followers" },
@@ -9070,7 +10374,7 @@ export const CURRICULUM = {
     {
       id: "l62",
       title: "تَطْبِيقُ الْإِعْرَابِ",
-      subtitle: "اَلدَّرْسُ التَّاسِعُ وَالسَّبْعُونَ",
+      subtitle: "اَلدَّرْسُ الثَّمَانُونَ",
       vocab: [
         { ar: "أَعْرِبْ", en: "parse it (give the case analysis)" },
         { ar: "مُبْتَدَأٌ", en: "subject of a nominal sentence" },
@@ -9192,7 +10496,7 @@ export const CURRICULUM = {
     {
       id: "l71",
       title: "قِرَاءَةُ الْجُمْلَةِ بِلَا مَعْنًى",
-      subtitle: "اَلدَّرْسُ الثَّمَانُونَ",
+      subtitle: "اَلدَّرْسُ الْحَادِي وَالثَّمَانُونَ",
       vocab: [
         { ar: "اَلْجُمْلَةُ", en: "the sentence" },
         { ar: "اَلتَّرْكِيبُ", en: "the structure" },
@@ -9305,7 +10609,7 @@ export const CURRICULUM = {
     {
       id: "l34",
       title: "لُغَةُ الْعِلْمِ",
-      subtitle: "اَلدَّرْسُ الْحَادِي وَالثَّمَانُونَ",
+      subtitle: "اَلدَّرْسُ الثَّانِي وَالثَّمَانُونَ",
       vocab: [
         { ar: "اَلتَّوْحِيدُ", en: "affirming Allah's oneness" },
         { ar: "اَلدَّلِيلُ", en: "the evidence / proof" },
@@ -9388,7 +10692,7 @@ export const CURRICULUM = {
     {
       id: "l61",
       title: "أَلْفَاظُ الْقُرْآنِ الشَّائِعَةُ",
-      subtitle: "اَلدَّرْسُ الثَّانِي وَالثَّمَانُونَ",
+      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالثَّمَانُونَ",
       vocab: [
         { ar: "اَلَّذِينَ", en: "those who", quran: "الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ", quranRef: "البقرة ٢٧٧" },
         { ar: "آمَنَ / يُؤْمِنُ", en: "he believed", quran: "وَمَنْ يُؤْمِنْ بِاللَّهِ يَهْدِ قَلْبَهُ", quranRef: "التغابن ١١" },
@@ -9482,7 +10786,7 @@ export const CURRICULUM = {
     {
       id: "l65",
       title: "مَهَارَةُ الْقِرَاءَةِ",
-      subtitle: "اَلدَّرْسُ الثَّالِثُ وَالثَّمَانُونَ",
+      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالثَّمَانُونَ",
       vocab: [
         { ar: "نَصٌّ", en: "text" },
         { ar: "فِقْرَةٌ", en: "paragraph" },
@@ -9544,7 +10848,7 @@ export const CURRICULUM = {
     {
       id: "l66",
       title: "مَهَارَةُ الِاسْتِمَاعِ",
-      subtitle: "اَلدَّرْسُ الرَّابِعُ وَالثَّمَانُونَ",
+      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالثَّمَانُونَ",
       vocab: [
         { ar: "اَلِاسْتِمَاعُ", en: "listening" },
         { ar: "اَلْمُحَاضَرَةُ", en: "the lecture" },
@@ -9618,7 +10922,7 @@ export const CURRICULUM = {
     {
       id: "l63",
       title: "اَلرَّأْيُ وَالتَّعْبِيرُ",
-      subtitle: "اَلدَّرْسُ الْخَامِسُ وَالثَّمَانُونَ",
+      subtitle: "اَلدَّرْسُ السَّادِسُ وَالثَّمَانُونَ",
       vocab: [
         { ar: "فِي رَأْيِي", en: "in my opinion" },
         { ar: "أَظُنُّ أَنَّ", en: "I think that" },
@@ -9735,7 +11039,7 @@ export const CURRICULUM = {
     {
       id: "l64",
       title: "اَلْمُقَابَلَةُ وَالْحِوَارُ الطَّوِيلُ",
-      subtitle: "اَلدَّرْسُ السَّادِسُ وَالثَّمَانُونَ",
+      subtitle: "اَلدَّرْسُ السَّابِعُ وَالثَّمَانُونَ",
       vocab: [
         { ar: "مُقَابَلَةٌ", en: "interview" },
         { ar: "حَدِّثْنِي عَنْ", en: "tell me about" },
@@ -9892,7 +11196,7 @@ export const UNITS = [
     ar: "اَلْأَوْزَانُ",
     en: "Word patterns — the key to vocabulary",
     goal: "Derive whole families from one root and decode words you were never taught.",
-    lessons: ["l51","l52","l53","l35","l77","l78"],
+    lessons: ["l51","l52","l53","l35","l77","l78","l87"],
   },
   {
     id: "u6",

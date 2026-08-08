@@ -101,7 +101,7 @@ If the writing is empty or not Arabic, say so kindly in the feedback and leave c
     messages = [{ role: "user", content: payload.prompt || "" }];
   } else if (mode === "ingest") {
     system = INGEST_SYSTEM;
-    maxTokens = 3000;
+    maxTokens = 1500;
     if (payload.pdf_base64) {
       messages = [{
         role: "user",
@@ -133,7 +133,7 @@ If the writing is empty or not Arabic, say so kindly in the feedback and leave c
     messages = [{ role: "user", content: String(payload.word || "").slice(0, 60) }];
   } else if (mode === "explain") {
     system = EXPLAIN_SYSTEM;
-    maxTokens = 4000;
+    maxTokens = 1400;
     messages = [{ role: "user", content: String(payload.content || "").slice(0, 6000) }];
   } else {
     return json(400, { error: "Unknown mode." });
@@ -148,7 +148,7 @@ If the writing is empty or not Arabic, say so kindly in the feedback and leave c
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({ model: MODEL, max_tokens: maxTokens, system, messages }),
-    });
+    }).finally(() => clearTimeout(timer));
     const data = await res.json();
     if (!res.ok) return json(res.status, { error: data.error?.message || "Upstream error" });
     const text = (data.content || [])
@@ -158,7 +158,12 @@ If the writing is empty or not Arabic, say so kindly in the feedback and leave c
       .trim();
     return json(200, { text });
   } catch (e) {
-    return json(500, { error: "Failed to reach the AI service." });
+    const aborted = e?.name === "AbortError";
+    return json(aborted ? 504 : 500, {
+      error: aborted
+        ? "That took too long to generate. Try a shorter passage."
+        : String(e?.message || e),
+    });
   }
 };
 

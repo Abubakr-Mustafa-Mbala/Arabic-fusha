@@ -294,9 +294,10 @@ export default function App() {
           saved={state.lessons[lesson.id]}
           nextTitle={lessons[i + 1]?.title}
           allLessons={lessons}
+          freeRoam={canRecord || isReviewer}
           onProgress={(p) => saveLessonResult(lesson, p)}
           onFinish={(score, goNext) => {
-            saveLessonResult(lesson, score);
+            if (!(canRecord || isReviewer)) saveLessonResult(lesson, score);
             // Skool-style: roll straight into the next lesson, or back to the list
             if (goNext && lessons[i + 1]) go({ name: "lesson", index: i + 1 });
             else go({ name: "home" });
@@ -648,7 +649,7 @@ export default function App() {
 
       <div style={{ textAlign: "center", marginTop: 22 }}>
         <p style={{ fontSize: 10, color: C.faded, marginTop: 6 }}>
-          الفصحى v15.4 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
+          الفصحى v16.5 {supabase ? "· progress synced to your account" : "· progress stored on this device"}
         </p>
       </div>
     </Shell>

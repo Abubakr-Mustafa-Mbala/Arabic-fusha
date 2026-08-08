@@ -8,7 +8,10 @@ import Dictionary from "./Dictionary";
 // A PDF is sent as base64, which grows it by about a third, and the serverless
 // function accepts at most 6 MB per request. Anything over ~3.5 MB fails at the
 // network layer and looks like a connection problem, so we stop it here instead.
-const MAX_PDF_MB = 3.5;
+// Netlify caps a function REQUEST at 6 MB, and base64 inflates a file by ~37%.
+// It also caps the function's own runtime at 10 seconds, and a large PDF cannot
+// be read by the model in that window. Both limits point to the same number.
+const MAX_PDF_MB = 2;
 
 export default function Library({ session, onExit, onNewVocab }) {
   const [dictWord, setDictWord] = useState(null);
@@ -212,8 +215,10 @@ function AddDoc({ onCancel, onIngested }) {
       <label className="card" style={{ display: "block", padding: 16, textAlign: "center", cursor: "pointer", borderStyle: "dashed" }}>
         <span style={{ fontSize: 26 }}>📎</span>
         <div style={{ fontSize: 13, color: C.faded, marginTop: 4 }}>PDF (≤ {MAX_PDF_MB} MB) or .txt</div>
-        <div style={{ fontSize: 10.5, color: C.faded, marginTop: 2 }}>
-          Large book? Paste one chapter's text above instead — no size limit.
+        <div style={{ fontSize: 10.5, color: C.faded, marginTop: 2, lineHeight: 1.6 }}>
+          A whole book will not upload — the server has a hard size and time limit.
+          <br />
+          <b>Paste one chapter's text in the box above instead. That always works.</b>
         </div>
         <input type="file" accept=".pdf,.txt,text/plain,application/pdf" onChange={onFile} style={{ display: "none" }} disabled={busy} />
       </label>
@@ -252,15 +257,27 @@ function DocView({ doc, fresh, onBack, onDelete, onQuizDone, onLookup }) {
 
       <div dir="rtl" style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 14 }}>
         {(doc.vocab || []).map((v) => (
-          <button key={v.ar} onClick={() => speak(v.ar)}
-            style={{ background: C.emeraldSoft, border: `1px solid ${C.emerald}`, borderRadius: 999, padding: "5px 12px" }}>
+          <button
+            key={v.ar}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              speak(v.ar);
+              onLookup(String(v.ar).replace(/[^\u0600-\u06FF]/g, ""));
+            }}
+            style={{
+              background: C.emeraldSoft, border: `1px solid ${C.emerald}`, borderRadius: 999,
+              padding: "7px 14px", touchAction: "manipulation",
+              WebkitTapHighlightColor: "rgba(14,82,55,0.2)",
+            }}
+          >
             <span className="arabic" style={{ fontSize: 20, color: C.emerald }}>{v.emoji} {v.ar}</span>
           </button>
         ))}
       </div>
 
       <div style={{ textAlign: "center", marginTop: 12, fontSize: 11, color: C.faded }}>
-        👆 Tap any word — it opens in the dictionary
+        👆 Tap any word above or below — it opens in the dictionary
       </div>
       <div className="card" dir="rtl" style={{ marginTop: 6, padding: 16, maxHeight: 260, overflowY: "auto" }}>
         <p className="arabic" style={{ fontSize: 23, lineHeight: 2.1 }}>

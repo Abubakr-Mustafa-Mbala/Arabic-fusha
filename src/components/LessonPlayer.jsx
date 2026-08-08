@@ -57,7 +57,7 @@ const STAGE_LABELS = [
   { id: "produce", ar: "إِنْتَاج", en: "Write Your Own" },
 ];
 
-export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgress, onExit, saved, nextTitle, allLessons }) {
+export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgress, onExit, saved, nextTitle, allLessons, freeRoam }) {
   // Resume exactly where the learner left off last time.
   const VALID = ["intro", "vocab", "pattern", "rule", "drill", "produce"];
   const [stage, setStage] = useState(
@@ -71,6 +71,9 @@ export default function LessonPlayer({ lesson, learnedVocab, onFinish, onProgres
 
   const goStage = (next) => {
     setStage(next);
+    // An admin or reviewer is inspecting, not studying — their movement through
+    // a lesson must not be recorded as progress or counted towards a score.
+    if (freeRoam) return;
     const pct = Math.round(((STAGE_LABELS.findIndex((x) => x.id === next)) / STAGE_LABELS.length) * 100);
     onProgress?.({ stage: next, pct });
   };

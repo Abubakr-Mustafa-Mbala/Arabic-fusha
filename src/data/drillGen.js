@@ -7,6 +7,7 @@
 // the material automatic rather than merely familiar.
 
 import { shuffle } from "../lib/shared";
+import { CURRICULUM } from "./curriculum";
 
 const bare = (t) => String(t).replace(/[\u064B-\u0652\u0670\u0640]/g, "");
 const LETTERS = "بتثجحخدذرزسشصضطظعغفقكلمنهوي".split("");
@@ -71,19 +72,24 @@ export function generateDrills(lesson) {
     });
   });
 
-  // ② English → Arabic, for every word
-  vocab.forEach((w) => {
-    const d = others(w).slice(0, 3).map((x) => x.ar);
-    if (d.length < 3) return;
-    out.push({
-      t: "mcq",
-      q: w.en,
-      options: [w.ar, ...d],
-      a: w.ar,
-      why: `"${w.en}" is ${w.ar}.`,
-      _gen: true,
+  // ② English → Arabic. This is production, and it is HARD for a beginner who
+  // cannot yet read the script — four Arabic options look identical to them.
+  // So it is only generated once the learner is past the opening lessons.
+  const lessonIndex = CURRICULUM.lessons.findIndex((l) => l.id === lesson.id);
+  if (lessonIndex >= 8) {
+    vocab.forEach((w) => {
+      const d = others(w).slice(0, 3).map((x) => x.ar);
+      if (d.length < 3) return;
+      out.push({
+        t: "mcq",
+        q: w.en,
+        options: [w.ar, ...d],
+        a: w.ar,
+        why: `"${w.en}" is ${w.ar}.`,
+        _gen: true,
+      });
     });
-  });
+  }
 
   // ③ Missing letter — spelling practice
   vocab.filter(drillable).forEach((w) => {
